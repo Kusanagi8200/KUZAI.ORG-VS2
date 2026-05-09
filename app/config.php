@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 return [
     'site' => [
-        'name' => 'KUZAI LOCAL AI',
-        'short_name' => 'KUZAI',
+        'name' => 'KUZAI - THE LOCAL AI',
+        'short_name' => 'KUZAI - BETA-VS-0.01.2026',
         'brand' => 'THE KUZ NETWORK',
         'tagline' => 'A KUZ NETWORK SOLUTION',
         'domain' => 'https://kuzai.org',
@@ -27,18 +27,6 @@ return [
         [
             'label' => 'GitHub',
             'url' => 'https://github.com/Kusanagi8200',
-        ],
-        [
-            'label' => 'YouTube',
-            'url' => '#',
-        ],
-        [
-            'label' => 'X / Twitter',
-            'url' => '#',
-        ],
-        [
-            'label' => 'Medium',
-            'url' => '#',
         ],
     ],
 ];

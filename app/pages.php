@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 return [
     'home' => [
-        'title' => 'KUZAI LOCAL AI',
-        'meta_description' => 'KUZAI Local AI is a local AI stack designed to keep inference, files, search, and voice synthesis under user control.',
+        'title' => 'KUZAI - THE LOCAL AI',
+        'meta_description' => 'KUZAI - THE LOCAL AI - BETA-VS-0.01.2026 - A KUZ NETWORK SOLUTION',
     ],
 
     'kuz-network' => [
@@ -16,8 +16,8 @@ return [
 
     'kuzai' => [
         'title' => 'KUZAI',
-        'kicker' => 'WHITE PAPER AND DOCUMENTATION',
-        'body' => 'White paper and technical documentation will be added later.',
+        'kicker' => 'DOCUMENTATION',
+        'body' => 'Documentation content will be added later.',
     ],
 
     'kontakt' => [
