@@ -64,31 +64,45 @@ button {
 
 .site-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 24px;
-    min-height: 56px;
+    min-height: 92px;
     position: relative;
     z-index: 10;
 }
 
 .brand-mark {
     display: inline-grid;
-    gap: 3px;
+    grid-template-columns: auto;
+    align-items: start;
+    gap: 4px;
     text-transform: uppercase;
 }
 
+.brand-mark__logo {
+    display: block;
+    width: 92px;
+    height: auto;
+    margin: 0;
+    object-fit: contain;
+}
+
 .brand-mark__main {
-    font-size: clamp(0.82rem, 1.1vw, 1.05rem);
+    display: block;
+    margin: 2px 0 0;
+    font-size: clamp(0.72rem, 1vw, 0.96rem);
     line-height: 1;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.14em;
     white-space: nowrap;
 }
 
 .brand-mark__sub {
+    display: block;
     color: var(--text-dim);
-    font-size: 0.62rem;
-    letter-spacing: 0.24em;
+    font-size: 0.58rem;
+    line-height: 1;
+    letter-spacing: 0.21em;
     white-space: nowrap;
 }
 
@@ -124,7 +138,7 @@ button {
 }
 
 .hero {
-    min-height: calc(100vh - 168px);
+    min-height: calc(100vh - 204px);
     display: grid;
     align-items: center;
     position: relative;
@@ -237,7 +251,7 @@ button {
 }
 
 .content-page {
-    min-height: calc(100vh - 168px);
+    min-height: calc(100vh - 204px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -450,19 +464,27 @@ button {
         padding-bottom: 18px;
     }
 
-    .hero {
-        min-height: calc(100vh - 144px);
-        align-items: center;
+    .site-header {
+        min-height: 82px;
+    }
+
+    .brand-mark__logo {
+        width: 76px;
     }
 
     .brand-mark__main {
-        font-size: 0.68rem;
-        letter-spacing: 0.12em;
+        font-size: 0.58rem;
+        letter-spacing: 0.1em;
     }
 
     .brand-mark__sub {
-        font-size: 0.52rem;
-        letter-spacing: 0.18em;
+        font-size: 0.48rem;
+        letter-spacing: 0.16em;
+    }
+
+    .hero {
+        min-height: calc(100vh - 174px);
+        align-items: center;
     }
 
     .hero__kicker {

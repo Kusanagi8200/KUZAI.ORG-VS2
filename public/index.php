@@ -56,12 +56,19 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="application-name" content="<?= h($siteName) ?>">
     <meta name="theme-color" content="#000000">
-    <link rel="stylesheet" href="assets/css/style.css?v=4">
+    <link rel="stylesheet" href="assets/css/style.css?v=5">
 </head>
 <body class="page-<?= h($currentPage) ?>">
     <div class="site-shell">
         <header class="site-header" aria-label="Main header">
             <a class="brand-mark" href="<?= h(pageUrl('home')) ?>" aria-label="Back to home">
+                <img
+                    class="brand-mark__logo"
+                    src="assets/img/kuz_network_logo_transparent.svg"
+                    alt="KUZ Network logo"
+                    width="92"
+                    height="62"
+                >
                 <span class="brand-mark__main"><?= h($shortName) ?></span>
                 <span class="brand-mark__sub">OPEN SOURCE PROJECT</span>
             </a>
@@ -188,6 +195,6 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
         </div>
     </div>
 
-    <script src="assets/js/menu.js?v=4"></script>
+    <script src="assets/js/menu.js?v=5"></script>
 </body>
 </html>
