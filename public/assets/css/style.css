@@ -72,7 +72,8 @@ button {
     z-index: 10;
 }
 
-.brand-mark {
+.brand-mark,
+.menu-brand {
     display: inline-grid;
     grid-template-columns: auto;
     align-items: start;
@@ -80,15 +81,17 @@ button {
     text-transform: uppercase;
 }
 
-.brand-mark__logo {
+.brand-mark__logo,
+.menu-brand__logo {
     display: block;
-    width: 92px;
+    width: 130px;
     height: auto;
     margin: 0;
     object-fit: contain;
 }
 
-.brand-mark__main {
+.brand-mark__main,
+.menu-brand__main {
     display: block;
     margin: 2px 0 0;
     font-size: clamp(0.72rem, 1vw, 0.96rem);
@@ -97,7 +100,8 @@ button {
     white-space: nowrap;
 }
 
-.brand-mark__sub {
+.brand-mark__sub,
+.menu-brand__sub {
     display: block;
     color: var(--text-dim);
     font-size: 0.58rem;
@@ -326,18 +330,11 @@ button {
 .menu-modal__top {
     width: min(var(--max-width), 100%);
     margin: 0 auto;
-    min-height: 56px;
+    min-height: 120px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 24px;
-}
-
-.menu-modal__label {
-    color: var(--text-dim);
-    font-size: 0.72rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
 }
 
 .modal-nav {
@@ -468,16 +465,19 @@ button {
         min-height: 82px;
     }
 
-    .brand-mark__logo {
-        width: 76px;
+    .brand-mark__logo,
+    .menu-brand__logo {
+        width: 105px;
     }
 
-    .brand-mark__main {
+    .brand-mark__main,
+    .menu-brand__main {
         font-size: 0.58rem;
         letter-spacing: 0.1em;
     }
 
-    .brand-mark__sub {
+    .brand-mark__sub,
+    .menu-brand__sub {
         font-size: 0.48rem;
         letter-spacing: 0.16em;
     }
@@ -520,6 +520,10 @@ button {
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-end;
+    }
+
+    .menu-modal__top {
+        min-height: 100px;
     }
 
     .modal-nav__item,

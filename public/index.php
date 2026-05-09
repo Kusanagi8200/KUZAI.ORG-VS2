@@ -56,7 +56,7 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="application-name" content="<?= h($siteName) ?>">
     <meta name="theme-color" content="#000000">
-    <link rel="stylesheet" href="assets/css/style.css?v=5">
+    <link rel="stylesheet" href="assets/css/style.css?v=10">
 </head>
 <body class="page-<?= h($currentPage) ?>">
     <div class="site-shell">
@@ -64,10 +64,10 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
             <a class="brand-mark" href="<?= h(pageUrl('home')) ?>" aria-label="Back to home">
                 <img
                     class="brand-mark__logo"
-                    src="assets/img/kuz_network_logo_transparent.svg"
+                    src="assets/img/kuz_network_logo_transparent.png"
                     alt="KUZ Network logo"
-                    width="92"
-                    height="62"
+                    width="130"
+                    height="88"
                 >
                 <span class="brand-mark__main"><?= h($shortName) ?></span>
                 <span class="brand-mark__sub">OPEN SOURCE PROJECT</span>
@@ -142,7 +142,17 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
     <div class="menu-modal" id="mainMenuModal" role="dialog" aria-modal="true" aria-label="Main menu" aria-hidden="true">
         <div class="menu-modal__panel">
             <div class="menu-modal__top">
-                <span class="menu-modal__label">NAVIGATION</span>
+                <a class="menu-brand" href="<?= h(pageUrl('home')) ?>" aria-label="Back to home">
+                    <img
+                        class="menu-brand__logo"
+                        src="assets/img/kuz_network_logo_transparent.png"
+                        alt="KUZ Network logo"
+                        width="130"
+                        height="88"
+                    >
+                    <span class="menu-brand__main"><?= h($shortName) ?></span>
+                    <span class="menu-brand__sub">OPEN SOURCE PROJECT</span>
+                </a>
 
                 <button class="menu-close" type="button" id="menuClose">
                     CLOSE
@@ -195,6 +205,6 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
         </div>
     </div>
 
-    <script src="assets/js/menu.js?v=5"></script>
+    <script src="assets/js/menu.js?v=10"></script>
 </body>
 </html>
