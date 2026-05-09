@@ -10,12 +10,24 @@ const linksSubmenu = document.getElementById('linksSubmenu');
 
 let lastFocusedElement = null;
 
+function resetLinks() {
+    if (!linksToggle || !linksSubmenu) {
+        return;
+    }
+
+    linksToggle.setAttribute('aria-expanded', 'false');
+    linksToggle.textContent = '+';
+    linksSubmenu.hidden = true;
+}
+
 function openMenu() {
     if (!menuModal) {
         return;
     }
 
     lastFocusedElement = document.activeElement;
+
+    resetLinks();
 
     menuModal.classList.add('is-open');
     menuModal.setAttribute('aria-hidden', 'false');
@@ -31,6 +43,8 @@ function closeMenu() {
         return;
     }
 
+    resetLinks();
+
     menuModal.classList.remove('is-open');
     menuModal.setAttribute('aria-hidden', 'true');
     body.classList.remove('menu-open');
@@ -40,16 +54,25 @@ function closeMenu() {
     }
 }
 
-function toggleLinks() {
+function toggleLinks(event) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+
     if (!linksToggle || !linksSubmenu) {
         return;
     }
 
     const isExpanded = linksToggle.getAttribute('aria-expanded') === 'true';
+    const nextExpanded = !isExpanded;
 
-    linksToggle.setAttribute('aria-expanded', String(!isExpanded));
-    linksSubmenu.hidden = isExpanded;
+    linksToggle.setAttribute('aria-expanded', String(nextExpanded));
+    linksToggle.textContent = nextExpanded ? '-' : '+';
+    linksSubmenu.hidden = !nextExpanded;
 }
+
+resetLinks();
 
 if (menuOpen) {
     menuOpen.addEventListener('click', openMenu);

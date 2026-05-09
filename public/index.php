@@ -37,11 +37,11 @@ $publicIp = (string) $config['site']['public_ip'];
 $environment = (string) $config['site']['environment'];
 
 $pageTitle = $currentPage === 'home'
-    ? $siteName
+    ? 'KUZAI - THE LOCAL AI'
     : (string) $page['title'] . ' - ' . $siteName;
 
 $metaDescription = $page['meta_description']
-    ?? 'KUZAI Local AI - A KUZ Network solution.';
+    ?? 'KUZAI - THE LOCAL AI - BETA-VS-0.01.2026 - A KUZ NETWORK SOLUTION';
 
 $githubUrl = (string) $config['repository']['url'];
 $githubLabel = (string) $config['repository']['label'];
@@ -56,14 +56,14 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="application-name" content="<?= h($siteName) ?>">
     <meta name="theme-color" content="#000000">
-    <link rel="stylesheet" href="assets/css/style.css?v=1">
+    <link rel="stylesheet" href="assets/css/style.css?v=4">
 </head>
 <body class="page-<?= h($currentPage) ?>">
     <div class="site-shell">
         <header class="site-header" aria-label="Main header">
             <a class="brand-mark" href="<?= h(pageUrl('home')) ?>" aria-label="Back to home">
                 <span class="brand-mark__main"><?= h($shortName) ?></span>
-                <span class="brand-mark__sub">LOCAL AI</span>
+                <span class="brand-mark__sub">OPEN SOURCE PROJECT</span>
             </a>
 
             <button class="menu-trigger" type="button" id="menuOpen" aria-haspopup="dialog" aria-controls="mainMenuModal">
@@ -78,18 +78,16 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
                         <p class="hero__kicker"><?= h($siteTagline) ?></p>
 
                         <h1 class="hero__title" id="heroTitle">
-                            KUZAI LOCAL AI
+                            KUZAI - THE LOCAL AI
                         </h1>
 
                         <p class="hero__statement">
-                            LOCAL AI IS NOT JUST ABOUT RUNNING A MODEL.
-                            <br>
-                            IT IS ABOUT OWNING THE FULL STACK.
+                            <span class="hero__statement-line">LOCAL AI IS NOT JUST ABOUT RUNNING A MODEL.</span>
+                            <span class="hero__statement-line">IT IS ABOUT OWNING THE FULL STACK.</span>
                         </p>
 
                         <p class="hero__text">
-                            A local AI interface built to keep inference, files, search,
-                            and voice synthesis under user control.
+                            A local AI interface built to keep inference, files, search, and voice synthesis under user control.
                         </p>
 
                         <div class="hero__actions">
@@ -150,21 +148,25 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
                 </a>
 
                 <a class="modal-nav__item" href="<?= h(pageUrl('kuzai')) ?>">
-                    KUZAI / WHITE PAPER AND DOCUMENTATION
-                </a>
-
-                <a class="modal-nav__item" href="<?= h(pageUrl('kontakt')) ?>">
-                    KONTAKT
+                    KUZAI / DOCUMENTATION
                 </a>
 
                 <a class="modal-nav__item" href="<?= h($githubUrl) ?>" target="_blank" rel="noopener noreferrer">
                     <?= h($githubLabel) ?>
                 </a>
 
+                <a class="modal-nav__item" href="<?= h(pageUrl('kontakt')) ?>">
+                    KONTAKT
+                </a>
+
                 <div class="modal-nav__group">
-                    <button class="modal-nav__item modal-nav__toggle" type="button" id="linksToggle" aria-expanded="false">
-                        LINKS
-                    </button>
+                    <div class="modal-nav__links-row">
+                        <span class="modal-nav__links-label">LINKS</span>
+
+                        <button class="modal-nav__plus" type="button" id="linksToggle" aria-expanded="false" aria-controls="linksSubmenu">
+                            +
+                        </button>
+                    </div>
 
                     <div class="modal-nav__submenu" id="linksSubmenu" hidden>
                         <?php foreach ($socialLinks as $link): ?>
@@ -186,6 +188,6 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
         </div>
     </div>
 
-    <script src="assets/js/menu.js?v=1"></script>
+    <script src="assets/js/menu.js?v=4"></script>
 </body>
 </html>

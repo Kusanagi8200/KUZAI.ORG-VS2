@@ -4,6 +4,8 @@ Thumbs.db
 *.log
 *.tmp
 *.bak
+*.bk
+*.bk-*
 *.swp
 *.swo
 

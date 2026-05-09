@@ -79,15 +79,17 @@ button {
 }
 
 .brand-mark__main {
-    font-size: 1.05rem;
+    font-size: clamp(0.82rem, 1.1vw, 1.05rem);
     line-height: 1;
     letter-spacing: 0.16em;
+    white-space: nowrap;
 }
 
 .brand-mark__sub {
     color: var(--text-dim);
     font-size: 0.62rem;
     letter-spacing: 0.24em;
+    white-space: nowrap;
 }
 
 .menu-trigger,
@@ -129,10 +131,18 @@ button {
 }
 
 .hero__inner {
-    max-width: 1120px;
+    max-width: 1360px;
 }
 
-.hero__kicker,
+.hero__kicker {
+    margin: 0 0 22px;
+    color: var(--text-dim);
+    font-size: clamp(0.98rem, 1.35vw, 1.35rem);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
 .content-page__kicker {
     margin: 0 0 22px;
     color: var(--text-dim);
@@ -143,28 +153,35 @@ button {
 
 .hero__title {
     margin: 0;
-    font-size: clamp(4.4rem, 12vw, 12rem);
-    line-height: 0.84;
+    font-size: clamp(3.2rem, 6.3vw, 7.05rem);
+    line-height: 0.88;
     letter-spacing: -0.055em;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .hero__statement {
-    max-width: 1040px;
+    max-width: none;
     margin: 42px 0 0;
     color: var(--text-main);
-    font-size: clamp(1.35rem, 3vw, 3.15rem);
-    line-height: 1.05;
+    font-size: clamp(1.05rem, 2.05vw, 2.35rem);
+    line-height: 1.18;
     letter-spacing: -0.025em;
     text-transform: uppercase;
 }
 
+.hero__statement-line {
+    display: block;
+    white-space: nowrap;
+}
+
 .hero__text {
-    max-width: 760px;
+    max-width: none;
     margin: 30px 0 0;
     color: var(--text-soft);
-    font-size: clamp(0.98rem, 1.4vw, 1.18rem);
+    font-size: clamp(0.78rem, 0.95vw, 0.98rem);
     line-height: 1.55;
+    white-space: nowrap;
 }
 
 .hero__actions {
@@ -319,9 +336,10 @@ button {
     padding: 42px 0;
 }
 
-.modal-nav__item {
+.modal-nav__item,
+.modal-nav__links-row {
     width: 100%;
-    min-height: 74px;
+    min-height: 62px;
     display: flex;
     align-items: center;
     padding: 0;
@@ -329,12 +347,16 @@ button {
     border-bottom: 1px solid var(--border-soft);
     background: transparent;
     color: var(--text-main);
-    cursor: pointer;
     text-align: left;
-    font-size: clamp(1.7rem, 5vw, 5.6rem);
+    font-size: clamp(1.2rem, 2.9vw, 3.25rem);
     line-height: 1;
-    letter-spacing: -0.055em;
+    letter-spacing: -0.045em;
     text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.modal-nav__item {
+    cursor: pointer;
     transition:
         color var(--transition-fast),
         padding-left var(--transition-fast),
@@ -347,15 +369,44 @@ button {
     padding-left: 18px;
 }
 
-.modal-nav__toggle::after {
-    content: "+";
-    margin-left: auto;
-    color: var(--text-dim);
-    font-size: 0.72em;
+.modal-nav__links-label {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
 }
 
-.modal-nav__toggle[aria-expanded="true"]::after {
-    content: "-";
+.modal-nav__plus {
+    margin-left: auto;
+    width: 54px;
+    height: 54px;
+    border: 1px solid var(--border-soft);
+    background: transparent;
+    color: var(--text-main);
+    cursor: pointer;
+    font-size: clamp(1.2rem, 2.2vw, 2.6rem);
+    line-height: 1;
+    transition:
+        background var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.modal-nav__plus:hover {
+    background: var(--hover-bg);
+    color: var(--hover-text);
+    border-color: var(--hover-bg);
+    transform: translateY(-1px);
+}
+
+.modal-nav__plus[aria-expanded="true"] {
+    background: var(--hover-bg);
+    color: var(--hover-text);
+    border-color: var(--hover-bg);
+}
+
+.modal-nav__submenu[hidden] {
+    display: none !important;
 }
 
 .modal-nav__submenu {
@@ -372,6 +423,7 @@ button {
     font-size: clamp(0.88rem, 1.4vw, 1.1rem);
     letter-spacing: 0.16em;
     text-transform: uppercase;
+    white-space: nowrap;
     transition:
         color var(--transition-fast),
         padding-left var(--transition-fast);
@@ -403,8 +455,35 @@ button {
         align-items: center;
     }
 
+    .brand-mark__main {
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+    }
+
+    .brand-mark__sub {
+        font-size: 0.52rem;
+        letter-spacing: 0.18em;
+    }
+
+    .hero__kicker {
+        font-size: 0.82rem;
+        letter-spacing: 0.16em;
+    }
+
+    .hero__title {
+        font-size: clamp(1.85rem, 8.6vw, 3.3rem);
+        letter-spacing: -0.06em;
+    }
+
     .hero__statement {
         margin-top: 32px;
+        font-size: clamp(0.8rem, 4vw, 1.35rem);
+        line-height: 1.25;
+    }
+
+    .hero__text {
+        font-size: 0.58rem;
+        white-space: nowrap;
     }
 
     .hero__meta {
@@ -421,7 +500,14 @@ button {
         justify-content: flex-end;
     }
 
-    .modal-nav__item {
-        min-height: 58px;
+    .modal-nav__item,
+    .modal-nav__links-row {
+        min-height: 52px;
+        font-size: clamp(0.92rem, 5vw, 1.9rem);
+    }
+
+    .modal-nav__plus {
+        width: 42px;
+        height: 42px;
     }
 }
