@@ -56,7 +56,7 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="application-name" content="<?= h($siteName) ?>">
     <meta name="theme-color" content="#000000">
-    <link rel="stylesheet" href="assets/css/style.css?v=10">
+    <link rel="stylesheet" href="assets/css/style.css?v=23">
 </head>
 <body class="page-<?= h($currentPage) ?>">
     <div class="site-shell">
@@ -97,10 +97,13 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
                             A local AI interface built to keep inference, files, search, and voice synthesis under user control.
                         </p>
 
-                        <div class="hero__actions">
-                            <button class="button button-primary" type="button" id="heroExplore">
-                                EXPLORE
-                            </button>
+                        <div class="hero__topo" aria-label="KUZAI project summary">
+                            <p>KUZAI is a local AI web interface built for controlled infrastructure.</p>
+                            <p>It connects a browser UI to a local llama.cpp backend.</p>
+                            <p>Inference, files, web search, and voice synthesis remain under local control.</p>
+                            <p>The stack is based on Linux, Apache2, PHP, JavaScript, SearXNG, and Piper TTS.</p>
+                            <p>The objective is simple: own the full AI chain without cloud inference dependency.</p>
+                            <p>Open source mindset, reproducible deployment, private runtime.</p>
                         </div>
                     </div>
 
@@ -205,6 +208,6 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
         </div>
     </div>
 
-    <script src="assets/js/menu.js?v=10"></script>
+    <script src="assets/js/menu.js?v=23"></script>
 </body>
 </html>

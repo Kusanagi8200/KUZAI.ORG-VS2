@@ -67,7 +67,7 @@ button {
     align-items: flex-start;
     justify-content: space-between;
     gap: 24px;
-    min-height: 92px;
+    min-height: 64px;
     position: relative;
     z-index: 10;
 }
@@ -84,7 +84,7 @@ button {
 .brand-mark__logo,
 .menu-brand__logo {
     display: block;
-    width: 130px;
+    width: 187px;
     height: auto;
     margin: 0;
     object-fit: contain;
@@ -142,7 +142,7 @@ button {
 }
 
 .hero {
-    min-height: calc(100vh - 204px);
+    min-height: calc(100vh - 176px);
     display: grid;
     align-items: center;
     position: relative;
@@ -150,6 +150,7 @@ button {
 
 .hero__inner {
     max-width: 1360px;
+    transform: translateY(-55px);
 }
 
 .hero__kicker {
@@ -204,6 +205,25 @@ button {
 
 .hero__actions {
     margin-top: 38px;
+}
+
+.hero__topo {
+    max-width: 980px;
+    margin-top: 54px;
+    padding-top: 26px;
+    border-top: 1px solid var(--border-soft);
+    color: var(--text-soft);
+    font-size: clamp(0.72rem, 0.9vw, 0.92rem);
+    line-height: 1.55;
+    letter-spacing: 0.04em;
+}
+
+.hero__topo p {
+    margin: 0 0 6px;
+}
+
+.hero__topo p:last-child {
+    margin-bottom: 0;
 }
 
 .button {
@@ -307,24 +327,29 @@ button {
 .menu-modal.is-open {
     opacity: 1;
     pointer-events: auto;
-    background: rgba(0, 0, 0, 0.94);
+    background: #000000;
 }
 
 .menu-modal__panel {
     width: 100%;
     min-height: 100vh;
-    padding: 24px var(--side-padding);
+    padding: 24px 0;
     display: grid;
     grid-template-rows: auto 1fr;
-    background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.035), transparent 36%),
-        var(--panel-bg);
-    transform: translateY(-10px);
-    transition: transform var(--transition-med);
+    background: #000000;
+    transform: none;
+    transition: none;
 }
 
 .menu-modal.is-open .menu-modal__panel {
-    transform: translateY(0);
+    width: 100%;
+    min-height: 100vh;
+    padding: 24px var(--side-padding);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    background: #000000;
+    transform: none;
+    transition: none;
 }
 
 .menu-modal__top {
@@ -335,6 +360,8 @@ button {
     align-items: flex-start;
     justify-content: space-between;
     gap: 24px;
+    padding: 0 var(--side-padding);
+    box-sizing: border-box;
 }
 
 .modal-nav {
@@ -344,7 +371,8 @@ button {
     flex-direction: column;
     justify-content: center;
     gap: 6px;
-    padding: 42px 0;
+    padding: 42px var(--side-padding);
+    box-sizing: border-box;
 }
 
 .modal-nav__item,
@@ -462,12 +490,12 @@ button {
     }
 
     .site-header {
-        min-height: 82px;
+        min-height: 58px;
     }
 
     .brand-mark__logo,
     .menu-brand__logo {
-        width: 105px;
+        width: 98px;
     }
 
     .brand-mark__main,
@@ -483,57 +511,6 @@ button {
     }
 
     .hero {
-        min-height: calc(100vh - 174px);
+        min-height: calc(100vh - 150px);
         align-items: center;
     }
-
-    .hero__kicker {
-        font-size: 0.82rem;
-        letter-spacing: 0.16em;
-    }
-
-    .hero__title {
-        font-size: clamp(1.85rem, 8.6vw, 3.3rem);
-        letter-spacing: -0.06em;
-    }
-
-    .hero__statement {
-        margin-top: 32px;
-        font-size: clamp(0.8rem, 4vw, 1.35rem);
-        line-height: 1.25;
-    }
-
-    .hero__text {
-        font-size: 0.58rem;
-        white-space: nowrap;
-    }
-
-    .hero__meta {
-        position: static;
-        margin-top: 56px;
-        display: grid;
-        gap: 10px;
-    }
-
-    .site-footer {
-        margin-top: 30px;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-end;
-    }
-
-    .menu-modal__top {
-        min-height: 100px;
-    }
-
-    .modal-nav__item,
-    .modal-nav__links-row {
-        min-height: 52px;
-        font-size: clamp(0.92rem, 5vw, 1.9rem);
-    }
-
-    .modal-nav__plus {
-        width: 42px;
-        height: 42px;
-    }
-}
