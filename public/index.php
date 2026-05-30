@@ -56,7 +56,7 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="application-name" content="<?= h($siteName) ?>">
     <meta name="theme-color" content="#000000">
-    <link rel="stylesheet" href="assets/css/style.css?v=23">
+    <link rel="stylesheet" href="assets/css/style.css?v=53">
 </head>
 <body class="page-<?= h($currentPage) ?>">
     <div class="site-shell">
@@ -66,11 +66,15 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
                     class="brand-mark__logo"
                     src="assets/img/kuz_network_logo_transparent.png"
                     alt="KUZ Network logo"
-                    width="130"
-                    height="88"
+                    width="112"
+                    height="112"
                 >
-                <span class="brand-mark__main"><?= h($shortName) ?></span>
-                <span class="brand-mark__sub">OPEN SOURCE PROJECT</span>
+
+                <span class="brand-mark__copy">
+                    <span class="brand-mark__title">KUZAI</span>
+                    <span class="brand-mark__main">A KUZ NETWORK SOLUTION - BETA-0.01.2026</span>
+                    <span class="brand-mark__sub">/ OFFICIAL PROJECT WEBSITE /</span>
+                </span>
             </a>
 
             <button class="menu-trigger" type="button" id="menuOpen" aria-haspopup="dialog" aria-controls="mainMenuModal">
@@ -81,37 +85,59 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
         <main class="site-main">
             <?php if ($currentPage === 'home'): ?>
                 <section class="hero" aria-labelledby="heroTitle">
-                    <div class="hero__inner">
-                        <p class="hero__kicker"><?= h($siteTagline) ?></p>
-
-                        <h1 class="hero__title" id="heroTitle">
+                    <div class="hero__inner">                        <div class="hero-title-box" aria-label="KUZAI project title">
+<h1 class="hero__title" id="heroTitle">
                             KUZAI - THE LOCAL AI
                         </h1>
+                        </div>
 
-                        <p class="hero__statement">
-                            <span class="hero__statement-line">LOCAL AI IS NOT JUST ABOUT RUNNING A MODEL.</span>
-                            <span class="hero__statement-line">IT IS ABOUT OWNING THE FULL STACK.</span>
-                        </p>
+                        <div class="hero__statement">
+                            <p class="hero__statement-line">LOCAL AI IS NOT JUST ABOUT RUNNING A MODEL.</p>
+                            <p class="hero__statement-line">IT IS ABOUT OWNING THE FULL STACK.</p>
+                        </div>
 
                         <p class="hero__text">
-                            A local AI interface built to keep inference, files, search, and voice synthesis under user control.
+                            KUZAI is a local AI control layer for chat, file analysis, web search, voice synthesis, custom profiles, and runtime orchestration under fully controlled infrastructure.
                         </p>
 
-                        <div class="hero__topo" aria-label="KUZAI project summary">
-                            <p>KUZAI is a local AI web interface built for controlled infrastructure.</p>
-                            <p>It connects a browser UI to a local llama.cpp backend.</p>
-                            <p>Inference, files, web search, and voice synthesis remain under local control.</p>
-                            <p>The stack is based on Linux, Apache2, PHP, JavaScript, SearXNG, and Piper TTS.</p>
-                            <p>The objective is simple: own the full AI chain without cloud inference dependency.</p>
-                            <p>Open source mindset, reproducible deployment, private runtime.</p>
-                        </div>
-                    </div>
+                        <div class="hero__topo" aria-label="KUZAI project presentation">
+                            <div class="hero__topo-head">
+                                <span class="hero__topo-title">KUZAI CAPABILITIES</span>
+                                <span class="hero__topo-meta">LOCAL FIRST / OPEN STACK / PRIVATE RUNTIME</span>
+                            </div>
 
-                    <div class="hero__meta" aria-label="Project keywords">
-                        <span>LOCAL INFERENCE</span>
-                        <span>LOCAL SEARCH</span>
-                        <span>LOCAL VOICE</span>
-                        <span>OPEN STACK</span>
+                            <div class="hero__topo-grid">
+                                <article class="hero__topo-item">
+                                    <h3>LOCAL CHAT</h3>
+                                    <p>Browser interface with send, stop, clear, runtime control, and session workflow.</p>
+                                </article>
+
+                                <article class="hero__topo-item">
+                                    <h3>LOCAL BACKEND</h3>
+                                    <p>Runs any local model compatible with llama.cpp, with model selection controlled by the local runtime.</p>
+                                </article>
+
+                                <article class="hero__topo-item">
+                                    <h3>FILE ANALYSIS</h3>
+                                    <p>Server-side extraction for text, code, config, logs, JSON, CSV, and technical documents.</p>
+                                </article>
+
+                                <article class="hero__topo-item">
+                                    <h3>WEB SEARCH</h3>
+                                    <p>Integrated local SearXNG search with source extraction and contextual prompt injection.</p>
+                                </article>
+
+                                <article class="hero__topo-item">
+                                    <h3>VOICE / TTS</h3>
+                                    <p>Local Piper TTS pipeline with cleaned text, browser controls, and voice output management.</p>
+                                </article>
+
+                                <article class="hero__topo-item">
+                                    <h3>CUSTOM LLM PROFILES</h3>
+                                    <p>Profile editor, JSON preview, save profile, run profile, server profile list, and deletion flow.</p>
+                                </article>
+                            </div>
+                        </div>
                     </div>
                 </section>
             <?php else: ?>
@@ -135,11 +161,7 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
             <?php endif; ?>
         </main>
 
-        <footer class="site-footer">
-            <span><?= h($siteDomain) ?></span>
-            <span><?= h($publicIp) ?></span>
-            <span><?= h(strtoupper($environment)) ?></span>
-        </footer>
+        <footer class="site-footer" aria-hidden="true"></footer>
     </div>
 
     <div class="menu-modal" id="mainMenuModal" role="dialog" aria-modal="true" aria-label="Main menu" aria-hidden="true">
@@ -150,11 +172,15 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
                         class="menu-brand__logo"
                         src="assets/img/kuz_network_logo_transparent.png"
                         alt="KUZ Network logo"
-                        width="130"
-                        height="88"
+                        width="112"
+                        height="112"
                     >
-                    <span class="menu-brand__main"><?= h($shortName) ?></span>
-                    <span class="menu-brand__sub">OPEN SOURCE PROJECT</span>
+
+                    <span class="menu-brand__copy">
+                        <span class="menu-brand__title">KUZAI</span>
+                        <span class="menu-brand__main">A KUZ NETWORK SOLUTION - BETA-0.01.2026</span>
+                        <span class="menu-brand__sub">/ OFFICIAL PROJECT WEBSITE /</span>
+                    </span>
                 </a>
 
                 <button class="menu-close" type="button" id="menuClose">
@@ -208,6 +234,6 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
         </div>
     </div>
 
-    <script src="assets/js/menu.js?v=23"></script>
+    <script src="assets/js/menu.js?v=53"></script>
 </body>
 </html>
