@@ -56,7 +56,7 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="application-name" content="<?= h($siteName) ?>">
     <meta name="theme-color" content="#000000">
-    <link rel="stylesheet" href="assets/css/style.css?v=53">
+    <link rel="stylesheet" href="assets/css/style.css?v=62">
 </head>
 <body class="page-<?= h($currentPage) ?>">
     <div class="site-shell">
@@ -69,36 +69,77 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
                     width="112"
                     height="112"
                 >
-
-                <span class="brand-mark__copy">
-                    <span class="brand-mark__title">KUZAI</span>
-                    <span class="brand-mark__main">A KUZ NETWORK SOLUTION - BETA-0.01.2026</span>
-                    <span class="brand-mark__sub">/ OFFICIAL PROJECT WEBSITE /</span>
-                </span>
             </a>
 
-            <button class="menu-trigger" type="button" id="menuOpen" aria-haspopup="dialog" aria-controls="mainMenuModal">
-                MENU
-            </button>
+            <div class="header-title-block" aria-label="Project title">
+                <h1 class="header-title-block__title">KUZAI - THE LOCAL AI</h1>
+                <p class="header-title-block__meta">A KUZ NETWORK SOLUTION - BETA-0.01.2026</p>
+            </div>
+
+            <div class="site-header__right-spacer" aria-hidden="true"></div>
         </header>
 
         <main class="site-main">
             <?php if ($currentPage === 'home'): ?>
                 <section class="hero" aria-labelledby="heroTitle">
-                    <div class="hero__inner">                        <div class="hero-title-box" aria-label="KUZAI project title">
-<h1 class="hero__title" id="heroTitle">
-                            KUZAI - THE LOCAL AI
-                        </h1>
+                    <div class="hero__inner">
+<div class="hero__statement hero__statement--single">
+                            <p class="hero__statement-single">LOCAL AI IS NOT JUST ABOUT RUNNING A MODEL. IT IS ABOUT OWNING THE FULL STACK.</p>
                         </div>
 
-                        <div class="hero__statement">
-                            <p class="hero__statement-line">LOCAL AI IS NOT JUST ABOUT RUNNING A MODEL.</p>
-                            <p class="hero__statement-line">IT IS ABOUT OWNING THE FULL STACK.</p>
+                        <div class="hero__presentation-box">
+                            <div class="hero__text hero__text--extended">
+                                <p>KUZAI is a local AI control layer built inside THE KUZ NETWORK ecosystem. It connects a browser interface to local inference, file analysis, web search, voice synthesis, custom profiles, and runtime orchestration without cloud inference dependency.</p>
+
+                                <p>KUZAI is designed to keep the full AI chain under technical and infrastructure control. The stack is open, auditable, reproducible, and based on replaceable components: Linux, Apache2, PHP, JavaScript, llama.cpp, SearXNG, Piper TTS, and local storage.</p>
+
+                                <p>The project supports an open source direction and contributes to the broader evolution of local AI systems: private runtime, controlled deployment, transparent architecture, and active participation in building independent AI infrastructure.</p>
+                            </div>
                         </div>
 
-                        <p class="hero__text">
-                            KUZAI is a local AI control layer for chat, file analysis, web search, voice synthesis, custom profiles, and runtime orchestration under fully controlled infrastructure.
-                        </p>
+                        <nav class="home-nav" aria-label="Primary navigation">
+                            <a class="home-nav__item" href="<?= h(pageUrl('kuz-network')) ?>">
+                                THE KUZ NETWORK / WHITE PAPER
+                            </a>
+
+                            <a class="home-nav__item" href="<?= h(pageUrl('kuzai')) ?>">
+                                KUZAI / DOCUMENTATION
+                            </a>
+
+                            <a class="home-nav__item" href="<?= h($githubUrl) ?>" target="_blank" rel="noopener noreferrer">
+                                <?= h($githubLabel) ?>
+                            </a>
+
+                            <a class="home-nav__item" href="<?= h(pageUrl('kontakt')) ?>">
+                                KONTAKT
+                            </a>
+
+                            <div class="home-nav__group">
+                                <div class="home-nav__links-row">
+                                    <span class="home-nav__links-label">LINKS</span>
+
+                                    <button class="home-nav__plus" type="button" id="homeLinksToggle" aria-expanded="false" aria-controls="homeLinksSubmenu">
+                                        +
+                                    </button>
+                                </div>
+
+                                <div class="home-nav__submenu" id="homeLinksSubmenu" hidden>
+                                    <?php foreach ($socialLinks as $link): ?>
+                                        <?php
+                                            $label = isset($link['label']) ? (string) $link['label'] : '';
+                                            $url = isset($link['url']) ? (string) $link['url'] : '#';
+
+                                            if ($label === '') {
+                                                continue;
+                                            }
+                                        ?>
+                                        <a class="home-nav__subitem" href="<?= h($url) ?>" <?= $url !== '#' ? 'target="_blank" rel="noopener noreferrer"' : '' ?>>
+                                            <?= h($label) ?>
+                                        </a>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </nav>
 
                         <div class="hero__topo" aria-label="KUZAI project presentation">
                             <div class="hero__topo-head">
@@ -234,6 +275,6 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
         </div>
     </div>
 
-    <script src="assets/js/menu.js?v=53"></script>
+    <script src="assets/js/menu.js?v=62"></script>
 </body>
 </html>

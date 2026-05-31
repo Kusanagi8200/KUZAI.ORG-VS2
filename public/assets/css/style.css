@@ -1352,3 +1352,618 @@ a {
     }
 }
 /* STEP-53-HOME-LAYOUT-FIX END */
+
+
+/* STEP-54-HOME-MENU-REFONTE START */
+
+/* MENU BUTTON REMOVED FROM HEADER */
+.menu-trigger {
+    display: none !important;
+}
+
+/* KEEP HEADER CLEAN WITHOUT MENU BUTTON */
+.site-header {
+    justify-content: flex-start !important;
+}
+
+/* HOME MENU DIRECTLY DISPLAYED */
+.home-nav {
+    width: 100%;
+    margin: 52px 0 42px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.home-nav__item,
+.home-nav__links-row {
+    width: 100%;
+    min-height: 68px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border-bottom: 1px solid var(--border-soft);
+    color: var(--text-main);
+    background: transparent;
+    text-align: left;
+    font-size: clamp(1.9rem, 3.3vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.home-nav__item {
+    transition:
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        padding-left var(--transition-fast);
+}
+
+.home-nav__item:hover {
+    color: var(--text-soft);
+    border-color: var(--border-strong);
+    padding-left: 16px;
+}
+
+.home-nav__group {
+    width: 100%;
+}
+
+.home-nav__links-label {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.home-nav__plus {
+    margin-left: auto;
+    width: 54px;
+    height: 54px;
+    border: 1px solid var(--border-soft);
+    background: transparent;
+    color: var(--text-main);
+    cursor: pointer;
+    font-size: clamp(1.2rem, 2.2vw, 2.6rem);
+    line-height: 1;
+    transition:
+        background var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast);
+}
+
+.home-nav__plus:hover,
+.home-nav__plus[aria-expanded="true"] {
+    background: var(--hover-bg);
+    color: var(--hover-text);
+    border-color: var(--hover-bg);
+}
+
+.home-nav__submenu[hidden] {
+    display: none !important;
+}
+
+.home-nav__submenu {
+    display: grid;
+    gap: 0;
+    padding: 14px 0 22px;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.home-nav__subitem {
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    color: var(--text-dim);
+    font-size: clamp(0.92rem, 1.25vw, 1.08rem);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition:
+        color var(--transition-fast),
+        padding-left var(--transition-fast);
+}
+
+.home-nav__subitem:hover {
+    color: var(--text-main);
+    padding-left: 18px;
+}
+
+/* TOPO BELOW MENU */
+.hero__topo {
+    margin-top: 0 !important;
+}
+
+/* TOPO TEXT -30% */
+.hero__topo-title {
+    font-size: clamp(1.03rem, 1.62vw, 1.96rem) !important;
+}
+
+.hero__topo-meta {
+    font-size: clamp(0.50rem, 0.60vw, 0.68rem) !important;
+}
+
+.hero__topo-item h3 {
+    font-size: clamp(0.74rem, 1.27vw, 1.54rem) !important;
+    line-height: 1.05 !important;
+}
+
+.hero__topo-item p {
+    font-size: clamp(0.71rem, 0.81vw, 0.94rem) !important;
+    line-height: 1.45 !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1180px) {
+    .home-nav__item,
+    .home-nav__links-row {
+        min-height: 58px;
+        font-size: clamp(1.45rem, 4vw, 2.6rem);
+        white-space: normal;
+    }
+
+    .home-nav__plus {
+        width: 46px;
+        height: 46px;
+    }
+
+    .hero__topo-title {
+        font-size: clamp(1rem, 2.6vw, 1.65rem) !important;
+    }
+
+    .hero__topo-item h3 {
+        font-size: clamp(0.88rem, 2.2vw, 1.18rem) !important;
+    }
+
+    .hero__topo-item p {
+        font-size: clamp(0.82rem, 1.9vw, 1rem) !important;
+    }
+}
+
+@media (max-width: 760px) {
+    .home-nav {
+        margin: 34px 0 32px;
+    }
+
+    .home-nav__item,
+    .home-nav__links-row {
+        min-height: 50px;
+        font-size: clamp(1.1rem, 6vw, 2rem);
+    }
+
+    .home-nav__plus {
+        width: 42px;
+        height: 42px;
+    }
+
+    .home-nav__subitem {
+        font-size: 0.82rem;
+    }
+}
+
+/* STEP-54-HOME-MENU-REFONTE END */
+
+
+
+
+
+
+
+/* STEP-58-HEADER-TRUE-CENTER START */
+
+/* Banner reset: 3-column grid with equal left/right zones */
+.site-header {
+    width: 100% !important;
+    min-height: 118px !important;
+    max-height: 132px !important;
+    padding: 14px 22px !important;
+    display: grid !important;
+    grid-template-columns: 132px minmax(0, 1fr) 132px !important;
+    align-items: center !important;
+    gap: 0 !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+/* Left logo only */
+.site-header .brand-mark {
+    grid-column: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 132px !important;
+    min-width: 132px !important;
+    max-width: 132px !important;
+}
+
+.site-header .brand-mark__logo {
+    display: block !important;
+    width: 112px !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+/* Hide any legacy brand text if still generated elsewhere */
+.site-header .brand-mark__copy,
+.site-header .brand-mark__title,
+.site-header .brand-mark__main,
+.site-header .brand-mark__sub,
+.site-header__hero,
+.site-header__hero-title,
+.site-header__hero-main,
+.site-header__hero-sub {
+    display: none !important;
+}
+
+/* Exact centered title zone */
+.header-title-block {
+    grid-column: 2 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    display: grid !important;
+    justify-items: center !important;
+    align-content: center !important;
+    text-align: center !important;
+    gap: 7px !important;
+}
+
+.header-title-block__title {
+    width: 100% !important;
+    margin: 0 !important;
+    color: var(--text-main) !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    font-size: clamp(2.05rem, 3.05vw, 3.65rem) !important;
+    line-height: 0.9 !important;
+    letter-spacing: -0.035em !important;
+}
+
+.header-title-block__meta {
+    width: 100% !important;
+    margin: 0 !important;
+    color: var(--text-main) !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    font-size: clamp(0.58rem, 0.76vw, 0.86rem) !important;
+    line-height: 1 !important;
+    letter-spacing: 0.18em !important;
+}
+
+/* Right empty column: same width as logo column */
+.site-header__right-spacer {
+    grid-column: 3 !important;
+    width: 132px !important;
+    min-width: 132px !important;
+    height: 1px !important;
+}
+
+/* Responsive */
+@media (max-width: 1180px) {
+    .site-header {
+        grid-template-columns: 108px minmax(0, 1fr) 108px !important;
+        min-height: 112px !important;
+        max-height: none !important;
+    }
+
+    .site-header .brand-mark,
+    .site-header__right-spacer {
+        width: 108px !important;
+        min-width: 108px !important;
+        max-width: 108px !important;
+    }
+
+    .site-header .brand-mark__logo {
+        width: 88px !important;
+    }
+
+    .header-title-block__title {
+        font-size: clamp(1.65rem, 3.8vw, 3rem) !important;
+    }
+
+    .header-title-block__meta {
+        font-size: clamp(0.52rem, 0.9vw, 0.72rem) !important;
+    }
+}
+
+@media (max-width: 760px) {
+    .site-header {
+        grid-template-columns: 68px minmax(0, 1fr) !important;
+        min-height: auto !important;
+        padding: 14px 16px !important;
+        gap: 14px !important;
+    }
+
+    .site-header .brand-mark {
+        width: 68px !important;
+        min-width: 68px !important;
+        max-width: 68px !important;
+    }
+
+    .site-header .brand-mark__logo {
+        width: 68px !important;
+    }
+
+    .site-header__right-spacer {
+        display: none !important;
+    }
+
+    .header-title-block {
+        justify-items: start !important;
+        text-align: left !important;
+    }
+
+    .header-title-block__title,
+    .header-title-block__meta {
+        text-align: left !important;
+        white-space: normal !important;
+    }
+
+    .header-title-block__title {
+        font-size: clamp(1.35rem, 6.5vw, 2.2rem) !important;
+    }
+}
+
+/* STEP-58-HEADER-TRUE-CENTER END */
+
+/* STEP-59-SINGLE-LINE-STATEMENT START */
+
+/* One-line hero statement */
+.page-home .hero__statement.hero__statement--single {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 34px auto 0 auto !important;
+    display: block !important;
+    text-align: center !important;
+}
+
+.page-home .hero__statement-single {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    font-size: clamp(0.95rem, 1.32vw, 1.55rem) !important;
+    line-height: 1 !important;
+    letter-spacing: 0.02em !important;
+    color: var(--text-main) !important;
+}
+
+/* Disable old line behavior if still present */
+.page-home .hero__statement-line {
+    display: inline !important;
+    width: auto !important;
+}
+
+/* Responsive fallback */
+@media (max-width: 1180px) {
+    .page-home .hero__statement-single {
+        font-size: clamp(0.82rem, 1.75vw, 1.2rem) !important;
+    }
+}
+
+@media (max-width: 760px) {
+    .page-home .hero__statement-single {
+        white-space: normal !important;
+        font-size: clamp(0.9rem, 4vw, 1.15rem) !important;
+        line-height: 1.2 !important;
+    }
+}
+
+/* STEP-59-SINGLE-LINE-STATEMENT END */
+
+/* STEP-60-HERO-PRESENTATION-TEXT START */
+
+/* Presentation text uses the full layout width */
+.page-home .hero__text,
+.page-home .hero__text--extended {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 36px 0 54px 0 !important;
+    padding: 0 !important;
+    display: grid !important;
+    gap: 18px !important;
+    text-align: left !important;
+    color: var(--text-soft) !important;
+}
+
+.page-home .hero__text--extended p {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: var(--text-soft) !important;
+    font-size: clamp(1rem, 1.18vw, 1.32rem) !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.015em !important;
+    white-space: normal !important;
+}
+
+/* Avoid paragraph compression on large screens */
+@media (min-width: 1400px) {
+    .page-home .hero__text--extended p {
+        font-size: clamp(1.08rem, 1.12vw, 1.36rem) !important;
+        line-height: 1.48 !important;
+    }
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+    .page-home .hero__text,
+    .page-home .hero__text--extended {
+        gap: 14px !important;
+        margin: 28px 0 42px 0 !important;
+    }
+
+    .page-home .hero__text--extended p {
+        font-size: 0.98rem !important;
+        line-height: 1.55 !important;
+    }
+}
+
+/* STEP-60-HERO-PRESENTATION-TEXT END */
+
+
+/* STEP-61-PRESENTATION-CONTAINER START */
+
+/* Main statement +40% */
+.page-home .hero__statement.hero__statement--single {
+    margin: 38px auto 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+}
+
+.page-home .hero__statement-single {
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    font-size: clamp(1.33rem, 1.85vw, 2.17rem) !important;
+    line-height: 1 !important;
+    letter-spacing: 0.02em !important;
+    color: var(--text-main) !important;
+}
+
+/* Presentation container */
+.page-home .hero__presentation-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 40px 0 54px 0 !important;
+    padding: 28px 34px !important;
+    border: 3px solid #6a6a6a !important;
+    border-radius: 18px !important;
+    background: transparent !important;
+    box-sizing: border-box !important;
+}
+
+/* Text inside centered container */
+.page-home .hero__text,
+.page-home .hero__text--extended {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: grid !important;
+    gap: 20px !important;
+    text-align: center !important;
+    justify-items: center !important;
+    color: var(--text-soft) !important;
+}
+
+.page-home .hero__text--extended p {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    color: var(--text-soft) !important;
+    font-size: clamp(1rem, 1.12vw, 1.24rem) !important;
+    line-height: 1.55 !important;
+    letter-spacing: 0.01em !important;
+    white-space: normal !important;
+}
+
+/* Responsive */
+@media (max-width: 1180px) {
+    .page-home .hero__statement-single {
+        font-size: clamp(1.05rem, 2.15vw, 1.6rem) !important;
+        white-space: normal !important;
+        line-height: 1.2 !important;
+    }
+
+    .page-home .hero__presentation-box {
+        padding: 24px 24px !important;
+        margin: 34px 0 44px 0 !important;
+    }
+
+    .page-home .hero__text--extended p {
+        font-size: 0.98rem !important;
+        line-height: 1.6 !important;
+    }
+}
+
+@media (max-width: 760px) {
+    .page-home .hero__presentation-box {
+        padding: 20px 18px !important;
+        border-radius: 14px !important;
+    }
+
+    .page-home .hero__statement-single {
+        font-size: clamp(1rem, 4.4vw, 1.28rem) !important;
+    }
+
+    .page-home .hero__text--extended p {
+        font-size: 0.94rem !important;
+    }
+}
+
+/* STEP-61-PRESENTATION-CONTAINER END */
+
+/* STEP-62-PRESENTATION-WIDTH-TEXT START */
+
+/* Presentation container uses maximum available text width */
+.page-home .hero__presentation-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 24px 18px !important;
+    margin: 40px 0 54px 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Text enlarged and stretched across the full container */
+.page-home .hero__text,
+.page-home .hero__text--extended {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-items: stretch !important;
+    text-align: center !important;
+    gap: 22px !important;
+}
+
+.page-home .hero__text--extended p {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+    font-size: clamp(1.34rem, 1.56vw, 1.82rem) !important;
+    line-height: 1.42 !important;
+    letter-spacing: 0.006em !important;
+    white-space: normal !important;
+}
+
+/* Large desktop: keep text visually dense */
+@media (min-width: 1500px) {
+    .page-home .hero__text--extended p {
+        font-size: clamp(1.46rem, 1.45vw, 1.92rem) !important;
+        line-height: 1.38 !important;
+    }
+}
+
+/* Medium screens */
+@media (max-width: 1180px) {
+    .page-home .hero__presentation-box {
+        padding: 22px 16px !important;
+    }
+
+    .page-home .hero__text--extended p {
+        font-size: clamp(1.08rem, 2vw, 1.42rem) !important;
+        line-height: 1.48 !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+    .page-home .hero__presentation-box {
+        padding: 20px 14px !important;
+    }
+
+    .page-home .hero__text--extended p {
+        font-size: clamp(0.98rem, 4.2vw, 1.16rem) !important;
+        line-height: 1.5 !important;
+    }
+}
+
+/* STEP-62-PRESENTATION-WIDTH-TEXT END */
