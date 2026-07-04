@@ -56,7 +56,7 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="application-name" content="<?= h($siteName) ?>">
     <meta name="theme-color" content="#000000">
-    <link rel="stylesheet" href="assets/css/style.css?v=62">
+    <link rel="stylesheet" href="assets/css/style.css?v=66">
 </head>
 <body class="page-<?= h($currentPage) ?>">
     <div class="site-shell">
@@ -89,7 +89,7 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
 
                         <div class="hero__presentation-box">
                             <div class="hero__text hero__text--extended">
-                                <p>KUZAI is a local AI control layer built inside THE KUZ NETWORK ecosystem. It connects a browser interface to local inference, file analysis, web search, voice synthesis, custom profiles, and runtime orchestration without cloud inference dependency.</p>
+                                <p>KUZAI is a local AI control layer built inside the KUZAI AI ecosystem. It connects a browser interface to local inference, file analysis, web search, voice synthesis, custom profiles, and runtime orchestration without cloud inference dependency.</p>
 
                                 <p>KUZAI is designed to keep the full AI chain under technical and infrastructure control. The stack is open, auditable, reproducible, and based on replaceable components: Linux, Apache2, PHP, JavaScript, llama.cpp, SearXNG, Piper TTS, and local storage.</p>
 
@@ -99,26 +99,40 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
 
                         <nav class="home-nav" aria-label="Primary navigation">
                             <a class="home-nav__item" href="<?= h(pageUrl('kuz-network')) ?>">
-                                THE KUZ NETWORK / WHITE PAPER
-                            </a>
-
-                            <a class="home-nav__item" href="<?= h(pageUrl('kuzai')) ?>">
-                                KUZAI / DOCUMENTATION
+                                KUZAI AI / WHITE PAPER
                             </a>
 
                             <a class="home-nav__item" href="<?= h($githubUrl) ?>" target="_blank" rel="noopener noreferrer">
                                 <?= h($githubLabel) ?>
                             </a>
 
-                            <a class="home-nav__item" href="<?= h(pageUrl('kontakt')) ?>">
-                                KONTAKT
-                            </a>
+                            <div class="home-nav__group">
+                                <div class="home-nav__links-row">
+                                    <span class="home-nav__links-label">KONTAKT</span>
+
+                                    <button
+                                        class="home-nav__plus"
+                                        type="button"
+                                        data-home-toggle
+                                        aria-expanded="false"
+                                        aria-controls="homeContactSubmenu"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+
+                                <div class="home-nav__submenu" id="homeContactSubmenu" hidden>
+                                    <a class="home-nav__subitem" href="mailto:admin@kuzai.org">
+                                        ADMIN@KUZAI.ORG
+                                    </a>
+                                </div>
+                            </div>
 
                             <div class="home-nav__group">
                                 <div class="home-nav__links-row">
                                     <span class="home-nav__links-label">LINKS</span>
 
-                                    <button class="home-nav__plus" type="button" id="homeLinksToggle" aria-expanded="false" aria-controls="homeLinksSubmenu">
+                                    <button class="home-nav__plus" type="button" id="homeLinksToggle" data-home-toggle aria-expanded="false" aria-controls="homeLinksSubmenu">
                                         +
                                     </button>
                                 </div>
@@ -183,17 +197,168 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
                 </section>
             <?php else: ?>
                 <section class="content-page" aria-labelledby="pageTitle">
+                    <?php $pageKicker = trim((string) ($page['kicker'] ?? $siteBrand)); ?>
+                    <?php if ($pageKicker !== ''): ?>
                     <p class="content-page__kicker">
-                        <?= h((string) ($page['kicker'] ?? $siteBrand)) ?>
+                        <?= h($pageKicker) ?>
                     </p>
+                    <?php endif; ?>
 
                     <h1 class="content-page__title" id="pageTitle">
                         <?= h((string) $page['title']) ?>
                     </h1>
 
-                    <p class="content-page__body">
-                        <?= h((string) ($page['body'] ?? 'Content will be added later.')) ?>
-                    </p>
+                    <?php if (!empty($page['whitepaper']) && is_array($page['whitepaper'])): ?>
+                        <?php
+                            $whitepaper = $page['whitepaper'];
+
+                            $whitepaperSections = is_array($whitepaper['sections'] ?? null)
+                                ? $whitepaper['sections']
+                                : [];
+                        ?>
+
+                        <article class="white-paper">
+                            <?php if (!empty($whitepaper['intro'])): ?>
+                                <p class="white-paper__lead">
+                                    <?= h((string) $whitepaper['intro']) ?>
+                                </p>
+                            <?php endif; ?>
+
+                            <?php if (!empty($whitepaper['statement'])): ?>
+                                <blockquote class="white-paper__statement">
+                                    <?= h((string) $whitepaper['statement']) ?>
+                                </blockquote>
+                            <?php endif; ?>
+
+                            <?php if (!empty($whitepaper['meta']) && is_array($whitepaper['meta'])): ?>
+                                <dl class="white-paper__meta-grid">
+                                    <?php foreach ($whitepaper['meta'] as $meta): ?>
+                                        <?php if (!is_array($meta)): ?>
+                                            <?php continue; ?>
+                                        <?php endif; ?>
+
+                                        <div class="white-paper__meta-item">
+                                            <dt>
+                                                <?= h((string) ($meta['label'] ?? '')) ?>
+                                            </dt>
+
+                                            <dd>
+                                                <?= h((string) ($meta['value'] ?? '')) ?>
+                                            </dd>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </dl>
+                            <?php endif; ?>
+
+                            <?php if ($whitepaperSections): ?>
+                                <nav class="white-paper__toc" aria-label="White paper contents">
+                                    <p class="white-paper__toc-title">CONTENTS</p>
+
+                                    <div class="white-paper__toc-grid">
+                                        <?php foreach ($whitepaperSections as $section): ?>
+                                            <?php
+                                                if (!is_array($section)) {
+                                                    continue;
+                                                }
+
+                                                $sectionId = (string) ($section['id'] ?? '');
+                                                $sectionTitle = (string) ($section['title'] ?? '');
+
+                                                if ($sectionId === '' || $sectionTitle === '') {
+                                                    continue;
+                                                }
+                                            ?>
+
+                                            <a href="#<?= h($sectionId) ?>">
+                                                <?= h($sectionTitle) ?>
+                                            </a>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </nav>
+                            <?php endif; ?>
+
+                            <div class="white-paper__sections">
+                                <?php foreach ($whitepaperSections as $section): ?>
+                                    <?php
+                                        if (!is_array($section)) {
+                                            continue;
+                                        }
+
+                                        $sectionId = (string) ($section['id'] ?? '');
+                                        $sectionTitle = (string) ($section['title'] ?? '');
+                                    ?>
+
+                                    <section
+                                        class="white-paper__section"
+                                        <?php if ($sectionId !== ''): ?>
+                                            id="<?= h($sectionId) ?>"
+                                        <?php endif; ?>
+                                    >
+                                        <?php if ($sectionTitle !== ''): ?>
+                                            <h2><?= h($sectionTitle) ?></h2>
+                                        <?php endif; ?>
+
+                                        <?php if (!empty($section['paragraphs']) && is_array($section['paragraphs'])): ?>
+                                            <?php foreach ($section['paragraphs'] as $paragraph): ?>
+                                                <p><?= h((string) $paragraph) ?></p>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+
+                                        <?php if (!empty($section['quote'])): ?>
+                                            <blockquote class="white-paper__quote">
+                                                <?= h((string) $section['quote']) ?>
+                                            </blockquote>
+                                        <?php endif; ?>
+
+                                        <?php if (!empty($section['features']) && is_array($section['features'])): ?>
+                                            <div class="white-paper__feature-grid">
+                                                <?php foreach ($section['features'] as $feature): ?>
+                                                    <?php if (!is_array($feature)): ?>
+                                                        <?php continue; ?>
+                                                    <?php endif; ?>
+
+                                                    <article class="white-paper__feature">
+                                                        <h3>
+                                                            <?= h((string) ($feature['title'] ?? '')) ?>
+                                                        </h3>
+
+                                                        <p>
+                                                            <?= h((string) ($feature['text'] ?? '')) ?>
+                                                        </p>
+                                                    </article>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <?php if (!empty($section['items']) && is_array($section['items'])): ?>
+                                            <ul class="white-paper__list">
+                                                <?php foreach ($section['items'] as $item): ?>
+                                                    <li><?= h((string) $item) ?></li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        <?php endif; ?>
+
+                                        <?php if (!empty($section['code'])): ?>
+                                            <pre class="white-paper__diagram"><code><?= h((string) $section['code']) ?></code></pre>
+                                        <?php endif; ?>
+                                    </section>
+                                <?php endforeach; ?>
+                            </div>
+                        </article>
+                    <?php else: ?>
+                        <p class="content-page__body">
+                            <?= h((string) ($page['body'] ?? 'Content will be added later.')) ?>
+                        </p>
+                    <?php endif; ?>
+
+                    <?php if (!empty($page['link'])): ?>
+                        <a
+                            class="button button-secondary"
+                            href="<?= h((string) $page['link']) ?>"
+                        >
+                            <?= h((string) ($page['link_label'] ?? $page['link'])) ?>
+                        </a>
+                    <?php endif; ?>
 
                     <a class="button button-secondary" href="<?= h(pageUrl('home')) ?>">
                         BACK HOME
@@ -231,22 +396,13 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
 
             <nav class="modal-nav" aria-label="Modal navigation">
                 <a class="modal-nav__item" href="<?= h(pageUrl('kuz-network')) ?>">
-                    THE KUZ NETWORK / WHITE PAPER
-                </a>
-
-                <a class="modal-nav__item" href="<?= h(pageUrl('kuzai')) ?>">
-                    KUZAI / DOCUMENTATION
+                    KUZAI AI / WHITE PAPER
                 </a>
 
                 <a class="modal-nav__item" href="<?= h($githubUrl) ?>" target="_blank" rel="noopener noreferrer">
                     <?= h($githubLabel) ?>
                 </a>
-
-                <a class="modal-nav__item" href="<?= h(pageUrl('kontakt')) ?>">
-                    KONTAKT
-                </a>
-
-                <div class="modal-nav__group">
+<div class="modal-nav__group">
                     <div class="modal-nav__links-row">
                         <span class="modal-nav__links-label">LINKS</span>
 
@@ -275,6 +431,6 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
         </div>
     </div>
 
-    <script src="assets/js/menu.js?v=62"></script>
+    <script src="assets/js/menu.js?v=67"></script>
 </body>
 </html>

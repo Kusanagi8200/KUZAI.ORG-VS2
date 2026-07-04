@@ -113,18 +113,28 @@ document.addEventListener('keydown', (event) => {
 });
 
 
-/* STEP-54-HOME-LINKS-TOGGLE */
+/* STEP-67-HOME-EXPANDABLE-ROWS */
 (function () {
-    const toggle = document.getElementById('homeLinksToggle');
-    const submenu = document.getElementById('homeLinksSubmenu');
+    const toggles = document.querySelectorAll('[data-home-toggle]');
 
-    if (!toggle || !submenu) {
-        return;
-    }
+    toggles.forEach((toggle) => {
+        const submenuId = toggle.getAttribute('aria-controls');
 
-    toggle.addEventListener('click', function () {
-        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!isExpanded));
-        submenu.hidden = isExpanded;
+        if (!submenuId) {
+            return;
+        }
+
+        const submenu = document.getElementById(submenuId);
+
+        if (!submenu) {
+            return;
+        }
+
+        toggle.addEventListener('click', function () {
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+            toggle.setAttribute('aria-expanded', String(!isExpanded));
+            submenu.hidden = isExpanded;
+        });
     });
 })();

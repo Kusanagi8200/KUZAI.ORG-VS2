@@ -16,13 +16,13 @@ return [
 
     'repository' => [
         'label' => 'GITHUB REPOSITORY',
-        'url' => 'https://github.com/Kusanagi8200/KUZAI.ORG-VS2',
+        'url' => 'https://github.com/Kusanagi8200/KUZAI-CHAT',
     ],
 
     'social_links' => [
         [
             'label' => 'LinkedIn',
-            'url' => '#',
+            'url' => 'https://www.linkedin.com/in/nathanael-d-851075341/',
         ],
         [
             'label' => 'GitHub',

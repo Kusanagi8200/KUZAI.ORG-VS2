@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+$whitePaper = require __DIR__ . '/whitepaper.php';
+
 return [
     'home' => [
         'title' => 'KUZAI - THE LOCAL AI',
@@ -9,20 +11,9 @@ return [
     ],
 
     'kuz-network' => [
-        'title' => 'THE KUZ NETWORK',
-        'kicker' => 'WHITE PAPER',
-        'body' => 'White paper content will be added later.',
-    ],
-
-    'kuzai' => [
-        'title' => 'KUZAI',
-        'kicker' => 'DOCUMENTATION',
-        'body' => 'Documentation content will be added later.',
-    ],
-
-    'kontakt' => [
-        'title' => 'KONTAKT',
-        'kicker' => 'CONTACT',
-        'body' => 'For technical exchange, collaboration, or project discussion.',
+        'title' => 'KUZAI AI / WHITE PAPER',
+        'kicker' => '',
+        'meta_description' => 'KUZAI AI white paper: local inference, file analysis, web search, local voice synthesis, custom profiles, Git-RAG, privacy, and modular infrastructure.',
+        'whitepaper' => $whitePaper,
     ],
 ];
