@@ -5,6 +5,8 @@ declare(strict_types=1);
 $config = require __DIR__ . '/../app/config.php';
 $pages = require __DIR__ . '/../app/pages.php';
 
+require_once __DIR__ . '/../app/visit-counter.php';
+
 function h(string $value): string
 {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
@@ -47,6 +49,14 @@ $githubUrl = (string) $config['repository']['url'];
 $githubLabel = (string) $config['repository']['label'];
 $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
 
+$visitCount = incrementVisitCounter(
+    __DIR__ . '/../var/visits.sqlite'
+);
+
+$visitCountDisplay = $visitCount !== null
+    ? str_pad((string) $visitCount, 4, '0', STR_PAD_LEFT)
+    : '------';
+
 ?><!doctype html>
 <html lang="en">
 <head>
@@ -56,7 +66,7 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="application-name" content="<?= h($siteName) ?>">
     <meta name="theme-color" content="#000000">
-    <link rel="stylesheet" href="assets/css/style.css?v=66">
+    <link rel="stylesheet" href="assets/css/style.css?v=92">
 </head>
 <body class="page-<?= h($currentPage) ?>">
     <div class="site-shell">
@@ -84,27 +94,129 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
                 <section class="hero" aria-labelledby="heroTitle">
                     <div class="hero__inner">
 <div class="hero__statement hero__statement--single">
-                            <p class="hero__statement-single">LOCAL AI IS NOT JUST ABOUT RUNNING A MODEL. IT IS ABOUT OWNING THE FULL STACK.</p>
+                            <p class="hero__statement-single hero__statement-dynamic">LOCAL AI IS NOT JUST ABOUT RUNNING A MODEL. IT IS ABOUT OWNING THE FULL STACK</p>
                         </div>
 
-                        <div class="hero__presentation-box">
-                            <div class="hero__text hero__text--extended">
-                                <p>KUZAI is a local AI control layer built inside the KUZAI AI ecosystem. It connects a browser interface to local inference, file analysis, web search, voice synthesis, custom profiles, and runtime orchestration without cloud inference dependency.</p>
+                        <section class="hero__evolution-panel" aria-label="KUZAI AI project overview">
+                            <p class="hero__evolution-line">
+                                KUZAI AI IS A PRIVATE, SELF-HOSTED CONTROL LAYER FOR LOCAL ARTIFICIAL INTELLIGENCE
+                            </p>
 
-                                <p>KUZAI is designed to keep the full AI chain under technical and infrastructure control. The stack is open, auditable, reproducible, and based on replaceable components: Linux, Apache2, PHP, JavaScript, llama.cpp, SearXNG, Piper TTS, and local storage.</p>
+                            <p class="hero__evolution-line">
+                                LOCAL CHAT / FILE ANALYSIS / WEB SEARCH / LOCAL TTS / CUSTOM SYSTEM PROMPT / CUSTOM LLM PROFILES / GIT-RAG
+                            </p>
 
-                                <p>The project supports an open source direction and contributes to the broader evolution of local AI systems: private runtime, controlled deployment, transparent architecture, and active participation in building independent AI infrastructure.</p>
-                            </div>
-                        </div>
+                            <p class="hero__evolution-line">
+                                OPENAI-COMPATIBLE LOCAL INFERENCE THROUGH LLAMA.CPP WITH OPERATOR-CONTROLLED MODEL SELECTION
+                            </p>
+
+                            <p class="hero__evolution-line">
+                                PROMPTS, FILES, REPOSITORIES, SEARCH CONTEXT, VOICE OUTPUT, AND RUNTIME SERVICES REMAIN UNDER LOCAL CONTROL
+                            </p>
+
+                            <p class="hero__evolution-line">
+                                THE STACK IS OPEN, AUDITABLE, REPRODUCIBLE, AND BUILT FROM REPLACEABLE COMPONENTS
+                            </p>
+
+                            <p class="hero__evolution-line">
+                                A MODULAR FOUNDATION FOR PRIVATE, INDEPENDENT, AND LOCALLY OPERATED AI INFRASTRUCTURE
+                            </p>
+                        </section>
 
                         <nav class="home-nav" aria-label="Primary navigation">
-                            <a class="home-nav__item" href="<?= h(pageUrl('kuz-network')) ?>">
-                                KUZAI AI / WHITE PAPER
+                            <a
+                                class="home-nav__item home-nav__item--direct"
+                                href="<?= h(pageUrl('kuz-network')) ?>"
+                            >
+                                <span>KUZAI AI / WHITE PAPER</span>
                             </a>
 
-                            <a class="home-nav__item" href="<?= h($githubUrl) ?>" target="_blank" rel="noopener noreferrer">
-                                <?= h($githubLabel) ?>
+                            <a
+                                class="home-nav__item home-nav__item--direct"
+                                href="https://kuzai.org"
+                            >
+                                <span>APPLICATION DEMO</span>
                             </a>
+
+                            <a
+                                class="home-nav__item home-nav__item--direct"
+                                href="<?= h($githubUrl) ?>"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span><?= h($githubLabel) ?></span>
+                            </a>
+
+                            <div class="home-nav__group home-nav__group--capabilities">
+                                <div class="home-nav__links-row">
+                                    <span class="home-nav__links-label">FUNCTIONALITIES</span>
+
+                                    <button
+                                        class="home-nav__plus"
+                                        type="button"
+                                        data-home-toggle
+                                        aria-expanded="false"
+                                        aria-controls="homeCapabilitiesSubmenu"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+
+                                <div
+                                    class="home-nav__submenu home-nav__submenu--capabilities"
+                                    id="homeCapabilitiesSubmenu"
+                                    hidden
+                                >
+                                    <span class="home-nav__subitem home-nav__subitem--static">LOCAL CHAT</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">LOCAL INFERENCE</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">FILE ANALYSIS</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">WEB SEARCH</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">LOCAL TTS</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">CUSTOM SYSTEM PROMPT</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">CUSTOM LLM PROFILES</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">GIT-RAG</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">LOCAL STORAGE</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">RUNTIME CONTROL</span>
+                                </div>
+                            </div>
+
+                            <div class="home-nav__group">
+                                <div class="home-nav__links-row">
+                                    <span class="home-nav__links-label">LINKS</span>
+
+                                    <button
+                                        class="home-nav__plus"
+                                        type="button"
+                                        id="homeLinksToggle"
+                                        data-home-toggle
+                                        aria-expanded="false"
+                                        aria-controls="homeLinksSubmenu"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+
+                                <div class="home-nav__submenu" id="homeLinksSubmenu" hidden>
+                                    <?php foreach ($socialLinks as $link): ?>
+                                        <?php
+                                            $label = isset($link['label']) ? (string) $link['label'] : '';
+                                            $url = isset($link['url']) ? (string) $link['url'] : '#';
+
+                                            if ($label === '') {
+                                                continue;
+                                            }
+                                        ?>
+
+                                        <a
+                                            class="home-nav__subitem"
+                                            href="<?= h($url) ?>"
+                                            <?= $url !== '#' ? 'target="_blank" rel="noopener noreferrer"' : '' ?>
+                                        >
+                                            <?= h($label) ?>
+                                        </a>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
 
                             <div class="home-nav__group">
                                 <div class="home-nav__links-row">
@@ -127,72 +239,7 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
                                     </a>
                                 </div>
                             </div>
-
-                            <div class="home-nav__group">
-                                <div class="home-nav__links-row">
-                                    <span class="home-nav__links-label">LINKS</span>
-
-                                    <button class="home-nav__plus" type="button" id="homeLinksToggle" data-home-toggle aria-expanded="false" aria-controls="homeLinksSubmenu">
-                                        +
-                                    </button>
-                                </div>
-
-                                <div class="home-nav__submenu" id="homeLinksSubmenu" hidden>
-                                    <?php foreach ($socialLinks as $link): ?>
-                                        <?php
-                                            $label = isset($link['label']) ? (string) $link['label'] : '';
-                                            $url = isset($link['url']) ? (string) $link['url'] : '#';
-
-                                            if ($label === '') {
-                                                continue;
-                                            }
-                                        ?>
-                                        <a class="home-nav__subitem" href="<?= h($url) ?>" <?= $url !== '#' ? 'target="_blank" rel="noopener noreferrer"' : '' ?>>
-                                            <?= h($label) ?>
-                                        </a>
-                                    <?php endforeach; ?>
-                                </div>
-                            </div>
                         </nav>
-
-                        <div class="hero__topo" aria-label="KUZAI project presentation">
-                            <div class="hero__topo-head">
-                                <span class="hero__topo-title">KUZAI CAPABILITIES</span>
-                                <span class="hero__topo-meta">LOCAL FIRST / OPEN STACK / PRIVATE RUNTIME</span>
-                            </div>
-
-                            <div class="hero__topo-grid">
-                                <article class="hero__topo-item">
-                                    <h3>LOCAL CHAT</h3>
-                                    <p>Browser interface with send, stop, clear, runtime control, and session workflow.</p>
-                                </article>
-
-                                <article class="hero__topo-item">
-                                    <h3>LOCAL BACKEND</h3>
-                                    <p>Runs any local model compatible with llama.cpp, with model selection controlled by the local runtime.</p>
-                                </article>
-
-                                <article class="hero__topo-item">
-                                    <h3>FILE ANALYSIS</h3>
-                                    <p>Server-side extraction for text, code, config, logs, JSON, CSV, and technical documents.</p>
-                                </article>
-
-                                <article class="hero__topo-item">
-                                    <h3>WEB SEARCH</h3>
-                                    <p>Integrated local SearXNG search with source extraction and contextual prompt injection.</p>
-                                </article>
-
-                                <article class="hero__topo-item">
-                                    <h3>VOICE / TTS</h3>
-                                    <p>Local Piper TTS pipeline with cleaned text, browser controls, and voice output management.</p>
-                                </article>
-
-                                <article class="hero__topo-item">
-                                    <h3>CUSTOM LLM PROFILES</h3>
-                                    <p>Profile editor, JSON preview, save profile, run profile, server profile list, and deletion flow.</p>
-                                </article>
-                            </div>
-                        </div>
                     </div>
                 </section>
             <?php else: ?>
@@ -367,7 +414,11 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
             <?php endif; ?>
         </main>
 
-        <footer class="site-footer" aria-hidden="true"></footer>
+        <footer class="site-footer site-footer--dynamic" aria-label="KUZ Network footer">
+        <div class="site-footer__inner">
+            <p class="site-footer__text">THE KUZ NETWORK - @2026 / BUILD LOCAL / KEEP CONTROL / OWN THE STACK / VIEWS <?= h($visitCountDisplay) ?></p>
+        </div>
+    </footer>
     </div>
 
     <div class="menu-modal" id="mainMenuModal" role="dialog" aria-modal="true" aria-label="Main menu" aria-hidden="true">
@@ -431,6 +482,6 @@ $socialLinks = is_array($config['social_links']) ? $config['social_links'] : [];
         </div>
     </div>
 
-    <script src="assets/js/menu.js?v=67"></script>
+    <script src="assets/js/menu.js?v=76"></script>
 </body>
 </html>

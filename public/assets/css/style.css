@@ -2045,3 +2045,510 @@ a {
 }
 
 /* STEP-65-WHITEPAPER-TITLE-SIZE END */
+
+/* STEP-68-HOME-EVOLUTION-PANEL START */
+
+.page-home .hero__evolution-panel {
+    width: 100%;
+    margin: 38px 0 44px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--border-soft);
+    background: transparent;
+}
+
+.page-home .hero__evolution-line {
+    position: relative;
+    width: 100%;
+    min-height: 48px;
+    margin: 0;
+    padding: 10px 50px 10px 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-soft);
+    background: transparent;
+    color: var(--text-soft);
+    text-align: left;
+    text-transform: uppercase;
+    font-size: clamp(0.95rem, 1.35vw, 1.55rem);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    transition:
+        padding-left var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        background var(--transition-fast);
+}
+
+.page-home .hero__evolution-line::after {
+    content: "/";
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    color: var(--text-dim);
+    opacity: 0;
+    transform: translate(-10px, -50%);
+    transition:
+        opacity var(--transition-fast),
+        transform var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.page-home .hero__evolution-line:hover {
+    padding-left: 16px;
+    color: var(--text-main);
+    border-color: var(--border-strong);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.08) 0%,
+            rgba(255, 255, 255, 0.025) 42%,
+            transparent 78%
+        );
+}
+
+.page-home .hero__evolution-line:hover::after {
+    color: var(--text-main);
+    opacity: 1;
+    transform: translate(0, -50%);
+}
+
+@media (max-width: 1180px) {
+    .page-home .hero__evolution-line {
+        min-height: 44px;
+        padding-top: 9px;
+        padding-bottom: 9px;
+        font-size: clamp(0.88rem, 1.9vw, 1.25rem);
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 760px) {
+    .page-home .hero__evolution-panel {
+        margin: 28px 0 34px;
+    }
+
+    .page-home .hero__evolution-line {
+        min-height: 42px;
+        padding: 9px 38px 9px 0;
+        font-size: clamp(0.78rem, 3.6vw, 1rem);
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+    }
+
+    .page-home .hero__evolution-line:hover {
+        padding-left: 10px;
+    }
+
+    .page-home .hero__evolution-line::after {
+        right: 10px;
+    }
+}
+
+/* STEP-68-HOME-EVOLUTION-PANEL END */
+
+/* STEP-76-CAPABILITIES-MENU START */
+
+.page-home .home-nav__group--capabilities {
+    width: 100%;
+}
+
+.page-home .home-nav__submenu--capabilities {
+    width: 100%;
+    padding: 0;
+    background: #000000;
+}
+
+.page-home .home-nav__subitem--static {
+    width: 100%;
+    min-height: 42px;
+    margin: 0;
+    padding: 9px 18px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-soft);
+    background: #000000;
+    color: var(--text-soft);
+    font-size: clamp(0.82rem, 1.05vw, 1.16rem);
+    line-height: 1.15;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    cursor: default;
+    transition:
+        padding-left var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        background var(--transition-fast);
+}
+
+.page-home .home-nav__subitem--static:hover {
+    padding-left: 28px;
+    color: var(--text-main);
+    border-color: var(--border-strong);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.08) 0%,
+            rgba(255, 255, 255, 0.02) 45%,
+            transparent 80%
+        );
+}
+
+.page-home .home-nav__plus {
+    transition:
+        transform var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.page-home .home-nav__plus[aria-expanded="true"] {
+    transform: rotate(45deg);
+    color: var(--text-main);
+}
+
+@media (max-width: 760px) {
+    .page-home .home-nav__subitem--static {
+        min-height: 38px;
+        padding: 8px 12px;
+        font-size: 0.78rem;
+    }
+
+    .page-home .home-nav__subitem--static:hover {
+        padding-left: 20px;
+    }
+}
+
+/* STEP-76-CAPABILITIES-MENU END */
+
+/* STEP-77-TOGGLE-SYMBOL START */
+
+.page-home .home-nav__plus {
+    width: 64px !important;
+    min-width: 64px !important;
+    height: 64px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    outline: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: transparent !important;
+    font-size: 0 !important;
+    transform: none !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+}
+
+.page-home .home-nav__plus::before {
+    content: "+";
+    display: block;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    transform: none;
+    transition:
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.page-home .home-nav__plus[aria-expanded="true"] {
+    border: 0 !important;
+    background: transparent !important;
+    color: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.page-home .home-nav__plus[aria-expanded="true"]::before {
+    content: "-";
+    transform: none;
+}
+
+.page-home .home-nav__plus:hover,
+.page-home .home-nav__plus:focus,
+.page-home .home-nav__plus:active {
+    border: 0 !important;
+    outline: 0 !important;
+    background: transparent !important;
+    color: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.page-home .home-nav__plus:hover::before,
+.page-home .home-nav__plus:focus::before {
+    color: var(--text-soft);
+}
+
+@media (max-width: 760px) {
+    .page-home .home-nav__plus {
+        width: 46px !important;
+        min-width: 46px !important;
+        height: 46px !important;
+    }
+
+    .page-home .home-nav__plus::before {
+        font-size: 2rem;
+    }
+}
+
+/* STEP-77-TOGGLE-SYMBOL END */
+
+/* STEP-78-HERO-STATEMENT-DYNAMIC START */
+
+.page-home .hero__statement-single,
+.page-home .hero__statement-dynamic {
+    position: relative !important;
+    isolation: isolate;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 26px !important;
+    padding: 14px 18px !important;
+    overflow: hidden;
+
+    background: #ffffff !important;
+    color: #000000 !important;
+
+    border-top: 1px solid var(--border-soft) !important;
+    border-bottom: 1px solid var(--border-soft) !important;
+
+    text-align: center !important;
+    cursor: default;
+
+    transform: translateY(0);
+
+    transition:
+        color 260ms ease,
+        letter-spacing 300ms ease,
+        transform 300ms ease,
+        border-color 300ms ease !important;
+}
+
+.page-home .hero__statement-single::before,
+.page-home .hero__statement-dynamic::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    display: block !important;
+
+    background: #000000;
+    transform: scaleX(0);
+    transform-origin: center;
+
+    transition: transform 340ms ease;
+}
+
+.page-home .hero__statement-single::after,
+.page-home .hero__statement-dynamic::after {
+    content: none !important;
+    display: none !important;
+}
+
+.page-home .hero__statement-single:hover,
+.page-home .hero__statement-dynamic:hover {
+    color: #ffffff !important;
+
+    border-top-color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+
+    letter-spacing: 0.015em !important;
+    transform: translateY(-1px);
+    text-shadow: none !important;
+}
+
+.page-home .hero__statement-single:hover::before,
+.page-home .hero__statement-dynamic:hover::before {
+    transform: scaleX(1);
+}
+
+@media (max-width: 760px) {
+    .page-home .hero__statement-single,
+    .page-home .hero__statement-dynamic {
+        margin-bottom: 18px !important;
+        padding: 11px 12px !important;
+    }
+
+    .page-home .hero__statement-single:hover,
+    .page-home .hero__statement-dynamic:hover {
+        letter-spacing: 0.008em !important;
+        transform: none;
+    }
+}
+
+/* STEP-78-HERO-STATEMENT-DYNAMIC END */
+
+/* STEP-82-HEADER-HORIZONTAL-LINES START */
+
+.site-header {
+    border-top: 1px solid #ffffff !important;
+    border-bottom: 1px solid #ffffff !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #000000 !important;
+}
+
+/* STEP-82-HEADER-HORIZONTAL-LINES END */
+
+/* STEP-85-DIRECT-MENU-SLASH START */
+
+.page-home .home-nav__item--direct {
+    justify-content: space-between;
+    gap: 24px;
+    padding-right: 12px;
+}
+
+.page-home .home-nav__item--direct::after {
+    content: "/";
+    flex: 0 0 auto;
+    margin-left: auto;
+    color: var(--text-main);
+    font-size: 0.9em;
+    line-height: 1;
+    transform: translateX(0);
+    transition:
+        transform var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.page-home .home-nav__item--direct:hover::after,
+.page-home .home-nav__item--direct:focus-visible::after {
+    color: var(--text-soft);
+    transform: translateX(-8px);
+}
+
+@media (max-width: 760px) {
+    .page-home .home-nav__item--direct {
+        gap: 12px;
+        padding-right: 6px;
+    }
+
+    .page-home .home-nav__item--direct:hover::after,
+    .page-home .home-nav__item--direct:focus-visible::after {
+        transform: translateX(-4px);
+    }
+}
+
+/* STEP-85-DIRECT-MENU-SLASH END */
+
+/* STEP-87-DYNAMIC-FOOTER START */
+
+.site-footer.site-footer--dynamic {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 18px 0 12px !important;
+    padding: 0 !important;
+    background: #000000;
+}
+
+.site-footer--dynamic .site-footer__inner {
+    position: relative;
+    width: 100%;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+
+    background: #ffffff !important;
+
+    transition:
+        border-color 300ms ease,
+        background 300ms ease;
+}
+
+.site-footer--dynamic .site-footer__inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background: #000000;
+    transform: scaleX(0);
+    transform-origin: center;
+
+    transition: transform 340ms ease;
+}
+
+.site-footer--dynamic .site-footer__text {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    margin: 0;
+    padding: 3px 24px;
+
+    color: #000000 !important;
+    text-align: center;
+    text-transform: uppercase;
+
+    font-weight: 700;
+    font-size: clamp(1rem, 1.22vw, 1.34rem);
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+
+    transform: translateY(0);
+
+    transition:
+        color 260ms ease,
+        letter-spacing 300ms ease,
+        transform 300ms ease;
+}
+
+.site-footer--dynamic:hover .site-footer__inner {
+    border-top-color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+.site-footer--dynamic:hover .site-footer__inner::before {
+    transform: scaleX(1);
+}
+
+.site-footer--dynamic:hover .site-footer__text {
+    color: #ffffff !important;
+    letter-spacing: 0.16em;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 980px) {
+    .site-footer.site-footer--dynamic {
+        margin: 16px 0 10px !important;
+    }
+
+    .site-footer--dynamic .site-footer__text {
+        font-size: 0.95rem;
+        letter-spacing: 0.10em;
+    }
+}
+
+@media (max-width: 760px) {
+    .site-footer.site-footer--dynamic {
+        margin: 14px 0 10px !important;
+    }
+
+    .site-footer--dynamic .site-footer__text {
+        padding: 3px 10px;
+        font-size: 0.78rem;
+        line-height: 1.3;
+        letter-spacing: 0.06em;
+    }
+
+    .site-footer--dynamic:hover .site-footer__text {
+        letter-spacing: 0.08em;
+        transform: none;
+    }
+}
+
+/* STEP-87-DYNAMIC-FOOTER END */
