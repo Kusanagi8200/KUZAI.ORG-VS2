@@ -66,7 +66,7 @@ $visitCountDisplay = $visitCount !== null
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="application-name" content="<?= h($siteName) ?>">
     <meta name="theme-color" content="#000000">
-    <link rel="stylesheet" href="assets/css/style.css?v=92">
+    <link rel="stylesheet" href="assets/css/style.css?v=103">
 </head>
 <body class="page-<?= h($currentPage) ?>">
     <div class="site-shell">
@@ -167,16 +167,16 @@ $visitCountDisplay = $visitCount !== null
                                     id="homeCapabilitiesSubmenu"
                                     hidden
                                 >
-                                    <span class="home-nav__subitem home-nav__subitem--static">LOCAL CHAT</span>
-                                    <span class="home-nav__subitem home-nav__subitem--static">LOCAL INFERENCE</span>
-                                    <span class="home-nav__subitem home-nav__subitem--static">FILE ANALYSIS</span>
-                                    <span class="home-nav__subitem home-nav__subitem--static">WEB SEARCH</span>
-                                    <span class="home-nav__subitem home-nav__subitem--static">LOCAL TTS</span>
-                                    <span class="home-nav__subitem home-nav__subitem--static">CUSTOM SYSTEM PROMPT</span>
-                                    <span class="home-nav__subitem home-nav__subitem--static">CUSTOM LLM PROFILES</span>
-                                    <span class="home-nav__subitem home-nav__subitem--static">GIT-RAG</span>
-                                    <span class="home-nav__subitem home-nav__subitem--static">LOCAL STORAGE</span>
-                                    <span class="home-nav__subitem home-nav__subitem--static">RUNTIME CONTROL</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">LOCAL CHAT / PRIVATE CONVERSATIONS WITH LOCAL MODELS</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">LOCAL INFERENCE / RUN AI MODELS WITHOUT CLOUD DEPENDENCY</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">FILE ANALYSIS / ANALYZE CODE, LOGS, DATA, AND DOCUMENTS LOCALLY</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">WEB SEARCH / ADD LIVE WEB CONTEXT THROUGH LOCAL SEARXNG</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">LOCAL TTS / TURN AI RESPONSES INTO A PRIVATE SYNTHETIC VOICE</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">CUSTOM SYSTEM PROMPT / DEFINE THE MODEL ROLE, RULES, AND TONE</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">CUSTOM LLM PROFILES / SAVE AND ACTIVATE PURPOSE-BUILT AI BEHAVIORS</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">GIT-RAG / EXPLORE REPOSITORIES WITH PROJECT-AWARE CONTEXT</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">LOCAL STORAGE / KEEP FILES, SETTINGS, AND DATA ON YOUR MACHINE</span>
+                                    <span class="home-nav__subitem home-nav__subitem--static">RUNTIME CONTROL / MANAGE MODELS AND SERVICES FROM ONE INTERFACE</span>
                                 </div>
                             </div>
 

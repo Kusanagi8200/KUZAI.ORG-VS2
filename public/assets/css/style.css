@@ -2407,7 +2407,7 @@ a {
 }
 
 .page-home .home-nav__item--direct::after {
-    content: "/";
+    content: "-->";
     flex: 0 0 auto;
     margin-left: auto;
     color: var(--text-main);
@@ -2552,3 +2552,192 @@ a {
 }
 
 /* STEP-87-DYNAMIC-FOOTER END */
+
+/* STEP-98-HOME-FOOTER-SPACING START */
+
+/* Prevent the homepage grid from stretching the main content vertically. */
+.page-home .site-shell {
+    min-height: auto !important;
+    grid-template-rows: auto auto auto !important;
+    align-content: start !important;
+}
+
+/* Controlled distance between the menu and the footer. */
+.page-home .site-footer.site-footer--dynamic {
+    margin-top: 60px !important;
+}
+
+@media (max-width: 760px) {
+    .page-home .site-footer.site-footer--dynamic {
+        margin-top: 38px !important;
+    }
+}
+
+/* STEP-98-HOME-FOOTER-SPACING END */
+
+/* STEP-99-HOME-FOOTER-GAP START */
+
+/* Remove cumulative spacing below the homepage menu. */
+.page-home .home-nav {
+    margin-bottom: 0 !important;
+}
+
+.page-home .hero {
+    padding-bottom: 0 !important;
+}
+
+/* Single controlled space between menu and footer. */
+.page-home .site-footer.site-footer--dynamic {
+    margin-top: 48px !important;
+}
+
+@media (max-width: 760px) {
+    .page-home .site-footer.site-footer--dynamic {
+        margin-top: 30px !important;
+    }
+}
+
+/* STEP-99-HOME-FOOTER-GAP END */
+
+/* STEP-102-HOME-MENU-SCALE START */
+
+/* Main menu labels: -30% */
+.page-home .home-nav__item,
+.page-home .home-nav__links-row {
+    font-size: clamp(1.33rem, 2.31vw, 2.8rem) !important;
+}
+
+/* Direct-link symbol --> : -30% */
+.page-home .home-nav__item--direct::after {
+    font-size: 0.63em !important;
+}
+
+/* Toggle symbols + and - : -30% */
+.page-home .home-nav__plus::before {
+    font-size: clamp(1.4rem, 2.1vw, 2.45rem) !important;
+}
+
+@media (max-width: 1180px) {
+    .page-home .home-nav__item,
+    .page-home .home-nav__links-row {
+        font-size: clamp(1.015rem, 2.8vw, 1.82rem) !important;
+    }
+}
+
+@media (max-width: 760px) {
+    .page-home .home-nav__item,
+    .page-home .home-nav__links-row {
+        font-size: clamp(0.77rem, 4.2vw, 1.4rem) !important;
+    }
+
+    .page-home .home-nav__plus::before {
+        font-size: 1.4rem !important;
+    }
+}
+
+/* STEP-102-HOME-MENU-SCALE END */
+
+/* STEP-103-DYNAMIC-HOME-MENU START */
+
+/* Top-level menu elements */
+.page-home .home-nav__item,
+.page-home .home-nav__links-row {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #000000 !important;
+    color: #ffffff !important;
+    transition:
+        color 260ms ease,
+        border-color 300ms ease,
+        letter-spacing 300ms ease !important;
+}
+
+/* Animated white background */
+.page-home .home-nav__item::before,
+.page-home .home-nav__links-row::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    display: block;
+    background: #ffffff;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 340ms ease;
+}
+
+/* Keep labels above the animated background */
+.page-home .home-nav__item > span,
+.page-home .home-nav__links-label,
+.page-home .home-nav__plus {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hover and keyboard focus */
+.page-home .home-nav__item:hover,
+.page-home .home-nav__item:focus-visible,
+.page-home .home-nav__links-row:hover,
+.page-home .home-nav__links-row:focus-within {
+    color: #000000 !important;
+    border-bottom-color: #ffffff !important;
+    letter-spacing: -0.035em !important;
+}
+
+.page-home .home-nav__item:hover::before,
+.page-home .home-nav__item:focus-visible::before,
+.page-home .home-nav__links-row:hover::before,
+.page-home .home-nav__links-row:focus-within::before {
+    transform: scaleX(1);
+}
+
+/* Direct-link arrows */
+.page-home .home-nav__item--direct::after {
+    position: relative;
+    z-index: 1;
+    transition:
+        color 260ms ease,
+        transform 300ms ease !important;
+}
+
+.page-home .home-nav__item--direct:hover::after,
+.page-home .home-nav__item--direct:focus-visible::after {
+    color: #000000 !important;
+    transform: translateX(-8px);
+}
+
+/* Expand / collapse symbols */
+.page-home .home-nav__links-row:hover .home-nav__plus,
+.page-home .home-nav__links-row:focus-within .home-nav__plus {
+    background: transparent !important;
+    color: transparent !important;
+}
+
+.page-home .home-nav__links-row:hover .home-nav__plus::before,
+.page-home .home-nav__links-row:focus-within .home-nav__plus::before {
+    color: #000000 !important;
+}
+
+/* Preserve black background when not hovered */
+.page-home .home-nav__item:not(:hover):not(:focus-visible),
+.page-home .home-nav__links-row:not(:hover):not(:focus-within) {
+    background: #000000 !important;
+    color: #ffffff !important;
+}
+
+@media (max-width: 760px) {
+    .page-home .home-nav__item:hover,
+    .page-home .home-nav__item:focus-visible,
+    .page-home .home-nav__links-row:hover,
+    .page-home .home-nav__links-row:focus-within {
+        letter-spacing: -0.04em !important;
+    }
+
+    .page-home .home-nav__item--direct:hover::after,
+    .page-home .home-nav__item--direct:focus-visible::after {
+        transform: translateX(-4px);
+    }
+}
+
+/* STEP-103-DYNAMIC-HOME-MENU END */
