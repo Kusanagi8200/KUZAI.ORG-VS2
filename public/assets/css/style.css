@@ -2308,7 +2308,7 @@ a {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto 26px !important;
-    padding: 14px 18px !important;
+    padding: 3px 18px !important;
     overflow: hidden;
 
     background: #ffffff !important;
@@ -2372,7 +2372,7 @@ a {
     .page-home .hero__statement-single,
     .page-home .hero__statement-dynamic {
         margin-bottom: 18px !important;
-        padding: 11px 12px !important;
+        padding: 3px 12px !important;
     }
 
     .page-home .hero__statement-single:hover,

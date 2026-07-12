@@ -66,7 +66,7 @@ $visitCountDisplay = $visitCount !== null
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="application-name" content="<?= h($siteName) ?>">
     <meta name="theme-color" content="#000000">
-    <link rel="stylesheet" href="assets/css/style.css?v=103">
+    <link rel="stylesheet" href="assets/css/style.css?v=105">
 </head>
 <body class="page-<?= h($currentPage) ?>">
     <div class="site-shell">
@@ -94,7 +94,7 @@ $visitCountDisplay = $visitCount !== null
                 <section class="hero" aria-labelledby="heroTitle">
                     <div class="hero__inner">
 <div class="hero__statement hero__statement--single">
-                            <p class="hero__statement-single hero__statement-dynamic">LOCAL AI IS NOT JUST ABOUT RUNNING A MODEL. IT IS ABOUT OWNING THE FULL STACK</p>
+                            <p class="hero__statement-single hero__statement-dynamic">LOCAL AI IS NOT JUST ABOUT RUNNING A MODEL / IT IS ABOUT OWNING THE FULL STACK</p>
                         </div>
 
                         <section class="hero__evolution-panel" aria-label="KUZAI AI project overview">
