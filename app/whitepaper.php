@@ -138,55 +138,54 @@ ARCHITECTURE,
             'features' => [
                 [
                     'title' => 'LOCAL AI CHAT',
-                    'text' => "Browser-based conversation with locally generated responses, configurable model parameters, conversation context, generation interruption, session clearing, and dynamic response rendering.",
+                    'text' => "Browser-based conversation with locally generated responses, conversation context, generation interruption, session clearing, dynamic response rendering, and direct access to a local llama.cpp runtime.",
                 ],
                 [
                     'title' => 'LOCAL MODEL RUNTIME',
-                    'text' => "OpenAI-compatible local inference through llama.cpp with support for replaceable GGUF models selected according to hardware, language, context, performance, and licensing requirements.",
+                    'text' => "OpenAI-compatible local inference through llama.cpp with replaceable GGUF models selected according to hardware, language, context, performance, quantization, and licensing requirements.",
                 ],
                 [
-                    'title' => 'FILE ANALYSIS',
-                    'text' => "Server-side upload and extraction for source code, text, logs, JSON, CSV, configuration files, scripts, markup, and other technical documents.",
+                    'title' => 'FILE UPLOAD AND ANALYSIS',
+                    'text' => "Server-side upload, validation, textual extraction, local storage, and prompt-context injection for source code, logs, JSON, CSV, configuration files, scripts, markup, and technical documents.",
                 ],
                 [
                     'title' => 'LOCAL WEB SEARCH',
-                    'text' => "Locally hosted SearXNG search with controlled result extraction, source URLs, contextual prompt injection, and optional automatic search before generation.",
+                    'text' => "Locally hosted SearXNG search with result filtering, source URL extraction, contextual prompt injection, and an explicit WEB OFF or WEB ON operating mode.",
                 ],
                 [
                     'title' => 'SOURCE-AWARE ANSWERS',
-                    'text' => "Search results can be transformed into structured model context so that web-assisted answers can include the original source URLs.",
+                    'text' => "Selected web results are transformed into structured model context so that locally generated answers can retain and display the original source URLs.",
                 ],
                 [
                     'title' => 'LOCAL VOICE SYNTHESIS',
-                    'text' => "Piper neural text-to-speech generation with browser playback, manual speech controls, automatic voice mode, WAV output, and eSpeak NG fallback.",
+                    'text' => "Piper neural text-to-speech with browser playback, manual SPEAK controls, VOICE OFF or VOICE ON automatic playback, local WAV generation, and eSpeak NG fallback.",
                 ],
                 [
                     'title' => 'SPEECH TEXT CLEANING',
-                    'text' => "Displayed technical answers remain complete while code blocks, URLs, commands, paths, and source lists can be removed from the spoken version.",
+                    'text' => "Displayed technical answers remain complete while URLs, source lists, code blocks, commands, paths, and other technical noise are removed from the spoken version.",
                 ],
                 [
                     'title' => 'CUSTOM LLM PROFILES',
-                    'text' => "Profile creation, editing, JSON preview, storage, activation, runtime selection, listing, and deletion for specialized assistant behavior.",
+                    'text' => "Profile creation, editing, JSON preview, server-side storage, activation, runtime selection, listing, deletion, and session-level application for specialized assistant behavior.",
                 ],
                 [
                     'title' => 'CUSTOM SYSTEM PROMPT',
-                    'text' => "Direct control over assistant identity, language, formatting, technical depth, task boundaries, response style, and domain-specific behavior.",
+                    'text' => "Direct control over assistant identity, language, formatting, technical depth, task boundaries, priorities, response style, and domain-specific behavior.",
                 ],
                 [
                     'title' => 'GIT-RAG',
-                    'text' => "Optional local repository retrieval with repository selection, file inventory, text and binary classification, readiness status, and contextual source-code queries.",
+                    'text' => "Optional local repository retrieval and controlled Git workspace operations including repository selection, file reading, editing with backup, status, diff, commit, push, fast-forward-only pull, reindexing, and chat-context injection.",
                 ],
                 [
                     'title' => 'RUNTIME STATUS',
-                    'text' => "Application, model, service, endpoint, and health information exposed through local APIs and standard Linux diagnostic tools.",
+                    'text' => "Application, model, endpoint, service, repository, and health information exposed through local APIs, systemd supervision, logs, and standard Linux diagnostic tools.",
                 ],
                 [
                     'title' => 'LOCAL STORAGE',
-                    'text' => "Uploaded files, profiles, generated voice files, repository metadata, and application state remain on operator-controlled storage.",
+                    'text' => "Uploaded files, profiles, generated voice files, repository metadata, indexes, backups, and application state remain on operator-controlled storage.",
                 ],
             ],
         ],
-
         [
             'id' => 'local-chat',
             'title' => '6. LOCAL CHAT AND MODEL CONTROL',
@@ -229,50 +228,46 @@ ARCHITECTURE,
             'title' => '8. WEB SEARCH AND SOURCE CONTEXT',
             'paragraphs' => [
                 "A local language model cannot independently retrieve current information. KUZAI AI uses a locally hosted SearXNG instance to provide controlled web-assisted research.",
-                "The search API receives the query, requests results from SearXNG, extracts titles, URLs, summaries, and engine information, then injects the selected results into the local model context.",
-                "Final answer generation remains local, even when external search engines are used to retrieve current information.",
-                "Web mode is explicit. When disabled, generation uses only local model knowledge and locally available context. When enabled, the application can run search automatically before sending the final prompt.",
+                "The search API receives the query, requests results from SearXNG, extracts titles, URLs, summaries, and engine information, then makes the selected results available as optional model context.",
+                "WEB OFF keeps the request inside local model knowledge, uploaded files, active profiles, conversation history, and any other locally selected context.",
+                "WEB ON automatically performs web search before final generation, displays the selected sources, and injects their context into the request sent to llama.cpp.",
+                "Search traffic may reach external search engines, but final answer generation remains local.",
             ],
-            'code' => <<<'SEARCH'
-USER QUERY
-    |
-    v
-KUZAI WEB SEARCH API
-    |
-    v
-LOCAL SEARXNG INSTANCE
-    |
-    v
-RESULT FILTERING AND SOURCE EXTRACTION
-    |
-    v
-CONTEXT INJECTION
-    |
-    v
-LOCAL MODEL GENERATION
-SEARCH,
+            'items' => [
+                "Explicit WEB OFF and WEB ON mode.",
+                "Automatic search before generation when WEB ON is active.",
+                "Locally hosted SearXNG integration.",
+                "Result title, URL, excerpt, and engine extraction.",
+                "Controlled result limits.",
+                "Source URL preservation.",
+                "Prompt-context injection.",
+                "Local fallback when automatic web search fails.",
+                "Final inference through the local llama.cpp runtime.",
+            ],
         ],
-
         [
             'id' => 'voice',
             'title' => '9. LOCAL VOICE SYNTHESIS',
             'paragraphs' => [
                 "KUZAI AI includes a local speech pipeline that converts assistant responses into WAV audio without using a remote text-to-speech provider.",
-                "Piper is used as the primary neural TTS engine. eSpeak NG remains available as a fallback when Piper cannot generate a valid audio file.",
-                "The browser can request speech manually or play assistant answers automatically when voice mode is enabled.",
+                "Piper is the primary neural TTS engine. The validated reference voice is en_US-lessac-high. eSpeak NG remains available as a local fallback when Piper cannot generate a valid audio file.",
+                "The browser can request speech manually through SPEAK controls or play assistant answers automatically when VOICE ON is enabled.",
+                "Displayed answers remain complete, while the spoken version is cleaned to remove code blocks, URLs, source lists, commands, paths, and other technical content that should not be read aloud.",
             ],
             'items' => [
                 "Manual SPEAK control for assistant responses.",
-                "Automatic VOICE ON and VOICE OFF modes.",
+                "VOICE OFF and VOICE ON automatic playback modes.",
                 "STOP AUDIO playback control.",
-                "Local WAV generation and delivery.",
+                "Local WAV generation and browser delivery.",
+                "Piper en_US-lessac-high reference voice.",
+                "eSpeak NG en-us+f4 fallback voice.",
                 "Unique audio identifiers.",
                 "Temporary audio-file cleanup.",
-                "Text normalization before synthesis.",
-                "Removal of commands, URLs, code blocks, and technical noise from spoken text.",
+                "Speech-specific text normalization.",
+                "Removal of URLs, source lists, commands, paths, code blocks, and technical noise.",
+                "Local browser-state persistence for voice mode.",
             ],
         ],
-
         [
             'id' => 'profiles',
             'title' => '10. CUSTOM PROFILES AND SYSTEM PROMPTS',
@@ -297,43 +292,54 @@ SEARCH,
             'id' => 'git-rag',
             'title' => '11. GIT-RAG REPOSITORY ANALYSIS',
             'paragraphs' => [
-                "Git-RAG is an optional local retrieval module designed to connect the assistant to source repositories cloned on the controlled infrastructure.",
-                "The module can expose repository selection, active branch information, repository readiness, file lists, file sizes, and text or binary classification.",
-                "Retrieved repository content can be injected into the chat context so that the model answers questions using the selected codebase rather than relying only on its training data.",
-                "Git-RAG is designed as an independent local microservice. The main KUZAI AI application remains operational when the retrieval service is unavailable.",
-                "Embedding strategy, indexing quality, branch management, repository synchronization, and source attribution remain active development areas.",
+                "Git-RAG is an optional local retrieval and repository workspace module designed to connect the assistant to source repositories cloned on controlled infrastructure.",
+                "The service exposes repository selection, active branch information, readiness status, file inventory, file sizes, text or binary classification, file reading, controlled editing, and timestamped backups before modification.",
+                "Repository content is indexed locally and can be retrieved through local embeddings generated by the llama.cpp embeddings endpoint. Selected source context is then injected into the chat request.",
+                "Validated Git operations include status, diff, commit, push, fast-forward-only pull, and explicit reindexing. Write operations remain deliberate and separate from ordinary chat requests.",
+                "Git-RAG runs as an independent local microservice. The main KUZAI AI application remains operational when the repository service is disabled or unavailable.",
             ],
             'items' => [
-                "Public and private local repositories.",
-                "SSH-based repository access.",
-                "Repository file inventory.",
+                "Whitelisted public and private local repositories.",
+                "SSH-based repository access under operator-controlled credentials.",
+                "Single active repository workspace.",
+                "Active branch and repository readiness information.",
+                "Repository file inventory and source classification.",
                 "Code, Markdown, text, JSON, YAML, configuration, and log indexing.",
-                "Single active repository context.",
-                "Local query API.",
-                "Optional repository status and pull operations.",
-                "Future commit and push workflow integration.",
+                "Local file reading.",
+                "Controlled file editing with timestamped backup.",
+                "Git status and diff inspection.",
+                "Explicit commit operations with operator-defined messages.",
+                "Explicit push operations.",
+                "Fast-forward-only pull operations.",
+                "Manual repository reindexing.",
+                "Local embedding generation through llama.cpp.",
+                "Repository context injection into chat requests.",
+                "Independent local service on 127.0.0.1:8890.",
             ],
         ],
-
         [
             'id' => 'runtime',
-            'title' => '12. RUNTIME AND SERVICE CONTROL',
+            'title' => '12. RUNTIME STATUS AND SERVICE SUPERVISION',
             'paragraphs' => [
-                "KUZAI AI exposes local status information for the application, configured model, active model, inference server, PHP runtime, and supporting services.",
-                "The infrastructure uses systemd for service supervision, automatic restart, startup management, status inspection, and journal-based diagnostics.",
+                "KUZAI AI exposes local status information for the application, configured model, active model, inference endpoint, web-search service, Git-RAG service, PHP runtime, voice pipeline, and supporting infrastructure.",
+                "The runtime interface is primarily a supervision and diagnostic layer. It does not imply unrestricted remote administration of the host.",
+                "systemd provides startup management, dependency handling, automatic restart, service status inspection, and journal-based diagnostics.",
             ],
             'items' => [
-                "llama.cpp health and model checks.",
-                "SearXNG service verification.",
-                "Piper and TTS validation.",
+                "llama.cpp health, endpoint, and active-model checks.",
+                "Inference service verification on 127.0.0.1:8080.",
+                "SearXNG verification on 127.0.0.1:8888.",
+                "Git-RAG verification on 127.0.0.1:8890.",
+                "Piper and eSpeak NG TTS validation.",
                 "PHP syntax checking.",
                 "Apache configuration testing.",
-                "HTTP and JSON endpoint testing.",
-                "systemd status and journal inspection.",
+                "HTTP endpoint and JSON response testing.",
+                "systemd unit status inspection.",
+                "journalctl service-log inspection.",
                 "Application version and environment information.",
+                "Repository readiness and indexing status.",
             ],
         ],
-
         [
             'id' => 'data-flow',
             'title' => '13. COMPLETE REQUEST DATA FLOW',
@@ -373,44 +379,59 @@ DATAFLOW,
             'id' => 'privacy',
             'title' => '14. PRIVACY AND SECURITY MODEL',
             'paragraphs' => [
-                "Local inference reduces the need to transmit prompts, documents, code, and private context to an external AI API.",
-                "Local deployment does not automatically guarantee security. The operator remains responsible for operating-system hardening, authentication, network exposure, firewall rules, storage permissions, repository credentials, backups, logging, software updates, and model licensing.",
-                "External network traffic can still occur when web search is enabled, repositories are pulled, packages are installed, or models are downloaded.",
+                "Local inference reduces the need to transmit prompts, documents, source code, repository context, and private operational data to an external AI API.",
+                "Local deployment does not automatically guarantee security. The operator remains responsible for operating-system hardening, authentication, network exposure, firewall rules, filesystem permissions, repository credentials, backups, logs, software updates, and model licensing.",
+                "External traffic can still occur when web search is enabled, repositories are pulled or pushed, packages are installed, or models are downloaded.",
+                "Git-RAG write operations require particular attention because an edit, commit, push, or synchronization operation can modify a working tree or remote repository.",
             ],
             'items' => [
-                "Bind internal model and search endpoints to loopback or a private network.",
-                "Restrict access to application storage and repository credentials.",
-                "Protect non-local web access with authentication and TLS.",
-                "Review logs and service status regularly.",
+                "Bind internal model, search, and Git-RAG endpoints to loopback or a trusted private network.",
+                "Protect public access with authentication, TLS, and appropriate reverse-proxy rules.",
+                "Use an explicit repository whitelist.",
+                "Run repository operations under a dedicated service account where possible.",
+                "Apply least-privilege filesystem and SSH permissions.",
+                "Protect private keys, access tokens, and repository credentials.",
+                "Require explicit operator actions for edit, commit, push, and pull operations.",
+                "Create timestamped backups before modifying repository files.",
+                "Use fast-forward-only pulls to avoid implicit merge operations.",
+                "Review status and diff output before commit or push.",
                 "Separate public presentation services from private AI runtime services.",
-                "Apply controlled backup and retention policies.",
+                "Review application logs, service journals, and repository activity.",
+                "Apply controlled backup, retention, and restoration policies.",
                 "Validate every optional external integration.",
             ],
         ],
-
         [
             'id' => 'deployment',
             'title' => '15. DEPLOYMENT STACK',
             'code' => <<<'STACK'
-OPERATING SYSTEM     LINUX
+OPERATING SYSTEM     UBUNTU 24.04 LTS / LINUX
 WEB SERVER           APACHE2
-BACKEND              PHP
+BACKEND              PHP 8.4
 FRONTEND             HTML / CSS / JAVASCRIPT
-LLM RUNTIME          LLAMA.CPP
+LLM RUNTIME          LLAMA.CPP OPENAI-COMPATIBLE API
+REFERENCE MODEL      QWEN3-8B Q5_K_M
 MODEL FORMAT         GGUF
+INFERENCE ENDPOINT   127.0.0.1:8080
+EMBEDDINGS           LLAMA.CPP /V1/EMBEDDINGS
 WEB SEARCH           SEARXNG
+SEARCH ENDPOINT      127.0.0.1:8888
+GIT-RAG SERVICE      LOCAL PYTHON MICROSERVICE
+GIT-RAG ENDPOINT     127.0.0.1:8890
 VOICE ENGINE         PIPER TTS
+REFERENCE VOICE      EN_US-LESSAC-HIGH
 VOICE FALLBACK       ESPEAK NG
 SERVICE CONTROL      SYSTEMD
 LOCAL STORAGE        FILESYSTEM
-REPOSITORY LAYER     GIT + LOCAL GIT-RAG SERVICE
+REPOSITORY LAYER     GIT + LOCAL INDEXES + BACKUPS
 STACK,
             'paragraphs' => [
                 "The application can run on a workstation, development computer, dedicated GPU host, private LAN server, or small organizational infrastructure.",
-                "Performance depends on the selected model, context size, quantization, CPU, RAM, GPU, VRAM, storage, and runtime parameters.",
+                "The reference deployment uses Ubuntu, Apache, PHP, llama.cpp, SearXNG, Piper, Git, and an independent local Git-RAG service.",
+                "Performance depends on the selected model, context size, quantization, CPU, RAM, GPU, VRAM, storage, embedding workload, and runtime parameters.",
+                "The listed model and endpoints describe the validated reference installation. Components remain replaceable.",
             ],
         ],
-
         [
             'id' => 'use-cases',
             'title' => '16. USE CASES',
@@ -433,50 +454,57 @@ STACK,
             'id' => 'limitations',
             'title' => '17. CURRENT LIMITATIONS',
             'paragraphs' => [
-                "KUZAI AI is an evolving beta project. Owning the stack also means owning its validation, operation, security, maintenance, and technical debt.",
+                "KUZAI AI is an evolving beta project. Owning the stack also means owning its validation, operation, security, maintenance, permissions, backups, and technical debt.",
             ],
             'items' => [
-                "Performance remains constrained by local hardware.",
-                "Response quality depends on the selected model and quantization.",
-                "The current file pipeline is primarily designed for text-compatible formats.",
-                "Web sources do not eliminate hallucinations or interpretation errors.",
-                "Git-RAG quality depends on indexing, embeddings, chunking, and retrieval strategy.",
+                "Inference performance remains constrained by local hardware.",
+                "Response quality depends on the selected model, context size, prompt structure, and quantization.",
+                "The current upload pipeline is primarily designed for text-compatible formats.",
+                "Web sources do not eliminate hallucinations, outdated information, or interpretation errors.",
+                "Git-RAG quality depends on index freshness, embeddings, chunking, retrieval strategy, and source selection.",
+                "The current Git-RAG workflow is centered on one active repository context.",
+                "Multi-branch comparison and combined multi-repository retrieval remain limited.",
+                "Repository write operations require appropriate permissions, review, backups, and operator discipline.",
                 "The base installation does not provide universal multi-user isolation.",
                 "Authentication and hardening depend on the deployment environment.",
-                "The platform requires active system administration and maintenance.",
-                "Feature parity with large commercial platforms is not guaranteed.",
+                "The platform requires active Linux system administration and maintenance.",
+                "Feature parity with large commercial AI platforms is not guaranteed.",
             ],
         ],
-
         [
             'id' => 'roadmap',
             'title' => '18. DEVELOPMENT ROADMAP',
             'items' => [
-                "Stabilized local embedding services.",
-                "Improved Git-RAG indexing and source attribution.",
-                "Repository branch and synchronization workflows.",
+                "Incremental repository indexing.",
+                "Automatic detection of modified, added, and deleted repository files.",
+                "Improved source attribution and retrieved-chunk traceability.",
+                "Combined context from multiple repositories.",
+                "Multi-branch repository navigation and comparison.",
+                "Read-only and write-enabled repository permission profiles.",
+                "Approval gates before edit, commit, push, or synchronization operations.",
+                "Improved embedding, chunking, ranking, and retrieval evaluation.",
                 "PDF and office-document extraction.",
                 "Persistent server-side conversation history.",
                 "Local long-term memory modules.",
                 "Profile import and export.",
-                "Authentication and access-control layers.",
+                "Authentication and role-based access control.",
                 "Model selection through the browser interface.",
-                "GPU, memory, and runtime monitoring.",
+                "GPU, VRAM, memory, context, and runtime monitoring.",
                 "Conversation export in Markdown and JSON.",
                 "Support for additional local inference runtimes.",
-                "Optional tool execution with explicit permissions.",
+                "Sandboxed tool execution with explicit permissions.",
                 "Controlled agentic workflows.",
                 "Multi-node local AI orchestration.",
             ],
         ],
-
         [
             'id' => 'conclusion',
             'title' => '19. CONCLUSION',
             'paragraphs' => [
-                "KUZAI AI transforms local model inference into a complete local AI environment.",
-                "It combines local chat, replaceable models, file analysis, controlled web search, source context, local voice synthesis, custom system prompts, reusable profiles, repository retrieval, runtime monitoring, local storage, and modular service architecture.",
-                "The central objective is not to freeze every component. The objective is to ensure that every component can remain understandable, replaceable, auditable, and controlled by the operator.",
+                "KUZAI AI transforms local model inference into a complete and independently operated local AI environment.",
+                "It combines local chat, replaceable GGUF models, file upload and analysis, controlled web search, source-aware answers, local voice synthesis, custom profiles, system-prompt control, Git-RAG retrieval, controlled repository operations, runtime supervision, and local storage.",
+                "Its modular architecture keeps the model runtime, search engine, voice engine, repository service, web interface, and storage layers understandable and replaceable.",
+                "The objective is not to freeze every component. The objective is to ensure that each component can remain auditable, maintainable, replaceable, and controlled by the operator.",
             ],
             'quote' => "KUZAI AI is not only a local chatbot. It is a foundation for independently operated AI infrastructure.",
         ],

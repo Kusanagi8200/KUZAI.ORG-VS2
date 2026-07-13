@@ -20,3 +20,5 @@ public/docs/*.tar.gz
 
 node_modules/
 vendor/
+
+/var/visits.sqlite

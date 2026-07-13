@@ -83,7 +83,7 @@ $visitCountDisplay = $visitCount !== null
 
             <div class="header-title-block" aria-label="Project title">
                 <h1 class="header-title-block__title">KUZAI - THE LOCAL AI</h1>
-                <p class="header-title-block__meta">A KUZ NETWORK SOLUTION - BETA-0.01.2026</p>
+                <p class="header-title-block__meta">A KUZ NETWORK SOLUTION - BETA-0.03.2026</p>
             </div>
 
             <div class="site-header__right-spacer" aria-hidden="true"></div>
@@ -685,7 +685,7 @@ $visitCountDisplay = $visitCount !== null
 
                     <span class="menu-brand__copy">
                         <span class="menu-brand__title">KUZAI</span>
-                        <span class="menu-brand__main">A KUZ NETWORK SOLUTION - BETA-0.01.2026</span>
+                        <span class="menu-brand__main">A KUZ NETWORK SOLUTION - BETA-0.03.2026</span>
                         <span class="menu-brand__sub">/ OFFICIAL PROJECT WEBSITE /</span>
                     </span>
                 </a>
