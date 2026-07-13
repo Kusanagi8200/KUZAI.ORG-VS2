@@ -16,4 +16,12 @@ return [
         'meta_description' => 'KUZAI AI white paper: local inference, file analysis, web search, local voice synthesis, custom profiles, Git-RAG, privacy, and modular infrastructure.',
         'whitepaper' => $whitePaper,
     ],
+
+
+    'application-demo' => [
+        'title' => 'KUZAI AI / APPLICATION DEMO',
+        'kicker' => '',
+        'meta_description' => 'KUZAI AI application demonstration page.',
+        'body' => '',
+    ],
 ];

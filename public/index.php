@@ -66,9 +66,9 @@ $visitCountDisplay = $visitCount !== null
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="application-name" content="<?= h($siteName) ?>">
     <meta name="theme-color" content="#000000">
-    <link rel="stylesheet" href="assets/css/style.css?v=127">
+    <link rel="stylesheet" href="assets/css/style.css?v=147">
 </head>
-<body class="page-<?= h($currentPage) ?>">
+<body class="page-<?= h($currentPage) ?><?= $currentPage === 'application-demo' ? ' page-kuz-network' : '' ?>">
     <div class="site-shell">
         <header class="site-header" aria-label="Main header">
             <a class="brand-mark" href="<?= h(pageUrl('home')) ?>" aria-label="Back to home">
@@ -133,7 +133,7 @@ $visitCountDisplay = $visitCount !== null
 
                             <a
                                 class="home-nav__item home-nav__item--direct"
-                                href="https://kuzai.org"
+                                href="<?= h(pageUrl('application-demo')) ?>"
                             >
                                 <span>APPLICATION DEMO</span>
                             </a>
@@ -643,9 +643,13 @@ $visitCountDisplay = $visitCount !== null
                             </div>
                         </article>
                     <?php else: ?>
-                        <p class="content-page__body">
-                            <?= h((string) ($page['body'] ?? 'Content will be added later.')) ?>
-                        </p>
+                        <?php $pageBody = trim((string) ($page['body'] ?? '')); ?>
+
+                        <?php if ($pageBody !== ''): ?>
+                            <p class="content-page__body">
+                                <?= h($pageBody) ?>
+                            </p>
+                        <?php endif; ?>
                     <?php endif; ?>
 
                     <?php if (!empty($page['link'])): ?>
@@ -698,6 +702,10 @@ $visitCountDisplay = $visitCount !== null
             <nav class="modal-nav" aria-label="Modal navigation">
                 <a class="modal-nav__item" href="<?= h(pageUrl('kuz-network')) ?>">
                     KUZAI AI / WHITE PAPER
+                </a>
+
+                <a class="modal-nav__item" href="<?= h(pageUrl('application-demo')) ?>">
+                    APPLICATION DEMO
                 </a>
 
                 <a class="modal-nav__item" href="<?= h($githubUrl) ?>" target="_blank" rel="noopener noreferrer">

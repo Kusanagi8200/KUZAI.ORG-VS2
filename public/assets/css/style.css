@@ -4103,3 +4103,84 @@ a {
 }
 
 /* STEP-128-DEPLOYMENT-ITEM-ARROW END */
+
+/* STEP-146-HEADER-FIXED-HEIGHT START */
+
+/*
+ * Identical header dimensions on every page.
+ * Prevent content or page-specific inheritance from increasing
+ * the upper banner height.
+ */
+.site-header {
+    height: 118px !important;
+    min-height: 118px !important;
+    max-height: 118px !important;
+
+    margin-top: 0 !important;
+    margin-bottom: 28px !important;
+
+    box-sizing: border-box !important;
+}
+
+/* Keep all three internal columns constrained to the banner. */
+.site-header .brand-mark,
+.site-header .header-title-block,
+.site-header .site-header__right-spacer {
+    max-height: 100% !important;
+}
+
+/* STEP-146-HEADER-FIXED-HEIGHT END */
+
+/* STEP-147-DEMO-TOP-ALIGNMENT START */
+
+/*
+ * Prevent the empty Demo page from being vertically centered.
+ * Reproduce the exact White Paper title starting position.
+ */
+body.page-application-demo.page-kuz-network .site-shell {
+    grid-template-rows: auto auto auto !important;
+    align-content: start !important;
+}
+
+body.page-application-demo.page-kuz-network .site-main {
+    display: block !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+}
+
+body.page-application-demo.page-kuz-network .content-page {
+    display: block !important;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+
+    margin: 0 !important;
+    padding: 42px 0 28px !important;
+
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    align-content: start !important;
+
+    text-align: left !important;
+}
+
+body.page-application-demo.page-kuz-network
+.content-page__title {
+    width: 100% !important;
+    margin: 0 0 30px !important;
+}
+
+@media (max-width: 760px) {
+    body.page-application-demo.page-kuz-network
+    .content-page {
+        padding-top: 26px !important;
+        padding-bottom: 28px !important;
+    }
+}
+
+/* STEP-147-DEMO-TOP-ALIGNMENT END */
