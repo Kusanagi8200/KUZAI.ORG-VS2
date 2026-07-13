@@ -66,7 +66,7 @@ $visitCountDisplay = $visitCount !== null
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="application-name" content="<?= h($siteName) ?>">
     <meta name="theme-color" content="#000000">
-    <link rel="stylesheet" href="assets/css/style.css?v=147">
+    <link rel="stylesheet" href="assets/css/style.css?v=148">
 </head>
 <body class="page-<?= h($currentPage) ?><?= $currentPage === 'application-demo' ? ' page-kuz-network' : '' ?>">
     <div class="site-shell">
@@ -255,7 +255,36 @@ $visitCountDisplay = $visitCount !== null
                         <?= h((string) $page['title']) ?>
                     </h1>
 
-                    <?php if (!empty($page['whitepaper']) && is_array($page['whitepaper'])): ?>
+                    <?php if (
+                        !empty($page['application_demo'])
+                        && is_array($page['application_demo'])
+                    ): ?>
+                        <?php
+                            $applicationDemo = $page['application_demo'];
+                        ?>
+
+                        <article class="application-demo-preview">
+                            <p class="application-demo-preview__text">
+                                <?= h((string) ($applicationDemo['presentation'] ?? '')) ?>
+                            </p>
+
+                            <a
+                                class="application-demo-preview__link"
+                                href="#"
+                                aria-disabled="true"
+                                onclick="return false;"
+                            >
+                                <span>
+                                    <?= h((string) ($applicationDemo['link_label'] ?? 'GO TO APPLICATION DEMO')) ?>
+                                </span>
+
+                                <small>
+                                    <?= h((string) ($applicationDemo['link_status'] ?? 'COMING SOON')) ?>
+                                </small>
+                            </a>
+                        </article>
+
+                    <?php elseif (!empty($page['whitepaper']) && is_array($page['whitepaper'])): ?>
                         <?php
                             $whitepaper = $page['whitepaper'];
 

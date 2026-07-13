@@ -22,6 +22,10 @@ return [
         'title' => 'KUZAI AI / APPLICATION DEMO',
         'kicker' => '',
         'meta_description' => 'KUZAI AI application demonstration page.',
-        'body' => '',
+        'application_demo' => [
+            'presentation' => 'A PUBLIC AND NAVIGABLE DEMONSTRATION OF THE KUZAI AI INTERFACE IS CURRENTLY IN PREPARATION. THE FUTURE VERSION WILL ALLOW VISITORS TO EXPLORE THE APPLICATION INTERFACE, OPEN ITS MENUS, AND DISCOVER ITS MAIN MODULES WITHOUT ACCESSING THE PRIVATE LOCAL MODEL OR INTERNAL INFRASTRUCTURE.',
+            'link_label' => 'GO TO APPLICATION DEMO',
+            'link_status' => 'COMING SOON',
+        ],
     ],
 ];
