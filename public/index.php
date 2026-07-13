@@ -66,7 +66,7 @@ $visitCountDisplay = $visitCount !== null
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="application-name" content="<?= h($siteName) ?>">
     <meta name="theme-color" content="#000000">
-    <link rel="stylesheet" href="assets/css/style.css?v=105">
+    <link rel="stylesheet" href="assets/css/style.css?v=112">
 </head>
 <body class="page-<?= h($currentPage) ?>">
     <div class="site-shell">
@@ -269,12 +269,6 @@ $visitCountDisplay = $visitCount !== null
                                 <p class="white-paper__lead">
                                     <?= h((string) $whitepaper['intro']) ?>
                                 </p>
-                            <?php endif; ?>
-
-                            <?php if (!empty($whitepaper['statement'])): ?>
-                                <blockquote class="white-paper__statement">
-                                    <?= h((string) $whitepaper['statement']) ?>
-                                </blockquote>
                             <?php endif; ?>
 
                             <?php if (!empty($whitepaper['meta']) && is_array($whitepaper['meta'])): ?>

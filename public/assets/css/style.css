@@ -2741,3 +2741,785 @@ a {
 }
 
 /* STEP-103-DYNAMIC-HOME-MENU END */
+
+/* STEP-106-WHITEPAPER-HOME-STYLE START */
+
+/* =========================================================
+   GLOBAL WHITE PAPER LAYOUT
+   ========================================================= */
+
+.page-kuz-network .content-page {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    padding: 42px 0 28px !important;
+    display: block !important;
+    text-align: left !important;
+}
+
+.page-kuz-network .white-paper {
+    width: 100%;
+    max-width: none;
+    color: var(--text-main);
+}
+
+/* =========================================================
+   SHARED DYNAMIC BACKGROUND
+   ========================================================= */
+
+.page-kuz-network .content-page__title,
+.page-kuz-network .white-paper__lead,
+.page-kuz-network .white-paper__statement,
+.page-kuz-network .white-paper__meta-item,
+.page-kuz-network .white-paper__toc-title,
+.page-kuz-network .white-paper__toc-grid a,
+.page-kuz-network .white-paper__section h2,
+.page-kuz-network .white-paper__feature,
+.page-kuz-network .white-paper__list li,
+.page-kuz-network .white-paper__quote,
+.page-kuz-network .white-paper__diagram,
+.page-kuz-network .button-secondary {
+    background-color: #000000 !important;
+    background-image: linear-gradient(#ffffff, #ffffff) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0 100% !important;
+
+    transition:
+        background-size 340ms ease,
+        color 260ms ease,
+        border-color 300ms ease,
+        letter-spacing 300ms ease,
+        padding-left 300ms ease !important;
+}
+
+.page-kuz-network .content-page__title:hover,
+.page-kuz-network .white-paper__lead:hover,
+.page-kuz-network .white-paper__statement:hover,
+.page-kuz-network .white-paper__meta-item:hover,
+.page-kuz-network .white-paper__toc-title:hover,
+.page-kuz-network .white-paper__toc-grid a:hover,
+.page-kuz-network .white-paper__section:hover h2,
+.page-kuz-network .white-paper__feature:hover,
+.page-kuz-network .white-paper__list li:hover,
+.page-kuz-network .white-paper__quote:hover,
+.page-kuz-network .white-paper__diagram:hover,
+.page-kuz-network .button-secondary:hover,
+.page-kuz-network .button-secondary:focus-visible {
+    background-size: 100% 100% !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+/* Ensure internal text follows the inverted state. */
+.page-kuz-network .white-paper__statement:hover *,
+.page-kuz-network .white-paper__meta-item:hover *,
+.page-kuz-network .white-paper__feature:hover *,
+.page-kuz-network .white-paper__list li:hover *,
+.page-kuz-network .white-paper__quote:hover *,
+.page-kuz-network .white-paper__diagram:hover * {
+    color: #000000 !important;
+}
+
+/* =========================================================
+   MAIN TITLE
+   ========================================================= */
+
+.page-kuz-network .content-page__title {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 0 30px !important;
+    padding: 10px 48px 10px 0 !important;
+
+    border-top: 1px solid var(--border-soft) !important;
+    border-bottom: 1px solid var(--border-soft) !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+
+    color: #ffffff !important;
+    text-align: left !important;
+    text-transform: uppercase;
+
+    font-size: clamp(1.33rem, 2.31vw, 2.8rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.05em !important;
+    white-space: normal !important;
+}
+
+.page-kuz-network .content-page__title:hover {
+    padding-left: 16px !important;
+    letter-spacing: -0.035em !important;
+}
+
+/* =========================================================
+   INTRODUCTION AND STATEMENT
+   ========================================================= */
+
+.page-kuz-network .white-paper__lead {
+    width: 100%;
+    max-width: none !important;
+    margin: 0 0 20px !important;
+    padding: 12px 46px 12px 0 !important;
+
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+
+    color: var(--text-soft);
+    text-align: left !important;
+    font-size: clamp(0.95rem, 1.35vw, 1.55rem) !important;
+    line-height: 1.45 !important;
+}
+
+.page-kuz-network .white-paper__lead:hover {
+    padding-left: 16px !important;
+}
+
+.page-kuz-network .white-paper__statement {
+    width: 100%;
+    margin: 0 0 22px !important;
+    padding: 10px 18px !important;
+
+    border-top: 1px solid var(--border-soft) !important;
+    border-bottom: 1px solid var(--border-soft) !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+
+    color: #ffffff !important;
+    text-align: center !important;
+    font-size: clamp(1rem, 1.22vw, 1.34rem) !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.04em;
+}
+
+/* =========================================================
+   METADATA
+   ========================================================= */
+
+.page-kuz-network .white-paper__meta-grid {
+    width: 100%;
+    margin: 0 0 24px !important;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 8px 18px !important;
+}
+
+.page-kuz-network .white-paper__meta-item {
+    margin: 0;
+    padding: 12px 14px !important;
+
+    border-top: 1px solid var(--border-soft) !important;
+    border-bottom: 1px solid var(--border-soft) !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+
+    color: #ffffff;
+}
+
+.page-kuz-network .white-paper__meta-item dt {
+    margin: 0 0 6px !important;
+    color: var(--text-dim);
+    font-size: 0.7rem;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: color 260ms ease;
+}
+
+.page-kuz-network .white-paper__meta-item dd {
+    margin: 0;
+    color: var(--text-main);
+    font-size: 0.92rem;
+    line-height: 1.35;
+    transition: color 260ms ease;
+}
+
+/* =========================================================
+   TABLE OF CONTENTS
+   ========================================================= */
+
+.page-kuz-network .white-paper__toc {
+    width: 100%;
+    margin: 0 0 24px !important;
+    padding: 0 !important;
+
+    border-top: 1px solid var(--border-soft) !important;
+    border-bottom: 1px solid var(--border-soft) !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+
+    background: #000000 !important;
+}
+
+.page-kuz-network .white-paper__toc-title {
+    width: 100%;
+    margin: 0 !important;
+    padding: 10px 16px !important;
+
+    border-bottom: 1px solid var(--border-soft);
+
+    color: #ffffff;
+    font-size: clamp(1rem, 1.35vw, 1.55rem) !important;
+    line-height: 1;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase;
+}
+
+.page-kuz-network .white-paper__toc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0 18px !important;
+    padding: 0 !important;
+}
+
+.page-kuz-network .white-paper__toc-grid a {
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid var(--border-soft);
+
+    color: var(--text-soft) !important;
+    font-size: 0.88rem;
+    line-height: 1.25;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.page-kuz-network .white-paper__toc-grid a:hover {
+    padding-left: 24px;
+}
+
+/* =========================================================
+   MAIN SECTIONS
+   ========================================================= */
+
+.page-kuz-network .white-paper__sections {
+    display: grid;
+    gap: 22px !important;
+}
+
+.page-kuz-network .white-paper__section {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 0 24px !important;
+
+    border-top: 1px solid var(--border-soft) !important;
+    border-bottom: 1px solid var(--border-soft) !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+
+    background: #000000 !important;
+
+    transition: border-color 300ms ease;
+    scroll-margin-top: 30px;
+}
+
+.page-kuz-network .white-paper__section:hover {
+    border-top-color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+}
+
+.page-kuz-network .white-paper__section h2 {
+    width: 100%;
+    margin: 0 0 22px !important;
+    padding: 11px 48px 11px 0 !important;
+
+    border-bottom: 1px solid var(--border-soft);
+
+    color: #ffffff !important;
+    text-transform: uppercase;
+
+    font-size: clamp(1.33rem, 2.31vw, 2.8rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.045em !important;
+}
+
+.page-kuz-network .white-paper__section:hover h2 {
+    padding-left: 16px !important;
+    letter-spacing: -0.03em !important;
+}
+
+.page-kuz-network .white-paper__section > p {
+    margin: 0 18px 18px !important;
+    color: var(--text-soft) !important;
+    font-size: clamp(0.95rem, 1.12vw, 1.16rem) !important;
+    line-height: 1.7 !important;
+    text-align: left !important;
+}
+
+/* =========================================================
+   FEATURES AND LISTS
+   ========================================================= */
+
+.page-kuz-network .white-paper__feature-grid,
+.page-kuz-network .white-paper__list {
+    margin: 22px 18px 0 !important;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px 18px !important;
+}
+
+.page-kuz-network .white-paper__feature,
+.page-kuz-network .white-paper__list li {
+    margin: 0;
+    padding: 14px 16px !important;
+
+    border-top: 1px solid var(--border-soft) !important;
+    border-bottom: 1px solid var(--border-soft) !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+
+    background-color: #000000 !important;
+}
+
+.page-kuz-network .white-paper__feature:hover,
+.page-kuz-network .white-paper__list li:hover {
+    padding-left: 24px !important;
+}
+
+.page-kuz-network .white-paper__feature h3 {
+    margin: 0 0 8px !important;
+    color: #ffffff;
+    font-size: clamp(0.95rem, 1.35vw, 1.55rem) !important;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    transition: color 260ms ease;
+}
+
+.page-kuz-network .white-paper__feature p,
+.page-kuz-network .white-paper__list li {
+    color: var(--text-soft);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    transition: color 260ms ease;
+}
+
+.page-kuz-network .white-paper__list {
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+/* =========================================================
+   QUOTES AND DIAGRAMS
+   ========================================================= */
+
+.page-kuz-network .white-paper__quote,
+.page-kuz-network .white-paper__diagram {
+    margin: 22px 18px 0 !important;
+    padding: 16px 18px !important;
+
+    border-top: 1px solid var(--border-soft) !important;
+    border-bottom: 1px solid var(--border-soft) !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+
+    background-color: #000000 !important;
+    color: var(--text-soft) !important;
+}
+
+.page-kuz-network .white-paper__quote {
+    line-height: 1.55;
+}
+
+.page-kuz-network .white-paper__diagram {
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    font-family: monospace;
+    font-size: clamp(0.72rem, 0.95vw, 0.92rem) !important;
+    line-height: 1.5 !important;
+    white-space: pre;
+}
+
+/* =========================================================
+   BACK HOME
+   ========================================================= */
+
+.page-kuz-network .button-secondary {
+    width: 100%;
+    min-height: 54px;
+    margin: 30px 0 0 !important;
+    padding: 10px 16px !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-top: 1px solid var(--border-soft) !important;
+    border-bottom: 1px solid var(--border-soft) !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+
+    color: #ffffff !important;
+    font-size: clamp(1rem, 1.55vw, 1.8rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+}
+
+.page-kuz-network .button-secondary::after {
+    content: "-->";
+    margin-left: auto;
+    color: currentColor;
+}
+
+.page-kuz-network .button-secondary:hover {
+    padding-left: 24px !important;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1180px) {
+    .page-kuz-network .white-paper__meta-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .page-kuz-network .content-page__title,
+    .page-kuz-network .white-paper__section h2 {
+        font-size: clamp(1.015rem, 2.8vw, 1.82rem) !important;
+    }
+}
+
+@media (max-width: 760px) {
+    .page-kuz-network .content-page {
+        padding-top: 26px !important;
+    }
+
+    .page-kuz-network .content-page__title,
+    .page-kuz-network .white-paper__section h2 {
+        padding: 9px 36px 9px 0 !important;
+        font-size: clamp(0.9rem, 4.2vw, 1.4rem) !important;
+        line-height: 1.15 !important;
+    }
+
+    .page-kuz-network .white-paper__lead {
+        padding: 10px 34px 10px 0 !important;
+        font-size: clamp(0.82rem, 3.6vw, 1rem) !important;
+    }
+
+    .page-kuz-network .white-paper__meta-grid,
+    .page-kuz-network .white-paper__toc-grid,
+    .page-kuz-network .white-paper__feature-grid,
+    .page-kuz-network .white-paper__list {
+        grid-template-columns: 1fr !important;
+    }
+
+    .page-kuz-network .white-paper__section {
+        padding-bottom: 18px !important;
+    }
+
+    .page-kuz-network .white-paper__section > p,
+    .page-kuz-network .white-paper__feature-grid,
+    .page-kuz-network .white-paper__list,
+    .page-kuz-network .white-paper__quote,
+    .page-kuz-network .white-paper__diagram {
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+    }
+
+    .page-kuz-network .white-paper__feature,
+    .page-kuz-network .white-paper__list li {
+        padding: 12px !important;
+    }
+}
+
+/* STEP-106-WHITEPAPER-HOME-STYLE END */
+
+/* STEP-107-WHITEPAPER-TYPOGRAPHY START */
+
+/* Main page title and section titles:
+   same visual scale as the homepage statement banner. */
+.page-kuz-network .content-page__title,
+.page-kuz-network .white-paper__section h2 {
+    font-size: clamp(1.05rem, 1.48vw, 1.72rem) !important;
+    line-height: 1.12 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em !important;
+    text-transform: uppercase !important;
+}
+
+/* Secondary headings. */
+.page-kuz-network .white-paper__toc-title,
+.page-kuz-network .white-paper__feature h3 {
+    font-size: clamp(0.95rem, 1.25vw, 1.4rem) !important;
+    line-height: 1.15 !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+}
+
+/* All descriptive and supporting text. */
+.page-kuz-network .white-paper__lead,
+.page-kuz-network .white-paper__statement,
+.page-kuz-network .white-paper__meta-item dt,
+.page-kuz-network .white-paper__meta-item dd,
+.page-kuz-network .white-paper__toc-grid a,
+.page-kuz-network .white-paper__section > p,
+.page-kuz-network .white-paper__quote,
+.page-kuz-network .white-paper__feature p,
+.page-kuz-network .white-paper__list li,
+.page-kuz-network .white-paper__diagram {
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+}
+
+/* Preserve readability after uppercase conversion. */
+.page-kuz-network .white-paper__lead,
+.page-kuz-network .white-paper__section > p,
+.page-kuz-network .white-paper__quote,
+.page-kuz-network .white-paper__feature p,
+.page-kuz-network .white-paper__list li {
+    line-height: 1.6 !important;
+    letter-spacing: 0.015em;
+}
+
+.page-kuz-network .white-paper__toc-grid a,
+.page-kuz-network .white-paper__meta-item dd {
+    letter-spacing: 0.025em;
+}
+
+@media (max-width: 760px) {
+    .page-kuz-network .content-page__title,
+    .page-kuz-network .white-paper__section h2 {
+        font-size: clamp(0.92rem, 4vw, 1.25rem) !important;
+        line-height: 1.2 !important;
+    }
+
+    .page-kuz-network .white-paper__toc-title,
+    .page-kuz-network .white-paper__feature h3 {
+        font-size: clamp(0.84rem, 3.6vw, 1.08rem) !important;
+    }
+}
+
+/* STEP-107-WHITEPAPER-TYPOGRAPHY END */
+
+/* STEP-108-WHITEPAPER-SPACING START */
+
+/* Compact spacing around introductory text. */
+.page-kuz-network .white-paper__lead {
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+
+/* Start the document sections with a clear 40px separation. */
+.page-kuz-network .white-paper__sections {
+    margin-top: 40px !important;
+    gap: 40px !important;
+}
+
+/* Compact section title spacing. */
+.page-kuz-network .white-paper__section h2 {
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+
+/* Reduce space above and below body paragraphs. */
+.page-kuz-network .white-paper__section > p {
+    margin-top: 0 !important;
+    margin-bottom: 9px !important;
+}
+
+/* Compact feature titles and descriptions. */
+.page-kuz-network .white-paper__feature h3 {
+    margin-top: 0 !important;
+    margin-bottom: 5px !important;
+}
+
+.page-kuz-network .white-paper__feature p {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Compact metadata text. */
+.page-kuz-network .white-paper__meta-item dt {
+    margin-top: 0 !important;
+    margin-bottom: 3px !important;
+}
+
+.page-kuz-network .white-paper__meta-item dd {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Compact contents list. */
+.page-kuz-network .white-paper__toc-title {
+    margin: 0 !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+
+.page-kuz-network .white-paper__toc-grid a {
+    min-height: 32px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+
+/* Reduce internal spacing before lists, cards, quotes and diagrams. */
+.page-kuz-network .white-paper__feature-grid,
+.page-kuz-network .white-paper__list {
+    margin-top: 12px !important;
+}
+
+.page-kuz-network .white-paper__quote,
+.page-kuz-network .white-paper__diagram {
+    margin-top: 12px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+/* STEP-108-WHITEPAPER-SPACING END */
+
+/* STEP-109-WHITEPAPER-QUOTE-TYPOGRAPHY START */
+
+.page-kuz-network .white-paper__quote {
+    width: calc(100% - 36px) !important;
+    margin-left: 18px !important;
+    margin-right: 18px !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center !important;
+    font-size: clamp(0.95rem, 1.12vw, 1.16rem) !important;
+    line-height: 1.6 !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+}
+
+@media (max-width: 760px) {
+    .page-kuz-network .white-paper__quote {
+        width: calc(100% - 20px) !important;
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+        font-size: clamp(0.82rem, 3.6vw, 1rem) !important;
+    }
+}
+
+/* STEP-109-WHITEPAPER-QUOTE-TYPOGRAPHY END */
+
+/* STEP-110-WHITEPAPER-SECTION-BOTTOM-LINE START */
+
+.page-kuz-network .white-paper__section {
+    border-bottom-width: 5px !important;
+    border-bottom-style: solid !important;
+    border-bottom-color: var(--border-soft) !important;
+
+    transition:
+        border-top-color 300ms ease,
+        border-bottom-color 300ms ease !important;
+}
+
+.page-kuz-network .white-paper__section:hover {
+    border-bottom-width: 5px !important;
+    border-bottom-color: #ffffff !important;
+}
+
+/* STEP-110-WHITEPAPER-SECTION-BOTTOM-LINE END */
+
+/* STEP-111-BACK-HOME-COMPACT START */
+
+.page-kuz-network .button-secondary {
+    min-height: 0 !important;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    line-height: 1.15 !important;
+}
+
+/* STEP-111-BACK-HOME-COMPACT END */
+
+/* STEP-112-WHITEPAPER-INVERTED-INTRO START */
+
+.page-kuz-network .content-page__title,
+.page-kuz-network .white-paper__lead {
+    position: relative !important;
+    z-index: 0;
+    overflow: hidden;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+
+    background: #ffffff !important;
+    color: #000000 !important;
+
+    border-top: 1px solid var(--border-soft) !important;
+    border-bottom: 1px solid var(--border-soft) !important;
+
+    transition:
+        color 260ms ease,
+        border-color 300ms ease,
+        letter-spacing 300ms ease,
+        transform 300ms ease !important;
+}
+
+.page-kuz-network .content-page__title {
+    margin: 0 0 30px 0 !important;
+    padding: 3px 18px !important;
+    text-align: left !important;
+}
+
+.page-kuz-network .white-paper__lead {
+    margin: 0 0 40px 0 !important;
+    padding: 3px 18px !important;
+    text-align: left !important;
+    line-height: 1.45 !important;
+}
+
+.page-kuz-network .content-page__title::before,
+.page-kuz-network .white-paper__lead::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: #000000;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 340ms ease;
+}
+
+.page-kuz-network .content-page__title:hover,
+.page-kuz-network .white-paper__lead:hover {
+    color: #ffffff !important;
+    border-top-color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+    letter-spacing: 0.01em !important;
+    transform: translateY(-1px);
+}
+
+.page-kuz-network .content-page__title:hover::before,
+.page-kuz-network .white-paper__lead:hover::before {
+    transform: scaleX(1);
+}
+
+@media (max-width: 760px) {
+    .page-kuz-network .content-page__title,
+    .page-kuz-network .white-paper__lead {
+        padding-top: 3px !important;
+        padding-bottom: 3px !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .page-kuz-network .content-page__title:hover,
+    .page-kuz-network .white-paper__lead:hover {
+        transform: none !important;
+    }
+}
+
+/* STEP-112-WHITEPAPER-INVERTED-INTRO END */
