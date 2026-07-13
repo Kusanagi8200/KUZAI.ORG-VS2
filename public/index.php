@@ -66,7 +66,7 @@ $visitCountDisplay = $visitCount !== null
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="application-name" content="<?= h($siteName) ?>">
     <meta name="theme-color" content="#000000">
-    <link rel="stylesheet" href="assets/css/style.css?v=112">
+    <link rel="stylesheet" href="assets/css/style.css?v=127">
 </head>
 <body class="page-<?= h($currentPage) ?>">
     <div class="site-shell">
@@ -292,8 +292,8 @@ $visitCountDisplay = $visitCount !== null
                             <?php endif; ?>
 
                             <?php if ($whitepaperSections): ?>
-                                <nav class="white-paper__toc" aria-label="White paper contents">
-                                    <p class="white-paper__toc-title">CONTENTS</p>
+                                <nav class="white-paper__toc" id="whitePaperContents" aria-label="White paper contents">
+                                    <p class="white-paper__toc-title">0. CONTENTS</p>
 
                                     <div class="white-paper__toc-grid">
                                         <?php foreach ($whitepaperSections as $section): ?>
@@ -336,7 +336,18 @@ $visitCountDisplay = $visitCount !== null
                                         <?php endif; ?>
                                     >
                                         <?php if ($sectionTitle !== ''): ?>
-                                            <h2><?= h($sectionTitle) ?></h2>
+                                            <h2 class="white-paper__section-title">
+                                                <span><?= h($sectionTitle) ?></span>
+
+                                                <a
+                                                    class="white-paper__section-back"
+                                                    href="#whitePaperContents"
+                                                    aria-label="Back to contents"
+                                                    title="Back to contents"
+                                                >
+                                                    ↑
+                                                </a>
+                                            </h2>
                                         <?php endif; ?>
 
                                         <?php if (!empty($section['paragraphs']) && is_array($section['paragraphs'])): ?>
@@ -379,8 +390,253 @@ $visitCountDisplay = $visitCount !== null
                                             </ul>
                                         <?php endif; ?>
 
-                                        <?php if (!empty($section['code'])): ?>
-                                            <pre class="white-paper__diagram"><code><?= h((string) $section['code']) ?></code></pre>
+                                        <?php if (($section['id'] ?? '') === 'architecture'): ?>
+                                            <div
+                                                class="architecture-text-flow"
+                                                aria-label="KUZAI local AI system flow"
+                                            >
+                                                <div class="architecture-text-flow__group">
+                                                    <p class="architecture-text-flow__title">
+                                                        MAIN REQUEST FLOW
+                                                    </p>
+
+                                                    <p class="architecture-text-flow__line">
+                                                        USER / BROWSER
+                                                        <span aria-hidden="true">→</span>
+                                                        KUZAI WEB INTERFACE
+                                                        <span aria-hidden="true">→</span>
+                                                        APACHE2 / PHP API
+                                                        <span aria-hidden="true">→</span>
+                                                        REQUEST CONTEXT ASSEMBLY
+                                                        <span aria-hidden="true">→</span>
+                                                        LOCAL LLAMA.CPP INFERENCE
+                                                        <span aria-hidden="true">→</span>
+                                                        TEXT RESPONSE
+                                                        <span aria-hidden="true">→</span>
+                                                        BROWSER DISPLAY / OPTIONAL LOCAL TTS
+                                                    </p>
+                                                </div>
+
+                                                <div class="architecture-text-flow__group">
+                                                    <p class="architecture-text-flow__title">
+                                                        OPTIONAL CONTEXT SOURCES
+                                                    </p>
+
+                                                    <p class="architecture-text-flow__line">
+                                                        CUSTOM LLM PROFILE
+                                                        <span aria-hidden="true">/</span>
+                                                        FILE UPLOAD CONTEXT
+                                                        <span aria-hidden="true">/</span>
+                                                        SEARXNG WEB SEARCH CONTEXT
+                                                        <span aria-hidden="true">/</span>
+                                                        GIT-RAG REPOSITORY CONTEXT
+                                                    </p>
+
+                                                    <p class="architecture-text-flow__note">
+                                                        OPTIONAL CONTEXT IS ADDED ONLY WHEN THE
+                                                        CORRESPONDING MODULE IS ENABLED OR SELECTED.
+                                                    </p>
+                                                </div>
+
+                                                <div class="architecture-text-flow__group">
+                                                    <p class="architecture-text-flow__title">
+                                                        LOCAL SUPPORTING SERVICES
+                                                    </p>
+
+                                                    <p class="architecture-text-flow__line">
+                                                        LLAMA.CPP — 127.0.0.1:8080
+                                                        <span aria-hidden="true">/</span>
+                                                        SEARXNG — 127.0.0.1:8888
+                                                        <span aria-hidden="true">/</span>
+                                                        GIT-RAG — 127.0.0.1:8890
+                                                        <span aria-hidden="true">/</span>
+                                                        PIPER TTS WITH ESPEAK FALLBACK
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        <?php elseif (($section['id'] ?? '') === 'web-search'): ?>
+                                            <div
+                                                class="architecture-text-flow web-search-text-flow"
+                                                aria-label="KUZAI web search and source context flow"
+                                            >
+                                                <div class="architecture-text-flow__group">
+                                                    <p class="architecture-text-flow__title">
+                                                        WEB SEARCH REQUEST FLOW
+                                                    </p>
+
+                                                    <p class="architecture-text-flow__line">
+                                                        USER QUERY
+                                                        <span aria-hidden="true">→</span>
+                                                        KUZAI WEB SEARCH API
+                                                        <span aria-hidden="true">→</span>
+                                                        LOCAL SEARXNG INSTANCE
+                                                        <span aria-hidden="true">→</span>
+                                                        RESULT FILTERING AND SOURCE EXTRACTION
+                                                        <span aria-hidden="true">→</span>
+                                                        OPTIONAL WEB CONTEXT
+                                                    </p>
+                                                </div>
+
+                                                <div class="architecture-text-flow__group">
+                                                    <p class="architecture-text-flow__title">
+                                                        SEARCH MODE
+                                                    </p>
+
+                                                    <p class="architecture-text-flow__line">
+                                                        WEB OFF
+                                                        <span aria-hidden="true">—</span>
+                                                        LOCAL MODEL KNOWLEDGE AND LOCAL CONTEXT ONLY
+                                                        <span aria-hidden="true">/</span>
+                                                        WEB ON
+                                                        <span aria-hidden="true">—</span>
+                                                        AUTOMATIC SEARCH BEFORE FINAL GENERATION
+                                                    </p>
+
+                                                    <p class="architecture-text-flow__note">
+                                                        WEB SEARCH IS OPTIONAL AND IS USED ONLY WHEN
+                                                        THE WEB MODE IS ENABLED.
+                                                    </p>
+                                                </div>
+
+                                                <div class="architecture-text-flow__group">
+                                                    <p class="architecture-text-flow__title">
+                                                        FINAL GENERATION
+                                                    </p>
+
+                                                    <p class="architecture-text-flow__line">
+                                                        LOCAL CONTEXT
+                                                        <span aria-hidden="true">+</span>
+                                                        OPTIONAL WEB CONTEXT
+                                                        <span aria-hidden="true">→</span>
+                                                        LOCAL LLAMA.CPP INFERENCE
+                                                        <span aria-hidden="true">→</span>
+                                                        TEXT RESPONSE WITH SOURCE URLS
+                                                    </p>
+
+                                                    <p class="architecture-text-flow__note">
+                                                        SEARCH RESULTS MAY COME FROM EXTERNAL ENGINES,
+                                                        BUT FINAL ANSWER GENERATION REMAINS LOCAL.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        <?php elseif (($section['id'] ?? '') === 'data-flow'): ?>
+                                            <div
+                                                class="architecture-text-flow data-flow-text-flow"
+                                                aria-label="KUZAI complete request data flow"
+                                            >
+                                                <div class="architecture-text-flow__group">
+                                                    <p class="architecture-text-flow__title">
+                                                        REQUEST CONTEXT
+                                                    </p>
+
+                                                    <p class="architecture-text-flow__line">
+                                                        BASE SYSTEM PROMPT
+                                                        <span aria-hidden="true">+</span>
+                                                        ACTIVE CUSTOM PROFILE
+                                                        <span aria-hidden="true">+</span>
+                                                        CONVERSATION HISTORY
+                                                        <span aria-hidden="true">+</span>
+                                                        USER PROMPT
+                                                    </p>
+
+                                                    <p class="architecture-text-flow__note">
+                                                        THESE ELEMENTS FORM THE STANDARD CONTEXT OF
+                                                        EACH LOCAL GENERATION REQUEST.
+                                                    </p>
+                                                </div>
+
+                                                <div class="architecture-text-flow__group">
+                                                    <p class="architecture-text-flow__title">
+                                                        OPTIONAL CONTEXT
+                                                    </p>
+
+                                                    <p class="architecture-text-flow__line">
+                                                        UPLOADED FILE CONTEXT
+                                                        <span aria-hidden="true">/</span>
+                                                        WEB SEARCH CONTEXT
+                                                        <span aria-hidden="true">/</span>
+                                                        GIT-RAG REPOSITORY CONTEXT
+                                                    </p>
+
+                                                    <p class="architecture-text-flow__note">
+                                                        EACH OPTIONAL SOURCE IS ADDED ONLY WHEN IT IS
+                                                        SELECTED, AVAILABLE, AND RELEVANT.
+                                                    </p>
+                                                </div>
+
+                                                <div class="architecture-text-flow__group">
+                                                    <p class="architecture-text-flow__title">
+                                                        FINAL RESPONSE FLOW
+                                                    </p>
+
+                                                    <p class="architecture-text-flow__line">
+                                                        ASSEMBLED REQUEST CONTEXT
+                                                        <span aria-hidden="true">→</span>
+                                                        LOCAL LLAMA.CPP INFERENCE
+                                                        <span aria-hidden="true">→</span>
+                                                        TEXT RESPONSE
+                                                        <span aria-hidden="true">→</span>
+                                                        BROWSER DISPLAY
+                                                        <span aria-hidden="true">/</span>
+                                                        OPTIONAL LOCAL TTS
+                                                    </p>
+
+                                                    <p class="architecture-text-flow__note">
+                                                        FINAL MODEL INFERENCE AND RESPONSE GENERATION
+                                                        REMAIN LOCAL.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        <?php elseif (($section['id'] ?? '') === 'deployment'): ?>
+                                            <?php
+                                            $deploymentRows = [];
+
+                                            $deploymentLines = preg_split(
+                                                '/\R/',
+                                                trim((string) ($section['code'] ?? ''))
+                                            );
+
+                                            if (is_array($deploymentLines)) {
+                                                foreach ($deploymentLines as $deploymentLine) {
+                                                    $deploymentLine = trim($deploymentLine);
+
+                                                    if ($deploymentLine === '') {
+                                                        continue;
+                                                    }
+
+                                                    $deploymentParts = preg_split(
+                                                        '/\s{2,}/',
+                                                        $deploymentLine,
+                                                        2
+                                                    );
+
+                                                    if (
+                                                        !is_array($deploymentParts)
+                                                        || count($deploymentParts) !== 2
+                                                    ) {
+                                                        continue;
+                                                    }
+
+                                                    $deploymentRows[] = [
+                                                        'label' => trim($deploymentParts[0]),
+                                                        'value' => trim($deploymentParts[1]),
+                                                    ];
+                                                }
+                                            }
+                                            ?>
+
+                                            <?php if ($deploymentRows): ?>
+                                                <dl class="deployment-stack-grid">
+                                                    <?php foreach ($deploymentRows as $deploymentRow): ?>
+                                                        <div class="deployment-stack-item">
+                                                            <dt><?= h($deploymentRow['label']) ?></dt>
+                                                            <dd><?= h($deploymentRow['value']) ?></dd>
+                                                        </div>
+                                                    <?php endforeach; ?>
+                                                </dl>
+                                            <?php endif; ?>
+                                        <?php elseif (!empty($section['code'])): ?>
+                                            <pre class="white-paper__diagram"><?= h((string) $section['code']) ?></pre>
                                         <?php endif; ?>
                                     </section>
                                 <?php endforeach; ?>

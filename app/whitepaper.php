@@ -18,7 +18,7 @@ return [
         ],
         [
             'label' => 'STATUS',
-            'value' => 'BETA-0.01.2026',
+            'value' => 'BETA-0.03.2026',
         ],
         [
             'label' => 'DEPLOYMENT',
@@ -84,42 +84,54 @@ return [
             'title' => '4. SYSTEM ARCHITECTURE',
             'paragraphs' => [
                 "KUZAI AI uses a browser-based frontend, a PHP application layer, and a local OpenAI-compatible inference endpoint provided by llama.cpp.",
-                "Optional services extend the local model with web results, uploaded documents, repository context, and local speech generation.",
+                "Optional services extend the local model with web results, uploaded documents, repository context, local speech generation, vector embeddings, repository editing, and controlled Git operations.",
+                "The validated Git-RAG architecture separates the PHP integration layer from a dedicated local Python service bound to loopback. Repository data, vector indexes, backups, and Git credentials remain inside the operator-controlled infrastructure.",
             ],
             'code' => <<<'ARCHITECTURE'
-[ USER / BROWSER ]
-        |
-        v
-[ KUZAI WEB INTERFACE ]
-  HTML / CSS / JAVASCRIPT
-        |
-        v
-[ APACHE2 / PHP API LAYER ]
-        |
-        +-----------------------------+
-        |                             |
-        v                             v
-[ LLAMA.CPP SERVER ]          [ FILE PROCESSING ]
-[ LOCAL OPEN MODEL ]          [ LOCAL STORAGE ]
-        |
-        +-----------------------------+
-        |                             |
-        v                             v
-[ SEARXNG WEB SEARCH ]         [ GIT-RAG SERVICE ]
-        |
-        +-----------------------------+
-        |
-        v
-[ GENERATED RESPONSE ]
-        |
-        +-----------------------------+
-                                      |
-                                      v
-                             [ PIPER LOCAL TTS ]
-                             [ ESPEAK FALLBACK ]
++--------------------------------------------------------------------------------------------------+
+| USER / BROWSER                                                                                   |
++--------------------------------------------------------------------------------------------------+
+                                                |
+                                                v
++--------------------------------------------------------------------------------------------------+
+| KUZAI WEB INTERFACE - HTML / CSS / JAVASCRIPT                                                    |
++--------------------------------------------------------------------------------------------------+
+                                                |
+                                                v
++--------------------------------------------------------------------------------------------------+
+| APACHE2 / PHP API LAYER                                                                          |
++--------------------------------------------------------------------------------------------------+
+        |                        |                        |                        |
+        v                        v                        v                        v
++----------------------+ +----------------------+ +----------------------+ +----------------------+
+| LLAMA.CPP INFERENCE  | | FILE PROCESSING      | | SEARXNG WEB SEARCH   | | PIPER / ESPEAK       |
+| 127.0.0.1:8080       | | LOCAL STORAGE        | | SOURCE CONTEXT       | | LOCAL AUDIO OUTPUT    |
++----------------------+ +----------------------+ +----------------------+ +----------------------+
+                                                |
+                                                v
++--------------------------------------------------------------------------------------------------+
+| GIT-RAG PHP API                                                                                  |
++--------------------------------------------------------------------------------------------------+
+                                                |
+                                                v
++--------------------------------------------------------------------------------------------------+
+| LOCAL PYTHON SERVICE - 127.0.0.1:8890                                                            |
++--------------------------------------------------------------------------------------------------+
+                     |                                                    |
+                     v                                                    v
++----------------------------------------------+     +----------------------------------------------+
+| LLAMA.CPP EMBEDDINGS /V1/EMBEDDINGS          |     | LOCAL GIT REPOSITORIES                       |
+| LOCAL VECTOR INDEX                           |     | READ / EDIT / BACKUP                         |
+| RELEVANT SOURCE CHUNKS                       |     | STATUS / DIFF / COMMIT                       |
+|                                              |     | PUSH / PULL --FF-ONLY / REINDEX              |
++----------------------------------------------+     +----------------------------------------------+
+                     |
+                     v
++--------------------------------------------------------------------------------------------------+
+| CHAT CONTEXT INJECTION -> LOCAL LLAMA.CPP INFERENCE -> TEXT RESPONSE -> BROWSER / LOCAL TTS      |
++--------------------------------------------------------------------------------------------------+
 ARCHITECTURE,
         ],
-
         [
             'id' => 'capabilities',
             'title' => '5. CORE CAPABILITIES',
