@@ -5,7 +5,7 @@ declare(strict_types=1);
 return [
     'site' => [
         'name' => 'KUZAI - THE LOCAL AI',
-        'short_name' => 'KUZAI - BETA-VS-0.01.2026',
+        'short_name' => 'KUZAI - BETA-0.03.2026',
         'brand' => 'THE KUZ NETWORK',
         'tagline' => 'A KUZ NETWORK SOLUTION',
         'domain' => 'https://kuzai.org',

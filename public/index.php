@@ -43,7 +43,7 @@ $pageTitle = $currentPage === 'home'
     : (string) $page['title'] . ' - ' . $siteName;
 
 $metaDescription = $page['meta_description']
-    ?? 'KUZAI - THE LOCAL AI - BETA-VS-0.01.2026 - A KUZ NETWORK SOLUTION';
+    ?? 'KUZAI - THE LOCAL AI - BETA-0.03.2026 - A KUZ NETWORK SOLUTION';
 
 $githubUrl = (string) $config['repository']['url'];
 $githubLabel = (string) $config['repository']['label'];

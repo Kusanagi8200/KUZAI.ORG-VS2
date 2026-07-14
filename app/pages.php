@@ -7,7 +7,7 @@ $whitePaper = require __DIR__ . '/whitepaper.php';
 return [
     'home' => [
         'title' => 'KUZAI - THE LOCAL AI',
-        'meta_description' => 'KUZAI - THE LOCAL AI - BETA-VS-0.01.2026 - A KUZ NETWORK SOLUTION',
+        'meta_description' => 'KUZAI - THE LOCAL AI - BETA-0.03.2026 - A KUZ NETWORK SOLUTION',
     ],
 
     'kuz-network' => [
