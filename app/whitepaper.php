@@ -496,6 +496,7 @@ STACK,
                 "Authentication and hardening depend on the deployment environment.",
                 "The platform requires active Linux system administration and maintenance.",
                 "Feature parity with large commercial AI platforms is not guaranteed.",
+                "Direct profile JSON editing currently validates JSON syntax and basic document structure but does not yet enforce a complete versioned schema for every nested profile property.",
             ],
         ],
         [
