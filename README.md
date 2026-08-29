@@ -1,7 +1,6 @@
 # **`KUZAI.ORG`**
 
-### **KUZAI.ORG IS THE PRESENTATION, DEMONSTRATION AND CONTACT WEBSITE FOR THE KUZAI PROJECT.**
-___________________________________________________________________________________________________________________
+### **`KUZAI.ORG IS THE PRESENTATION, DEMONSTRATION AND CONTACT WEBSITE FOR THE KUZAI PROJECT`**
 
 <picture>
  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Kusanagi8200/Kusanagi8200/blob/main/KUZAI-LLM3.png">
@@ -9,21 +8,17 @@ ________________________________________________________________________________
  <img alt="" src="">
 </picture>
 
-___________________________________________________________________________________________________________________
-
 ## **`KUZAI PROJECT`**
 
-### **KUZAI IS A LOCAL AI PROJECT DESIGNED TO RUN INDEPENDENTLY ON A LINUX INFRASTRUCTURE.**
+#### **`KUZAI IS A LOCAL AI PROJECT DESIGNED TO RUN INDEPENDENTLY ON A LINUX INFRASTRUCTURE`**
 
-### **The goal is to build an independent, open and locally controlled AI environment where the language model, web search, file processing, voice synthesis and application services run on infrastructure under our control. KUZAI is designed to reduce dependence on proprietary cloud platforms, keep data and processing local, preserve privacy, and maintain full technical control over the entire AI stack, from the Linux system to the user interface.**
-
-___________________________________________________________________________________________________________________
+#### **The goal is to build an independent, open and locally controlled AI environment where the language model, web search, file processing, voice synthesis and application services run on infrastructure under our control. KUZAI is designed to reduce dependence on proprietary cloud platforms, keep data and processing local, preserve privacy, and maintain full technical control over the entire AI stack, from the Linux system to the user interface.**
 
 ## **`KUZAI AI`**
 
-### **KUZAI AI IS THE WEB APPLICATION DEVELOPED FOR THE PROJECT.**
+#### **`KUZAI AI IS THE APPLICATION DEVELOPED FOR THE PROJECT`**
 
-### **It provides a simple web interface for interacting with a locally hosted large language model and the services connected to the KUZAI infrastructure.**
+#### **It provides a web interface for interacting with a locally hosted large language model and the services connected to the KUZAI infrastructure.**
 
 ## **`KUZAI AI FEATURES`**
 
@@ -49,15 +44,13 @@ ________________________________________________________________________________
 
 **- PRIVATE LOCAL PROCESSING OF USER DATA AND FILES**
 
-### **THE APPLICATION IS DESIGNED TO REMAIN PRIVATE, MODULAR AND LOCALLY OPERATED.**
-
-___________________________________________________________________________________________________________________
+#### **THE APPLICATION IS DESIGNED TO REMAIN PRIVATE, MODULAR AND LOCALLY OPERATED.**
 
 ## **`THIS REPOSITORY`**
 
-### **THIS REPOSITORY CONTAINS THE SOURCE CODE OF THE KUZAI.ORG WEBSITE.**
+#### **`THIS REPOSITORY CONTAINS THE SOURCE CODE OF THE KUZAI.ORG WEBSITE`**
 
-### **THE WEBSITE IS USED TO -->**
+#### **THE WEBSITE IS USED TO -->**
 
 **- PRESENT THE KUZAI PROJECT**
 
@@ -67,6 +60,6 @@ ________________________________________________________________________________
 
 **- PROVIDE CONTACT INFORMATION**
 
-- ------------------------------------------------------------------------
+---
 
 #### **`THE KUZ NETWORK - KUSANAGI8200 - @2026`**
