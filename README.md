@@ -1,35 +1,52 @@
-# KUZAI.ORG
+# **`KUZAI.ORG`**
 
-KUZAI.ORG is the presentation, demonstration and contact website for the KUZAI project.
+### **`KUZAI.ORG IS THE PRESENTATION, DEMONSTRATION AND CONTACT WEBSITE FOR THE KUZAI PROJECT.`**
+___________________________________________________________________________________________________________________
 
-## KUZAI Project
+<picture>
+ <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Kusanagi8200/Kusanagi8200/blob/main/KUZAI-LLM3.png">
+ <source media="(prefers-color-scheme: light)" srcset="https://github.com/Kusanagi8200/Kusanagi8200/blob/main/KUZAI-LLM3.png">
+ <img alt="" src="">
+</picture>
 
-KUZAI is a local AI project designed to run independently on a Linux infrastructure.
+___________________________________________________________________________________________________________________
 
-The goal is to keep the main AI services under local control, including the language model, web search, files and voice services.
+## **`KUZAI PROJECT`**
 
-## KUZAI AI
+### **`KUZAI IS A LOCAL AI PROJECT DESIGNED TO RUN INDEPENDENTLY ON A LINUX INFRASTRUCTURE.`**
 
-KUZAI AI is the web application developed for the project.
+### **`THE GOAL IS TO KEEP THE MAIN AI SERVICES UNDER LOCAL CONTROL, INCLUDING THE LANGUAGE MODEL, WEB SEARCH, FILES AND VOICE SERVICES.`**
 
-It provides a simple interface to interact with a local LLM and includes features such as:
+___________________________________________________________________________________________________________________
 
-- local AI chat;
-- web search;
-- file analysis;
-- text-to-speech;
-- custom system prompts;
-- local services integration.
+## **`KUZAI AI`**
 
-The application is designed to remain private, modular and locally operated.
+### **`KUZAI AI IS THE WEB APPLICATION DEVELOPED FOR THE PROJECT.`**
 
-## This Repository
+### **`IT PROVIDES A SIMPLE INTERFACE TO INTERACT WITH A LOCAL LLM AND INCLUDES FEATURES SUCH AS:`**
 
-This repository contains the source code of the KUZAI.ORG website.
+- LOCAL AI CHAT
+- WEB SEARCH
+- FILE ANALYSIS
+- TEXT-TO-SPEECH
+- CUSTOM SYSTEM PROMPTS
+- LOCAL SERVICES INTEGRATION.
 
-The website is used to:
+### **`THE APPLICATION IS DESIGNED TO REMAIN PRIVATE, MODULAR AND LOCALLY OPERATED.`**
 
-- present the KUZAI project;
-- demonstrate the KUZAI AI application;
-- provide project information;
-- provide contact information.
+___________________________________________________________________________________________________________________
+
+## **`THIS REPOSITORY`**
+
+### **`THIS REPOSITORY CONTAINS THE SOURCE CODE OF THE KUZAI.ORG WEBSITE.`**
+
+### **`THE WEBSITE IS USED TO:`**
+
+- PRESENT THE KUZAI PROJECT
+- DEMONSTRATE THE KUZAI AI APPLICATION
+- PROVIDE PROJECT INFORMATION
+- PROVIDE CONTACT INFORMATION.
+
+- ------------------------------------------------------------------------
+
+#### **`THE KUZ NETWORK - KUSANAGI8200 - @2026`**
