@@ -15,7 +15,7 @@ ________________________________________________________________________________
 
 ### **KUZAI IS A LOCAL AI PROJECT DESIGNED TO RUN INDEPENDENTLY ON A LINUX INFRASTRUCTURE.**
 
-### **THE GOAL IS TO BUILD AN INDEPENDENT, OPEN AND LOCALLY CONTROLLED AI ENVIRONMENT WHERE THE LANGUAGE MODEL, WEB SEARCH, FILE PROCESSING, VOICE SYNTHESIS AND APPLICATION SERVICES RUN ON INFRASTRUCTURE WE CONTROL. KUZAI IS DESIGNED TO REDUCE DEPENDENCE ON PROPRIETARY CLOUD PLATFORMS, KEEP DATA AND PROCESSING LOCAL, PRESERVE PRIVACY, AND MAINTAIN FULL TECHNICAL CONTROL OVER THE ENTIRE AI STACK, FROM THE LINUX SYSTEM TO THE USER INTERFACE.**
+### **The goal is to build an independent, open and locally controlled AI environment where the language model, web search, file processing, voice synthesis and application services run on infrastructure under our control. KUZAI is designed to reduce dependence on proprietary cloud platforms, keep data and processing local, preserve privacy, and maintain full technical control over the entire AI stack, from the Linux system to the user interface.**
 
 ___________________________________________________________________________________________________________________
 
@@ -23,7 +23,7 @@ ________________________________________________________________________________
 
 ### **KUZAI AI IS THE WEB APPLICATION DEVELOPED FOR THE PROJECT.**
 
-### **IT PROVIDES A SIMPLE WEB INTERFACE TO INTERACT WITH A LOCALLY HOSTED LARGE LANGUAGE MODEL AND THE SERVICES CONNECTED TO THE KUZAI INFRASTRUCTURE.**
+### **It provides a simple web interface for interacting with a locally hosted large language model and the services connected to the KUZAI infrastructure.**
 
 ## **`KUZAI AI FEATURES`**
 
