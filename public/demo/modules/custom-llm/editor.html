@@ -143,6 +143,217 @@
                 grid-template-columns: 1fr;
             }
         }
+    
+        /* =====================================================
+           DEMO EDITOR TITLE SYNC WITH PERSONALITY PAGE
+           ===================================================== */
+
+        html body.personality-page-body
+        .personality-page-shell
+        .demo-editor-panel > .kicker {
+            display: block !important;
+
+            width: max-content !important;
+            max-width: 100% !important;
+
+            box-sizing: border-box !important;
+
+            margin: 0 0 8px 0 !important;
+            padding: 3px 10px !important;
+
+            background: #ffffff !important;
+            color: #000000 !important;
+
+            border: 1px solid #ffffff !important;
+            border-radius: 0 !important;
+
+            font-family: "Anta", "Segoe UI", Arial, sans-serif !important;
+            font-size: 0.82rem !important;
+            font-weight: 700 !important;
+
+            letter-spacing: 0.10em !important;
+            line-height: 1 !important;
+
+            text-transform: uppercase !important;
+
+            box-shadow: none !important;
+            text-shadow: none !important;
+
+            transition: none !important;
+        }
+
+        html body.personality-page-body
+        .personality-page-shell
+        .demo-editor-panel > h2 {
+            margin: 0 0 18px 0 !important;
+            padding: 0 !important;
+
+            font-family: "Anta", "Segoe UI", Arial, sans-serif !important;
+
+            font-size: 1rem !important;
+            line-height: 1.45 !important;
+
+            font-weight: 700 !important;
+            letter-spacing: 0.02em !important;
+
+            text-transform: uppercase !important;
+        }
+
+    
+        /* =====================================================
+           DEMO INTERACTIVE PROFILE EDITOR V1
+           ===================================================== */
+
+        html body.personality-page-body
+        .demo-editor-panel
+        input:not([type="checkbox"]),
+        html body.personality-page-body
+        .demo-editor-panel textarea,
+        html body.personality-page-body
+        .demo-editor-panel select {
+            cursor: text !important;
+            color: #ffffff !important;
+            opacity: 1 !important;
+        }
+
+        html body.personality-page-body
+        .demo-editor-panel select {
+            cursor: pointer !important;
+        }
+
+        html body.personality-page-body
+        .demo-editor-panel input[type="checkbox"] {
+            cursor: pointer !important;
+            opacity: 1 !important;
+        }
+
+        html body.personality-page-body
+        .demo-check {
+            cursor: pointer !important;
+        }
+
+        html body.personality-page-body
+        .demo-extra-panel {
+            width: 100% !important;
+
+            box-sizing: border-box !important;
+
+            margin: 18px 0 0 0 !important;
+            padding: 16px !important;
+
+            background: #000000 !important;
+            color: #ffffff !important;
+
+            border: 1px solid #ffffff !important;
+            border-radius: 0 !important;
+        }
+
+        html body.personality-page-body
+        .demo-extra-title {
+            display: inline-block !important;
+
+            width: max-content !important;
+            max-width: 100% !important;
+
+            margin: 0 0 12px 0 !important;
+            padding: 3px 10px !important;
+
+            background: #ffffff !important;
+            color: #000000 !important;
+
+            border: 1px solid #ffffff !important;
+            border-radius: 0 !important;
+
+            font-size: 0.82rem !important;
+            font-weight: 700 !important;
+
+            letter-spacing: 0.10em !important;
+            line-height: 1 !important;
+
+            text-transform: uppercase !important;
+        }
+
+        html body.personality-page-body
+        .demo-profile-list {
+            display: grid !important;
+            gap: 10px !important;
+        }
+
+        html body.personality-page-body
+        .demo-profile-row {
+            display: flex !important;
+
+            justify-content: space-between !important;
+            align-items: center !important;
+
+            gap: 16px !important;
+
+            padding: 12px 14px !important;
+
+            border: 1px solid #555555 !important;
+
+            background: #000000 !important;
+        }
+
+        html body.personality-page-body
+        .demo-profile-status {
+            margin-top: 10px !important;
+            padding: 10px 12px !important;
+
+            border: 1px solid #555555 !important;
+
+            color: #aaaaaa !important;
+
+            font-size: 0.78rem !important;
+            letter-spacing: 0.05em !important;
+        }
+
+        html body.personality-page-body
+        .demo-json-header {
+            display: flex !important;
+
+            justify-content: space-between !important;
+            align-items: center !important;
+
+            gap: 18px !important;
+
+            margin-bottom: 10px !important;
+        }
+
+        html body.personality-page-body
+        .demo-json-preview {
+            display: block !important;
+
+            width: 100% !important;
+            min-height: 360px !important;
+
+            box-sizing: border-box !important;
+
+            padding: 14px !important;
+
+            resize: vertical !important;
+
+            background: #000000 !important;
+            color: #ffffff !important;
+
+            border: 1px solid #555555 !important;
+            border-radius: 0 !important;
+
+            font-family: monospace !important;
+            font-size: 0.82rem !important;
+            line-height: 1.45 !important;
+
+            cursor: text !important;
+        }
+
+        @media (max-width: 850px) {
+            html body.personality-page-body
+            .demo-json-header {
+                align-items: flex-start !important;
+                flex-direction: column !important;
+            }
+        }
+
     </style>
 
 <style id="demo-personality-back-home-fix">
@@ -347,11 +558,6 @@ html body.personality-page-body
 
         <h2>CREATE OR EDIT A KUZAI LLM BEHAVIOR PROFILE</h2>
 
-        <div class="demo-notice">
-            READ ONLY PUBLIC DEMO /
-            PROFILE VALUES CANNOT BE CHANGED OR SAVED
-        </div>
-
         <section class="demo-editor-section">
             <h3>1. PROFILE FILE</h3>
 
@@ -359,17 +565,17 @@ html body.personality-page-body
 
                 <div class="demo-field">
                     <label>Profile ID</label>
-                    <input type="text" value="default-generalist" disabled>
+                    <input type="text" value="default-generalist">
                 </div>
 
                 <div class="demo-field">
                     <label>Profile label</label>
-                    <input type="text" value="Default Generalist" disabled>
+                    <input type="text" value="Default Generalist">
                 </div>
 
                 <div class="demo-field demo-field-full">
                     <label>Description</label>
-                    <textarea disabled>Generalist KUZAI profile with strong technical capability but not limited to sysadmin or code.</textarea>
+                    <textarea>Generalist KUZAI profile with strong technical capability but not limited to sysadmin or code.</textarea>
                 </div>
 
             </div>
@@ -382,17 +588,23 @@ html body.personality-page-body
 
                 <div class="demo-field">
                     <label>AI name</label>
-                    <input type="text" value="KUZAI" disabled>
+                    <input type="text" value="KUZAI">
                 </div>
 
                 <div class="demo-field">
                     <label>AI type</label>
-                    <input type="text" value="Local generalist AI" disabled>
+                    <select>
+                        <option value="local generalist AI" selected>Local generalist AI</option>
+                        <option value="technical generalist AI">Technical generalist AI</option>
+                        <option value="personal assistant AI">Personal assistant AI</option>
+                        <option value="analysis and research AI">Analysis and research AI</option>
+                        <option value="creative and technical AI">Creative and technical AI</option>
+                    </select>
                 </div>
 
                 <div class="demo-field demo-field-full">
                     <label>Main identity sentence</label>
-                    <textarea disabled>KUZAI is a local generalist AI assistant designed for technical work, analysis, creation, research, writing, learning and practical decision support.</textarea>
+                    <textarea>KUZAI is a local generalist AI assistant designed for technical work, analysis, creation, research, writing, learning and practical decision support.</textarea>
                 </div>
 
             </div>
@@ -402,11 +614,11 @@ html body.personality-page-body
             <h3>3. POSITIONING</h3>
 
             <div class="demo-check-grid">
-                <label class="demo-check"><input type="checkbox" checked disabled> Local generalist</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Technical assistant</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Analysis assistant</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Creative assistant</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Research assistant</label>
+                <label class="demo-check"><input type="checkbox"> Local generalist</label>
+                <label class="demo-check"><input type="checkbox"> Technical assistant</label>
+                <label class="demo-check"><input type="checkbox"> Analysis assistant</label>
+                <label class="demo-check"><input type="checkbox"> Creative assistant</label>
+                <label class="demo-check"><input type="checkbox"> Research assistant</label>
             </div>
         </section>
 
@@ -414,16 +626,16 @@ html body.personality-page-body
             <h3>4. PRIORITY DOMAINS</h3>
 
             <div class="demo-check-grid">
-                <label class="demo-check"><input type="checkbox" checked disabled> General questions</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Linux sysadmin</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Network</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Web development</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Local AI</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Document analysis</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Professional writing</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Creative prompts</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Research assistance</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Project strategy</label>
+                <label class="demo-check"><input type="checkbox"> General questions</label>
+                <label class="demo-check"><input type="checkbox"> Linux sysadmin</label>
+                <label class="demo-check"><input type="checkbox"> Network</label>
+                <label class="demo-check"><input type="checkbox"> Web development</label>
+                <label class="demo-check"><input type="checkbox"> Local AI</label>
+                <label class="demo-check"><input type="checkbox"> Document analysis</label>
+                <label class="demo-check"><input type="checkbox"> Professional writing</label>
+                <label class="demo-check"><input type="checkbox"> Creative prompts</label>
+                <label class="demo-check"><input type="checkbox"> Research assistance</label>
+                <label class="demo-check"><input type="checkbox"> Project strategy</label>
             </div>
         </section>
 
@@ -431,13 +643,13 @@ html body.personality-page-body
             <h3>5. PERSONALITY</h3>
 
             <div class="demo-check-grid">
-                <label class="demo-check"><input type="checkbox" checked disabled> Calm</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Direct</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Precise</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Pragmatic</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Analytical</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Methodical</label>
-                <label class="demo-check"><input type="checkbox" checked disabled> Adaptable</label>
+                <label class="demo-check"><input type="checkbox"> Calm</label>
+                <label class="demo-check"><input type="checkbox"> Direct</label>
+                <label class="demo-check"><input type="checkbox"> Precise</label>
+                <label class="demo-check"><input type="checkbox"> Pragmatic</label>
+                <label class="demo-check"><input type="checkbox"> Analytical</label>
+                <label class="demo-check"><input type="checkbox"> Methodical</label>
+                <label class="demo-check"><input type="checkbox"> Adaptable</label>
             </div>
         </section>
 
@@ -448,27 +660,50 @@ html body.personality-page-body
 
                 <div class="demo-field">
                     <label>Initiative level</label>
-                    <input type="text" value="Adaptive" disabled>
+                    <select>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                        <option value="adaptive" selected>Adaptive</option>
+                    </select>
                 </div>
 
                 <div class="demo-field">
                     <label>Response length</label>
-                    <input type="text" value="Adaptive" disabled>
+                    <select>
+                        <option value="short">Short</option>
+                        <option value="medium">Medium</option>
+                        <option value="long when necessary">Long when necessary</option>
+                        <option value="adaptive" selected>Adaptive</option>
+                    </select>
                 </div>
 
                 <div class="demo-field">
                     <label>Primary language</label>
-                    <input type="text" value="User language" disabled>
+                    <select>
+                        <option value="user language" selected>User language</option>
+                        <option value="French">French</option>
+                        <option value="English">English</option>
+                        <option value="French by default, English when requested">French default</option>
+                        <option value="English by default, French when requested">English default</option>
+                    </select>
                 </div>
 
                 <div class="demo-field">
                     <label>Creativity level</label>
-                    <input type="text" value="3 - Balanced" disabled>
+                    <select>
+                        <option value="0">0 - None</option>
+                        <option value="1">1 - Very sober</option>
+                        <option value="2">2 - Moderate</option>
+                        <option value="3" selected>3 - Balanced</option>
+                        <option value="4">4 - Creative</option>
+                        <option value="5">5 - Very creative</option>
+                    </select>
                 </div>
 
                 <div class="demo-field demo-field-full">
                     <label>Style example</label>
-                    <textarea disabled>Precise, practical, without filler.</textarea>
+                    <textarea>Precise, practical, without filler.</textarea>
                 </div>
 
             </div>
@@ -481,22 +716,42 @@ html body.personality-page-body
 
                 <div class="demo-field">
                     <label>Project mode</label>
-                    <textarea disabled>Step by step for installation, debugging and implementation</textarea>
+                    <select>
+                        <option value="step by step for installation, debugging and implementation" selected>Step by step for implementation</option>
+                        <option value="direct complete solution">Direct complete solution</option>
+                        <option value="always step by step">Always step by step</option>
+                        <option value="adaptive according to risk and complexity">Adaptive</option>
+                    </select>
                 </div>
 
                 <div class="demo-field">
                     <label>Code generation mode</label>
-                    <textarea disabled>Complete files for corrections when practical, robust patches for large files</textarea>
+                    <select>
+                        <option value="complete files for corrections when practical, robust patches for large files" selected>Complete files or robust patches</option>
+                        <option value="complete files only">Complete files only</option>
+                        <option value="patches only">Patches only</option>
+                        <option value="always backup before modifications">Backup first</option>
+                    </select>
                 </div>
 
                 <div class="demo-field">
                     <label>Explanation level</label>
-                    <input type="text" value="Normal, detailed only for complex errors" disabled>
+                    <select>
+                        <option value="minimal">Minimal</option>
+                        <option value="normal" selected>Normal</option>
+                        <option value="detailed">Detailed</option>
+                        <option value="detailed only for complex errors">Detailed only for complex errors</option>
+                    </select>
                 </div>
 
                 <div class="demo-field">
                     <label>Voice / TTS style</label>
-                    <input type="text" value="Calm direct technical" disabled>
+                    <select>
+                        <option value="neutral">Neutral</option>
+                        <option value="calm direct technical" selected>Calm direct technical</option>
+                        <option value="narrative">Narrative</option>
+                        <option value="personal assistant">Personal assistant</option>
+                    </select>
                 </div>
 
             </div>
@@ -509,13 +764,73 @@ html body.personality-page-body
 
                 <div class="demo-field demo-field-full">
                     <label>Custom instructions</label>
-                    <textarea disabled>Read only in the public demonstration.</textarea>
+                    <textarea>Read only in the public demonstration.</textarea>
                 </div>
 
             </div>
         </section>
 
     </main>
+
+
+    <section class="demo-extra-panel" id="availableProfilesPanel">
+
+        <h2 class="demo-extra-title">
+            AVAILABLE PROFILES
+        </h2>
+
+        <div class="demo-profile-list">
+
+            <div class="demo-profile-row">
+                <span>Default Generalist</span>
+
+                <button
+                    type="button"
+                    class="btn demo-disabled"
+                    disabled
+                >
+                    DELETE
+                </button>
+            </div>
+
+        </div>
+
+        <div class="demo-profile-status">
+            DEMO PROFILE / BROWSER MEMORY ONLY / NO SERVER WRITE
+        </div>
+
+    </section>
+
+
+    <section class="demo-extra-panel" id="jsonPreviewPanel">
+
+        <h2 class="demo-extra-title">
+            JSON PREVIEW
+        </h2>
+
+        <div class="demo-json-header">
+
+            <span>
+                THE GENERATED PROFILE CAN BE MODIFIED HERE
+            </span>
+
+            <button
+                type="button"
+                class="btn demo-disabled"
+                disabled
+            >
+                SAVE THE MODIFIED JSON
+            </button>
+
+        </div>
+
+        <textarea
+            class="demo-json-preview"
+            id="jsonPreview"
+            spellcheck="false"
+        ></textarea>
+
+    </section>
 
     <nav class="personality-bottom-nav" aria-label="Back to main demo">
         <a class="personality-bottom-back-home" href="../../">
@@ -536,6 +851,153 @@ html body.personality-page-body
     </footer>
 
 </div>
+
+
+<script>
+(function () {
+    "use strict";
+
+    const preview = document.getElementById("jsonPreview");
+    const editor = document.querySelector(".demo-editor-panel");
+
+    if (!preview || !editor) {
+        return;
+    }
+
+    function fieldValue(labelText) {
+        const fields = Array.from(
+            editor.querySelectorAll(".demo-field")
+        );
+
+        for (const field of fields) {
+            const label = field.querySelector("label");
+
+            if (
+                label &&
+                label.textContent.trim() === labelText
+            ) {
+                const control = field.querySelector(
+                    "input:not([type=checkbox]), textarea, select"
+                );
+
+                return control ? control.value : "";
+            }
+        }
+
+        return "";
+    }
+
+    function checkedValues(sectionTitle) {
+        const sections = Array.from(
+            editor.querySelectorAll(".demo-editor-section")
+        );
+
+        for (const section of sections) {
+            const title = section.querySelector("h3");
+
+            if (
+                title &&
+                title.textContent.trim() === sectionTitle
+            ) {
+                return Array.from(
+                    section.querySelectorAll(
+                        "input[type=checkbox]:checked"
+                    )
+                ).map(function (checkbox) {
+                    return checkbox.parentElement
+                        .textContent.trim();
+                });
+            }
+        }
+
+        return [];
+    }
+
+    function buildProfile() {
+        return {
+            profile: {
+                id: fieldValue("Profile ID"),
+                label: fieldValue("Profile label"),
+                description: fieldValue("Description")
+            },
+
+            identity: {
+                name: fieldValue("AI name"),
+                type: fieldValue("AI type"),
+                main_sentence:
+                    fieldValue("Main identity sentence")
+            },
+
+            positioning:
+                checkedValues("3. POSITIONING"),
+
+            priority_domains:
+                checkedValues("4. PRIORITY DOMAINS"),
+
+            personality:
+                checkedValues("5. PERSONALITY"),
+
+            tone_and_behavior: {
+                initiative_level:
+                    fieldValue("Initiative level"),
+
+                response_length:
+                    fieldValue("Response length"),
+
+                primary_language:
+                    fieldValue("Primary language"),
+
+                creativity_level:
+                    fieldValue("Creativity level"),
+
+                style_example:
+                    fieldValue("Style example")
+            },
+
+            technical_workflow: {
+                project_mode:
+                    fieldValue("Project mode"),
+
+                code_generation_mode:
+                    fieldValue("Code generation mode"),
+
+                explanation_level:
+                    fieldValue("Explanation level"),
+
+                voice_tts_style:
+                    fieldValue("Voice / TTS style")
+            },
+
+            additional_free_instructions:
+                fieldValue("Custom instructions")
+        };
+    }
+
+    function refreshPreview() {
+        preview.value = JSON.stringify(
+            buildProfile(),
+            null,
+            2
+        );
+    }
+
+    editor.querySelectorAll(
+        "input, textarea, select"
+    ).forEach(function (control) {
+        control.addEventListener(
+            "input",
+            refreshPreview
+        );
+
+        control.addEventListener(
+            "change",
+            refreshPreview
+        );
+    });
+
+    refreshPreview();
+})();
+</script>
 
 </body>
 </html>

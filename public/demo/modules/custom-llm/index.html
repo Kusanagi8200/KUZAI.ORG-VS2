@@ -2,87 +2,247 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+
     <title>KUZAI / CUSTOM LLM / DEMO</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="../../assets/css/kuzai-app.css">
 
     <style>
         body.profiles-page-body {
-            background: #000;
-            color: #fff;
+            background: #000000;
+            color: #ffffff;
         }
 
-        .demo-runtime .meta-dot {
-            background: #fff !important;
+        /* =====================================================
+           CUSTOM LLM TITLE
+           Exact presentation used by KUZAI profiles.php
+           ===================================================== */
+
+        html body.profiles-page-body
+        .profiles-page-shell main.panel > .kicker {
+            display: inline-block !important;
+
+            width: auto !important;
+            max-width: max-content !important;
+
+            margin: 0 0 10px 0 !important;
+            padding: 2px 10px !important;
+
+            background: #ffffff !important;
+            color: #000000 !important;
+
+            border: 1px solid #ffffff !important;
+            border-radius: 0 !important;
+
+            font-size: 0.82rem !important;
+            font-weight: 900 !important;
+            letter-spacing: 0.22em !important;
+            line-height: 1 !important;
+
+            text-transform: uppercase !important;
+
             box-shadow: none !important;
+            transition: none !important;
+
+            pointer-events: none !important;
         }
 
-        .demo-notice {
-            margin: 0 0 18px 0;
-            padding: 10px 14px;
-            border: 1px solid #fff;
-            background: #000;
-            color: #fff;
-            font-size: .78rem;
-            font-weight: 900;
-            letter-spacing: .12em;
-            line-height: 1.5;
-            text-transform: uppercase;
+        /* =====================================================
+           SUBTITLE
+           Effective style from the real profiles page
+           ===================================================== */
+
+        html body.profiles-page-body
+        .profiles-page-shell main.panel > h2 {
+            margin: 0 0 18px 0 !important;
+
+            padding: 0 !important;
+
+            font-size: 1rem !important;
+            line-height: 1.45 !important;
+
+            font-weight: 900 !important;
+            letter-spacing: 0.02em !important;
+
+            text-transform: uppercase !important;
         }
 
-        .demo-profile {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) auto;
-            gap: 18px;
-            align-items: center;
-            padding: 18px;
-            border: 1px solid #fff;
-            background: #000;
+        /* =====================================================
+           CREATE NEW PROFILE
+           Exact structure / positioning from profiles.php
+           ===================================================== */
+
+        html body.profiles-page-body
+        .profiles-editor-toolbar {
+            display: flex !important;
+
+            justify-content: flex-end !important;
+            align-items: center !important;
+
+            width: 100% !important;
+
+            margin: 10px 0 14px 0 !important;
+            padding: 0 !important;
         }
 
-        .demo-profile-title {
-            margin: 0 0 8px 0;
-            font-size: 1rem;
-            font-weight: 900;
-            letter-spacing: .06em;
-            text-transform: uppercase;
+        html body.profiles-page-body
+        .profiles-create-profile-btn {
+            background: #ffffff !important;
+            color: #000000 !important;
+
+            border: 1px solid #ffffff !important;
+            border-radius: 0 !important;
+
+            min-height: 0 !important;
+
+            margin: 0 !important;
+            padding: 2px 10px !important;
+
+            line-height: 1 !important;
+
+            text-transform: uppercase !important;
+            text-decoration: none !important;
+
+            white-space: nowrap !important;
         }
 
-        .demo-profile-desc {
-            margin: 0 0 10px 0;
-            color: #d0d0d0;
-            line-height: 1.5;
+        html body.profiles-page-body
+        .profiles-create-profile-btn:hover,
+        html body.profiles-page-body
+        .profiles-create-profile-btn:focus-visible {
+            background: #000000 !important;
+            color: #ffffff !important;
         }
 
-        .demo-profile-meta {
-            color: #888;
-            font-size: .78rem;
+        /* =====================================================
+           PROFILE LIST
+           ===================================================== */
+
+        html body.profiles-page-body
+        .profiles {
+            display: grid !important;
+
+            width: 100% !important;
+
+            margin: 0 !important;
+
+            gap: 14px !important;
         }
 
-        .demo-profile-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: flex-end;
+        html body.profiles-page-body
+        .profile {
+            display: grid !important;
+
+            grid-template-columns: minmax(0, 1fr) auto !important;
+
+            gap: 18px !important;
+
+            align-items: center !important;
+
+            width: 100% !important;
+
+            box-sizing: border-box !important;
+
+            padding: 18px !important;
+
+            background: #000000 !important;
+
+            border: 1px solid #323232 !important;
+            border-radius: 0 !important;
+        }
+
+        html body.profiles-page-body
+        .profile-title {
+            margin: 0 0 8px 0 !important;
+
+            font-size: 1rem !important;
+            font-weight: 900 !important;
+
+            letter-spacing: 0.06em !important;
+
+            text-transform: uppercase !important;
+        }
+
+        html body.profiles-page-body
+        .profile-desc {
+            margin: 0 0 10px 0 !important;
+
+            color: #d0d0d0 !important;
+
+            line-height: 1.5 !important;
+        }
+
+        html body.profiles-page-body
+        .profile-meta {
+            color: #888888 !important;
+
+            font-size: 0.78rem !important;
+        }
+
+        html body.profiles-page-body
+        .profile-actions {
+            display: flex !important;
+
+            flex-wrap: wrap !important;
+
+            justify-content: flex-end !important;
+
+            gap: 8px !important;
         }
 
         .demo-disabled[disabled] {
-            opacity: .42;
+            opacity: 0.42 !important;
+
             cursor: not-allowed !important;
         }
 
         .demo-link {
-            text-decoration: none;
+            text-decoration: none !important;
+        }
+
+        /* =====================================================
+           DEMO INFORMATION
+           No box / no border
+           Kept outside native layout geometry
+           ===================================================== */
+
+        html body.profiles-page-body
+        .demo-notice {
+            width: 100% !important;
+
+            box-sizing: border-box !important;
+
+            margin: 16px 0 0 0 !important;
+            padding: 0 !important;
+
+            background: transparent !important;
+
+            border: 0 !important;
+            outline: 0 !important;
+            box-shadow: none !important;
+
+            color: #8f8f8f !important;
+
+            font-size: 0.72rem !important;
+            font-weight: 700 !important;
+
+            letter-spacing: 0.08em !important;
+            line-height: 1.4 !important;
+
+            text-transform: uppercase !important;
         }
 
         @media (max-width: 850px) {
-            .demo-profile {
-                grid-template-columns: 1fr;
+            html body.profiles-page-body
+            .profile {
+                grid-template-columns: 1fr !important;
             }
 
-            .demo-profile-actions {
-                justify-content: flex-start;
+            html body.profiles-page-body
+            .profile-actions {
+                justify-content: flex-start !important;
             }
         }
     </style>
@@ -92,9 +252,16 @@
 
 <div class="app-shell profiles-page-shell">
 
-    <header class="topbar site-style-topbar" aria-label="Main header">
+    <header
+        class="topbar site-style-topbar"
+        aria-label="Main header"
+    >
 
-        <a class="brand-mark" href="../../" aria-label="KUZAI home">
+        <a
+            class="brand-mark"
+            href="../../"
+            aria-label="KUZAI home"
+        >
             <img
                 class="brand-mark__logo"
                 src="../../assets/img/kuz_network_logo_transparent.png"
@@ -104,7 +271,11 @@
             >
         </a>
 
-        <div class="header-title-block" aria-label="Project title">
+        <div
+            class="header-title-block"
+            aria-label="Project title"
+        >
+
             <h1 class="header-title-block__title">
                 KUZAI - THE LOCAL AI
             </h1>
@@ -112,57 +283,77 @@
             <p class="header-title-block__meta">
                 A KUZ NETWORK SOLUTION - BETA-0.03.2026 - PUBLIC APPLICATION DEMO
             </p>
+
         </div>
 
-        <div class="topbar-meta site-header-runtime" aria-label="Runtime status">
+        <div
+            class="topbar-meta site-header-runtime"
+            aria-label="Runtime status"
+        >
+
             <div class="meta-pill site-header-runtime__pill">
-                <span class="meta-label">MODE</span>
-                <span class="meta-value">STATIC DEMO</span>
+
+                <span class="meta-label">
+                    MODE
+                </span>
+
+                <span class="meta-value">
+                    STATIC DEMO
+                </span>
+
             </div>
+
         </div>
 
     </header>
 
+
     <main class="panel">
 
-        <p class="kicker">CUSTOM LLM</p>
+        <p class="kicker">
+            CUSTOM LLM
+        </p>
 
-        <h2>SELECT A PROFILE AND RUN IT FOR THE CURRENT KUZAI SESSION</h2>
+        <h2>
+            SELECT A PROFILE AND RUN IT FOR THE CURRENT KUZAI SESSION
+        </h2>
 
-        <div class="demo-notice">
-            STATIC CUSTOM LLM DEMONSTRATION /
-            PROFILE EXECUTION, CREATION, MODIFICATION AND DELETION ARE DISABLED
-        </div>
 
         <div class="profiles-editor-toolbar">
+
             <a
                 class="btn profiles-create-profile-btn demo-link"
                 href="editor.html"
             >
                 CREATE NEW PROFILE
             </a>
+
         </div>
+
 
         <div class="profiles">
 
-            <article class="demo-profile">
+            <article class="profile">
 
                 <div>
-                    <p class="demo-profile-title">
+
+                    <p class="profile-title">
                         DEFAULT GENERALIST
                     </p>
 
-                    <p class="demo-profile-desc">
+                    <p class="profile-desc">
                         Generalist KUZAI profile with strong technical capability
                         but not limited to sysadmin or code.
                     </p>
 
-                    <div class="demo-profile-meta">
+                    <div class="profile-meta">
                         default-generalist / LOCAL GENERALIST AI / PROTECTED PROFILE
                     </div>
+
                 </div>
 
-                <div class="demo-profile-actions">
+
+                <div class="profile-actions">
 
                     <button
                         type="button"
@@ -193,28 +384,51 @@
 
         </div>
 
+
+        <div class="demo-notice">
+            STATIC CUSTOM LLM DEMONSTRATION /
+            PROFILE EXECUTION, CREATION, MODIFICATION AND DELETION ARE DISABLED
+        </div>
+
     </main>
 
-    <nav class="profiles-bottom-nav" aria-label="Back to demo home">
-        <a class="profiles-bottom-back-home" href="../../">
+
+    <nav
+        class="profiles-bottom-nav"
+        aria-label="Back to demo home"
+    >
+
+        <a
+            class="profiles-bottom-back-home"
+            href="../../"
+        >
+
             <span class="profiles-bottom-back-home__label">
                 BACK HOME
             </span>
+
             <span class="profiles-bottom-back-home__arrow">
                 --&gt;
             </span>
+
         </a>
+
     </nav>
+
 
     <footer
         class="site-footer site-footer--dynamic app-site-footer"
         aria-label="KUZ Network footer"
     >
+
         <div class="site-footer__inner">
+
             <p class="site-footer__text">
                 THE KUZ NETWORK - @2026 / BUILD LOCAL / KEEP CONTROL / OWN THE STACK
             </p>
+
         </div>
+
     </footer>
 
 </div>
