@@ -3,17 +3,17 @@
 ### **`KUZAI.ORG IS THE PRESENTATION, DEMONSTRATION AND CONTACT WEBSITE FOR THE KUZAI PROJECT`**
 
 <picture>
- <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Kusanagi8200/Kusanagi8200/blob/main/KUZAI-LLM3.png">
- <source media="(prefers-color-scheme: light)" srcset="https://github.com/Kusanagi8200/Kusanagi8200/blob/main/KUZAI-LLM3.png">
+ <source media="(prefers-color-scheme --> dark)" srcset="https -->//github.com/Kusanagi8200/Kusanagi8200/blob/main/KUZAI-LLM3.png">
+ <source media="(prefers-color-scheme --> light)" srcset="https -->//github.com/Kusanagi8200/Kusanagi8200/blob/main/KUZAI-LLM3.png">
  <img alt="KUZAI" src="">
 </picture>
 
 ## **`LIVE LINKS`**
 
-- **Website:** https://kuzai.org/
-- **Public application demo:** https://kuzai.org/demo/
-- **Application demo presentation page:** https://kuzai.org/index.php?page=application-demo
-- **KUZAI AI application repository:** https://github.com/Kusanagi8200/KUZAI-CHAT
+- **Website -->** https -->//kuzai.org/
+- **Public application demo -->** https -->//kuzai.org/demo/
+- **Application demo presentation page -->** https -->//kuzai.org/index.php?page=application-demo
+- **KUZAI AI application repository -->** https -->//github.com/Kusanagi8200/KUZAI-CHAT
 
 ## **`KUZAI PROJECT`**
 
@@ -29,7 +29,7 @@ KUZAI is designed to reduce dependence on proprietary cloud platforms, keep data
 
 The application provides a web interface for interacting with a locally hosted large language model and the services connected to the KUZAI infrastructure.
 
-Current application integrations include:
+Current application integrations include -->
 
 - local LLM inference through **llama.cpp**;
 - local web search through **SearXNG**;
@@ -41,15 +41,15 @@ Current application integrations include:
 
 ## **`PUBLIC APPLICATION DEMO`**
 
-A public frontend demonstration of the KUZAI interface is available at:
+A public frontend demonstration of the KUZAI interface is available at -->
 
-### **https://kuzai.org/demo/**
+### **https -->//kuzai.org/demo/**
 
 The demo is deliberately separated from the private local AI runtime.
 
 Its purpose is to let visitors navigate the KUZAI interface and inspect representative modules without exposing the private model endpoint, local repositories, internal services, credentials or server-side application state.
 
-The public demo currently includes:
+The public demo currently includes -->
 
 - the main KUZAI application interface;
 - a **GIT-RAG** demonstration workspace;
@@ -58,7 +58,7 @@ The public demo currently includes:
 - a Custom LLM profile editor demonstration;
 - the same KUZAI visual system used by the local application.
 
-Demo-specific code lives under:
+Demo-specific code lives under -->
 
 ```text
 public/demo/
@@ -98,7 +98,7 @@ See [DEMO.md](DEMO.md) for the demo architecture, safety model and development r
 
 #### **`THIS REPOSITORY CONTAINS THE SOURCE CODE OF THE KUZAI.ORG WEBSITE AND PUBLIC KUZAI APPLICATION DEMO`**
 
-The repository is used to:
+The repository is used to -->
 
 - present the KUZAI project;
 - provide the KUZAI.ORG public website;
@@ -106,9 +106,9 @@ The repository is used to:
 - document the public demo architecture and deployment;
 - provide project and contact information.
 
-The private/local KUZAI AI application is maintained separately in:
+The private/local KUZAI AI application is maintained separately in -->
 
-**https://github.com/Kusanagi8200/KUZAI-CHAT**
+**https -->//github.com/Kusanagi8200/KUZAI-CHAT**
 
 ## **`DEPLOYMENT`**
 
