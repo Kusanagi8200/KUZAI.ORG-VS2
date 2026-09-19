@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>KUZAI / CUSTOM LLM PROFILE EDITOR / DEMO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../assets/css/kuzai-app.css">
+
+    <style>
+        body.personality-page-body {
+            background: #000;
+            color: #fff;
+        }
+
+        .personality-page-shell {
+            width: 90vw;
+            max-width: 1800px;
+            margin: 24px auto 0;
+        }
+
+        .demo-runtime .meta-dot {
+            background: #fff !important;
+            box-shadow: none !important;
+        }
+
+        .demo-notice {
+            margin: 0 0 18px 0;
+            padding: 10px 14px;
+            border: 1px solid #fff;
+            background: #000;
+            color: #fff;
+            font-size: .78rem;
+            font-weight: 900;
+            letter-spacing: .12em;
+            line-height: 1.5;
+            text-transform: uppercase;
+        }
+
+        .personality-action-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 8px;
+            margin: 18px 0;
+        }
+
+        .demo-editor-panel {
+            border: 1px solid #fff;
+            padding: 18px;
+            background: #000;
+        }
+
+        .demo-editor-section {
+            margin-top: 28px;
+            padding-top: 18px;
+            border-top: 1px solid #333;
+        }
+
+        .demo-editor-section:first-of-type {
+            margin-top: 10px;
+        }
+
+        .demo-editor-section h3 {
+            display: inline-block;
+            margin: 0 0 16px 0;
+            padding: 3px 10px;
+            background: #fff;
+            color: #000;
+            border: 1px solid #fff;
+            font-size: .82rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        .demo-form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .demo-field {
+            display: grid;
+            gap: 7px;
+        }
+
+        .demo-field-full {
+            grid-column: 1 / -1;
+        }
+
+        .demo-field label {
+            color: #fff;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .demo-field input,
+        .demo-field textarea,
+        .demo-field select {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #555;
+            border-radius: 0;
+            background: #050505;
+            color: #aaa;
+            padding: 10px;
+        }
+
+        .demo-field textarea {
+            min-height: 90px;
+            resize: none;
+        }
+
+        .demo-check-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px 16px;
+        }
+
+        .demo-check {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #aaa;
+            font-size: .8rem;
+            text-transform: uppercase;
+        }
+
+        .demo-disabled[disabled] {
+            opacity: .5;
+            cursor: not-allowed !important;
+        }
+
+        .demo-link {
+            text-decoration: none;
+        }
+
+        @media (max-width: 850px) {
+            .demo-form-grid,
+            .demo-check-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body class="personality-page-body">
+
+<div class="app-shell personality-page-shell">
+
+    <header class="topbar site-style-topbar" aria-label="Main header">
+
+        <a class="brand-mark" href="../../" aria-label="KUZAI demo home">
+            <img
+                class="brand-mark__logo"
+                src="../../assets/img/kuz_network_logo_transparent.png"
+                alt="KUZ Network logo"
+                width="112"
+                height="112"
+            >
+        </a>
+
+        <div class="header-title-block">
+            <h1 class="header-title-block__title">KUZAI - THE LOCAL AI</h1>
+            <p class="header-title-block__meta">
+                A KUZ NETWORK SOLUTION - PUBLIC APPLICATION DEMO
+            </p>
+        </div>
+
+        <div class="topbar-meta site-header-runtime">
+
+            <div class="meta-pill site-header-runtime__pill">
+                <span class="meta-label">MODE</span>
+                <span class="meta-value">STATIC DEMO</span>
+            </div>
+
+            <div class="meta-pill site-header-runtime__pill demo-runtime">
+                <span class="state-dot meta-dot"></span>
+                <span class="meta-value">DEMO</span>
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="personality-action-toolbar">
+
+        <a class="btn demo-link" href="../../">
+            BACK TO CHAT
+        </a>
+
+        <a class="btn demo-link" href="./">
+            BACK TO PROFILES
+        </a>
+
+        <button type="button" class="btn demo-disabled" disabled>
+            PREVIEW JSON
+        </button>
+
+        <button type="button" class="btn btn-primary demo-disabled" disabled>
+            SAVE AND RUN PROFILE
+        </button>
+
+        <button type="button" class="btn btn-primary demo-disabled" disabled>
+            SAVE PROFILE
+        </button>
+
+        <button type="button" class="btn demo-disabled" disabled>
+            CLEAR EDITION
+        </button>
+
+    </div>
+
+    <main class="demo-editor-panel">
+
+        <p class="kicker">PROFILE EDITOR</p>
+
+        <h2>CREATE OR EDIT A KUZAI LLM BEHAVIOR PROFILE</h2>
+
+        <div class="demo-notice">
+            READ ONLY PUBLIC DEMO /
+            PROFILE VALUES CANNOT BE CHANGED OR SAVED
+        </div>
+
+        <section class="demo-editor-section">
+            <h3>1. PROFILE FILE</h3>
+
+            <div class="demo-form-grid">
+
+                <div class="demo-field">
+                    <label>Profile ID</label>
+                    <input type="text" value="default-generalist" disabled>
+                </div>
+
+                <div class="demo-field">
+                    <label>Profile label</label>
+                    <input type="text" value="Default Generalist" disabled>
+                </div>
+
+                <div class="demo-field demo-field-full">
+                    <label>Description</label>
+                    <textarea disabled>Generalist KUZAI profile with strong technical capability but not limited to sysadmin or code.</textarea>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="demo-editor-section">
+            <h3>2. IDENTITY</h3>
+
+            <div class="demo-form-grid">
+
+                <div class="demo-field">
+                    <label>AI name</label>
+                    <input type="text" value="KUZAI" disabled>
+                </div>
+
+                <div class="demo-field">
+                    <label>AI type</label>
+                    <input type="text" value="Local generalist AI" disabled>
+                </div>
+
+                <div class="demo-field demo-field-full">
+                    <label>Main identity sentence</label>
+                    <textarea disabled>KUZAI is a local generalist AI assistant designed for technical work, analysis, creation, research, writing, learning and practical decision support.</textarea>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="demo-editor-section">
+            <h3>3. POSITIONING</h3>
+
+            <div class="demo-check-grid">
+                <label class="demo-check"><input type="checkbox" checked disabled> Local generalist</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Technical assistant</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Analysis assistant</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Creative assistant</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Research assistant</label>
+            </div>
+        </section>
+
+        <section class="demo-editor-section">
+            <h3>4. PRIORITY DOMAINS</h3>
+
+            <div class="demo-check-grid">
+                <label class="demo-check"><input type="checkbox" checked disabled> General questions</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Linux sysadmin</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Network</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Web development</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Local AI</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Document analysis</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Professional writing</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Creative prompts</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Research assistance</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Project strategy</label>
+            </div>
+        </section>
+
+        <section class="demo-editor-section">
+            <h3>5. PERSONALITY</h3>
+
+            <div class="demo-check-grid">
+                <label class="demo-check"><input type="checkbox" checked disabled> Calm</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Direct</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Precise</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Pragmatic</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Analytical</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Methodical</label>
+                <label class="demo-check"><input type="checkbox" checked disabled> Adaptable</label>
+            </div>
+        </section>
+
+        <section class="demo-editor-section">
+            <h3>6. TONE AND BEHAVIOR</h3>
+
+            <div class="demo-form-grid">
+
+                <div class="demo-field">
+                    <label>Initiative level</label>
+                    <input type="text" value="Adaptive" disabled>
+                </div>
+
+                <div class="demo-field">
+                    <label>Response length</label>
+                    <input type="text" value="Adaptive" disabled>
+                </div>
+
+                <div class="demo-field">
+                    <label>Primary language</label>
+                    <input type="text" value="User language" disabled>
+                </div>
+
+                <div class="demo-field">
+                    <label>Creativity level</label>
+                    <input type="text" value="3 - Balanced" disabled>
+                </div>
+
+                <div class="demo-field demo-field-full">
+                    <label>Style example</label>
+                    <textarea disabled>Precise, practical, without filler.</textarea>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="demo-editor-section">
+            <h3>7. TECHNICAL WORKFLOW</h3>
+
+            <div class="demo-form-grid">
+
+                <div class="demo-field">
+                    <label>Project mode</label>
+                    <textarea disabled>Step by step for installation, debugging and implementation</textarea>
+                </div>
+
+                <div class="demo-field">
+                    <label>Code generation mode</label>
+                    <textarea disabled>Complete files for corrections when practical, robust patches for large files</textarea>
+                </div>
+
+                <div class="demo-field">
+                    <label>Explanation level</label>
+                    <input type="text" value="Normal, detailed only for complex errors" disabled>
+                </div>
+
+                <div class="demo-field">
+                    <label>Voice / TTS style</label>
+                    <input type="text" value="Calm direct technical" disabled>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="demo-editor-section">
+            <h3>8. ADDITIONAL FREE INSTRUCTIONS</h3>
+
+            <div class="demo-form-grid">
+
+                <div class="demo-field demo-field-full">
+                    <label>Custom instructions</label>
+                    <textarea disabled>Read only in the public demonstration.</textarea>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <nav class="profiles-bottom-nav" aria-label="Back to profiles">
+        <a class="profiles-bottom-back-home" href="./">
+            <span class="profiles-bottom-back-home__label">
+                BACK TO PROFILES
+            </span>
+            <span class="profiles-bottom-back-home__arrow">
+                --&gt;
+            </span>
+        </a>
+    </nav>
+
+    <footer
+        class="site-footer site-footer--dynamic app-site-footer"
+        aria-label="KUZ Network footer"
+    >
+        <div class="site-footer__inner">
+            <p class="site-footer__text">
+                THE KUZ NETWORK - @2026 / BUILD LOCAL / KEEP CONTROL / OWN THE STACK
+            </p>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>

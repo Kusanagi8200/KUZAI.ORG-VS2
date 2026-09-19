@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>KUZAI - THE LOCAL AI / DEMO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="application-name" content="KUZAI DEMO">
+
+    <link rel="stylesheet" href="assets/css/kuzai-app.css">
+
+    <style>
+        .demo-runtime {
+            color: #ffffff;
+        }
+
+        .demo-runtime .meta-dot {
+            background: #ffffff !important;
+            box-shadow: none !important;
+        }
+
+        .demo-notice {
+            margin: 0 0 16px 0;
+            padding: 10px 14px;
+            border: 1px solid #ffffff;
+            background: #000000;
+            color: #ffffff;
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.12em;
+            line-height: 1.5;
+            text-transform: uppercase;
+        }
+
+        .demo-static-control[disabled] {
+            opacity: 0.48;
+            cursor: not-allowed !important;
+        }
+
+        .demo-link {
+            text-decoration: none;
+        }
+
+        .demo-composer textarea {
+            cursor: default;
+        }
+    </style>
+</head>
+
+<body>
+<div class="app-shell">
+
+    <header class="topbar site-style-topbar" aria-label="Main header">
+        <a class="brand-mark" href="../" aria-label="KUZAI.ORG">
+            <img
+                class="brand-mark__logo"
+                src="assets/img/kuz_network_logo_transparent.png"
+                alt="KUZ Network logo"
+                width="112"
+                height="112"
+            >
+        </a>
+
+        <div class="header-title-block" aria-label="Project title">
+            <h1 class="header-title-block__title">KUZAI - THE LOCAL AI</h1>
+            <p class="header-title-block__meta">
+                A KUZ NETWORK SOLUTION - PUBLIC APPLICATION DEMO
+            </p>
+        </div>
+
+        <div class="topbar-meta site-header-runtime" aria-label="Demo status">
+            <div class="meta-pill site-header-runtime__pill">
+                <span class="meta-label">MODE</span>
+                <span class="meta-value">STATIC DEMO</span>
+            </div>
+
+            <div class="meta-pill site-header-runtime__pill demo-runtime">
+                <span class="state-dot meta-dot"></span>
+                <span class="meta-value">DEMO</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="layout">
+
+        <section class="chat-panel">
+
+            <div class="chat-header">
+                <div>
+                    <p class="section-kicker">MEMORIES SYSTEM UP</p>
+                    <h2>/Start a new process/</h2>
+                </div>
+
+                <div class="chat-actions">
+
+                    <a
+                        class="btn btn-secondary git-rag-main-btn demo-link"
+                        href="modules/git-rag/"
+                        title="Explore the GIT-RAG interface"
+                    >
+                        GIT-RAG / SELECT A REPO
+                    </a>
+
+                    <a
+                        class="btn btn-secondary custom-llm-main-btn demo-link"
+                        href="modules/custom-llm/"
+                        title="Explore Custom LLM profiles"
+                    >
+                        CUSTOM LLM
+                    </a>
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary demo-static-control"
+                        disabled
+                    >
+                        CLEAR
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="demo-notice">
+                PUBLIC STATIC DEMO / INTERFACE EXPLORATION ONLY /
+                LOCAL AI, WEB SEARCH, FILE UPLOAD, VOICE AND BACKEND SERVICES ARE DISABLED
+            </div>
+
+            <div class="messages">
+
+                <div class="message message-assistant">
+                    <div class="message-role">KUZAI</div>
+
+                    <div class="message-content">
+                        /Ready for new instructions/
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="composer demo-composer">
+
+                <textarea
+                    rows="4"
+                    maxlength="8000"
+                    placeholder="Write a message..."
+                    readonly
+                    aria-label="Demo message input"
+                ></textarea>
+
+                <div class="attachments"></div>
+                <div class="web-results"></div>
+
+                <div class="composer-footer">
+
+                    <div class="composer-actions">
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary demo-static-control"
+                            disabled
+                        >
+                            WEB OFF
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary demo-static-control"
+                            disabled
+                        >
+                            VOICE OFF
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary demo-static-control"
+                            disabled
+                        >
+                            UPLOAD
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-primary demo-static-control"
+                            disabled
+                        >
+                            SEND
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <aside class="side-panel">
+
+            <div class="side-card">
+                <p class="section-kicker">BACKEND</p>
+                <h3>llama.cpp</h3>
+
+                <div class="kv">
+                    <span>Endpoint</span>
+                    <strong>LOCAL / DISABLED IN DEMO</strong>
+                </div>
+
+                <div class="kv">
+                    <span>Model in use</span>
+                    <strong>LOCAL MODEL</strong>
+                </div>
+
+                <div class="kv">
+                    <span>Generation mode</span>
+                    <strong>STATIC DEMONSTRATION</strong>
+                </div>
+            </div>
+
+            <div class="side-card">
+                <p class="section-kicker">UPLOAD</p>
+                <h3>File analysis</h3>
+
+                <div class="kv">
+                    <span>Supported first</span>
+                    <strong>text, code, config, logs, JSON, CSV</strong>
+                </div>
+
+                <div class="kv">
+                    <span>Max size</span>
+                    <strong>2 MB per file</strong>
+                </div>
+
+                <div class="kv">
+                    <span>Demo status</span>
+                    <strong>DISABLED</strong>
+                </div>
+            </div>
+
+            <div class="side-card">
+                <p class="section-kicker">SETTINGS</p>
+                <h3>Generation</h3>
+
+                <div class="kv">
+                    <span>Inference</span>
+                    <strong>LOCAL</strong>
+                </div>
+
+                <div class="kv">
+                    <span>Web search</span>
+                    <strong>DISABLED IN DEMO</strong>
+                </div>
+
+                <div class="kv">
+                    <span>Voice</span>
+                    <strong>DISABLED IN DEMO</strong>
+                </div>
+            </div>
+
+        </aside>
+
+    </main>
+
+    <footer
+        class="site-footer site-footer--dynamic app-site-footer"
+        aria-label="KUZ Network footer"
+    >
+        <div class="site-footer__inner">
+            <p class="site-footer__text">
+                THE KUZ NETWORK - @2026 / BUILD LOCAL / KEEP CONTROL / OWN THE STACK
+            </p>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>

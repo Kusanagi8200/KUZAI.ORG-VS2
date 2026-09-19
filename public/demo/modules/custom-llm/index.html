@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>KUZAI / CUSTOM LLM / DEMO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../assets/css/kuzai-app.css">
+
+    <style>
+        body.profiles-page-body {
+            background: #000;
+            color: #fff;
+        }
+
+        .demo-runtime .meta-dot {
+            background: #fff !important;
+            box-shadow: none !important;
+        }
+
+        .demo-notice {
+            margin: 0 0 18px 0;
+            padding: 10px 14px;
+            border: 1px solid #fff;
+            background: #000;
+            color: #fff;
+            font-size: .78rem;
+            font-weight: 900;
+            letter-spacing: .12em;
+            line-height: 1.5;
+            text-transform: uppercase;
+        }
+
+        .demo-profile {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 18px;
+            align-items: center;
+            padding: 18px;
+            border: 1px solid #fff;
+            background: #000;
+        }
+
+        .demo-profile-title {
+            margin: 0 0 8px 0;
+            font-size: 1rem;
+            font-weight: 900;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+
+        .demo-profile-desc {
+            margin: 0 0 10px 0;
+            color: #d0d0d0;
+            line-height: 1.5;
+        }
+
+        .demo-profile-meta {
+            color: #888;
+            font-size: .78rem;
+        }
+
+        .demo-profile-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: flex-end;
+        }
+
+        .demo-disabled[disabled] {
+            opacity: .42;
+            cursor: not-allowed !important;
+        }
+
+        .demo-link {
+            text-decoration: none;
+        }
+
+        @media (max-width: 850px) {
+            .demo-profile {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-profile-actions {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body class="profiles-page-body">
+
+<div class="app-shell profiles-page-shell">
+
+    <header class="topbar site-style-topbar" aria-label="Main header">
+
+        <a class="brand-mark" href="../../" aria-label="KUZAI demo home">
+            <img
+                class="brand-mark__logo"
+                src="../../assets/img/kuz_network_logo_transparent.png"
+                alt="KUZ Network logo"
+                width="112"
+                height="112"
+            >
+        </a>
+
+        <div class="header-title-block">
+            <h1 class="header-title-block__title">KUZAI - THE LOCAL AI</h1>
+            <p class="header-title-block__meta">
+                A KUZ NETWORK SOLUTION - PUBLIC APPLICATION DEMO
+            </p>
+        </div>
+
+        <div class="topbar-meta site-header-runtime">
+
+            <div class="meta-pill site-header-runtime__pill">
+                <span class="meta-label">MODE</span>
+                <span class="meta-value">STATIC DEMO</span>
+            </div>
+
+            <div class="meta-pill site-header-runtime__pill demo-runtime">
+                <span class="state-dot meta-dot"></span>
+                <span class="meta-value">DEMO</span>
+            </div>
+
+        </div>
+
+    </header>
+
+    <main class="panel">
+
+        <p class="kicker">CUSTOM LLM</p>
+
+        <h2>SELECT A PROFILE AND RUN IT FOR THE CURRENT KUZAI SESSION</h2>
+
+        <div class="demo-notice">
+            STATIC CUSTOM LLM DEMONSTRATION /
+            PROFILE EXECUTION, CREATION, MODIFICATION AND DELETION ARE DISABLED
+        </div>
+
+        <div class="profiles-editor-toolbar">
+            <a
+                class="btn profiles-create-profile-btn demo-link"
+                href="editor.html"
+            >
+                CREATE NEW PROFILE
+            </a>
+        </div>
+
+        <div class="profiles">
+
+            <article class="demo-profile">
+
+                <div>
+                    <p class="demo-profile-title">
+                        DEFAULT GENERALIST
+                    </p>
+
+                    <p class="demo-profile-desc">
+                        Generalist KUZAI profile with strong technical capability
+                        but not limited to sysadmin or code.
+                    </p>
+
+                    <div class="demo-profile-meta">
+                        default-generalist / LOCAL GENERALIST AI / PROTECTED PROFILE
+                    </div>
+                </div>
+
+                <div class="demo-profile-actions">
+
+                    <button
+                        type="button"
+                        class="btn btn-primary demo-disabled"
+                        disabled
+                    >
+                        RUN PROFILE
+                    </button>
+
+                    <a
+                        class="btn demo-link"
+                        href="editor.html"
+                    >
+                        VIEW PROFILE
+                    </a>
+
+                    <button
+                        type="button"
+                        class="btn demo-disabled"
+                        disabled
+                    >
+                        DELETE
+                    </button>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </main>
+
+    <nav class="profiles-bottom-nav" aria-label="Back to demo home">
+        <a class="profiles-bottom-back-home" href="../../">
+            <span class="profiles-bottom-back-home__label">
+                BACK HOME
+            </span>
+            <span class="profiles-bottom-back-home__arrow">
+                --&gt;
+            </span>
+        </a>
+    </nav>
+
+    <footer
+        class="site-footer site-footer--dynamic app-site-footer"
+        aria-label="KUZ Network footer"
+    >
+        <div class="site-footer__inner">
+            <p class="site-footer__text">
+                THE KUZ NETWORK - @2026 / BUILD LOCAL / KEEP CONTROL / OWN THE STACK
+            </p>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>

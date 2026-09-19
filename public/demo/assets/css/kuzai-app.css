@@ -1,0 +1,7529 @@
+:root {
+    --bg-main: #000000;
+    --bg-panel: #000000;
+    --bg-input: #000000;
+
+    --text-main: #ffffff;
+    --text-soft: #d7d7d7;
+    --text-dim: #8f8f8f;
+
+    --border-main: #5f5f5f;
+    --border-strong: #9a9a9a;
+    --border-soft: #323232;
+
+    --button-border: rgba(255, 255, 255, 0.78);
+    --button-border-hover: rgba(255, 255, 255, 0.96);
+
+    --radius-xl: 22px;
+    --radius-lg: 18px;
+    --radius-md: 14px;
+
+    --app-width: 1500px;
+    --app-margin: 28px;
+    --kuzai-app-scale: 1.20;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    background: var(--bg-main);
+    color: var(--text-main);
+}
+
+body,
+button,
+textarea,
+input,
+select {
+    font-family: "Anta", "Segoe UI", "Inter", Arial, sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   GLOBAL APP LAYOUT
+   ========================================================= */
+
+.app-shell {
+    width: min(var(--app-width), calc(100% - var(--app-margin)));
+    margin: 0 auto;
+    padding: 8px 0 16px;
+    background: var(--bg-main);
+}
+
+@supports (zoom: 1) {
+    .app-shell {
+        zoom: var(--kuzai-app-scale);
+    }
+}
+
+@supports not (zoom: 1) {
+    .app-shell {
+        transform: scale(var(--kuzai-app-scale));
+        transform-origin: top center;
+        width: calc((100% - var(--app-margin)) / var(--kuzai-app-scale));
+    }
+}
+
+/* =========================================================
+   TOP BANNER
+   ========================================================= */
+
+.topbar {
+    min-height: 104px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+    padding: 12px 16px;
+    border: 2px solid var(--border-main);
+    border-radius: var(--radius-xl);
+    background: var(--bg-panel);
+    color: var(--text-main);
+    box-shadow: none;
+    backdrop-filter: none;
+    overflow: hidden;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    min-width: 0;
+}
+
+.brand-logo,
+.logo-box {
+    width: 78px;
+    height: 78px;
+    min-width: 78px;
+    max-width: 78px;
+    min-height: 78px;
+    max-height: 78px;
+    flex: 0 0 78px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+    line-height: 0;
+}
+
+.brand-logo img,
+.logo-box img,
+.brand-logo.brand-logo-image > img,
+.logo-box.logo-box-image > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
+    transform: scale(1.25);
+    transform-origin: center center;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.brand h1 {
+    margin: 0;
+    color: var(--text-main);
+    font-size: 2rem;
+    line-height: 1.1;
+    letter-spacing: 0.12em;
+    font-weight: 400;
+}
+
+.brand-line {
+    margin: 5px 0 0;
+    color: var(--text-main);
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    margin: 5px 0 0;
+    color: var(--text-dim);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.topbar-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.meta-pill {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 2px solid var(--border-main);
+    border-radius: 999px;
+    background: var(--bg-main);
+    color: var(--text-main);
+    box-shadow: none;
+}
+
+.meta-dot,
+.state-dot,
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--text-dim);
+    box-shadow: none;
+}
+
+.state-ok .meta-dot,
+.state-ok .state-dot {
+    background: #67f3ba;
+}
+
+.state-down .meta-dot,
+.state-down .state-dot {
+    background: #ff7b9d;
+}
+
+.meta-label {
+    color: var(--text-dim);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.meta-value {
+    color: var(--text-main);
+    font-size: 0.88rem;
+    font-weight: 900;
+}
+
+/* =========================================================
+   MAIN GRID
+   ========================================================= */
+
+.layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 24px;
+    align-items: start;
+    background: var(--bg-main);
+}
+
+.chat-panel,
+.side-card {
+    border: 2px solid var(--border-main);
+    border-radius: var(--radius-xl);
+    background: var(--bg-panel);
+    color: var(--text-main);
+    box-shadow: none;
+    backdrop-filter: none;
+    overflow: hidden;
+}
+
+.chat-panel {
+    align-self: start;
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+
+.chat-header {
+    min-height: 58px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 16px;
+    padding: 10px 16px;
+    border: 0;
+    border-bottom: 1px solid var(--border-soft);
+    border-radius: 0;
+    background: var(--bg-panel);
+}
+
+.chat-header > div:first-child {
+    min-width: 0;
+}
+
+.section-kicker {
+    margin: 0 0 3px;
+    color: var(--text-dim);
+    font-size: 0.78rem;
+    line-height: 1.3;
+    letter-spacing: 0.22em;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.chat-header h2 {
+    margin: 0;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    font-weight: 900;
+}
+
+.chat-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 18px;
+}
+
+/* =========================================================
+   MESSAGES
+   ========================================================= */
+
+.messages {
+    min-height: 220px;
+    height: auto;
+    max-height: none;
+    display: grid;
+    align-content: start;
+    gap: 8px;
+    padding: 18px 20px;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: var(--bg-panel);
+    scroll-behavior: smooth;
+}
+
+.message {
+    max-width: 100%;
+    padding: 16px 18px;
+    border: 2px solid var(--border-main);
+    border-radius: var(--radius-lg);
+    background: var(--bg-panel);
+    color: var(--text-main);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.message-user {
+    justify-self: end;
+}
+
+.message-assistant {
+    justify-self: start;
+}
+
+.message-role {
+    margin-bottom: 8px;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.message-content,
+.message .message-body,
+.message-text {
+    color: var(--text-soft);
+    font-size: 1rem;
+    line-height: 1.68;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+/* =========================================================
+   COMPOSER
+   ========================================================= */
+
+.composer {
+    display: grid;
+    gap: 8px;
+    padding: 12px 16px 14px;
+    border: 0;
+    border-top: 1px solid var(--border-soft);
+    border-radius: 0;
+    background: var(--bg-panel);
+}
+
+textarea {
+    width: 100%;
+    min-height: 72px;
+    max-height: 130px;
+    resize: vertical;
+    padding: 10px 12px;
+    border: 2px solid var(--border-main);
+    border-radius: 20px;
+    outline: none;
+    background: var(--bg-input);
+    color: var(--text-main);
+    line-height: 1.35;
+    font-size: 0.9rem;
+    box-shadow: none;
+}
+
+textarea::placeholder {
+    color: #777777;
+}
+
+textarea:focus {
+    border-color: var(--border-strong);
+    outline: none;
+    box-shadow: none;
+}
+
+textarea:disabled {
+    opacity: 0.65;
+}
+
+.file-input {
+    display: none;
+}
+
+.composer-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-panel);
+    border: 0;
+}
+
+.hint,
+.small-text {
+    color: var(--text-dim);
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+/* =========================================================
+   ATTACHMENTS / WEB RESULTS
+   ========================================================= */
+
+.attachments,
+.web-results {
+    display: grid;
+    gap: 7px;
+}
+
+.attachments-empty,
+.web-results-empty {
+    display: none;
+}
+
+.attachment-chip,
+.web-result-chip {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 12px;
+    padding: 8px 12px;
+    border: 2px solid var(--border-main);
+    border-radius: var(--radius-md);
+    background: var(--bg-panel);
+    color: var(--text-main);
+}
+
+.attachment-main,
+.web-result-main {
+    display: grid;
+    gap: 3px;
+    min-width: 0;
+}
+
+.attachment-name,
+.web-result-title {
+    color: var(--text-main);
+    font-size: 0.86rem;
+    font-weight: 900;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.attachment-meta,
+.web-result-url {
+    color: var(--text-dim);
+    font-size: 0.7rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+button,
+.btn,
+a.btn,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    height: 34px;
+    padding: 0 14px;
+    border: 2px solid var(--button-border);
+    border-radius: 14px;
+    background: #000000;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 0.72rem;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+    text-shadow: none;
+    transition: background 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+}
+
+button *,
+.btn *,
+a.btn * {
+    font-weight: 900;
+}
+
+button:hover,
+.btn:hover,
+a.btn:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border-color: var(--button-border-hover);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+button:disabled,
+.btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+button:focus-visible,
+.btn:focus-visible,
+a.btn:focus-visible {
+    outline: none;
+    border-color: #ffffff;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.30),
+        0 0 0 2px rgba(255, 255, 255, 0.30);
+}
+
+.btn-hidden {
+    display: none !important;
+}
+
+.btn-primary {
+    background: #ffffff;
+    color: #000000;
+    border-color: #777777;
+}
+
+.btn-primary:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #9a9a9a;
+}
+
+.btn-secondary,
+.btn-danger {
+    background: #000000;
+    color: #ffffff;
+    border-color: var(--button-border);
+}
+
+.composer-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.composer-actions .btn {
+    width: auto;
+    flex: 0 0 auto;
+}
+
+#webBtn {
+    display: none !important;
+}
+
+#autoWebBtn {
+    min-width: 96px;
+}
+
+#autoSpeakBtn,
+#voiceBtn {
+    min-width: 118px;
+}
+
+#uploadBtn {
+    min-width: 92px;
+}
+
+#sendBtn {
+    min-width: 82px;
+}
+
+#stopBtn {
+    min-width: 82px;
+}
+
+#customLlmBtn {
+    min-width: 150px;
+    height: 42px;
+    min-height: 42px;
+    max-height: 42px;
+    padding: 0 22px;
+    border-radius: 16px;
+}
+
+#clearBtn {
+    min-width: 92px;
+    height: 42px;
+    min-height: 42px;
+    max-height: 42px;
+    padding: 0 22px;
+    border-radius: 16px;
+}
+
+.custom-llm-btn--selected {
+    border-color: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.custom-llm-btn--locked {
+    opacity: 0.72;
+}
+
+/* SEND idle black, generating white */
+.composer-actions button#sendBtn {
+    background: #000000;
+    color: #ffffff;
+    border-color: var(--button-border);
+}
+
+.composer-actions button#sendBtn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border-color: var(--button-border-hover);
+}
+
+.composer-actions button#sendBtn:disabled {
+    background: #ffffff;
+    color: #000000;
+    border-color: #9a9a9a;
+    opacity: 1;
+}
+
+/* Remove buttons */
+.attachment-remove,
+.web-result-remove,
+.speak-btn,
+.stop-audio-btn {
+    min-width: 66px;
+    height: 28px;
+    min-height: 28px;
+    padding: 0 11px;
+    border-radius: 999px;
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.07em;
+}
+
+/* =========================================================
+   SIDE PANEL
+   ========================================================= */
+
+.side-panel {
+    display: grid;
+    gap: 18px;
+    align-content: start;
+    background: var(--bg-main);
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+}
+
+.side-card {
+    padding: 20px;
+}
+
+.side-card h3,
+#modelName {
+    margin: 0;
+    color: var(--text-main);
+    font-size: 1rem;
+    line-height: 1.45;
+    letter-spacing: 0.02em;
+    font-weight: 750;
+    text-transform: none;
+}
+
+.kv {
+    display: grid;
+    gap: 6px;
+    padding: 13px 0;
+    border: 0;
+    border-bottom: 1px solid var(--border-soft);
+    border-radius: 0;
+    background: transparent;
+}
+
+.kv:last-child {
+    border-bottom: 0;
+}
+
+.kv span {
+    color: var(--text-dim);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 900;
+}
+
+.kv strong,
+.kv p,
+.kv div {
+    color: var(--text-soft);
+    font-size: 0.94rem;
+    word-break: break-word;
+}
+
+.feature-list,
+.endpoint-list {
+    color: var(--text-soft);
+}
+
+.endpoint-list {
+    display: grid;
+    gap: 0;
+}
+
+.endpoint-list span {
+    display: block;
+    padding: 13px 0;
+    border: 0;
+    border-bottom: 1px solid var(--border-soft);
+    background: transparent;
+    color: var(--text-soft);
+}
+
+.endpoint-list span:last-child {
+    border-bottom: 0;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .chat-panel {
+        min-height: auto;
+    }
+
+    .messages {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 760px) {
+    .app-shell {
+        width: min(100% - 20px, var(--app-width));
+        padding-top: 12px;
+    }
+
+    .topbar,
+    .brand,
+    .chat-header,
+    .composer-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .chat-header {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 12px;
+    }
+
+    .chat-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    #customLlmBtn,
+    #clearBtn {
+        width: 100%;
+    }
+
+    .composer-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .composer-actions .btn,
+    .btn {
+        width: 100%;
+    }
+
+    .topbar-meta {
+        justify-content: flex-start;
+    }
+
+    .brand {
+        align-items: flex-start;
+    }
+
+    .brand h1 {
+        font-size: 1.55rem;
+    }
+
+    .message {
+        max-width: 100%;
+    }
+
+    .attachment-chip,
+    .web-result-chip {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* KUZAI_RESTORE_STOP_BUTTON_BEGIN */
+#stopBtn,
+button#stopBtn,
+.composer-actions #stopBtn,
+.composer-actions button#stopBtn {
+    display: inline-flex !important;
+    visibility: visible !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 82px !important;
+    width: auto !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+    padding: 0 14px !important;
+    border: 2px solid rgba(255, 255, 255, 0.78) !important;
+    border-radius: 14px !important;
+    background: #000000 !important;
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    font-size: 0.72rem !important;
+    line-height: 1 !important;
+    letter-spacing: 0.12em !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+        0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+}
+
+#stopBtn:hover,
+button#stopBtn:hover,
+.composer-actions #stopBtn:hover,
+.composer-actions button#stopBtn:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.96) !important;
+}
+
+#stopBtn.btn-hidden,
+button#stopBtn.btn-hidden,
+.composer-actions #stopBtn.btn-hidden {
+    display: inline-flex !important;
+}
+/* KUZAI_RESTORE_STOP_BUTTON_END */
+
+
+/* KUZAI_TOPBAR_VERTICAL_ALIGN_BEGIN */
+.app-shell {
+    padding-top: 18px !important;
+}
+
+@media (max-width: 760px) {
+    .app-shell {
+        padding-top: 22px !important;
+    }
+}
+/* KUZAI_TOPBAR_VERTICAL_ALIGN_END */
+
+
+/* KUZAI_ALL_TEXT_BOLD_FINAL_BEGIN */
+html,
+body,
+body *,
+.app-shell,
+.topbar,
+.brand,
+.brand *,
+.layout,
+.chat-panel,
+.chat-panel *,
+.side-panel,
+.side-panel *,
+.side-card,
+.side-card *,
+.messages,
+.messages *,
+.message,
+.message *,
+.composer,
+.composer *,
+button,
+.btn,
+a.btn,
+input,
+textarea,
+select,
+option,
+label,
+span,
+strong,
+small,
+p,
+div,
+section,
+article,
+header,
+main,
+aside,
+nav,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+ul,
+ol {
+    font-weight: 900 !important;
+}
+
+.brand h1,
+.topbar h1,
+.chat-header h2,
+.side-card h3,
+#modelName,
+.section-kicker,
+.brand-line,
+.subtitle,
+.meta-label,
+.meta-value,
+.kv span,
+.kv strong,
+.message-role,
+.message-content {
+    font-weight: 900 !important;
+}
+
+button,
+.btn,
+a.btn,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+#customLlmBtn,
+#clearBtn,
+#autoWebBtn,
+#autoSpeakBtn,
+#voiceBtn,
+#uploadBtn,
+#sendBtn,
+#stopBtn,
+.attachment-remove,
+.web-result-remove,
+.speak-btn,
+.stop-audio-btn {
+    font-weight: 900 !important;
+}
+/* KUZAI_ALL_TEXT_BOLD_FINAL_END */
+
+
+/* KUZAI_GIT_RAG_UI_BEGIN */
+.git-rag-toolbar {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+#gitRagActiveRepoBtn,
+#gitRagBtn {
+    min-height: 42px;
+    white-space: nowrap;
+    font-weight: 900;
+}
+
+#gitRagActiveRepoBtn {
+    max-width: 240px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.git-rag-active-repo-btn--selected {
+    border-color: var(--button-border-hover);
+}
+
+.git-rag-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: 80;
+    width: min(620px, calc(100vw - 32px));
+    max-height: 420px;
+    padding: 10px;
+    border: 2px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    background: var(--bg-main);
+    color: var(--text-main);
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.82);
+    overflow: auto;
+}
+
+.git-rag-menu[hidden] {
+    display: none !important;
+}
+
+.git-rag-menu-title {
+    margin: 0 0 8px;
+    color: var(--text-main);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.git-rag-menu-subtitle {
+    margin: 0 0 8px;
+    color: var(--text-dim);
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.git-rag-menu-empty {
+    padding: 10px;
+    color: var(--text-dim);
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+.git-rag-menu-item,
+.git-rag-file-item {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3px;
+    margin: 0 0 6px;
+    padding: 9px 10px;
+    border: 1px solid var(--border-main);
+    border-radius: 10px;
+    background: var(--bg-panel);
+    color: var(--text-main);
+    text-align: left;
+    cursor: pointer;
+}
+
+.git-rag-menu-item:hover:not(:disabled),
+.git-rag-file-item:hover:not(:disabled) {
+    border-color: var(--button-border-hover);
+}
+
+.git-rag-menu-item:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.git-rag-menu-item--selected {
+    border-color: var(--button-border-hover);
+}
+
+.git-rag-menu-item-main,
+.git-rag-file-path {
+    min-width: 0;
+    overflow: hidden;
+    color: var(--text-main);
+    font-size: 0.82rem;
+    font-weight: 900;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.git-rag-menu-item-meta,
+.git-rag-file-meta {
+    color: var(--text-dim);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.git-rag-files-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.git-rag-menu-close {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    padding: 0;
+    border: 1px solid var(--border-main);
+    border-radius: 999px;
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-size: 1.2rem;
+    font-weight: 900;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.git-rag-files-list {
+    display: grid;
+    gap: 0;
+}
+
+@media (max-width: 900px) {
+    .git-rag-toolbar {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    #gitRagActiveRepoBtn,
+    #gitRagBtn {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .git-rag-menu {
+        left: auto;
+        right: 0;
+        width: min(520px, calc(100vw - 32px));
+    }
+}
+/* KUZAI_GIT_RAG_UI_END */
+
+
+/* KUZAI_GIT_RAG_UI_STEP5C_BEGIN */
+.chat-panel,
+.chat-header {
+    overflow: visible;
+}
+
+.chat-header {
+    position: relative;
+    z-index: 60;
+}
+
+.chat-actions {
+    position: relative;
+    z-index: 70;
+}
+
+.git-rag-toolbar {
+    z-index: 90;
+}
+
+.git-rag-active-repo-btn--hidden {
+    display: none !important;
+}
+
+.git-rag-menu {
+    left: auto;
+    right: 0;
+    top: calc(100% + 12px);
+    z-index: 999;
+    width: min(520px, calc(100vw - 48px));
+    max-height: 360px;
+    padding: 14px;
+    line-height: 1.45;
+}
+
+.git-rag-menu-repos {
+    min-width: 420px;
+}
+
+.git-rag-menu-title {
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.git-rag-menu-item,
+.git-rag-file-item {
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    gap: 8px;
+    line-height: 1.45;
+}
+
+.git-rag-menu-item-main,
+.git-rag-file-path {
+    line-height: 1.35;
+}
+
+.git-rag-menu-item-meta,
+.git-rag-file-meta {
+    display: block;
+    line-height: 1.45;
+    white-space: normal;
+}
+
+.git-rag-files-header {
+    margin-bottom: 12px;
+}
+
+.git-rag-files-list {
+    max-height: 280px;
+    overflow: auto;
+}
+
+@media (max-width: 900px) {
+    .git-rag-menu,
+    .git-rag-menu-repos {
+        left: auto;
+        right: 0;
+        width: min(520px, calc(100vw - 32px));
+        min-width: 0;
+    }
+}
+/* KUZAI_GIT_RAG_UI_STEP5C_END */
+
+
+/* KUZAI_GIT_RAG_UI_STEP5D_BEGIN */
+.git-rag-menu {
+    position: fixed !important;
+    top: clamp(145px, 18vh, 220px) !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    z-index: 9999 !important;
+    width: min(680px, calc(100vw - 96px)) !important;
+    max-height: min(460px, calc(100vh - 220px)) !important;
+    padding: 18px !important;
+    border: 2px solid var(--border-strong) !important;
+    border-radius: var(--radius-lg) !important;
+    background: var(--bg-main) !important;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.92) !important;
+}
+
+.git-rag-menu-repos {
+    min-width: 560px;
+}
+
+.git-rag-menu-title {
+    margin-bottom: 16px !important;
+    line-height: 1.5 !important;
+}
+
+.git-rag-menu-item {
+    min-height: 58px;
+    padding: 14px 18px !important;
+    gap: 10px !important;
+}
+
+.git-rag-menu-item-main {
+    line-height: 1.45 !important;
+}
+
+.git-rag-menu-item-meta {
+    line-height: 1.6 !important;
+    letter-spacing: 0.08em;
+}
+
+.git-rag-files-list {
+    max-height: min(330px, calc(100vh - 320px)) !important;
+}
+
+@media (max-width: 900px) {
+    .git-rag-menu,
+    .git-rag-menu-repos {
+        top: 130px !important;
+        width: min(560px, calc(100vw - 32px)) !important;
+        min-width: 0 !important;
+    }
+}
+/* KUZAI_GIT_RAG_UI_STEP5D_END */
+
+
+/* KUZAI_GIT_RAG_UI_STEP5E_BEGIN */
+.git-rag-files-header {
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.git-rag-menu-subtitle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+.git-rag-menu-subtitle span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    padding: 3px 9px;
+    border: 1px solid var(--border-soft);
+    border-radius: 999px;
+    color: var(--text-dim);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.git-rag-file-item {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: center;
+    column-gap: 18px !important;
+    min-height: 66px;
+    padding: 13px 16px !important;
+}
+
+.git-rag-file-main {
+    min-width: 0;
+    display: grid;
+    gap: 5px;
+}
+
+.git-rag-file-name {
+    min-width: 0;
+    overflow: hidden;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-weight: 900;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.git-rag-file-dir {
+    min-width: 0;
+    overflow: hidden;
+    color: var(--text-dim);
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.git-rag-file-info {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    min-width: 180px;
+}
+
+.git-rag-file-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24px;
+    padding: 3px 8px;
+    border: 1px solid var(--border-main);
+    border-radius: 999px;
+    color: var(--text-soft);
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.git-rag-file-badge--binary {
+    border-color: var(--border-strong);
+    color: var(--text-main);
+}
+
+.git-rag-file-path,
+.git-rag-file-meta {
+    display: none !important;
+}
+
+@media (max-width: 900px) {
+    .git-rag-file-item {
+        grid-template-columns: minmax(0, 1fr) !important;
+        row-gap: 10px !important;
+    }
+
+    .git-rag-file-info {
+        justify-content: flex-start;
+        min-width: 0;
+    }
+}
+/* KUZAI_GIT_RAG_UI_STEP5E_END */
+
+
+/* KUZAI_GIT_RAG_FILE_VIEW_BEGIN */
+.git-rag-file-viewer {
+    width: 100%;
+    max-height: min(58vh, 620px);
+    overflow: auto;
+    margin: 14px 0 0;
+    padding: 16px;
+    border: 1px solid var(--border-soft);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-main);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: 0.76rem;
+    font-weight: 600;
+    line-height: 1.55;
+    white-space: pre;
+    tab-size: 4;
+}
+/* KUZAI_GIT_RAG_FILE_VIEW_END */
+
+/* KUZAI_GIT_RAG_FILE_EDIT_BEGIN */
+.git-rag-file-editor {
+    width: 100%;
+    min-height: min(58vh, 620px);
+    max-height: min(58vh, 620px);
+    overflow: auto;
+    resize: vertical;
+    margin: 14px 0 0;
+    padding: 16px;
+    border: 1px solid var(--border-strong);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: 0.76rem;
+    font-weight: 600;
+    line-height: 1.55;
+    white-space: pre;
+    tab-size: 4;
+    outline: none;
+}
+
+.git-rag-git-output--error {
+    border-color: var(--danger, #ff6b6b);
+}
+/* KUZAI_GIT_RAG_FILE_EDIT_END */
+
+
+/* KUZAI_GIT_RAG_UI_POLISH_CSS1_BEGIN */
+.git-rag-menu {
+    width: min(920px, calc(100vw - 72px)) !important;
+    max-height: min(72vh, 720px) !important;
+    padding: 20px !important;
+    overflow: hidden !important;
+}
+
+.git-rag-menu-repos {
+    min-width: min(720px, calc(100vw - 96px)) !important;
+}
+
+.git-rag-files-header {
+    align-items: flex-start !important;
+    gap: 18px !important;
+    margin-bottom: 14px !important;
+}
+
+.git-rag-files-header > div:first-child {
+    min-width: 260px;
+    flex: 1 1 360px;
+}
+
+.git-rag-files-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    max-width: 470px;
+}
+
+.git-rag-reindex-btn {
+    min-height: 34px;
+    padding: 7px 11px;
+    border: 1px solid var(--border-main);
+    border-radius: 999px;
+    background: var(--bg-panel);
+    color: var(--text-main);
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.git-rag-reindex-btn:hover:not(:disabled) {
+    border-color: var(--button-border-hover);
+}
+
+.git-rag-reindex-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.git-rag-menu-close {
+    margin-left: 2px;
+}
+
+.git-rag-reindex-status {
+    margin: 8px 0 0;
+    padding: 8px 11px;
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.025);
+    color: var(--text-dim);
+    font-size: 0.68rem;
+    font-weight: 800;
+    line-height: 1.45;
+}
+
+.git-rag-git-output {
+    max-height: min(26vh, 260px) !important;
+    white-space: pre-wrap !important;
+    word-break: break-word;
+}
+
+.git-rag-files-list {
+    max-height: min(48vh, 430px) !important;
+    margin-top: 14px;
+    padding-right: 4px;
+    overflow: auto !important;
+}
+
+.git-rag-file-item {
+    border-radius: 14px !important;
+}
+
+.git-rag-file-viewer,
+.git-rag-file-editor {
+    max-height: min(62vh, 680px) !important;
+    font-size: 0.78rem !important;
+    line-height: 1.6 !important;
+}
+
+.git-rag-file-editor {
+    min-height: min(54vh, 560px) !important;
+}
+
+@media (max-width: 900px) {
+    .git-rag-menu {
+        width: min(620px, calc(100vw - 28px)) !important;
+        max-height: calc(100vh - 160px) !important;
+        padding: 14px !important;
+    }
+
+    .git-rag-files-header {
+        display: grid !important;
+        gap: 12px !important;
+    }
+
+    .git-rag-files-actions {
+        justify-content: flex-start;
+        max-width: none;
+    }
+
+    .git-rag-reindex-btn {
+        min-height: 32px;
+        padding: 6px 9px;
+        font-size: 0.62rem;
+    }
+}
+/* KUZAI_GIT_RAG_UI_POLISH_CSS1_END */
+
+
+/* KUZAI_GIT_RAG_OVERLAY_ALIGN_BEGIN */
+.git-rag-menu {
+    position: fixed !important;
+    top: 134px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    z-index: 10000 !important;
+    width: min(920px, calc(100vw - 72px)) !important;
+    max-height: calc(100vh - 164px) !important;
+    overflow: hidden !important;
+}
+
+.git-rag-files-list {
+    max-height: calc(100vh - 430px) !important;
+    overflow: auto !important;
+}
+
+.git-rag-file-viewer,
+.git-rag-file-editor {
+    max-height: calc(100vh - 360px) !important;
+}
+
+@media (max-width: 900px) {
+    .git-rag-menu {
+        top: 118px !important;
+        width: min(620px, calc(100vw - 28px)) !important;
+        max-height: calc(100vh - 138px) !important;
+    }
+
+    .git-rag-files-list {
+        max-height: calc(100vh - 390px) !important;
+    }
+}
+/* KUZAI_GIT_RAG_OVERLAY_ALIGN_END */
+
+
+/* KUZAI_GIT_RAG_BANNER_WIDTH_SCROLL_BEGIN */
+.git-rag-menu {
+    position: fixed !important;
+    top: 134px !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: 24px !important;
+    transform: translateX(-50%) !important;
+    z-index: 10000 !important;
+    width: min(1440px, calc(100vw - 96px)) !important;
+    max-width: min(1440px, calc(100vw - 96px)) !important;
+    height: auto !important;
+    max-height: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+}
+
+.git-rag-menu-repos {
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+.git-rag-files-header {
+    flex: 0 0 auto !important;
+}
+
+.git-rag-reindex-status {
+    flex: 0 0 auto !important;
+}
+
+.git-rag-files-list {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: auto !important;
+    padding-right: 6px !important;
+}
+
+.git-rag-file-viewer,
+.git-rag-file-editor {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: auto !important;
+}
+
+.git-rag-git-output {
+    flex: 0 0 auto !important;
+    max-height: 220px !important;
+    overflow: auto !important;
+}
+
+@media (max-width: 900px) {
+    .git-rag-menu {
+        top: 118px !important;
+        bottom: 14px !important;
+        width: calc(100vw - 28px) !important;
+        max-width: calc(100vw - 28px) !important;
+    }
+}
+/* KUZAI_GIT_RAG_BANNER_WIDTH_SCROLL_END */
+
+
+/* KUZAI_GIT_RAG_BANNER_ALIGN2_BEGIN */
+.git-rag-menu {
+    position: fixed !important;
+    top: 148px !important;
+    left: 48px !important;
+    right: 48px !important;
+    bottom: 24px !important;
+    transform: none !important;
+    width: auto !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+}
+
+.git-rag-files-list {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: auto !important;
+}
+
+.git-rag-file-viewer,
+.git-rag-file-editor {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: auto !important;
+}
+
+@media (max-width: 900px) {
+    .git-rag-menu {
+        top: 126px !important;
+        left: 14px !important;
+        right: 14px !important;
+        bottom: 14px !important;
+        width: auto !important;
+        max-width: none !important;
+    }
+}
+/* KUZAI_GIT_RAG_BANNER_ALIGN2_END */
+
+
+/* KUZAI_GIT_RAG_TOP_ADJUST_BEGIN */
+.git-rag-menu {
+    top: 136px !important;
+}
+
+@media (max-width: 900px) {
+    .git-rag-menu {
+        top: 118px !important;
+    }
+}
+/* KUZAI_GIT_RAG_TOP_ADJUST_END */
+
+
+/* KUZAI_SITE_HEADER_SYNC_STEP165_BEGIN */
+
+body {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+.app-shell {
+    width: min(1680px, calc(100% - 32px)) !important;
+    margin: 0 auto !important;
+    padding-top: 16px !important;
+}
+
+.topbar.site-style-topbar {
+    width: 100% !important;
+    min-height: 118px !important;
+    max-height: 132px !important;
+    padding: 14px 22px !important;
+    margin-bottom: 18px !important;
+    display: grid !important;
+    grid-template-columns: 132px minmax(0, 1fr) 260px !important;
+    align-items: center !important;
+    gap: 0 !important;
+    overflow: hidden !important;
+    position: relative !important;
+    border: 1px solid #fff !important;
+    border-radius: 0 !important;
+    background: #000 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+.topbar.site-style-topbar .brand-mark {
+    grid-column: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 132px !important;
+    min-width: 132px !important;
+    max-width: 132px !important;
+    text-decoration: none !important;
+}
+
+.topbar.site-style-topbar .brand-mark__logo {
+    display: block !important;
+    width: 112px !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+.topbar.site-style-topbar .header-title-block {
+    grid-column: 2 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    display: grid !important;
+    justify-items: center !important;
+    align-content: center !important;
+    text-align: center !important;
+    gap: 7px !important;
+}
+
+.topbar.site-style-topbar .header-title-block__title {
+    width: 100% !important;
+    margin: 0 !important;
+    color: #fff !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    font-size: clamp(2.05rem, 3.05vw, 3.65rem) !important;
+    line-height: 0.9 !important;
+    letter-spacing: -0.035em !important;
+}
+
+.topbar.site-style-topbar .header-title-block__meta {
+    width: 100% !important;
+    margin: 0 !important;
+    color: #fff !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    font-size: clamp(0.58rem, 0.76vw, 0.86rem) !important;
+    line-height: 1 !important;
+    letter-spacing: 0.18em !important;
+}
+
+.topbar.site-style-topbar .site-header-runtime {
+    grid-column: 3 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    width: 260px !important;
+    min-width: 260px !important;
+    max-width: 260px !important;
+}
+
+.topbar.site-style-topbar .site-header-runtime__pill {
+    min-height: 32px !important;
+    padding: 7px 9px !important;
+    border: 1px solid #fff !important;
+    border-radius: 0 !important;
+    background: #000 !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    font-size: 0.66rem !important;
+    line-height: 1 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+}
+
+.topbar.site-style-topbar .meta-label,
+.topbar.site-style-topbar .meta-value {
+    color: #fff !important;
+}
+
+.topbar.site-style-topbar .meta-dot,
+.topbar.site-style-topbar .state-dot {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+}
+
+.topbar.site-style-topbar .state-ok .meta-dot,
+.topbar.site-style-topbar .state-ok .state-dot {
+    background: #fff !important;
+}
+
+.topbar.site-style-topbar .state-down .meta-dot,
+.topbar.site-style-topbar .state-down .state-dot {
+    background: #777 !important;
+}
+
+@media (max-width: 1100px) {
+    .topbar.site-style-topbar {
+        grid-template-columns: 96px minmax(0, 1fr) 220px !important;
+        min-height: 108px !important;
+        padding: 12px 16px !important;
+    }
+
+    .topbar.site-style-topbar .brand-mark {
+        width: 96px !important;
+        min-width: 96px !important;
+        max-width: 96px !important;
+    }
+
+    .topbar.site-style-topbar .brand-mark__logo {
+        width: 84px !important;
+    }
+
+    .topbar.site-style-topbar .site-header-runtime {
+        width: 220px !important;
+        min-width: 220px !important;
+        max-width: 220px !important;
+    }
+}
+
+@media (max-width: 780px) {
+    .topbar.site-style-topbar {
+        grid-template-columns: 72px minmax(0, 1fr) !important;
+        grid-template-rows: auto auto !important;
+        max-height: none !important;
+    }
+
+    .topbar.site-style-topbar .brand-mark {
+        width: 72px !important;
+        min-width: 72px !important;
+        max-width: 72px !important;
+    }
+
+    .topbar.site-style-topbar .brand-mark__logo {
+        width: 64px !important;
+    }
+
+    .topbar.site-style-topbar .header-title-block {
+        grid-column: 2 !important;
+    }
+
+    .topbar.site-style-topbar .header-title-block__title {
+        font-size: clamp(1.3rem, 6vw, 2.2rem) !important;
+    }
+
+    .topbar.site-style-topbar .site-header-runtime {
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        justify-content: center !important;
+        margin-top: 10px !important;
+    }
+}
+
+/* KUZAI_SITE_HEADER_SYNC_STEP165_END */
+
+/* KUZAI_LAYOUT_BAND_STEP166_BEGIN */
+
+/* Match public website shell proportions */
+.app-shell {
+    width: min(1728px, calc(100% - 70px)) !important;
+    margin: 0 auto !important;
+    padding-top: 16px !important;
+}
+
+/* Header: same visual geometry as public home page */
+.topbar.site-style-topbar {
+    width: 100% !important;
+    min-height: 118px !important;
+    max-height: 132px !important;
+    padding: 14px 22px !important;
+    grid-template-columns: 132px minmax(0, 1fr) 132px !important;
+    border-radius: 0 !important;
+}
+
+/* Runtime pills kept functional but removed from centering calculation */
+.topbar.site-style-topbar .site-header-runtime {
+    position: absolute !important;
+    right: 22px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    grid-column: auto !important;
+    width: 244px !important;
+    min-width: 244px !important;
+    max-width: 244px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    justify-items: end !important;
+    align-content: center !important;
+    gap: 8px !important;
+}
+
+/* Main layout becomes one column: side information moves below chat */
+.layout {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+    align-items: start !important;
+}
+
+/* Remove rounded container style on current main blocks */
+.chat-panel,
+.side-card,
+.composer,
+.messages,
+.message,
+textarea,
+.attachment-chip,
+.web-result-chip {
+    border-radius: 0 !important;
+}
+
+/* Horizontal information band below chat */
+.side-panel {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    width: 100% !important;
+}
+
+.side-card {
+    min-height: 176px !important;
+    padding: 16px 18px !important;
+    border: 1px solid #fff !important;
+    background: #000 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    color: #fff !important;
+}
+
+.side-card .section-kicker {
+    margin: 0 0 8px !important;
+    color: #888 !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.22em !important;
+}
+
+.side-card h3 {
+    margin: 0 0 14px !important;
+    color: #fff !important;
+    font-size: 0.92rem !important;
+}
+
+.side-card .kv {
+    display: grid !important;
+    grid-template-columns: 138px minmax(0, 1fr) !important;
+    gap: 12px !important;
+    align-items: baseline !important;
+    padding: 8px 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+.side-card .kv span {
+    color: #777 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.11em !important;
+    font-size: 0.72rem !important;
+}
+
+.side-card .kv strong {
+    color: #fff !important;
+    font-size: 0.82rem !important;
+    font-weight: 800 !important;
+    overflow-wrap: anywhere !important;
+}
+
+/* MEMORIES SYSTEM dynamic hover */
+.chat-header {
+    border-radius: 0 !important;
+    background: #000 !important;
+    color: #fff !important;
+    transition:
+        background-color 160ms ease,
+        color 160ms ease,
+        border-color 160ms ease !important;
+}
+
+.chat-header:hover {
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #fff !important;
+}
+
+.chat-header:hover .section-kicker,
+.chat-header:hover h2,
+.chat-header:hover .chat-actions,
+.chat-header:hover .chat-actions * {
+    color: #000 !important;
+}
+
+.chat-header:hover .btn,
+.chat-header:hover button {
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #000 !important;
+}
+
+.chat-header:hover .btn:hover,
+.chat-header:hover button:hover {
+    background: #000 !important;
+    color: #fff !important;
+    border-color: #000 !important;
+}
+
+/* Responsive preservation */
+@media (max-width: 1100px) {
+    .app-shell {
+        width: min(100% - 32px, 1728px) !important;
+    }
+
+    .side-panel {
+        grid-template-columns: 1fr !important;
+    }
+
+    .side-card .kv {
+        grid-template-columns: 120px minmax(0, 1fr) !important;
+    }
+
+    .topbar.site-style-topbar .site-header-runtime {
+        position: static !important;
+        transform: none !important;
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        display: flex !important;
+        justify-content: center !important;
+        margin-top: 10px !important;
+    }
+
+    .topbar.site-style-topbar {
+        max-height: none !important;
+    }
+}
+
+@media (max-width: 780px) {
+    .app-shell {
+        width: min(100% - 20px, 1728px) !important;
+    }
+
+    .topbar.site-style-topbar {
+        grid-template-columns: 72px minmax(0, 1fr) !important;
+    }
+}
+
+/* KUZAI_LAYOUT_BAND_STEP166_END */
+
+/* KUZAI_FLAT_LINES_STEP167_BEGIN */
+
+/* Global page width closer to website home visual rhythm */
+.app-shell {
+    width: min(1660px, calc(100% - 72px)) !important;
+    margin: 0 auto !important;
+    padding-top: 16px !important;
+}
+
+/* Header: no container box, only top and bottom white lines */
+.topbar.site-style-topbar {
+    width: 100% !important;
+    min-height: 88px !important;
+    max-height: 96px !important;
+    padding: 8px 0 !important;
+    margin-bottom: 28px !important;
+    display: grid !important;
+    grid-template-columns: 96px minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    gap: 0 !important;
+    border: 0 !important;
+    border-top: 1px solid #fff !important;
+    border-bottom: 1px solid #fff !important;
+    border-radius: 0 !important;
+    background: #000 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+}
+
+/* Logo reduced */
+.topbar.site-style-topbar .brand-mark {
+    width: 96px !important;
+    min-width: 96px !important;
+    max-width: 96px !important;
+    padding-left: 18px !important;
+}
+
+.topbar.site-style-topbar .brand-mark__logo {
+    width: 72px !important;
+    height: auto !important;
+}
+
+/* Center title reduced */
+.topbar.site-style-topbar .header-title-block {
+    gap: 5px !important;
+}
+
+.topbar.site-style-topbar .header-title-block__title {
+    font-size: clamp(1.95rem, 2.65vw, 3.05rem) !important;
+    line-height: 0.9 !important;
+    letter-spacing: -0.035em !important;
+}
+
+.topbar.site-style-topbar .header-title-block__meta {
+    font-size: clamp(0.52rem, 0.66vw, 0.74rem) !important;
+    line-height: 1 !important;
+    letter-spacing: 0.18em !important;
+}
+
+/* Runtime info: smaller, inline, no box borders, only text */
+.topbar.site-style-topbar .site-header-runtime {
+    position: static !important;
+    transform: none !important;
+    grid-column: 3 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 14px !important;
+    padding-right: 18px !important;
+}
+
+.topbar.site-style-topbar .site-header-runtime__pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #fff !important;
+    font-size: 0.62rem !important;
+    line-height: 1 !important;
+    letter-spacing: 0.08em !important;
+    white-space: nowrap !important;
+}
+
+.topbar.site-style-topbar .meta-label {
+    color: #8a8a8a !important;
+}
+
+.topbar.site-style-topbar .meta-value {
+    color: #fff !important;
+}
+
+.topbar.site-style-topbar .meta-dot,
+.topbar.site-style-topbar .state-dot {
+    width: 6px !important;
+    height: 6px !important;
+    display: inline-block !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+}
+
+/* Info area: no boxes, only top/bottom lines */
+.side-panel {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+    width: 100% !important;
+}
+
+.side-card {
+    min-height: 0 !important;
+    padding: 14px 0 16px !important;
+    border: 0 !important;
+    border-top: 1px solid #fff !important;
+    border-bottom: 1px solid #fff !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+.side-card .section-kicker {
+    padding: 0 18px !important;
+}
+
+.side-card h3 {
+    padding: 0 18px !important;
+}
+
+.side-card .kv {
+    grid-template-columns: 150px minmax(0, 1fr) !important;
+    padding: 8px 18px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Keep chat panel square and remove rounded visual language */
+.chat-panel,
+.chat-header,
+.composer,
+textarea,
+.btn,
+.meta-pill,
+.side-card {
+    border-radius: 0 !important;
+}
+
+/* Buttons: square dynamic inversion */
+.btn,
+button {
+    border-radius: 0 !important;
+}
+
+.btn:hover,
+button:hover {
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #fff !important;
+}
+
+/* MEMORIES header dynamic inversion preserved */
+.chat-header:hover {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+.chat-header:hover * {
+    color: #000 !important;
+}
+
+.chat-header:hover .btn:hover,
+.chat-header:hover button:hover {
+    background: #000 !important;
+    color: #fff !important;
+    border-color: #000 !important;
+}
+
+@media (max-width: 1100px) {
+    .app-shell {
+        width: min(100% - 32px, 1660px) !important;
+    }
+
+    .topbar.site-style-topbar {
+        grid-template-columns: 82px minmax(0, 1fr) !important;
+        max-height: none !important;
+    }
+
+    .topbar.site-style-topbar .site-header-runtime {
+        grid-column: 1 / -1 !important;
+        justify-content: center !important;
+        padding: 8px 0 0 !important;
+    }
+
+    .side-panel {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* KUZAI_FLAT_LINES_STEP167_END */
+
+/* KUZAI_SITE_WIDTH_FOOTER_STEP169_BEGIN */
+
+/* Match site page width more closely: less wide than previous app override */
+.app-shell {
+    width: min(1500px, calc(100% - 80px)) !important;
+    margin: 0 auto !important;
+    padding-top: 16px !important;
+}
+
+/* Header: site-style horizontal lines only, no side frame */
+.topbar.site-style-topbar {
+    width: 100% !important;
+    min-height: 96px !important;
+    max-height: 108px !important;
+    padding: 10px 0 !important;
+    margin-bottom: 26px !important;
+    display: grid !important;
+    grid-template-columns: 132px minmax(0, 1fr) 270px !important;
+    align-items: center !important;
+    border: 0 !important;
+    border-top: 1px solid #fff !important;
+    border-bottom: 1px solid #fff !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+    background: #000 !important;
+    box-shadow: none !important;
+}
+
+/* Logo back to website scale */
+.topbar.site-style-topbar .brand-mark {
+    grid-column: 1 !important;
+    width: 132px !important;
+    min-width: 132px !important;
+    max-width: 132px !important;
+    padding-left: 22px !important;
+}
+
+.topbar.site-style-topbar .brand-mark__logo {
+    width: 92px !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+/* Center block must stay centered visually */
+.topbar.site-style-topbar .header-title-block {
+    grid-column: 2 !important;
+    justify-items: center !important;
+    text-align: center !important;
+    gap: 5px !important;
+}
+
+.topbar.site-style-topbar .header-title-block__title {
+    font-size: clamp(2.05rem, 2.75vw, 3.25rem) !important;
+    line-height: 0.9 !important;
+}
+
+.topbar.site-style-topbar .header-title-block__meta {
+    font-size: clamp(0.54rem, 0.68vw, 0.78rem) !important;
+    line-height: 1 !important;
+}
+
+/* MODEL + STATUS: compact inline band with only top/bottom lines */
+.topbar.site-style-topbar .site-header-runtime {
+    position: static !important;
+    transform: none !important;
+    grid-column: 3 !important;
+    width: 270px !important;
+    min-width: 270px !important;
+    max-width: 270px !important;
+    padding: 7px 0 !important;
+    margin-right: 22px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 14px !important;
+    border-top: 1px solid #fff !important;
+    border-bottom: 1px solid #fff !important;
+}
+
+.topbar.site-style-topbar .site-header-runtime__pill {
+    border: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    font-size: 0.62rem !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+}
+
+.topbar.site-style-topbar .meta-label {
+    color: #8a8a8a !important;
+}
+
+.topbar.site-style-topbar .meta-value {
+    color: #fff !important;
+}
+
+.topbar.site-style-topbar .meta-dot,
+.topbar.site-style-topbar .state-dot {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+}
+
+/* Bottom info area: only horizontal white lines, no vertical card borders */
+.side-panel {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+}
+
+.side-card {
+    padding: 14px 0 16px !important;
+    border: 0 !important;
+    border-top: 1px solid #fff !important;
+    border-bottom: 1px solid #fff !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+.side-card .section-kicker,
+.side-card h3 {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+}
+
+.side-card .kv {
+    padding: 8px 18px !important;
+    grid-template-columns: 150px minmax(0, 1fr) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Force every button square, including STOP */
+.btn,
+button,
+.btn-primary,
+.btn-secondary,
+.btn-danger,
+#stopBtn,
+button#stopBtn,
+.composer-actions #stopBtn {
+    border-radius: 0 !important;
+}
+
+#stopBtn,
+button#stopBtn,
+.composer-actions #stopBtn {
+    border: 1px solid #fff !important;
+    background: #000 !important;
+    color: #fff !important;
+}
+
+#stopBtn:hover,
+button#stopBtn:hover,
+.composer-actions #stopBtn:hover {
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #fff !important;
+}
+
+/* Footer copied from public website visual system */
+.site-footer.app-site-footer {
+    width: 100% !important;
+    margin: 34px 0 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+}
+
+.site-footer.app-site-footer .site-footer__inner {
+    width: 100% !important;
+    min-height: 54px !important;
+    display: grid !important;
+    place-items: center !important;
+    border-top: 1px solid #fff !important;
+    border-bottom: 1px solid #fff !important;
+    background: #000 !important;
+    color: #fff !important;
+    transition: background-color 160ms ease, color 160ms ease !important;
+}
+
+.site-footer.app-site-footer .site-footer__text {
+    margin: 0 !important;
+    color: #fff !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.16em !important;
+    font-size: clamp(0.62rem, 0.78vw, 0.82rem) !important;
+    line-height: 1.2 !important;
+}
+
+.site-footer.app-site-footer:hover .site-footer__inner {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+.site-footer.app-site-footer:hover .site-footer__text {
+    color: #000 !important;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .app-shell {
+        width: min(100% - 32px, 1500px) !important;
+    }
+
+    .topbar.site-style-topbar {
+        grid-template-columns: 108px minmax(0, 1fr) !important;
+        max-height: none !important;
+    }
+
+    .topbar.site-style-topbar .brand-mark {
+        width: 108px !important;
+        min-width: 108px !important;
+        max-width: 108px !important;
+    }
+
+    .topbar.site-style-topbar .brand-mark__logo {
+        width: 84px !important;
+    }
+
+    .topbar.site-style-topbar .site-header-runtime {
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        margin: 10px 0 0 !important;
+        justify-content: center !important;
+    }
+
+    .side-panel {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* KUZAI_SITE_WIDTH_FOOTER_STEP169_END */
+
+/* KUZAI_HEADER_SMALLER_STEP170_BEGIN */
+
+/* Reduce total visual width to match the public website content rhythm */
+.app-shell {
+    width: min(1380px, calc(100% - 110px)) !important;
+    margin: 0 auto !important;
+    padding-top: 16px !important;
+}
+
+/* Header thinner: only two horizontal white lines */
+.topbar.site-style-topbar {
+    width: 100% !important;
+    min-height: 74px !important;
+    max-height: 82px !important;
+    padding: 6px 0 !important;
+    margin-bottom: 24px !important;
+    grid-template-columns: 110px minmax(0, 1fr) 250px !important;
+    border: 0 !important;
+    border-top: 1px solid #fff !important;
+    border-bottom: 1px solid #fff !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    background: #000 !important;
+    box-shadow: none !important;
+}
+
+/* Logo larger than previous step, but not oversized */
+.topbar.site-style-topbar .brand-mark {
+    width: 110px !important;
+    min-width: 110px !important;
+    max-width: 110px !important;
+    padding-left: 16px !important;
+}
+
+.topbar.site-style-topbar .brand-mark__logo {
+    width: 74px !important;
+    height: auto !important;
+}
+
+/* Title compact */
+.topbar.site-style-topbar .header-title-block {
+    gap: 4px !important;
+}
+
+.topbar.site-style-topbar .header-title-block__title {
+    font-size: clamp(1.72rem, 2.2vw, 2.55rem) !important;
+    line-height: 0.9 !important;
+    letter-spacing: -0.035em !important;
+}
+
+.topbar.site-style-topbar .header-title-block__meta {
+    font-size: clamp(0.48rem, 0.58vw, 0.66rem) !important;
+    line-height: 1 !important;
+    letter-spacing: 0.18em !important;
+}
+
+/* Runtime compact right line */
+.topbar.site-style-topbar .site-header-runtime {
+    grid-column: 3 !important;
+    width: 250px !important;
+    min-width: 250px !important;
+    max-width: 250px !important;
+    margin-right: 16px !important;
+    padding: 5px 0 !important;
+    gap: 10px !important;
+    border-top: 1px solid #fff !important;
+    border-bottom: 1px solid #fff !important;
+}
+
+.topbar.site-style-topbar .site-header-runtime__pill {
+    font-size: 0.56rem !important;
+    letter-spacing: 0.075em !important;
+}
+
+/* Keep all main elements aligned to the same reduced width */
+.layout,
+.site-footer.app-site-footer {
+    width: 100% !important;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .app-shell {
+        width: min(100% - 32px, 1380px) !important;
+    }
+
+    .topbar.site-style-topbar {
+        min-height: 88px !important;
+        max-height: none !important;
+        grid-template-columns: 88px minmax(0, 1fr) !important;
+    }
+
+    .topbar.site-style-topbar .brand-mark {
+        width: 88px !important;
+        min-width: 88px !important;
+        max-width: 88px !important;
+    }
+
+    .topbar.site-style-topbar .brand-mark__logo {
+        width: 68px !important;
+    }
+
+    .topbar.site-style-topbar .site-header-runtime {
+        grid-column: 1 / -1 !important;
+        width: auto !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        margin: 8px auto 0 !important;
+        justify-content: center !important;
+    }
+}
+
+/* KUZAI_HEADER_SMALLER_STEP170_END */
+
+/* KUZAI_EXACT_SITE_HEADER_STEP172_BEGIN */
+
+/* Exact public website shell */
+.app-shell {
+    width: 80vw !important;
+    max-width: 1680px !important;
+    min-height: auto !important;
+    margin: 0 auto !important;
+    padding: 24px 0 40px !important;
+    display: grid !important;
+    grid-template-rows: auto auto auto !important;
+    align-content: start !important;
+}
+
+/* Exact public website header geometry */
+.topbar.site-style-topbar {
+    width: 100% !important;
+    height: 118px !important;
+    min-height: 118px !important;
+    max-height: 118px !important;
+    margin: 0 0 28px 0 !important;
+    padding: 14px 22px !important;
+    box-sizing: border-box !important;
+
+    display: grid !important;
+    grid-template-columns: 132px minmax(0, 1fr) 132px !important;
+    align-items: center !important;
+    gap: 0 !important;
+    overflow: hidden !important;
+    position: relative !important;
+
+    border-top: 1px solid #ffffff !important;
+    border-bottom: 1px solid #ffffff !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #000000 !important;
+}
+
+/* Exact public website logo column */
+.topbar.site-style-topbar .brand-mark {
+    grid-column: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 132px !important;
+    min-width: 132px !important;
+    max-width: 132px !important;
+    padding: 0 !important;
+}
+
+.topbar.site-style-topbar .brand-mark__logo {
+    display: block !important;
+    width: 112px !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+/* Exact public website centered title zone */
+.topbar.site-style-topbar .header-title-block {
+    grid-column: 2 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    display: grid !important;
+    justify-items: center !important;
+    align-content: center !important;
+    text-align: center !important;
+    gap: 7px !important;
+    max-height: 100% !important;
+}
+
+.topbar.site-style-topbar .header-title-block__title {
+    width: 100% !important;
+    margin: 0 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    font-size: clamp(2.05rem, 3.05vw, 3.65rem) !important;
+    line-height: 0.9 !important;
+    letter-spacing: -0.035em !important;
+}
+
+.topbar.site-style-topbar .header-title-block__meta {
+    width: 100% !important;
+    margin: 0 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    font-size: clamp(0.58rem, 0.76vw, 0.86rem) !important;
+    line-height: 1 !important;
+    letter-spacing: 0.18em !important;
+}
+
+/* Runtime does not change the title centering.
+   It is overlaid in the right zone. */
+.topbar.site-style-topbar .site-header-runtime {
+    position: absolute !important;
+    right: 22px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+
+    width: 248px !important;
+    min-width: 248px !important;
+    max-width: 248px !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 14px !important;
+
+    padding: 6px 0 !important;
+    margin: 0 !important;
+
+    border-top: 1px solid #ffffff !important;
+    border-bottom: 1px solid #ffffff !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+
+.topbar.site-style-topbar .site-header-runtime__pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+
+    color: #ffffff !important;
+    font-size: 0.62rem !important;
+    line-height: 1 !important;
+    letter-spacing: 0.08em !important;
+    white-space: nowrap !important;
+}
+
+.topbar.site-style-topbar .meta-label {
+    color: #8a8a8a !important;
+}
+
+.topbar.site-style-topbar .meta-value {
+    color: #ffffff !important;
+}
+
+.topbar.site-style-topbar .meta-dot,
+.topbar.site-style-topbar .state-dot {
+    width: 6px !important;
+    height: 6px !important;
+    display: inline-block !important;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+}
+
+/* Footer exact public website behavior */
+.site-footer.app-site-footer {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 18px 0 12px !important;
+    padding: 0 !important;
+    background: #000000 !important;
+    border: 0 !important;
+}
+
+.site-footer.app-site-footer .site-footer__inner {
+    position: relative !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+
+    border-top: 1px solid #ffffff !important;
+    border-bottom: 1px solid #ffffff !important;
+
+    background: #ffffff !important;
+
+    transition:
+        border-color 300ms ease,
+        background 300ms ease !important;
+}
+
+.site-footer.app-site-footer .site-footer__inner::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+
+    background: #000000 !important;
+    transform: scaleX(0) !important;
+    transform-origin: center !important;
+
+    transition: transform 340ms ease !important;
+}
+
+.site-footer.app-site-footer .site-footer__text {
+    position: relative !important;
+    z-index: 1 !important;
+
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 3px 24px !important;
+
+    color: #000000 !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    font-weight: 700 !important;
+    font-size: clamp(1rem, 1.22vw, 1.34rem) !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.12em !important;
+
+    transform: translateY(0) !important;
+
+    transition:
+        color 260ms ease,
+        letter-spacing 300ms ease,
+        transform 300ms ease !important;
+}
+
+.site-footer.app-site-footer:hover .site-footer__inner {
+    border-top-color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+}
+
+.site-footer.app-site-footer:hover .site-footer__inner::before {
+    transform: scaleX(1) !important;
+}
+
+.site-footer.app-site-footer:hover .site-footer__text {
+    color: #ffffff !important;
+    letter-spacing: 0.16em !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Keep STOP square against old rules */
+#stopBtn,
+button#stopBtn,
+.btn-danger,
+.composer-actions #stopBtn {
+    border-radius: 0 !important;
+}
+
+/* Responsive values copied from website header */
+@media (max-width: 1180px) {
+    .app-shell {
+        width: 86vw !important;
+    }
+
+    .topbar.site-style-topbar {
+        grid-template-columns: 108px minmax(0, 1fr) 108px !important;
+        min-height: 112px !important;
+        height: 112px !important;
+        max-height: none !important;
+    }
+
+    .topbar.site-style-topbar .brand-mark {
+        width: 108px !important;
+        min-width: 108px !important;
+        max-width: 108px !important;
+    }
+
+    .topbar.site-style-topbar .brand-mark__logo {
+        width: 88px !important;
+    }
+
+    .topbar.site-style-topbar .header-title-block__title {
+        font-size: clamp(1.65rem, 3.8vw, 3rem) !important;
+    }
+
+    .topbar.site-style-topbar .header-title-block__meta {
+        font-size: clamp(0.52rem, 0.9vw, 0.72rem) !important;
+    }
+
+    .topbar.site-style-topbar .site-header-runtime {
+        width: 220px !important;
+        min-width: 220px !important;
+        max-width: 220px !important;
+    }
+}
+
+@media (max-width: 760px) {
+    .app-shell {
+        width: 92vw !important;
+    }
+
+    .topbar.site-style-topbar {
+        grid-template-columns: 68px minmax(0, 1fr) !important;
+        min-height: auto !important;
+        height: auto !important;
+        padding: 14px 16px !important;
+        gap: 14px !important;
+    }
+
+    .topbar.site-style-topbar .brand-mark {
+        width: 68px !important;
+        min-width: 68px !important;
+        max-width: 68px !important;
+    }
+
+    .topbar.site-style-topbar .brand-mark__logo {
+        width: 68px !important;
+    }
+
+    .topbar.site-style-topbar .header-title-block {
+        justify-items: start !important;
+        text-align: left !important;
+    }
+
+    .topbar.site-style-topbar .header-title-block__title,
+    .topbar.site-style-topbar .header-title-block__meta {
+        text-align: left !important;
+        white-space: normal !important;
+    }
+
+    .topbar.site-style-topbar .header-title-block__title {
+        font-size: clamp(1.35rem, 6.5vw, 2.2rem) !important;
+    }
+
+    .topbar.site-style-topbar .site-header-runtime {
+        position: static !important;
+        transform: none !important;
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        justify-content: center !important;
+        margin-top: 10px !important;
+    }
+}
+
+/* KUZAI_EXACT_SITE_HEADER_STEP172_END */
+
+/* KUZAI_DISABLE_APP_ZOOM_STEP174_BEGIN */
+
+/* The original app CSS scales the whole shell with zoom: 1.20.
+   This must be neutralized to match the public website dimensions. */
+:root {
+    --kuzai-app-scale: 1 !important;
+}
+
+.app-shell {
+    zoom: 1 !important;
+    transform: none !important;
+    transform-origin: initial !important;
+
+    width: 80vw !important;
+    max-width: 1680px !important;
+    min-height: auto !important;
+    margin: 0 auto !important;
+    padding: 24px 0 40px !important;
+
+    display: grid !important;
+    grid-template-rows: auto auto auto !important;
+    align-content: start !important;
+}
+
+/* Exact public website banner dimensions after zoom removal */
+.topbar.site-style-topbar {
+    width: 100% !important;
+    height: 118px !important;
+    min-height: 118px !important;
+    max-height: 118px !important;
+    margin: 0 0 28px 0 !important;
+    padding: 14px 22px !important;
+    box-sizing: border-box !important;
+
+    display: grid !important;
+    grid-template-columns: 132px minmax(0, 1fr) 132px !important;
+    align-items: center !important;
+    gap: 0 !important;
+
+    border-top: 1px solid #fff !important;
+    border-bottom: 1px solid #fff !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+    background: #000 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+}
+
+.topbar.site-style-topbar .brand-mark {
+    grid-column: 1 !important;
+    width: 132px !important;
+    min-width: 132px !important;
+    max-width: 132px !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+}
+
+.topbar.site-style-topbar .brand-mark__logo {
+    width: 112px !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+.topbar.site-style-topbar .header-title-block {
+    grid-column: 2 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    display: grid !important;
+    justify-items: center !important;
+    align-content: center !important;
+    text-align: center !important;
+    gap: 7px !important;
+}
+
+.topbar.site-style-topbar .header-title-block__title {
+    width: 100% !important;
+    margin: 0 !important;
+    color: #fff !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    font-size: clamp(2.05rem, 3.05vw, 3.65rem) !important;
+    line-height: 0.9 !important;
+    letter-spacing: -0.035em !important;
+}
+
+.topbar.site-style-topbar .header-title-block__meta {
+    width: 100% !important;
+    margin: 0 !important;
+    color: #fff !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    font-size: clamp(0.58rem, 0.76vw, 0.86rem) !important;
+    line-height: 1 !important;
+    letter-spacing: 0.18em !important;
+}
+
+/* Runtime stays functional but no longer expands the header grid */
+.topbar.site-style-topbar .site-header-runtime {
+    position: absolute !important;
+    right: 22px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+
+    width: 248px !important;
+    min-width: 248px !important;
+    max-width: 248px !important;
+
+    padding: 6px 0 !important;
+    border-top: 1px solid #fff !important;
+    border-bottom: 1px solid #fff !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 14px !important;
+}
+
+.topbar.site-style-topbar .site-header-runtime__pill {
+    border: 0 !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+
+    font-size: 0.62rem !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+}
+
+/* Prevent lower sections from forcing visual width */
+.layout,
+.chat-panel,
+.side-panel,
+.site-footer.app-site-footer {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.side-panel {
+    overflow: hidden !important;
+}
+
+@media (max-width: 1180px) {
+    .app-shell {
+        width: 86vw !important;
+    }
+}
+
+@media (max-width: 760px) {
+    .app-shell {
+        width: 92vw !important;
+    }
+}
+
+/* KUZAI_DISABLE_APP_ZOOM_STEP174_END */
+
+/* KUZAI_WIDTH_90VW_STEP175_BEGIN */
+
+/* Match the visible public site width.
+   Keep zoom disabled. Do not let chat/info blocks define page width. */
+:root {
+    --kuzai-app-scale: 1 !important;
+}
+
+.app-shell {
+    zoom: 1 !important;
+    transform: none !important;
+
+    width: 90vw !important;
+    max-width: 1800px !important;
+    min-width: 0 !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* All major blocks inherit shell width, never exceed it */
+.topbar.site-style-topbar,
+.layout,
+.chat-panel,
+.chat-header,
+.messages,
+.composer,
+.side-panel,
+.site-footer.app-site-footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Prevent inner flex/grid children from forcing overflow */
+.chat-actions,
+.composer-actions,
+.side-card,
+.side-card *,
+textarea {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Keep the side info band aligned to the same 90vw shell */
+.side-panel {
+    overflow: hidden !important;
+}
+
+/* Keep exact site header height and logo/text scale */
+.topbar.site-style-topbar {
+    height: 118px !important;
+    min-height: 118px !important;
+    max-height: 118px !important;
+    grid-template-columns: 132px minmax(0, 1fr) 132px !important;
+}
+
+.topbar.site-style-topbar .brand-mark__logo {
+    width: 112px !important;
+}
+
+@media (max-width: 1180px) {
+    .app-shell {
+        width: 92vw !important;
+    }
+}
+
+@media (max-width: 760px) {
+    .app-shell {
+        width: 94vw !important;
+    }
+}
+
+/* KUZAI_WIDTH_90VW_STEP175_END */
+
+/* KUZAI_HEADER_META_LIGHT_STEP176_BEGIN */
+
+.topbar.site-style-topbar .header-title-block__meta {
+    font-weight: 400 !important;
+    opacity: 0.92 !important;
+    letter-spacing: 0.20em !important;
+}
+
+/* KUZAI_HEADER_META_LIGHT_STEP176_END */
+
+/* KUZAI_HEADER_META_MINUS_1PT_STEP177_BEGIN */
+
+.topbar.site-style-topbar .header-title-block__meta {
+    font-size: calc(clamp(0.58rem, 0.76vw, 0.86rem) - 1pt) !important;
+    font-weight: 400 !important;
+}
+
+/* KUZAI_HEADER_META_MINUS_1PT_STEP177_END */
+
+/* === KUZAI_BUTTON_DYNAMIC_SITE_STEP189 === */
+/* Default: white fill, black text. Hover: black fill, white text, top/bottom border only. */
+
+button,
+.btn,
+.chat-actions button,
+.composer-actions button,
+.topbar button,
+.action-strip button,
+.site-style-topbar button,
+.profile-actions button,
+.git-rag-actions button,
+.upload-actions button,
+input[type="button"],
+input[type="submit"] {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  outline: none !important;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease !important;
+}
+
+button:hover,
+.btn:hover,
+.chat-actions button:hover,
+.composer-actions button:hover,
+.topbar button:hover,
+.action-strip button:hover,
+.site-style-topbar button:hover,
+.profile-actions button:hover,
+.git-rag-actions button:hover,
+.upload-actions button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+button:focus-visible,
+.btn:focus-visible,
+.chat-actions button:focus-visible,
+.composer-actions button:focus-visible,
+.topbar button:focus-visible,
+.action-strip button:focus-visible,
+.site-style-topbar button:focus-visible,
+.profile-actions button:focus-visible,
+.git-rag-actions button:focus-visible,
+.upload-actions button:focus-visible,
+input[type="button"]:focus-visible,
+input[type="submit"]:focus-visible {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-top-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+button *,
+.btn *,
+.chat-actions button *,
+.composer-actions button *,
+.topbar button *,
+.action-strip button *,
+.site-style-topbar button *,
+.profile-actions button *,
+.git-rag-actions button *,
+.upload-actions button * {
+  color: inherit !important;
+}
+
+button:disabled,
+.btn:disabled,
+button[disabled],
+.btn[disabled],
+input[type="button"]:disabled,
+input[type="submit"]:disabled {
+  opacity: 0.45 !important;
+  cursor: not-allowed !important;
+}
+
+/* === KUZAI_BUTTON_DYNAMIC_LAYER_STEP190 === */
+/* Same logic as site dynamic blocks: animated black layer on hover. */
+
+button,
+.btn,
+.chat-actions button,
+.composer-actions button,
+.topbar button,
+.action-strip button,
+.site-style-topbar button,
+.profile-actions button,
+.git-rag-actions button,
+.upload-actions button {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  transform: none !important;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease !important;
+}
+
+button::before,
+.btn::before,
+.chat-actions button::before,
+.composer-actions button::before,
+.topbar button::before,
+.action-strip button::before,
+.site-style-topbar button::before,
+.profile-actions button::before,
+.git-rag-actions button::before,
+.upload-actions button::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  background: #000000 !important;
+  transform: translateY(100%) !important;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+button:hover,
+.btn:hover,
+.chat-actions button:hover,
+.composer-actions button:hover,
+.topbar button:hover,
+.action-strip button:hover,
+.site-style-topbar button:hover,
+.profile-actions button:hover,
+.git-rag-actions button:hover,
+.upload-actions button:hover,
+button:focus-visible,
+.btn:focus-visible,
+.chat-actions button:focus-visible,
+.composer-actions button:focus-visible,
+.topbar button:focus-visible,
+.action-strip button:focus-visible,
+.site-style-topbar button:focus-visible,
+.profile-actions button:focus-visible,
+.git-rag-actions button:focus-visible,
+.upload-actions button:focus-visible {
+  color: #ffffff !important;
+  background: transparent !important;
+  border-top-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+}
+
+button:hover::before,
+.btn:hover::before,
+.chat-actions button:hover::before,
+.composer-actions button:hover::before,
+.topbar button:hover::before,
+.action-strip button:hover::before,
+.site-style-topbar button:hover::before,
+.profile-actions button:hover::before,
+.git-rag-actions button:hover::before,
+.upload-actions button:hover::before,
+button:focus-visible::before,
+.btn:focus-visible::before,
+.chat-actions button:focus-visible::before,
+.composer-actions button:focus-visible::before,
+.topbar button:focus-visible::before,
+.action-strip button:focus-visible::before,
+.site-style-topbar button:focus-visible::before,
+.profile-actions button:focus-visible::before,
+.git-rag-actions button:focus-visible::before,
+.upload-actions button:focus-visible::before {
+  transform: translateY(0) !important;
+}
+
+button *,
+.btn *,
+.chat-actions button *,
+.composer-actions button *,
+.topbar button *,
+.action-strip button *,
+.site-style-topbar button *,
+.profile-actions button *,
+.git-rag-actions button *,
+.upload-actions button * {
+  position: relative !important;
+  z-index: 1 !important;
+  color: inherit !important;
+}
+
+/* === KUZAI_BUTTON_DYNAMIC_LAYER_STEP190 === */
+/* Same logic as site dynamic blocks: animated black layer on hover. */
+
+button,
+.btn,
+.chat-actions button,
+.composer-actions button,
+.topbar button,
+.action-strip button,
+.site-style-topbar button,
+.profile-actions button,
+.git-rag-actions button,
+.upload-actions button {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  transform: none !important;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease !important;
+}
+
+button::before,
+.btn::before,
+.chat-actions button::before,
+.composer-actions button::before,
+.topbar button::before,
+.action-strip button::before,
+.site-style-topbar button::before,
+.profile-actions button::before,
+.git-rag-actions button::before,
+.upload-actions button::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  background: #000000 !important;
+  transform: translateY(100%) !important;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+button:hover,
+.btn:hover,
+.chat-actions button:hover,
+.composer-actions button:hover,
+.topbar button:hover,
+.action-strip button:hover,
+.site-style-topbar button:hover,
+.profile-actions button:hover,
+.git-rag-actions button:hover,
+.upload-actions button:hover,
+button:focus-visible,
+.btn:focus-visible,
+.chat-actions button:focus-visible,
+.composer-actions button:focus-visible,
+.topbar button:focus-visible,
+.action-strip button:focus-visible,
+.site-style-topbar button:focus-visible,
+.profile-actions button:focus-visible,
+.git-rag-actions button:focus-visible,
+.upload-actions button:focus-visible {
+  color: #ffffff !important;
+  background: transparent !important;
+  border-top-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+}
+
+button:hover::before,
+.btn:hover::before,
+.chat-actions button:hover::before,
+.composer-actions button:hover::before,
+.topbar button:hover::before,
+.action-strip button:hover::before,
+.site-style-topbar button:hover::before,
+.profile-actions button:hover::before,
+.git-rag-actions button:hover::before,
+.upload-actions button:hover::before,
+button:focus-visible::before,
+.btn:focus-visible::before,
+.chat-actions button:focus-visible::before,
+.composer-actions button:focus-visible::before,
+.topbar button:focus-visible::before,
+.action-strip button:focus-visible::before,
+.site-style-topbar button:focus-visible::before,
+.profile-actions button:focus-visible::before,
+.git-rag-actions button:focus-visible::before,
+.upload-actions button:focus-visible::before {
+  transform: translateY(0) !important;
+}
+
+button *,
+.btn *,
+.chat-actions button *,
+.composer-actions button *,
+.topbar button *,
+.action-strip button *,
+.site-style-topbar button *,
+.profile-actions button *,
+.git-rag-actions button *,
+.upload-actions button * {
+  position: relative !important;
+  z-index: 1 !important;
+  color: inherit !important;
+}
+
+/* === KUZAI_BUTTON_FORCE_COMPACT_STEP192 === */
+/* Hard override: button height reduced to text height + minimal border. */
+
+html body .app-shell button,
+html body .app-shell .btn,
+html body .app-shell [role="button"],
+html body .app-shell input[type="button"],
+html body .app-shell input[type="submit"],
+html body .app-shell .chat-actions button,
+html body .app-shell .composer-actions button,
+html body .app-shell .action-strip button,
+html body .app-shell .toolbar button,
+html body .app-shell .controls button,
+html body .app-shell .profile-actions button,
+html body .app-shell .git-rag-actions button,
+html body .app-shell .upload-actions button,
+html body .app-shell .topbar button,
+html body .app-shell .site-style-topbar button {
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  height: calc(1em + 6px) !important;
+  min-height: calc(1em + 6px) !important;
+  max-height: calc(1em + 6px) !important;
+
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-block: 0 !important;
+
+  line-height: 1 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+
+  white-space: nowrap !important;
+}
+
+html body .app-shell button,
+html body .app-shell .btn,
+html body .app-shell [role="button"] {
+  padding-left: 0.78rem !important;
+  padding-right: 0.78rem !important;
+  padding-inline: 0.78rem !important;
+}
+
+/* STOP remains pill-shaped but compact. */
+html body .app-shell #stopBtn,
+html body .app-shell .stop,
+html body .app-shell button.stop {
+  height: calc(1em + 6px) !important;
+  min-height: calc(1em + 6px) !important;
+  max-height: calc(1em + 6px) !important;
+  padding-block: 0 !important;
+  line-height: 1 !important;
+}
+
+/* === KUZAI_BUTTON_PADDING_2PT_STEP193 === */
+/* Correct previous hard compacting: keep 2pt vertical padding above/below text. */
+
+html body .app-shell button,
+html body .app-shell .btn,
+html body .app-shell [role="button"],
+html body .app-shell input[type="button"],
+html body .app-shell input[type="submit"],
+html body .app-shell .chat-actions button,
+html body .app-shell .composer-actions button,
+html body .app-shell .action-strip button,
+html body .app-shell .toolbar button,
+html body .app-shell .controls button,
+html body .app-shell .profile-actions button,
+html body .app-shell .git-rag-actions button,
+html body .app-shell .upload-actions button,
+html body .app-shell .topbar button,
+html body .app-shell .site-style-topbar button {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  padding-top: 2pt !important;
+  padding-bottom: 2pt !important;
+  padding-block: 2pt !important;
+
+  line-height: 1.05 !important;
+  box-sizing: border-box !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+html body .app-shell #stopBtn,
+html body .app-shell .stop,
+html body .app-shell button.stop {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding-top: 2pt !important;
+  padding-bottom: 2pt !important;
+  padding-block: 2pt !important;
+  line-height: 1.05 !important;
+}
+
+/* === KUZAI_BUTTON_FINAL_ALIGN_STEP194 === */
+/* Final button model: centered text, 2pt vertical padding, same dynamic effect for every button including STOP. */
+
+/* Neutralize previous pseudo-layer button animation. */
+html body .app-shell button::before,
+html body .app-shell .btn::before,
+html body .app-shell [role="button"]::before,
+html body .app-shell input[type="button"]::before,
+html body .app-shell input[type="submit"]::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Unified default button state. */
+html body .app-shell button,
+html body .app-shell .btn,
+html body .app-shell [role="button"],
+html body .app-shell input[type="button"],
+html body .app-shell input[type="submit"],
+html body .app-shell .chat-actions button,
+html body .app-shell .composer-actions button,
+html body .app-shell .action-strip button,
+html body .app-shell .toolbar button,
+html body .app-shell .controls button,
+html body .app-shell .profile-actions button,
+html body .app-shell .git-rag-actions button,
+html body .app-shell .upload-actions button,
+html body .app-shell .topbar button,
+html body .app-shell .site-style-topbar button,
+html body .app-shell #stopBtn,
+html body .app-shell .stop,
+html body .app-shell button.stop {
+  box-sizing: border-box !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  height: calc(1em + 4pt + 2px) !important;
+  min-height: calc(1em + 4pt + 2px) !important;
+  max-height: calc(1em + 4pt + 2px) !important;
+
+  padding-top: 2pt !important;
+  padding-bottom: 2pt !important;
+  padding-left: 0.82rem !important;
+  padding-right: 0.82rem !important;
+  padding-block: 2pt !important;
+  padding-inline: 0.82rem !important;
+
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+
+  border-radius: 0 !important;
+  border: 1px solid #ffffff !important;
+
+  color: #000000 !important;
+  background-color: #ffffff !important;
+  background-image: linear-gradient(#000000, #000000) !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 100% !important;
+  background-size: 100% 0 !important;
+
+  box-shadow: none !important;
+  text-shadow: none !important;
+  outline: none !important;
+  transform: none !important;
+  overflow: hidden !important;
+
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background-size 220ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Force text centering inside nested spans/icons if present. */
+html body .app-shell button *,
+html body .app-shell .btn *,
+html body .app-shell [role="button"] *,
+html body .app-shell #stopBtn *,
+html body .app-shell .stop * {
+  line-height: 1 !important;
+  color: inherit !important;
+  transform: translateY(0) !important;
+}
+
+/* Unified hover/focus state. */
+html body .app-shell button:hover,
+html body .app-shell .btn:hover,
+html body .app-shell [role="button"]:hover,
+html body .app-shell input[type="button"]:hover,
+html body .app-shell input[type="submit"]:hover,
+html body .app-shell .chat-actions button:hover,
+html body .app-shell .composer-actions button:hover,
+html body .app-shell .action-strip button:hover,
+html body .app-shell .toolbar button:hover,
+html body .app-shell .controls button:hover,
+html body .app-shell .profile-actions button:hover,
+html body .app-shell .git-rag-actions button:hover,
+html body .app-shell .upload-actions button:hover,
+html body .app-shell .topbar button:hover,
+html body .app-shell .site-style-topbar button:hover,
+html body .app-shell #stopBtn:hover,
+html body .app-shell .stop:hover,
+html body .app-shell button.stop:hover,
+html body .app-shell button:focus-visible,
+html body .app-shell .btn:focus-visible,
+html body .app-shell [role="button"]:focus-visible,
+html body .app-shell #stopBtn:focus-visible {
+  color: #ffffff !important;
+  background-color: #ffffff !important;
+  background-size: 100% 100% !important;
+
+  border-top-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Disabled buttons stay readable and do not animate aggressively. */
+html body .app-shell button:disabled,
+html body .app-shell .btn:disabled,
+html body .app-shell button[disabled],
+html body .app-shell input[type="button"]:disabled,
+html body .app-shell input[type="submit"]:disabled {
+  opacity: 0.45 !important;
+  cursor: not-allowed !important;
+  background-size: 100% 0 !important;
+  color: #000000 !important;
+}
+
+/* === KUZAI_STEP196_CHAT_HEADER_TEXT_ONLY === */
+
+/* Bannière passive : aucun effet dynamique sur toute la largeur */
+html body .app-shell .chat-panel .chat-header,
+html body .app-shell .chat-panel .chat-header:hover,
+html body .app-shell .chat-panel .chat-header:focus,
+html body .app-shell .chat-panel .chat-header:focus-visible {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: inherit !important;
+  cursor: default !important;
+  transition: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Neutralisation des pseudo-couches éventuelles sur la bannière */
+html body .app-shell .chat-panel .chat-header::before,
+html body .app-shell .chat-panel .chat-header::after,
+html body .app-shell .chat-panel .chat-header:hover::before,
+html body .app-shell .chat-panel .chat-header:hover::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  background-image: none !important;
+}
+
+/* Le bloc texte n'est pas actif */
+html body .app-shell .chat-panel .chat-header > div:first-child,
+html body .app-shell .chat-panel .chat-header > div:first-child:hover {
+  background: transparent !important;
+  background-image: none !important;
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
+/* Fond noir + texte blanc uniquement derrière les deux lignes */
+html body .app-shell .chat-panel .chat-header > div:first-child .section-kicker,
+html body .app-shell .chat-panel .chat-header > div:first-child h2 {
+  display: table !important;
+  width: fit-content !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  background: #000000 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+
+  padding: 0 0.18rem !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+
+  cursor: default !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* Espacement strict entre les deux lignes */
+html body .app-shell .chat-panel .chat-header > div:first-child .section-kicker {
+  margin-bottom: 2px !important;
+}
+
+html body .app-shell .chat-panel .chat-header > div:first-child h2 {
+  margin-top: 0 !important;
+}
+
+/* Les boutons à droite restent actifs : ne pas hériter du pointer-events none */
+html body .app-shell .chat-panel .chat-header .chat-actions,
+html body .app-shell .chat-panel .chat-header .chat-actions *,
+html body .app-shell .chat-panel .chat-header .git-rag-toolbar,
+html body .app-shell .chat-panel .chat-header .git-rag-toolbar * {
+  pointer-events: auto !important;
+}
+
+/* === KUZAI_STEP196_CHAT_HEADER_TEXT_ONLY === */
+
+/* Bannière passive : aucun effet dynamique sur toute la largeur */
+html body .app-shell .chat-panel .chat-header,
+html body .app-shell .chat-panel .chat-header:hover,
+html body .app-shell .chat-panel .chat-header:focus,
+html body .app-shell .chat-panel .chat-header:focus-visible {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: inherit !important;
+  cursor: default !important;
+  transition: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Neutralisation des pseudo-couches éventuelles */
+html body .app-shell .chat-panel .chat-header::before,
+html body .app-shell .chat-panel .chat-header::after,
+html body .app-shell .chat-panel .chat-header:hover::before,
+html body .app-shell .chat-panel .chat-header:hover::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  background-image: none !important;
+}
+
+/* Le bloc texte reste passif */
+html body .app-shell .chat-panel .chat-header > div:first-child,
+html body .app-shell .chat-panel .chat-header > div:first-child:hover {
+  background: transparent !important;
+  background-image: none !important;
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
+/* Fond noir + texte blanc uniquement derrière les deux lignes */
+html body .app-shell .chat-panel .chat-header > div:first-child .section-kicker,
+html body .app-shell .chat-panel .chat-header > div:first-child h2 {
+  display: table !important;
+  width: fit-content !important;
+
+  background: #000000 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+
+  padding: 0 0.18rem !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+
+  cursor: default !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* Espacement entre les deux lignes */
+html body .app-shell .chat-panel .chat-header > div:first-child .section-kicker {
+  margin-bottom: 2px !important;
+}
+
+html body .app-shell .chat-panel .chat-header > div:first-child h2 {
+  margin-top: 0 !important;
+}
+
+/* Les boutons à droite restent actifs */
+html body .app-shell .chat-panel .chat-header .chat-actions,
+html body .app-shell .chat-panel .chat-header .chat-actions * {
+  pointer-events: auto !important;
+}
+
+/* === KUZAI_GIT_RAG_REPO_BUTTON_STEP198 === */
+
+html body .app-shell #gitRagActiveRepoBtn {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+
+  background-color: #ffffff !important;
+  background-image: linear-gradient(#000000, #000000) !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 100% !important;
+  background-size: 100% 0 !important;
+
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  padding-left: 0.82rem !important;
+  padding-right: 0.82rem !important;
+
+  cursor: pointer !important;
+  pointer-events: auto !important;
+
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background-size 220ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+html body .app-shell #gitRagActiveRepoBtn:hover,
+html body .app-shell #gitRagActiveRepoBtn:focus-visible {
+  background-color: #ffffff !important;
+  background-size: 100% 100% !important;
+
+  color: #ffffff !important;
+
+  border-top-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+}
+
+/* L'ancien état hidden ne doit plus masquer le bouton. */
+html body .app-shell #gitRagActiveRepoBtn.git-rag-active-repo-btn--hidden {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* === KUZAI_GIT_RAG_SINGLE_BUTTON_STEP200 === */
+
+html body .app-shell #gitRagBtn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+
+  white-space: nowrap !important;
+
+  background-color: #ffffff !important;
+  background-image: linear-gradient(#000000, #000000) !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 100% !important;
+  background-size: 100% 0 !important;
+
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  padding-left: 0.82rem !important;
+  padding-right: 0.82rem !important;
+
+  cursor: pointer !important;
+
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background-size 220ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+html body .app-shell #gitRagBtn:hover,
+html body .app-shell #gitRagBtn:focus-visible {
+  background-color: #ffffff !important;
+  background-size: 100% 100% !important;
+
+  color: #ffffff !important;
+
+  border-top-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_LAYOUT_STEP201
+   Restore repository/file management UI after global buttons
+   ========================================================= */
+
+
+/* ---------- MAIN FILES PANEL ---------- */
+
+html body .app-shell .git-rag-menu-files {
+  box-sizing: border-box !important;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  padding: 18px !important;
+
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  text-align: left !important;
+}
+
+
+/* ---------- HEADER ---------- */
+
+html body .app-shell .git-rag-files-header {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+
+  gap: 20px !important;
+
+  width: 100% !important;
+
+  padding: 0 0 14px 0 !important;
+  margin: 0 0 14px 0 !important;
+
+  border-bottom: 1px solid #444444 !important;
+}
+
+
+html body .app-shell .git-rag-menu-title {
+  display: block !important;
+
+  color: #ffffff !important;
+
+  font-weight: 600 !important;
+  text-align: left !important;
+
+  margin: 0 0 8px 0 !important;
+}
+
+
+html body .app-shell .git-rag-menu-subtitle {
+  display: flex !important;
+  flex-wrap: wrap !important;
+
+  gap: 8px !important;
+
+  color: #9a9a9a !important;
+
+  text-align: left !important;
+}
+
+
+/* ---------- META BADGES ---------- */
+
+html body .app-shell .git-rag-menu-subtitle span {
+  display: inline-flex !important;
+  align-items: center !important;
+
+  width: auto !important;
+
+  padding: 3px 8px !important;
+
+  background: #000000 !important;
+  color: #9a9a9a !important;
+
+  border: 1px solid #333333 !important;
+  border-radius: 0 !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* ---------- ACTION BUTTONS ---------- */
+
+html body .app-shell .git-rag-files-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+
+  gap: 8px !important;
+
+  width: auto !important;
+}
+
+
+html body .app-shell .git-rag-files-actions button,
+html body .app-shell .git-rag-reindex-btn,
+html body .app-shell .git-rag-menu-close {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  padding: 2pt 0.70rem !important;
+
+  line-height: 1 !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* ---------- STATUS ---------- */
+
+html body .app-shell .git-rag-reindex-status {
+  display: block !important;
+
+  width: 100% !important;
+  box-sizing: border-box !important;
+
+  padding: 9px 10px !important;
+  margin: 0 0 8px 0 !important;
+
+  background: #000000 !important;
+  color: #9a9a9a !important;
+
+  border: 1px solid #333333 !important;
+  border-radius: 0 !important;
+
+  text-align: left !important;
+}
+
+
+/* ---------- FILE LIST ---------- */
+
+html body .app-shell .git-rag-files-list {
+  display: flex !important;
+  flex-direction: column !important;
+
+  gap: 0 !important;
+
+  width: 100% !important;
+
+  margin-top: 14px !important;
+
+  background: #000000 !important;
+}
+
+
+/*
+ * IMPORTANT:
+ * git-rag-file-item is a BUTTON.
+ * Completely override the global KUZAI button rules here.
+ */
+
+html body .app-shell button.git-rag-file-item {
+  display: grid !important;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto !important;
+
+  align-items: center !important;
+  justify-content: stretch !important;
+
+  column-gap: 18px !important;
+
+  width: 100% !important;
+
+  height: auto !important;
+  min-height: 46px !important;
+  max-height: none !important;
+
+  box-sizing: border-box !important;
+
+  padding: 9px 10px !important;
+  margin: 0 !important;
+
+  background: #000000 !important;
+  background-image: none !important;
+
+  color: #ffffff !important;
+
+  border: 0 !important;
+  border-bottom: 1px solid #333333 !important;
+  border-radius: 0 !important;
+
+  text-align: left !important;
+
+  overflow: visible !important;
+
+  white-space: normal !important;
+
+  box-shadow: none !important;
+  transform: none !important;
+
+  transition:
+    background-color 160ms ease,
+    color 160ms ease !important;
+}
+
+
+/* no inherited pseudo animation */
+
+html body .app-shell button.git-rag-file-item::before,
+html body .app-shell button.git-rag-file-item::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+/* file row hover */
+
+html body .app-shell button.git-rag-file-item:hover,
+html body .app-shell button.git-rag-file-item:focus-visible {
+  background: #ffffff !important;
+  background-image: none !important;
+
+  color: #000000 !important;
+
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 1px solid #ffffff !important;
+}
+
+
+/* ---------- FILE NAME / DIRECTORY ---------- */
+
+html body .app-shell .git-rag-file-main {
+  display: flex !important;
+  flex-direction: column !important;
+
+  align-items: flex-start !important;
+
+  min-width: 0 !important;
+
+  text-align: left !important;
+
+  color: inherit !important;
+}
+
+
+html body .app-shell .git-rag-file-name {
+  display: block !important;
+
+  width: 100% !important;
+
+  color: inherit !important;
+
+  font-weight: 600 !important;
+
+  text-align: left !important;
+
+  overflow-wrap: anywhere !important;
+}
+
+
+html body .app-shell .git-rag-file-dir {
+  display: block !important;
+
+  width: 100% !important;
+
+  margin-top: 3px !important;
+
+  color: #777777 !important;
+
+  text-align: left !important;
+
+  overflow-wrap: anywhere !important;
+}
+
+
+html body .app-shell button.git-rag-file-item:hover .git-rag-file-dir {
+  color: #333333 !important;
+}
+
+
+/* ---------- FILE INFO ---------- */
+
+html body .app-shell .git-rag-file-info {
+  display: flex !important;
+  flex-wrap: wrap !important;
+
+  justify-content: flex-end !important;
+  align-items: center !important;
+
+  gap: 6px !important;
+
+  width: auto !important;
+
+  color: inherit !important;
+}
+
+
+html body .app-shell .git-rag-file-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+
+  width: auto !important;
+
+  padding: 2px 6px !important;
+
+  background: transparent !important;
+  color: inherit !important;
+
+  border: 1px solid currentColor !important;
+  border-radius: 0 !important;
+
+  line-height: 1 !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* ---------- REPOSITORY SELECTION LIST ---------- */
+
+/*
+ * Same protection for repository rows,
+ * which are also buttons.
+ */
+
+html body .app-shell button.git-rag-menu-item {
+  display: grid !important;
+
+  grid-template-columns: minmax(0, 1fr) auto !important;
+
+  align-items: center !important;
+
+  width: 100% !important;
+
+  height: auto !important;
+  min-height: 44px !important;
+  max-height: none !important;
+
+  padding: 8px 10px !important;
+
+  background: #000000 !important;
+  background-image: none !important;
+
+  color: #ffffff !important;
+
+  border: 0 !important;
+  border-bottom: 1px solid #333333 !important;
+  border-radius: 0 !important;
+
+  text-align: left !important;
+
+  overflow: visible !important;
+
+  white-space: normal !important;
+}
+
+
+html body .app-shell button.git-rag-menu-item::before,
+html body .app-shell button.git-rag-menu-item::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+html body .app-shell button.git-rag-menu-item:hover,
+html body .app-shell button.git-rag-menu-item:focus-visible {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+
+/* ---------- FILE VIEWER ---------- */
+
+html body .app-shell .git-rag-file-viewer,
+html body .app-shell .git-rag-git-output {
+  display: block !important;
+
+  width: 100% !important;
+  box-sizing: border-box !important;
+
+  max-height: 55vh !important;
+  overflow: auto !important;
+
+  padding: 14px !important;
+
+  background: #050505 !important;
+  color: #ffffff !important;
+
+  border: 1px solid #333333 !important;
+
+  text-align: left !important;
+
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+}
+
+
+/* ---------- FILE EDITOR ---------- */
+
+html body .app-shell .git-rag-file-editor {
+  width: 100% !important;
+  min-height: 50vh !important;
+
+  box-sizing: border-box !important;
+
+  padding: 14px !important;
+
+  background: #050505 !important;
+  color: #ffffff !important;
+
+  border: 1px solid #555555 !important;
+
+  text-align: left !important;
+
+  resize: vertical !important;
+}
+
+
+/* =========================================================
+   KUZAI_GIT_RAG_FIX_STEP202
+   ========================================================= */
+
+/* Respect HTML hidden attribute */
+html body .app-shell .git-rag-menu [hidden],
+html body .app-shell .git-rag-menu-files [hidden],
+html body .app-shell .git-rag-menu-repos [hidden],
+html body .app-shell #gitRagGitOutput[hidden],
+html body .app-shell #gitRagFileEditor[hidden] {
+  display: none !important;
+}
+
+
+/* MAIN CONTAINERS : NO ROUNDED CORNERS */
+
+html body .app-shell .git-rag-menu,
+html body .app-shell .git-rag-menu-files,
+html body .app-shell .git-rag-menu-repos {
+  border-radius: 0 !important;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  overflow-x: hidden !important;
+}
+
+
+/* FILES WINDOW */
+
+html body .app-shell .git-rag-menu-files {
+  box-sizing: border-box !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  max-height: 72vh !important;
+
+  overflow-y: auto !important;
+
+  padding: 16px !important;
+}
+
+
+/* REMOVE ROUNDING EVERYWHERE INSIDE GIT-RAG */
+
+html body .app-shell .git-rag-menu-files *,
+html body .app-shell .git-rag-menu-repos * {
+  border-radius: 0 !important;
+}
+
+
+/* STATUS */
+
+html body .app-shell .git-rag-reindex-status {
+  display: block !important;
+
+  width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  border: 1px solid #333333 !important;
+
+  padding: 8px 10px !important;
+
+  margin: 0 0 8px 0 !important;
+}
+
+
+/* GIT OUTPUT */
+
+html body .app-shell .git-rag-git-output:not([hidden]) {
+  display: block !important;
+
+  width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  margin: 10px 0 !important;
+  padding: 12px !important;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  border: 1px solid #444444 !important;
+
+  white-space: pre-wrap !important;
+}
+
+
+/* FILE LIST */
+
+html body .app-shell .git-rag-files-list {
+  display: flex !important;
+  flex-direction: column !important;
+
+  width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  overflow: visible !important;
+
+  margin: 12px 0 0 0 !important;
+  padding: 0 !important;
+}
+
+
+/* FILE ROWS */
+
+html body .app-shell button.git-rag-file-item {
+  position: relative !important;
+  isolation: auto !important;
+
+  display: grid !important;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto !important;
+
+  align-items: center !important;
+
+  width: 100% !important;
+
+  height: auto !important;
+  min-height: 48px !important;
+  max-height: none !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 8px 8px !important;
+
+  overflow: visible !important;
+
+  background: #000000 !important;
+  background-image: none !important;
+
+  color: #ffffff !important;
+
+  border: 0 !important;
+  border-bottom: 1px solid #333333 !important;
+
+  text-align: left !important;
+
+  white-space: normal !important;
+}
+
+
+/* NO GLOBAL BUTTON ANIMATION ON FILE ROW */
+
+html body .app-shell button.git-rag-file-item::before,
+html body .app-shell button.git-rag-file-item::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+/* TEXT ALWAYS VISIBLE */
+
+html body .app-shell button.git-rag-file-item *,
+html body .app-shell .git-rag-file-main,
+html body .app-shell .git-rag-file-name,
+html body .app-shell .git-rag-file-info,
+html body .app-shell .git-rag-file-badge {
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  color: #ffffff !important;
+
+  z-index: auto !important;
+}
+
+
+/* DIRECTORY SECOND LINE */
+
+html body .app-shell .git-rag-file-dir {
+  display: block !important;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  margin-top: 3px !important;
+
+  color: #777777 !important;
+
+  text-align: left !important;
+}
+
+
+/* HOVER */
+
+html body .app-shell button.git-rag-file-item:hover {
+  background: #ffffff !important;
+  background-image: none !important;
+
+  color: #000000 !important;
+}
+
+
+html body .app-shell button.git-rag-file-item:hover *,
+html body .app-shell button.git-rag-file-item:hover .git-rag-file-name,
+html body .app-shell button.git-rag-file-item:hover .git-rag-file-info,
+html body .app-shell button.git-rag-file-item:hover .git-rag-file-badge {
+  color: #000000 !important;
+}
+
+
+html body .app-shell button.git-rag-file-item:hover .git-rag-file-dir {
+  color: #444444 !important;
+}
+
+
+/* REPO ROWS */
+
+html body .app-shell button.git-rag-menu-item {
+  position: relative !important;
+  isolation: auto !important;
+
+  width: 100% !important;
+
+  height: auto !important;
+  min-height: 46px !important;
+  max-height: none !important;
+
+  box-sizing: border-box !important;
+
+  overflow: visible !important;
+
+  background: #000000 !important;
+  background-image: none !important;
+
+  color: #ffffff !important;
+
+  border: 0 !important;
+  border-bottom: 1px solid #333333 !important;
+}
+
+
+html body .app-shell button.git-rag-menu-item::before,
+html body .app-shell button.git-rag-menu-item::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+html body .app-shell button.git-rag-menu-item *,
+html body .app-shell .git-rag-menu-item-main,
+html body .app-shell .git-rag-menu-item-meta {
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  color: #ffffff !important;
+}
+
+
+html body .app-shell button.git-rag-menu-item:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+
+html body .app-shell button.git-rag-menu-item:hover * {
+  color: #000000 !important;
+}
+
+
+/* =========================================================
+   KUZAI_GIT_RAG_WINDOW_HARDFIX_STEP203
+   Clean fixed GIT-RAG management window.
+   ========================================================= */
+
+/* Respect hidden */
+html body .app-shell #gitRagFilesMenu[hidden],
+html body .app-shell #gitRagRepoMenu[hidden],
+html body .app-shell #gitRagGitOutput[hidden],
+html body .app-shell #gitRagFileEditor[hidden] {
+  display: none !important;
+}
+
+/* Main FILES window: fixed, centered, no overflow outside viewport */
+html body .app-shell #gitRagFilesMenu:not([hidden]) {
+  position: fixed !important;
+
+  top: 138px !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+
+  transform: translateX(-50%) !important;
+
+  width: min(92vw, 1640px) !important;
+  max-width: calc(100vw - 48px) !important;
+
+  height: auto !important;
+  max-height: calc(100vh - 180px) !important;
+
+  box-sizing: border-box !important;
+
+  display: block !important;
+
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  padding: 16px !important;
+  margin: 0 !important;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  z-index: 9999 !important;
+
+  text-align: left !important;
+}
+
+/* Repo selection menu also fixed and controlled */
+html body .app-shell #gitRagRepoMenu:not([hidden]) {
+  position: fixed !important;
+
+  top: 138px !important;
+  left: 50% !important;
+  right: auto !important;
+
+  transform: translateX(-50%) !important;
+
+  width: min(72vw, 1100px) !important;
+  max-width: calc(100vw - 48px) !important;
+  max-height: calc(100vh - 180px) !important;
+
+  box-sizing: border-box !important;
+
+  display: block !important;
+
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  padding: 16px !important;
+  margin: 0 !important;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  z-index: 9999 !important;
+
+  text-align: left !important;
+}
+
+/* No rounded corners anywhere in GIT-RAG panels */
+html body .app-shell #gitRagFilesMenu *,
+html body .app-shell #gitRagRepoMenu * {
+  border-radius: 0 !important;
+}
+
+/* Header */
+html body .app-shell #gitRagFilesMenu .git-rag-files-header {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+
+  align-items: start !important;
+  gap: 16px !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  padding: 0 0 14px 0 !important;
+  margin: 0 0 14px 0 !important;
+
+  border-bottom: 1px solid #333333 !important;
+}
+
+/* Title and subtitle */
+html body .app-shell #gitRagFilesMenu .git-rag-menu-title,
+html body .app-shell #gitRagRepoMenu .git-rag-menu-title {
+  display: block !important;
+
+  color: #ffffff !important;
+
+  text-align: left !important;
+  white-space: nowrap !important;
+
+  margin: 0 0 8px 0 !important;
+}
+
+html body .app-shell #gitRagFilesMenu .git-rag-menu-subtitle,
+html body .app-shell #gitRagRepoMenu .git-rag-menu-subtitle {
+  display: flex !important;
+  flex-wrap: wrap !important;
+
+  gap: 8px !important;
+
+  max-width: 100% !important;
+
+  color: #9a9a9a !important;
+
+  text-align: left !important;
+}
+
+/* Metadata badges */
+html body .app-shell #gitRagFilesMenu .git-rag-menu-subtitle span,
+html body .app-shell #gitRagRepoMenu .git-rag-menu-subtitle span {
+  display: inline-flex !important;
+
+  width: auto !important;
+
+  padding: 3px 7px !important;
+
+  background: #000000 !important;
+  color: #9a9a9a !important;
+
+  border: 1px solid #333333 !important;
+
+  white-space: nowrap !important;
+}
+
+/* Top right action buttons */
+html body .app-shell #gitRagFilesMenu .git-rag-files-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+
+  justify-content: flex-end !important;
+  align-items: center !important;
+
+  gap: 7px !important;
+
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+}
+
+html body .app-shell #gitRagFilesMenu .git-rag-files-actions button,
+html body .app-shell #gitRagFilesMenu .git-rag-reindex-btn,
+html body .app-shell #gitRagFilesMenu .git-rag-menu-close {
+  position: relative !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  padding: 2pt 0.70rem !important;
+
+  background-color: #ffffff !important;
+  background-image: linear-gradient(#000000, #000000) !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 100% !important;
+  background-size: 100% 0 !important;
+
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+
+  line-height: 1 !important;
+  white-space: nowrap !important;
+
+  overflow: hidden !important;
+
+  transition:
+    color 180ms ease,
+    background-size 220ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+html body .app-shell #gitRagFilesMenu .git-rag-files-actions button::before,
+html body .app-shell #gitRagFilesMenu .git-rag-reindex-btn::before,
+html body .app-shell #gitRagFilesMenu .git-rag-menu-close::before {
+  content: none !important;
+  display: none !important;
+}
+
+html body .app-shell #gitRagFilesMenu .git-rag-files-actions button:hover,
+html body .app-shell #gitRagFilesMenu .git-rag-reindex-btn:hover,
+html body .app-shell #gitRagFilesMenu .git-rag-menu-close:hover {
+  background-size: 100% 100% !important;
+  color: #ffffff !important;
+
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+}
+
+/* Status lines */
+html body .app-shell #gitRagFilesMenu .git-rag-reindex-status {
+  display: block !important;
+
+  width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  padding: 8px 10px !important;
+  margin: 0 0 8px 0 !important;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  border: 1px solid #333333 !important;
+
+  text-align: left !important;
+}
+
+/* Git output only when visible */
+html body .app-shell #gitRagFilesMenu #gitRagGitOutput:not([hidden]) {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  margin: 10px 0 !important;
+  padding: 12px !important;
+
+  background: #050505 !important;
+  color: #ffffff !important;
+
+  border: 1px solid #333333 !important;
+
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+
+  overflow: auto !important;
+}
+
+/* File list */
+html body .app-shell #gitRagFilesMenu .git-rag-files-list {
+  display: flex !important;
+  flex-direction: column !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  margin: 12px 0 0 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+
+  background: #000000 !important;
+}
+
+/* File row buttons */
+html body .app-shell #gitRagFilesMenu button.git-rag-file-item {
+  display: grid !important;
+
+  grid-template-columns: minmax(0, 1fr) auto !important;
+
+  align-items: center !important;
+  column-gap: 14px !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  min-width: 0 !important;
+
+  height: auto !important;
+  min-height: 44px !important;
+  max-height: none !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 8px 8px !important;
+
+  background: #000000 !important;
+  background-image: none !important;
+
+  color: #ffffff !important;
+
+  border: 0 !important;
+  border-bottom: 1px solid #333333 !important;
+
+  text-align: left !important;
+
+  overflow: hidden !important;
+
+  white-space: normal !important;
+
+  box-shadow: none !important;
+  transform: none !important;
+
+  cursor: pointer !important;
+}
+
+html body .app-shell #gitRagFilesMenu button.git-rag-file-item::before,
+html body .app-shell #gitRagFilesMenu button.git-rag-file-item::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Text columns */
+html body .app-shell #gitRagFilesMenu .git-rag-file-main {
+  display: flex !important;
+  flex-direction: column !important;
+
+  align-items: flex-start !important;
+
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  overflow: hidden !important;
+
+  color: inherit !important;
+}
+
+html body .app-shell #gitRagFilesMenu .git-rag-file-name {
+  display: block !important;
+
+  max-width: 100% !important;
+
+  color: #ffffff !important;
+
+  text-align: left !important;
+
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+html body .app-shell #gitRagFilesMenu .git-rag-file-dir {
+  display: block !important;
+
+  max-width: 100% !important;
+
+  margin-top: 3px !important;
+
+  color: #777777 !important;
+
+  text-align: left !important;
+
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* Right badges */
+html body .app-shell #gitRagFilesMenu .git-rag-file-info {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+
+  justify-content: flex-end !important;
+  align-items: center !important;
+
+  gap: 6px !important;
+
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  overflow: hidden !important;
+
+  color: #ffffff !important;
+}
+
+html body .app-shell #gitRagFilesMenu .git-rag-file-badge {
+  display: inline-flex !important;
+
+  flex: 0 0 auto !important;
+
+  align-items: center !important;
+
+  width: auto !important;
+
+  padding: 2px 6px !important;
+
+  background: transparent !important;
+  color: #ffffff !important;
+
+  border: 1px solid currentColor !important;
+
+  line-height: 1 !important;
+
+  white-space: nowrap !important;
+}
+
+/* File row hover */
+html body .app-shell #gitRagFilesMenu button.git-rag-file-item:hover {
+  background: #ffffff !important;
+  background-image: none !important;
+
+  color: #000000 !important;
+}
+
+html body .app-shell #gitRagFilesMenu button.git-rag-file-item:hover .git-rag-file-name,
+html body .app-shell #gitRagFilesMenu button.git-rag-file-item:hover .git-rag-file-info,
+html body .app-shell #gitRagFilesMenu button.git-rag-file-item:hover .git-rag-file-badge {
+  color: #000000 !important;
+}
+
+html body .app-shell #gitRagFilesMenu button.git-rag-file-item:hover .git-rag-file-dir {
+  color: #444444 !important;
+}
+
+/* Repo selection rows */
+html body .app-shell #gitRagRepoMenu button.git-rag-menu-item {
+  display: grid !important;
+
+  grid-template-columns: minmax(0, 1fr) auto !important;
+
+  align-items: center !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  height: auto !important;
+  min-height: 44px !important;
+  max-height: none !important;
+
+  box-sizing: border-box !important;
+
+  padding: 8px 8px !important;
+  margin: 0 !important;
+
+  background: #000000 !important;
+  background-image: none !important;
+
+  color: #ffffff !important;
+
+  border: 0 !important;
+  border-bottom: 1px solid #333333 !important;
+
+  text-align: left !important;
+
+  overflow: hidden !important;
+}
+
+html body .app-shell #gitRagRepoMenu button.git-rag-menu-item::before,
+html body .app-shell #gitRagRepoMenu button.git-rag-menu-item::after {
+  content: none !important;
+  display: none !important;
+}
+
+html body .app-shell #gitRagRepoMenu button.git-rag-menu-item * {
+  color: #ffffff !important;
+}
+
+html body .app-shell #gitRagRepoMenu button.git-rag-menu-item:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+html body .app-shell #gitRagRepoMenu button.git-rag-menu-item:hover * {
+  color: #000000 !important;
+}
+
+
+/* =========================================================
+   KUZAI_GIT_RAG_STANDALONE_PAGE_STEP205
+   Dedicated full page GIT-RAG layout. Not modal.
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell {
+  width: 90vw !important;
+  max-width: 1800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+html body.git-rag-page-body .git-rag-page-layout {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html body.git-rag-page-body .git-rag-page-panel {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+html body.git-rag-page-body .git-rag-page-header {
+  width: 100% !important;
+  box-sizing: border-box !important;
+
+  border-bottom: 1px solid #333333 !important;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+html body.git-rag-page-body .git-rag-page-content {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  padding: 16px !important;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+html body.git-rag-page-body .git-rag-page-controls {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+
+  width: 100% !important;
+
+  margin: 0 0 16px 0 !important;
+  padding: 0 0 14px 0 !important;
+
+  border-bottom: 1px solid #333333 !important;
+}
+
+/* Override all previous modal/fixed GIT-RAG rules on standalone page */
+html body.git-rag-page-body .app-shell #gitRagRepoMenu,
+html body.git-rag-page-body .app-shell #gitRagFilesMenu,
+html body.git-rag-page-body .app-shell #gitRagRepoMenu:not([hidden]),
+html body.git-rag-page-body .app-shell #gitRagFilesMenu:not([hidden]) {
+  position: static !important;
+
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+
+  transform: none !important;
+
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  height: auto !important;
+  max-height: none !important;
+
+  box-sizing: border-box !important;
+
+  overflow: visible !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  border: 0 !important;
+  border-radius: 0 !important;
+
+  z-index: auto !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu[hidden],
+html body.git-rag-page-body .app-shell #gitRagFilesMenu[hidden],
+html body.git-rag-page-body .app-shell #gitRagGitOutput[hidden],
+html body.git-rag-page-body .app-shell #gitRagFileEditor[hidden] {
+  display: none !important;
+}
+
+/* Standalone header inside repo/files block */
+html body.git-rag-page-body .app-shell .git-rag-files-header {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+
+  align-items: start !important;
+  gap: 16px !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  padding: 0 0 14px 0 !important;
+  margin: 0 0 14px 0 !important;
+
+  border-bottom: 1px solid #333333 !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-menu-title {
+  display: block !important;
+
+  margin: 0 0 8px 0 !important;
+
+  color: #ffffff !important;
+
+  text-align: left !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-menu-subtitle {
+  display: flex !important;
+  flex-wrap: wrap !important;
+
+  gap: 8px !important;
+
+  color: #9a9a9a !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-menu-subtitle span {
+  display: inline-flex !important;
+
+  width: auto !important;
+
+  padding: 3px 7px !important;
+
+  background: #000000 !important;
+  color: #9a9a9a !important;
+
+  border: 1px solid #333333 !important;
+  border-radius: 0 !important;
+}
+
+/* Action buttons in GIT-RAG page */
+html body.git-rag-page-body .app-shell .git-rag-files-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+
+  gap: 7px !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-files-actions button,
+html body.git-rag-page-body .app-shell .git-rag-reindex-btn,
+html body.git-rag-page-body .app-shell .git-rag-menu-close,
+html body.git-rag-page-body .app-shell .git-rag-back-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  padding: 2pt 0.70rem !important;
+
+  background-color: #ffffff !important;
+  background-image: linear-gradient(#000000, #000000) !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 100% !important;
+  background-size: 100% 0 !important;
+
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  line-height: 1 !important;
+  white-space: nowrap !important;
+
+  overflow: hidden !important;
+
+  transition:
+    color 180ms ease,
+    background-size 220ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-files-actions button:hover,
+html body.git-rag-page-body .app-shell .git-rag-reindex-btn:hover,
+html body.git-rag-page-body .app-shell .git-rag-menu-close:hover,
+html body.git-rag-page-body .app-shell .git-rag-back-btn:hover {
+  background-size: 100% 100% !important;
+  color: #ffffff !important;
+
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+}
+
+/* Status */
+html body.git-rag-page-body .app-shell .git-rag-reindex-status {
+  display: block !important;
+
+  width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  padding: 8px 10px !important;
+  margin: 0 0 8px 0 !important;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  border: 1px solid #333333 !important;
+  border-radius: 0 !important;
+
+  text-align: left !important;
+}
+
+/* File list */
+html body.git-rag-page-body .app-shell .git-rag-files-list {
+  display: flex !important;
+  flex-direction: column !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  margin: 12px 0 0 0 !important;
+  padding: 0 !important;
+
+  overflow: visible !important;
+}
+
+html body.git-rag-page-body .app-shell button.git-rag-file-item,
+html body.git-rag-page-body .app-shell button.git-rag-menu-item {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+
+  align-items: center !important;
+  column-gap: 14px !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  height: auto !important;
+  min-height: 44px !important;
+  max-height: none !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 8px 8px !important;
+
+  background: #000000 !important;
+  background-image: none !important;
+
+  color: #ffffff !important;
+
+  border: 0 !important;
+  border-bottom: 1px solid #333333 !important;
+  border-radius: 0 !important;
+
+  text-align: left !important;
+
+  overflow: hidden !important;
+  white-space: normal !important;
+
+  box-shadow: none !important;
+  transform: none !important;
+
+  cursor: pointer !important;
+}
+
+html body.git-rag-page-body .app-shell button.git-rag-file-item::before,
+html body.git-rag-page-body .app-shell button.git-rag-file-item::after,
+html body.git-rag-page-body .app-shell button.git-rag-menu-item::before,
+html body.git-rag-page-body .app-shell button.git-rag-menu-item::after {
+  content: none !important;
+  display: none !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-file-main {
+  display: flex !important;
+  flex-direction: column !important;
+
+  align-items: flex-start !important;
+
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-file-name,
+html body.git-rag-page-body .app-shell .git-rag-menu-item-main {
+  display: block !important;
+
+  max-width: 100% !important;
+
+  color: #ffffff !important;
+
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-file-dir,
+html body.git-rag-page-body .app-shell .git-rag-menu-item-meta {
+  display: block !important;
+
+  max-width: 100% !important;
+
+  margin-top: 3px !important;
+
+  color: #777777 !important;
+
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-file-info {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+
+  justify-content: flex-end !important;
+  align-items: center !important;
+
+  gap: 6px !important;
+
+  overflow: hidden !important;
+
+  color: #ffffff !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-file-badge {
+  display: inline-flex !important;
+
+  flex: 0 0 auto !important;
+
+  align-items: center !important;
+
+  width: auto !important;
+
+  padding: 2px 6px !important;
+
+  background: transparent !important;
+  color: #ffffff !important;
+
+  border: 1px solid currentColor !important;
+  border-radius: 0 !important;
+
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+/* Hover rows */
+html body.git-rag-page-body .app-shell button.git-rag-file-item:hover,
+html body.git-rag-page-body .app-shell button.git-rag-menu-item:hover {
+  background: #ffffff !important;
+  background-image: none !important;
+
+  color: #000000 !important;
+}
+
+html body.git-rag-page-body .app-shell button.git-rag-file-item:hover *,
+html body.git-rag-page-body .app-shell button.git-rag-menu-item:hover * {
+  color: #000000 !important;
+}
+
+/* Viewer / editor */
+html body.git-rag-page-body .app-shell .git-rag-file-viewer:not([hidden]),
+html body.git-rag-page-body .app-shell .git-rag-git-output:not([hidden]) {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  margin: 10px 0 !important;
+  padding: 12px !important;
+
+  background: #050505 !important;
+  color: #ffffff !important;
+
+  border: 1px solid #333333 !important;
+  border-radius: 0 !important;
+
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+
+  overflow: auto !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-file-editor:not([hidden]) {
+  display: block !important;
+
+  width: 100% !important;
+  min-height: 50vh !important;
+
+  box-sizing: border-box !important;
+
+  padding: 12px !important;
+
+  background: #050505 !important;
+  color: #ffffff !important;
+
+  border: 1px solid #333333 !important;
+  border-radius: 0 !important;
+
+  resize: vertical !important;
+}
+
+
+/* =========================================================
+   KUZAI_GIT_RAG_PAGE_STATUS_LAYOUT_STEP206
+   Top info row = left stats / right index+git status
+   Black background / white text / hover inverted
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  gap: 16px !important;
+
+  width: 100% !important;
+  box-sizing: border-box !important;
+
+  margin: 0 0 14px 0 !important;
+  padding: 0 0 14px 0 !important;
+
+  border-bottom: 1px solid #333333 !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-top-meta-left,
+html body.git-rag-page-body .app-shell .git-rag-top-meta-right {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-top-meta-left {
+  justify-content: flex-start !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-top-meta-right {
+  justify-content: flex-end !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-menu-subtitle {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin: 0 !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-menu-subtitle span,
+html body.git-rag-page-body .app-shell .git-rag-reindex-status--inline {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  margin: 0 !important;
+  padding: 2pt 8px !important;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  line-height: 1.1 !important;
+  white-space: nowrap !important;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-menu-subtitle span:hover,
+html body.git-rag-page-body .app-shell .git-rag-reindex-status--inline:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-reindex-status {
+  box-sizing: border-box !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-files-list {
+  margin-top: 8px !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_META_INLINE_STEP207
+   One-line meta row: 12 FILES / BRANCH MAIN / SIZE / INDEX READY / GIT READY
+   Black idle, white text, hover inverted.
+   ========================================================= */
+
+/* Main row: one line, left stats + right status */
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  gap: 12px !important;
+
+  margin: 0 0 14px 0 !important;
+  padding: 0 0 14px 0 !important;
+
+  border-bottom: 1px solid #333333 !important;
+}
+
+/* Left group: 12 FILES / BRANCH / SIZE */
+html body.git-rag-page-body .app-shell .git-rag-top-meta-left {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+
+  gap: 8px !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 70% !important;
+
+  flex: 1 1 auto !important;
+}
+
+/* Right group: INDEX READY / GIT READY */
+html body.git-rag-page-body .app-shell .git-rag-top-meta-right {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+
+  gap: 8px !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 50% !important;
+
+  flex: 0 1 auto !important;
+}
+
+/* The original subtitle must behave as an inline group */
+html body.git-rag-page-body .app-shell .git-rag-top-meta-left .git-rag-menu-subtitle {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+
+  gap: 8px !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Meta + status pills: same style */
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row .git-rag-menu-subtitle span,
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row .git-rag-reindex-status,
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row .git-rag-reindex-status--inline {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+
+  flex: 0 0 auto !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 2pt 8px !important;
+
+  background: #000000 !important;
+  background-color: #000000 !important;
+  background-image: none !important;
+
+  color: #ffffff !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  line-height: 1 !important;
+  white-space: nowrap !important;
+
+  text-align: center !important;
+
+  cursor: default !important;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease !important;
+}
+
+/* Hover inversion */
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row .git-rag-menu-subtitle span:hover,
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row .git-rag-reindex-status:hover,
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row .git-rag-reindex-status--inline:hover {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+
+  color: #000000 !important;
+
+  border-color: #ffffff !important;
+}
+
+/* Remove old block spacing from inline statuses */
+html body.git-rag-page-body .app-shell .git-rag-top-meta-right .git-rag-reindex-status {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  overflow: visible !important;
+}
+
+/* Git action buttons on this page: black idle, white text, inverted hover */
+html body.git-rag-page-body .app-shell .git-rag-files-actions button,
+html body.git-rag-page-body .app-shell .git-rag-reindex-btn,
+html body.git-rag-page-body .app-shell .git-rag-menu-close,
+html body.git-rag-page-body .app-shell .git-rag-back-btn,
+html body.git-rag-page-body .app-shell #gitRagBtn {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  background-image: linear-gradient(#ffffff, #ffffff) !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 100% !important;
+  background-size: 100% 0 !important;
+
+  color: #ffffff !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  transition:
+    color 180ms ease,
+    background-size 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 180ms ease !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-files-actions button:hover,
+html body.git-rag-page-body .app-shell .git-rag-reindex-btn:hover,
+html body.git-rag-page-body .app-shell .git-rag-menu-close:hover,
+html body.git-rag-page-body .app-shell .git-rag-back-btn:hover,
+html body.git-rag-page-body .app-shell #gitRagBtn:hover {
+  background-color: #000000 !important;
+  background-size: 100% 100% !important;
+
+  color: #000000 !important;
+
+  border-color: #ffffff !important;
+}
+
+/* Small screens: allow wrap only if physically required */
+@media (max-width: 900px) {
+  html body.git-rag-page-body .app-shell .git-rag-top-meta-row {
+    flex-wrap: wrap !important;
+  }
+
+  html body.git-rag-page-body .app-shell .git-rag-top-meta-left,
+  html body.git-rag-page-body .app-shell .git-rag-top-meta-right {
+    max-width: 100% !important;
+  }
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_META_INLINE_LEFT_STEP208
+   Stats + status: left aligned, uppercase, white background.
+   Idle = black text on white background.
+   Hover = white text on black background.
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  gap: 0 !important;
+
+  margin: 0 0 14px 0 !important;
+  padding: 0 0 14px 0 !important;
+
+  border-bottom: 1px solid #333333 !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-top-meta-left {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+
+  width: auto !important;
+  max-width: 100% !important;
+
+  gap: 8px !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-top-meta-right {
+  display: none !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-top-meta-left .git-rag-menu-subtitle {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+
+  width: auto !important;
+  max-width: none !important;
+
+  gap: 8px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row .git-rag-menu-subtitle span,
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row .git-rag-reindex-status,
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row .git-rag-reindex-status--inline {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+
+  flex: 0 0 auto !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 2pt 8px !important;
+
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  line-height: 1 !important;
+  white-space: nowrap !important;
+
+  text-align: center !important;
+  text-transform: uppercase !important;
+
+  cursor: default !important;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row .git-rag-menu-subtitle span:hover,
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row .git-rag-reindex-status:hover,
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row .git-rag-reindex-status--inline:hover {
+  background: #000000 !important;
+  background-color: #000000 !important;
+
+  color: #ffffff !important;
+
+  border-color: #ffffff !important;
+}
+
+/* Remove old full-width status behavior */
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row .git-rag-reindex-status {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  overflow: visible !important;
+}
+
+/* Keep row usable on small screens only */
+@media (max-width: 900px) {
+  html body.git-rag-page-body .app-shell .git-rag-top-meta-left,
+  html body.git-rag-page-body .app-shell .git-rag-top-meta-left .git-rag-menu-subtitle {
+    flex-wrap: wrap !important;
+  }
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_META_ROW_DIRECT_STEP209
+   Direct rendered meta row.
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell {
+  width: 90vw !important;
+  max-width: 1800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  zoom: 1 !important;
+  transform: none !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-page-meta-row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+
+  gap: 8px !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 0 14px 0 !important;
+  padding: 0 0 14px 0 !important;
+
+  border-bottom: 1px solid #333333 !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-page-meta-row .git-rag-page-meta-pill,
+html body.git-rag-page-body .app-shell .git-rag-page-meta-row .git-rag-reindex-status {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  flex: 0 0 auto !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 2pt 8px !important;
+
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  line-height: 1 !important;
+  white-space: nowrap !important;
+
+  text-align: center !important;
+  text-transform: uppercase !important;
+
+  cursor: default !important;
+
+  overflow: visible !important;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-page-meta-row .git-rag-page-meta-pill:hover,
+html body.git-rag-page-body .app-shell .git-rag-page-meta-row .git-rag-reindex-status:hover {
+  background: #000000 !important;
+  background-color: #000000 !important;
+
+  color: #ffffff !important;
+
+  border-color: #ffffff !important;
+}
+
+/* Old generated meta rows must not interfere anymore */
+html body.git-rag-page-body .app-shell .git-rag-top-meta-row {
+  display: none !important;
+}
+
+/* In case older CSS targets status blocks globally */
+html body.git-rag-page-body .app-shell .git-rag-page-meta-row #gitRagReindexStatus,
+html body.git-rag-page-body .app-shell .git-rag-page-meta-row #gitRagGitStatus {
+  display: inline-flex !important;
+  width: auto !important;
+  margin: 0 !important;
+  color: #000000 !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-page-meta-row #gitRagReindexStatus:hover,
+html body.git-rag-page-body .app-shell .git-rag-page-meta-row #gitRagGitStatus:hover {
+  color: #ffffff !important;
+}
+
+@media (max-width: 900px) {
+  html body.git-rag-page-body .app-shell .git-rag-page-meta-row {
+    flex-wrap: wrap !important;
+  }
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_COLOR_FIX_STEP210
+   Fix colors for:
+   - GIT-RAG / REPO button
+   - INDEX READY / GIT READY pills
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell .git-rag-page-current-repo,
+html body.git-rag-page-body .app-shell .git-rag-page-current-repo:link,
+html body.git-rag-page-body .app-shell .git-rag-page-current-repo:visited {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  padding: 2pt 8px !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-page-current-repo:hover,
+html body.git-rag-page-body .app-shell .git-rag-page-current-repo:focus {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* Force explicit colors for INDEX READY / GIT READY */
+html body.git-rag-page-body .app-shell .git-rag-page-meta-row #gitRagReindexStatus,
+html body.git-rag-page-body .app-shell .git-rag-page-meta-row #gitRagGitStatus {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  padding: 2pt 8px !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-page-meta-row #gitRagReindexStatus:hover,
+html body.git-rag-page-body .app-shell .git-rag-page-meta-row #gitRagGitStatus:hover {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_MAIN_BUTTON_COLOR_FIX_STEP211
+   Correct visible button:
+   #gitRagBtn = GIT-RAG / REPO : ...
+   Idle: white background / black text
+   Hover: black background / white text
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell .git-rag-page-content .git-rag-page-controls #gitRagBtn,
+html body.git-rag-page-body .app-shell #gitRagToolbar #gitRagBtn,
+html body.git-rag-page-body .app-shell button#gitRagBtn.git-rag-main-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  padding: 2pt 8px !important;
+  margin: 0 !important;
+
+  background-color: #ffffff !important;
+  background-image: linear-gradient(#000000, #000000) !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 100% !important;
+  background-size: 100% 0 !important;
+
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+
+  box-shadow: none !important;
+  text-shadow: none !important;
+  outline: none !important;
+
+  overflow: hidden !important;
+
+  transition:
+    color 180ms ease,
+    background-size 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 180ms ease !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-page-content .git-rag-page-controls #gitRagBtn::before,
+html body.git-rag-page-body .app-shell #gitRagToolbar #gitRagBtn::before,
+html body.git-rag-page-body .app-shell button#gitRagBtn.git-rag-main-btn::before {
+  content: none !important;
+  display: none !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-page-content .git-rag-page-controls #gitRagBtn:hover,
+html body.git-rag-page-body .app-shell .git-rag-page-content .git-rag-page-controls #gitRagBtn:focus-visible,
+html body.git-rag-page-body .app-shell #gitRagToolbar #gitRagBtn:hover,
+html body.git-rag-page-body .app-shell #gitRagToolbar #gitRagBtn:focus-visible,
+html body.git-rag-page-body .app-shell button#gitRagBtn.git-rag-main-btn:hover,
+html body.git-rag-page-body .app-shell button#gitRagBtn.git-rag-main-btn:focus-visible {
+  background-color: #ffffff !important;
+  background-size: 100% 100% !important;
+
+  color: #ffffff !important;
+
+  border-top-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_REPOS_LIST_BUTTON_STEP212
+   Page entry button:
+   GIT-RAG / REPOS LIST
+   Idle: white background / black text
+   Hover: black background / white text
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell #gitRagBtn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  padding: 2pt 8px !important;
+  margin: 0 !important;
+
+  background-color: #ffffff !important;
+  background-image: linear-gradient(#000000, #000000) !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 100% !important;
+  background-size: 100% 0 !important;
+
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+
+  overflow: hidden !important;
+
+  transition:
+    color 180ms ease,
+    background-size 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 180ms ease !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagBtn:hover,
+html body.git-rag-page-body .app-shell #gitRagBtn:focus-visible {
+  background-color: #ffffff !important;
+  background-size: 100% 100% !important;
+
+  color: #ffffff !important;
+
+  border-top-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+}
+
+/* Repo list rows: readable and clickable */
+html body.git-rag-page-body .app-shell #gitRagRepoMenu:not([hidden]) {
+  margin-top: 14px !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu .git-rag-menu-title {
+  margin-bottom: 12px !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-bottom: 1px solid #333333 !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item:hover * {
+  color: #000000 !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_REPO_TITLE_INVERT_STEP213
+   GIT-RAG REPOSITORIES title:
+   idle = white background / black text
+   hover = black background / white text
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu .git-rag-menu-title {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  max-width: max-content !important;
+
+  margin: 0 0 12px 0 !important;
+  padding: 2pt 8px !important;
+
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu .git-rag-menu-title:hover {
+  background: #000000 !important;
+  background-color: #000000 !important;
+
+  color: #ffffff !important;
+
+  border-color: #ffffff !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_REPOS_LIST_FLOW_STEP214
+   Landing page: repo list visible, no repos-list button.
+   Repo page: button = GIT-RAG / BACK TO REPOS LIST.
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell #gitRagBtn[hidden] {
+  display: none !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu:not([hidden]) {
+  display: block !important;
+  width: 100% !important;
+  margin-top: 14px !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagFilesMenu:not([hidden]) {
+  display: block !important;
+  width: 100% !important;
+}
+
+/* Repo page button: white idle / black text, black hover / white text */
+html body.git-rag-page-body .app-shell #gitRagBtn {
+  background-color: #ffffff !important;
+  background-image: linear-gradient(#000000, #000000) !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 100% !important;
+  background-size: 100% 0 !important;
+
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  padding: 2pt 8px !important;
+  line-height: 1 !important;
+
+  text-transform: uppercase !important;
+
+  transition:
+    color 180ms ease,
+    background-size 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 180ms ease !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagBtn:hover,
+html body.git-rag-page-body .app-shell #gitRagBtn:focus-visible {
+  background-color: #ffffff !important;
+  background-size: 100% 100% !important;
+
+  color: #ffffff !important;
+
+  border-top-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_HIDE_BACK_BUTTON_ON_LIST_STEP215
+   The repo-list page must not show the back-to-repos button.
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell #gitRagBtn[hidden] {
+  display: none !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_FORCE_HIDDEN_BUTTON_STEP216
+   Force hidden state of #gitRagBtn on repository list.
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell #gitRagBtn[hidden],
+html body.git-rag-page-body .app-shell .git-rag-page-controls #gitRagBtn[hidden],
+html body.git-rag-page-body .app-shell #gitRagToolbar #gitRagBtn[hidden] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_REPO_ROW_CENTER_DYNAMIC_STEP217
+   Repo available row:
+   idle  = white background / black text
+   hover = black expands from center / white text
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item {
+  position: relative !important;
+  isolation: isolate !important;
+
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: 16px !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  height: auto !important;
+  min-height: 44px !important;
+  max-height: none !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 8px 8px !important;
+
+  background-color: #ffffff !important;
+  background-image: linear-gradient(#000000, #000000) !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 0 100% !important;
+
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  text-align: left !important;
+
+  overflow: hidden !important;
+  white-space: normal !important;
+
+  box-shadow: none !important;
+  text-shadow: none !important;
+  transform: none !important;
+
+  cursor: pointer !important;
+
+  transition:
+    color 180ms ease,
+    background-size 260ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 180ms ease !important;
+}
+
+/* neutralise les anciennes couches dynamiques */
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item::before,
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* texte du repo + infos branche */
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item *,
+html body.git-rag-page-body .app-shell #gitRagRepoMenu .git-rag-menu-item-main,
+html body.git-rag-page-body .app-shell #gitRagRepoMenu .git-rag-menu-item-meta {
+  position: relative !important;
+  z-index: 1 !important;
+
+  color: inherit !important;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  text-transform: uppercase !important;
+}
+
+/* hover : le noir part du centre vers les extérieurs */
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item:hover,
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item:focus-visible {
+  background-color: #ffffff !important;
+  background-size: 100% 100% !important;
+
+  color: #ffffff !important;
+
+  border-top-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+
+  outline: none !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item:hover *,
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item:focus-visible * {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   KUZAI_GIT_RAG_REPO_ROW_FOOTER_DYNAMIC_STEP218
+   Same logic as footer:
+   idle  = white bar / black text
+   hover = black bar expanding from center / white text
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item {
+  position: relative !important;
+  isolation: isolate !important;
+
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: 16px !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  height: auto !important;
+  min-height: 44px !important;
+  max-height: none !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 8px 8px !important;
+
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+
+  color: #000000 !important;
+
+  border-top: 1px solid #ffffff !important;
+  border-bottom: 1px solid #ffffff !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-radius: 0 !important;
+
+  text-align: left !important;
+  white-space: normal !important;
+
+  overflow: hidden !important;
+
+  box-shadow: none !important;
+  text-shadow: none !important;
+  transform: none !important;
+
+  cursor: pointer !important;
+
+  transition:
+    color 180ms ease,
+    border-color 180ms ease !important;
+}
+
+/* Dynamic black layer: starts at center, expands to both sides */
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item::before {
+  content: "" !important;
+  display: block !important;
+
+  position: absolute !important;
+  inset: 0 !important;
+
+  z-index: 0 !important;
+
+  background: #000000 !important;
+  background-color: #000000 !important;
+
+  transform: scaleX(0) !important;
+  transform-origin: center center !important;
+
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+
+  pointer-events: none !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Text above the dynamic layer */
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item *,
+html body.git-rag-page-body .app-shell #gitRagRepoMenu .git-rag-menu-item-main,
+html body.git-rag-page-body .app-shell #gitRagRepoMenu .git-rag-menu-item-meta {
+  position: relative !important;
+  z-index: 1 !important;
+
+  color: #000000 !important;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  text-transform: uppercase !important;
+}
+
+/* Hover: full black bar + white text */
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item:hover,
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item:focus-visible {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+
+  color: #ffffff !important;
+
+  border-top-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+
+  outline: none !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item:hover::before,
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item:focus-visible::before {
+  transform: scaleX(1) !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item:hover *,
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item:focus-visible * {
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_BACK_HOME_BOTTOM_STEP219
+   Bottom BACK HOME button, same wide black line style,
+   dynamic expansion from center toward edges.
+   ========================================================= */
+
+/* Remove visual space from old top-right container */
+html body.git-rag-page-body .app-shell .git-rag-page-top-actions[aria-hidden="true"] {
+  display: none !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-bottom-nav {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  margin: 18px 0 8px 0 !important;
+  padding: 0 !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-bottom-back-home {
+  position: relative !important;
+  isolation: isolate !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  padding: 0.42rem 1rem !important;
+  margin: 0 !important;
+
+  background: #000000 !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+
+  border-top: 1px solid #333333 !important;
+  border-bottom: 1px solid #333333 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-radius: 0 !important;
+
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+
+  overflow: hidden !important;
+
+  transition:
+    color 180ms ease,
+    border-color 180ms ease !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-bottom-back-home::before {
+  content: "" !important;
+
+  position: absolute !important;
+  inset: 0 !important;
+
+  z-index: 0 !important;
+
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+
+  transform: scaleX(0) !important;
+  transform-origin: center center !important;
+
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+
+  pointer-events: none !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-bottom-back-home__label,
+html body.git-rag-page-body .app-shell .git-rag-bottom-back-home__arrow {
+  position: relative !important;
+  z-index: 1 !important;
+
+  color: inherit !important;
+
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-bottom-back-home:hover,
+html body.git-rag-page-body .app-shell .git-rag-bottom-back-home:focus-visible {
+  color: #000000 !important;
+
+  border-top-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+
+  outline: none !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-bottom-back-home:hover::before,
+html body.git-rag-page-body .app-shell .git-rag-bottom-back-home:focus-visible::before {
+  transform: scaleX(1) !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_BACK_HOME_FOOTER_SIZE_STEP220
+   Match BACK HOME typography size with footer text.
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell .git-rag-bottom-back-home,
+html body.git-rag-page-body .app-shell .git-rag-bottom-back-home__label,
+html body.git-rag-page-body .app-shell .git-rag-bottom-back-home__arrow {
+  font-size: clamp(1.05rem, 1.25vw, 1.45rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  line-height: 1 !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-bottom-back-home {
+  padding-top: 0.48rem !important;
+  padding-bottom: 0.48rem !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_SYSTEM_TITLE_STATIC_STEP221
+   GIT-RAG SYSTEM title:
+   static white background / black text.
+   No dynamic effect.
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell .git-rag-page-header .section-kicker {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  max-width: max-content !important;
+
+  padding: 2pt 8px !important;
+  margin: 0 0 4px 0 !important;
+
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+
+  box-shadow: none !important;
+  text-shadow: none !important;
+
+  cursor: default !important;
+  transition: none !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-page-header .section-kicker:hover {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_SYSTEM_TITLE_STATIC_STEP221
+   GIT-RAG SYSTEM title:
+   static white background / black text.
+   No dynamic effect.
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell .git-rag-page-header .section-kicker {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  max-width: max-content !important;
+
+  padding: 2pt 8px !important;
+  margin: 0 0 4px 0 !important;
+
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+
+  box-shadow: none !important;
+  text-shadow: none !important;
+
+  cursor: default !important;
+  transition: none !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-page-header .section-kicker:hover {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_SYSTEM_TITLE_FORCE_STEP222
+   Force GIT-RAG SYSTEM title only.
+   Static: white background / black text.
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell .git-rag-page-header p.git-rag-system-title-static,
+html body.git-rag-page-body .app-shell .git-rag-page-header .section-kicker.git-rag-system-title-static,
+html body.git-rag-page-body .app-shell p.section-kicker.git-rag-system-title-static {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  max-width: max-content !important;
+
+  margin: 0 0 4px 0 !important;
+  padding: 2pt 8px !important;
+
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+
+  box-shadow: none !important;
+  text-shadow: none !important;
+
+  cursor: default !important;
+  pointer-events: none !important;
+
+  transition: none !important;
+  transform: none !important;
+}
+
+html body.git-rag-page-body .app-shell .git-rag-page-header p.git-rag-system-title-static:hover,
+html body.git-rag-page-body .app-shell .git-rag-page-header .section-kicker.git-rag-system-title-static:hover,
+html body.git-rag-page-body .app-shell p.section-kicker.git-rag-system-title-static:hover {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+
+  color: #000000 !important;
+
+  border-color: #ffffff !important;
+
+  transition: none !important;
+  transform: none !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_REMOVE_EMPTY_CONTROLS_LINE_STEP224
+   Remove grey separator above GIT-RAG REPOSITORIES
+   when the hidden repo/back button leaves an empty controls row.
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell .git-rag-page-controls:has(#gitRagBtn[hidden]) {
+  display: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+
+  overflow: hidden !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu:not([hidden]) {
+  margin-top: 0 !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_REPO_COMPACT_BOTTOM_OFFSET_STEP225
+   Repo row height = text height + 2px.
+   BACK HOME + footer moved 40px lower.
+   ========================================================= */
+
+/* Repo available row: text height + 2px */
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item {
+  height: calc(1em + 2px) !important;
+  min-height: calc(1em + 2px) !important;
+  max-height: calc(1em + 2px) !important;
+
+  padding-top: 1px !important;
+  padding-bottom: 1px !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+
+  line-height: 1 !important;
+
+  align-items: center !important;
+
+  box-sizing: border-box !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item *,
+html body.git-rag-page-body .app-shell #gitRagRepoMenu .git-rag-menu-item-main,
+html body.git-rag-page-body .app-shell #gitRagRepoMenu .git-rag-menu-item-meta {
+  line-height: 1 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Move BACK HOME + footer group 40px lower from the repo container */
+html body.git-rag-page-body .app-shell .git-rag-bottom-nav {
+  margin-top: 40px !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_REPO_ROW_PADDING_10PX_STEP226
+   Repo available row:
+   10px above and below text.
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+
+  line-height: 1 !important;
+
+  align-items: center !important;
+  box-sizing: border-box !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagRepoMenu button.git-rag-menu-item *,
+html body.git-rag-page-body .app-shell #gitRagRepoMenu .git-rag-menu-item-main,
+html body.git-rag-page-body .app-shell #gitRagRepoMenu .git-rag-menu-item-meta {
+  line-height: 1 !important;
+
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* =========================================================
+   KUZAI_GIT_RAG_DESELECT_REPO_STEP227
+   Deselect active repo button.
+   Same dynamic style as other GIT-RAG action buttons.
+   ========================================================= */
+
+html body.git-rag-page-body .app-shell #gitRagDeselectRepoBtn {
+  background-color: #ffffff !important;
+  background-image: linear-gradient(#000000, #000000) !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 0 100% !important;
+
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  padding: 2pt 8px !important;
+
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+
+  transition:
+    color 180ms ease,
+    background-size 240ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 180ms ease !important;
+}
+
+html body.git-rag-page-body .app-shell #gitRagDeselectRepoBtn:hover,
+html body.git-rag-page-body .app-shell #gitRagDeselectRepoBtn:focus-visible {
+  background-size: 100% 100% !important;
+
+  color: #ffffff !important;
+
+  border-top-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+}
+
+/* =========================================================
+   KUZAI_PROFILES_PAGE_SHELL_STEP229
+   profiles.php aligned with home / git-rag page shell.
+   ========================================================= */
+
+html body.profiles-page-body {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: #000000 !important;
+  color: #ffffff !important;
+  font-family: "Anta", "Segoe UI", Arial, sans-serif !important;
+}
+
+html body.profiles-page-body .page {
+  width: 90vw !important;
+  max-width: 1800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 !important;
+}
+
+/* Old rounded header neutralized by home header */
+html body.profiles-page-body .topbar.site-style-topbar {
+  border-radius: 0 !important;
+}
+
+/* Main panel: square, aligned to site style */
+html body.profiles-page-body .panel {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 16px !important;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+}
+
+/* Page action row */
+html body.profiles-page-body .profiles-page-actions {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+
+  width: 100% !important;
+
+  margin: 0 0 16px 0 !important;
+  padding: 0 0 14px 0 !important;
+
+  border-bottom: 1px solid #333333 !important;
+}
+
+html body.profiles-page-body .profiles-page-create-action {
+  background-color: #ffffff !important;
+  background-image: linear-gradient(#000000, #000000) !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 0 100% !important;
+
+  color: #000000 !important;
+
+  border: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
+  padding: 2pt 8px !important;
+
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+
+  transition:
+    color 180ms ease,
+    background-size 240ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 180ms ease !important;
+}
+
+html body.profiles-page-body .profiles-page-create-action:hover,
+html body.profiles-page-body .profiles-page-create-action:focus-visible {
+  background-size: 100% 100% !important;
+  color: #ffffff !important;
+}
+
+/* Remove old rounded cards */
+html body.profiles-page-body .profile,
+html body.profiles-page-body .empty,
+html body.profiles-page-body .status {
+  border-radius: 0 !important;
+  background: #000000 !important;
+}
+
+/* Bottom BACK HOME, same logic as GIT-RAG page */
+html body.profiles-page-body .profiles-bottom-nav {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  margin: 40px 0 8px 0 !important;
+  padding: 0 !important;
+}
+
+html body.profiles-page-body .profiles-bottom-back-home {
+  position: relative !important;
+  isolation: isolate !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  padding: 0.48rem 1rem !important;
+  margin: 0 !important;
+
+  background: #000000 !important;
+  color: #ffffff !important;
+
+  border-top: 1px solid #333333 !important;
+  border-bottom: 1px solid #333333 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-radius: 0 !important;
+
+  font-size: clamp(1.05rem, 1.25vw, 1.45rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  line-height: 1 !important;
+
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+
+  overflow: hidden !important;
+
+  transition:
+    color 180ms ease,
+    border-color 180ms ease !important;
+}
+
+html body.profiles-page-body .profiles-bottom-back-home::before {
+  content: "" !important;
+
+  position: absolute !important;
+  inset: 0 !important;
+
+  z-index: 0 !important;
+
+  background: #ffffff !important;
+
+  transform: scaleX(0) !important;
+  transform-origin: center center !important;
+
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+
+  pointer-events: none !important;
+}
+
+html body.profiles-page-body .profiles-bottom-back-home__label,
+html body.profiles-page-body .profiles-bottom-back-home__arrow {
+  position: relative !important;
+  z-index: 1 !important;
+  color: inherit !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+html body.profiles-page-body .profiles-bottom-back-home:hover,
+html body.profiles-page-body .profiles-bottom-back-home:focus-visible {
+  color: #000000 !important;
+  border-top-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  outline: none !important;
+}
+
+html body.profiles-page-body .profiles-bottom-back-home:hover::before,
+html body.profiles-page-body .profiles-bottom-back-home:focus-visible::before {
+  transform: scaleX(1) !important;
+}
+
+/* Footer aligned */
+html body.profiles-page-body .site-footer.app-site-footer {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* =========================================================
+   KUZAI_PROFILES_WIDTH_FIX_STEP230
+   Force profiles.php to use the same centered 90vw shell as home.
+   ========================================================= */
+
+html body.profiles-page-body {
+  width: 100% !important;
+  min-width: 0 !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  overflow-x: hidden !important;
+
+  background: #000000 !important;
+}
+
+/* Main page shell */
+html body.profiles-page-body .page {
+  width: 90vw !important;
+  max-width: 1800px !important;
+  min-width: 0 !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  box-sizing: border-box !important;
+}
+
+/* Header must not escape the shell */
+html body.profiles-page-body .page > .topbar.site-style-topbar,
+html body.profiles-page-body .topbar.site-style-topbar {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  box-sizing: border-box !important;
+}
+
+/* Main content aligned to shell */
+html body.profiles-page-body .page > .panel,
+html body.profiles-page-body .panel {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  box-sizing: border-box !important;
+}
+
+/* Profile rows must stay inside panel */
+html body.profiles-page-body .profiles,
+html body.profiles-page-body .profile,
+html body.profiles-page-body .status,
+html body.profiles-page-body .empty {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+}
+
+/* Bottom navigation aligned to same shell */
+html body.profiles-page-body .profiles-bottom-nav {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  box-sizing: border-box !important;
+}
+
+/* Footer aligned to same shell */
+html body.profiles-page-body .site-footer.app-site-footer {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  box-sizing: border-box !important;
+}
+
+/* Safety: no full viewport bleed */
+html body.profiles-page-body .topbar,
+html body.profiles-page-body .panel,
+html body.profiles-page-body .profiles-bottom-nav,
+html body.profiles-page-body .site-footer {
+  max-width: 100% !important;
+}
