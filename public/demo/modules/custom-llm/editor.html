@@ -144,6 +144,138 @@
             }
         }
     </style>
+
+<style id="demo-personality-back-home-fix">
+
+html body.personality-page-body
+.personality-page-shell
+.personality-bottom-nav {
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    box-sizing: border-box !important;
+
+    margin: 40px 0 26px 0 !important;
+    padding: 0 !important;
+}
+
+html body.personality-page-body
+.personality-page-shell
+.personality-bottom-back-home {
+    position: relative !important;
+    isolation: isolate !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    box-sizing: border-box !important;
+
+    margin: 0 !important;
+    padding: 0.48rem 1rem !important;
+
+    background: #000000 !important;
+    color: #ffffff !important;
+
+    border-top: 1px solid #333333 !important;
+    border-bottom: 1px solid #333333 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+
+    font-family: "Anta", "Segoe UI", Arial, sans-serif !important;
+    font-size: clamp(1.05rem, 1.25vw, 1.45rem) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    line-height: 1 !important;
+
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+
+    overflow: hidden !important;
+
+    transition:
+        color 180ms ease,
+        border-color 180ms ease !important;
+}
+
+html body.personality-page-body
+.personality-page-shell
+.personality-bottom-back-home::before {
+    content: "" !important;
+
+    position: absolute !important;
+    inset: 0 !important;
+
+    z-index: 0 !important;
+
+    background: #ffffff !important;
+
+    transform: scaleX(0) !important;
+    transform-origin: center center !important;
+
+    transition:
+        transform 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+
+    pointer-events: none !important;
+}
+
+html body.personality-page-body
+.personality-page-shell
+.personality-bottom-back-home__label,
+
+html body.personality-page-body
+.personality-page-shell
+.personality-bottom-back-home__arrow {
+    position: relative !important;
+    z-index: 1 !important;
+
+    color: inherit !important;
+
+    line-height: 1 !important;
+    white-space: nowrap !important;
+}
+
+html body.personality-page-body
+.personality-page-shell
+.personality-bottom-back-home:hover,
+
+html body.personality-page-body
+.personality-page-shell
+.personality-bottom-back-home:focus-visible {
+    color: #000000 !important;
+
+    border-top-color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+
+    outline: none !important;
+}
+
+html body.personality-page-body
+.personality-page-shell
+.personality-bottom-back-home:hover::before,
+
+html body.personality-page-body
+.personality-page-shell
+.personality-bottom-back-home:focus-visible::before {
+    transform: scaleX(1) !important;
+}
+
+html body.personality-page-body
+.personality-page-shell
+.personality-bottom-nav
++ .site-footer {
+    margin-top: 0 !important;
+}
+
+</style>
+
 </head>
 
 <body class="personality-page-body">
@@ -389,14 +521,10 @@
 
     </main>
 
-    <nav class="profiles-bottom-nav" aria-label="Back to profiles">
-        <a class="profiles-bottom-back-home" href="./">
-            <span class="profiles-bottom-back-home__label">
-                BACK TO PROFILES
-            </span>
-            <span class="profiles-bottom-back-home__arrow">
-                --&gt;
-            </span>
+    <nav class="personality-bottom-nav" aria-label="Back to main demo">
+        <a class="personality-bottom-back-home" href="../../">
+            <span class="personality-bottom-back-home__label">BACK HOME</span>
+            <span class="personality-bottom-back-home__arrow">--&gt;</span>
         </a>
     </nav>
 
