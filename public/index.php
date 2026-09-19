@@ -270,16 +270,14 @@ $visitCountDisplay = $visitCount !== null
 
                             <a
                                 class="application-demo-preview__link"
-                                href="#"
-                                aria-disabled="true"
-                                onclick="return false;"
+                                href="/demo/"
                             >
                                 <span>
                                     <?= h((string) ($applicationDemo['link_label'] ?? 'GO TO APPLICATION DEMO')) ?>
                                 </span>
 
                                 <small>
-                                    <?= h((string) ($applicationDemo['link_status'] ?? 'COMING SOON')) ?>
+                                    <?= h((string) ($applicationDemo['link_status'] ?? 'AVAILABLE')) ?>
                                 </small>
                             </a>
                         </article>

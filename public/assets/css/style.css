@@ -4267,7 +4267,7 @@ body.page-application-demo.page-kuz-network
     background-size: 0 100%;
 
     color: #ffffff;
-    cursor: not-allowed;
+    cursor: pointer;
 
     transition:
         background-size 340ms ease,
