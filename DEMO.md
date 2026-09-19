@@ -193,4 +193,9 @@ The demo is a presentation layer.
 
 The real KUZAI application continues to use the private/local architecture documented in the KUZAI-CHAT repository, including llama.cpp, SearXNG, file processing, Piper TTS, Custom LLM profiles, Git-RAG and local runtime services.
 
-The demo must not weaken that separation.
+The demo must not weaken that separation. 
+
+---
+
+#### **`THE KUZ NETWORK - KUSANAGI8200 - @2026`**
+
