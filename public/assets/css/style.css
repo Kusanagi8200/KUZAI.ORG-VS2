@@ -4284,6 +4284,29 @@ body.page-application-demo.page-kuz-network
 
 body.page-application-demo.page-kuz-network
 .application-demo-preview__link span,
+
+/* KUZAI APPLICATION DEMO LINK CENTERED LABEL */
+body.page-application-demo.page-kuz-network
+.application-demo-preview__link {
+    position: relative;
+}
+
+body.page-application-demo.page-kuz-network
+.application-demo-preview__link span {
+    flex: 1 1 auto;
+    width: 100%;
+    text-align: center;
+}
+
+body.page-application-demo.page-kuz-network
+.application-demo-preview__link small {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+}
+
 body.page-application-demo.page-kuz-network
 .application-demo-preview__link small {
     color: inherit;
@@ -4324,3 +4347,130 @@ body.page-application-demo.page-kuz-network
 }
 
 /* STEP-148-APPLICATION-DEMO-CONTENT END */
+
+
+/* KUZAI APPLICATION DEMO LINK INVERTED DYNAMIC COLORS */
+
+body.page-application-demo.page-kuz-network
+.application-demo-preview__link {
+    background-color: #ffffff !important;
+    background-image: linear-gradient(#000000, #000000) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0 100% !important;
+
+    color: #000000 !important;
+
+    transition:
+        background-size 340ms ease,
+        color 260ms ease,
+        padding-left 300ms ease !important;
+}
+
+body.page-application-demo.page-kuz-network
+.application-demo-preview__link:hover {
+    background-size: 100% 100% !important;
+    color: #ffffff !important;
+}
+
+body.page-application-demo.page-kuz-network
+.application-demo-preview__link span,
+body.page-application-demo.page-kuz-network
+.application-demo-preview__link small {
+    color: inherit !important;
+}
+
+
+/* APPLICATION DEMO EXACT DEMO FOOTER SPACING */
+
+body.page-application-demo.page-kuz-network
+.button-secondary {
+    margin-top: 40px !important;
+    margin-bottom: 0 !important;
+}
+
+body.page-application-demo.page-kuz-network
+.content-page {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+body.page-application-demo.page-kuz-network
+.site-main {
+    min-height: 0 !important;
+    height: auto !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+body.page-application-demo.page-kuz-network
+.site-footer.site-footer--dynamic {
+    margin-top: 22px !important;
+}
+
+@media (max-width: 760px) {
+    body.page-application-demo.page-kuz-network
+    .button-secondary {
+        margin-top: 32px !important;
+        margin-bottom: 0 !important;
+    }
+
+    body.page-application-demo.page-kuz-network
+    .site-footer.site-footer--dynamic {
+        margin-top: 22px !important;
+    }
+}
+
+
+/* APPLICATION DEMO PRESENTATION TEXT LAYOUT */
+
+body.page-application-demo.page-kuz-network
+.application-demo-preview__text {
+    white-space: pre-line !important;
+    text-align: center !important;
+
+    padding: 18px 32px !important;
+
+    line-height: 1.65 !important;
+    letter-spacing: 0.025em !important;
+}
+
+body.page-application-demo.page-kuz-network
+.application-demo-preview__text:hover {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+}
+
+@media (max-width: 760px) {
+    body.page-application-demo.page-kuz-network
+    .application-demo-preview__text,
+    body.page-application-demo.page-kuz-network
+    .application-demo-preview__text:hover {
+        padding: 16px 18px !important;
+    }
+}
+
+
+/* APPLICATION DEMO PRESENTATION COMPACT VERTICAL SPACING */
+
+body.page-application-demo.page-kuz-network
+.application-demo-preview__text,
+body.page-application-demo.page-kuz-network
+.application-demo-preview__text:hover {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+}
+
+body.page-application-demo.page-kuz-network
+.application-demo-preview__paragraph {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.40 !important;
+}
+
+body.page-application-demo.page-kuz-network
+.application-demo-preview__paragraph
++ .application-demo-preview__paragraph {
+    margin-top: 0 !important;
+}
+

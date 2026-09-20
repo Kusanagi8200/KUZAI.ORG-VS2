@@ -264,16 +264,18 @@ $visitCountDisplay = $visitCount !== null
                         ?>
 
                         <article class="application-demo-preview">
-                            <p class="application-demo-preview__text">
-                                <?= h((string) ($applicationDemo['presentation'] ?? '')) ?>
-                            </p>
+                            <div class="application-demo-preview__text">
+                                <?php foreach ((array) ($applicationDemo['presentation'] ?? []) as $paragraph): ?>
+                                    <p class="application-demo-preview__paragraph"><?= h((string) $paragraph) ?></p>
+                                <?php endforeach; ?>
+                            </div>
 
                             <a
                                 class="application-demo-preview__link"
                                 href="/demo/"
                             >
                                 <span>
-                                    <?= h((string) ($applicationDemo['link_label'] ?? 'GO TO APPLICATION DEMO')) ?>
+                                    <?= h((string) ($applicationDemo['link_label'] ?? 'GO TO KUZAI APPLICATION DEMO')) ?>
                                 </span>
 
                                 <small>
