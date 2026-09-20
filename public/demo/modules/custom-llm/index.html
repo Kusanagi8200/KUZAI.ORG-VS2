@@ -245,6 +245,121 @@
                 justify-content: flex-start !important;
             }
         }
+    
+        /* DEMO MODE STATIC DEMO BLINK */
+
+        @keyframes demo-mode-static-blink {
+            0%,
+            49.999% {
+                background: #000000;
+                color: #ffffff;
+                border-color: #ffffff;
+            }
+
+            50%,
+            100% {
+                background: #ffffff;
+                color: #000000;
+                border-color: #000000;
+            }
+        }
+
+        html body
+        .site-header-runtime
+        .site-header-runtime__pill {
+            background: #000000 !important;
+            color: #ffffff !important;
+
+            border-top: 1px solid currentColor !important;
+            border-bottom: 1px solid currentColor !important;
+            border-left: 0 !important;
+            border-right: 0 !important;
+
+            border-radius: 0 !important;
+
+            box-shadow: none !important;
+
+            animation:
+                demo-mode-static-blink
+                1.2s
+                steps(1, end)
+                infinite !important;
+        }
+
+        html body
+        .site-header-runtime
+        .site-header-runtime__pill
+        .meta-label,
+
+        html body
+        .site-header-runtime
+        .site-header-runtime__pill
+        .meta-value {
+            color: inherit !important;
+
+            background: transparent !important;
+
+            border: 0 !important;
+
+            text-shadow: none !important;
+
+            transition: none !important;
+        }
+
+    
+        /* DEMO MODE STATIC DEMO FILTER BLINK FINAL */
+
+        @keyframes demo-mode-filter-blink {
+            0%,
+            49.999% {
+                filter: none;
+            }
+
+            50%,
+            100% {
+                filter: invert(1);
+            }
+        }
+
+        html body
+        .site-header-runtime
+        .site-header-runtime__pill {
+            background: #000000 !important;
+            color: #ffffff !important;
+
+            animation:
+                demo-mode-filter-blink
+                1.6s
+                steps(1, end)
+                infinite !important;
+
+            will-change: filter !important;
+        }
+
+        html body
+        .site-header-runtime
+        .site-header-runtime__pill
+        .meta-label,
+
+        html body
+        .site-header-runtime
+        .site-header-runtime__pill
+        .meta-value {
+            background: transparent !important;
+            color: inherit !important;
+        }
+
+    
+        /* DEMO MODE BLINK JS FINAL */
+
+        html body
+        .site-header-runtime
+        .site-header-runtime__pill {
+            animation: none !important;
+            filter: none !important;
+            transition: none !important;
+        }
+
     </style>
 </head>
 
@@ -432,6 +547,88 @@
     </footer>
 
 </div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    "use strict";
+
+    const pill = document.querySelector(
+        ".site-header-runtime__pill"
+    );
+
+    if (!pill) {
+        return;
+    }
+
+    const parts = pill.querySelectorAll(
+        ".meta-label, .meta-value"
+    );
+
+    let whiteState = false;
+
+    function applyModeState() {
+        const background = whiteState
+            ? "#ffffff"
+            : "#000000";
+
+        const foreground = whiteState
+            ? "#000000"
+            : "#ffffff";
+
+        pill.style.setProperty(
+            "background",
+            background,
+            "important"
+        );
+
+        pill.style.setProperty(
+            "background-color",
+            background,
+            "important"
+        );
+
+        pill.style.setProperty(
+            "color",
+            foreground,
+            "important"
+        );
+
+        pill.style.setProperty(
+            "animation",
+            "none",
+            "important"
+        );
+
+        pill.style.setProperty(
+            "filter",
+            "none",
+            "important"
+        );
+
+        parts.forEach(function (part) {
+            part.style.setProperty(
+                "color",
+                foreground,
+                "important"
+            );
+
+            part.style.setProperty(
+                "background",
+                "transparent",
+                "important"
+            );
+        });
+    }
+
+    applyModeState();
+
+    window.setInterval(function () {
+        whiteState = !whiteState;
+        applyModeState();
+    }, 1400);
+});
+</script>
 
 </body>
 </html>

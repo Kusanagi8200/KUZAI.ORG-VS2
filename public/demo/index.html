@@ -41,7 +41,7 @@
         }
 
         .demo-composer textarea {
-            cursor: default;
+            cursor: text;
         }
     
         .demo-bottom-nav {
@@ -316,6 +316,253 @@
             transform: none !important;
         }
 
+    
+        /* DEMO START PROCESS BLACK STATIC FINAL */
+
+        html body
+        .app-shell
+        .chat-panel
+        .chat-header
+        > div:first-child
+        h2.demo-start-process-title,
+
+        html body
+        .app-shell
+        .chat-panel
+        .chat-header:hover
+        > div:first-child
+        h2.demo-start-process-title,
+
+        html body
+        .app-shell
+        .chat-panel
+        .chat-header:focus
+        > div:first-child
+        h2.demo-start-process-title {
+            background: #000000 !important;
+            background-color: #000000 !important;
+            background-image: none !important;
+
+            color: #ffffff !important;
+
+            border-color: #000000 !important;
+
+            box-shadow: none !important;
+            text-shadow: none !important;
+
+            transition: none !important;
+            transform: none !important;
+
+            pointer-events: none !important;
+            cursor: default !important;
+        }
+
+    
+        /* DEMO CHAT HEADER BORDER STATIC GRAY */
+
+        html body
+        .app-shell
+        .chat-panel
+        .chat-header,
+
+        html body
+        .app-shell
+        .chat-panel
+        .chat-header:hover,
+
+        html body
+        .app-shell
+        .chat-panel
+        .chat-header:focus,
+
+        html body
+        .app-shell
+        .chat-panel
+        .chat-header:focus-visible {
+            border-top: 0 !important;
+            border-left: 0 !important;
+            border-right: 0 !important;
+
+            border-bottom: 1px solid #555555 !important;
+
+            transition: none !important;
+        }
+
+    
+        /* DEMO COMPOSER CLEAN STATIC BUTTONS */
+
+        html body
+        .app-shell
+        .demo-composer-actions {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            gap: 12px !important;
+        }
+
+        html body
+        .app-shell
+        .demo-composer-actions
+        .demo-composer-static-btn,
+        html body
+        .app-shell
+        .demo-composer-actions
+        .demo-composer-static-btn:disabled,
+        html body
+        .app-shell
+        .demo-composer-actions
+        .demo-composer-static-btn:hover {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            width: auto !important;
+            min-width: 0 !important;
+            height: auto !important;
+            min-height: 0 !important;
+
+            margin: 0 !important;
+            padding: 2px 14px !important;
+
+            background: #ffffff !important;
+            background-image: none !important;
+
+            color: #000000 !important;
+
+            border: 1px solid #ffffff !important;
+            border-radius: 0 !important;
+
+            opacity: 1 !important;
+
+            box-shadow: none !important;
+            text-shadow: none !important;
+
+            line-height: 1 !important;
+
+            cursor: default !important;
+            pointer-events: none !important;
+
+            transition: none !important;
+            transform: none !important;
+        }
+
+    
+        /* DEMO MODE STATIC DEMO BLINK */
+
+        @keyframes demo-mode-static-blink {
+            0%,
+            49.999% {
+                background: #000000;
+                color: #ffffff;
+                border-color: #ffffff;
+            }
+
+            50%,
+            100% {
+                background: #ffffff;
+                color: #000000;
+                border-color: #000000;
+            }
+        }
+
+        html body
+        .site-header-runtime
+        .site-header-runtime__pill {
+            background: #000000 !important;
+            color: #ffffff !important;
+
+            border-top: 1px solid currentColor !important;
+            border-bottom: 1px solid currentColor !important;
+            border-left: 0 !important;
+            border-right: 0 !important;
+
+            border-radius: 0 !important;
+
+            box-shadow: none !important;
+
+            animation:
+                demo-mode-static-blink
+                1.2s
+                steps(1, end)
+                infinite !important;
+        }
+
+        html body
+        .site-header-runtime
+        .site-header-runtime__pill
+        .meta-label,
+
+        html body
+        .site-header-runtime
+        .site-header-runtime__pill
+        .meta-value {
+            color: inherit !important;
+
+            background: transparent !important;
+
+            border: 0 !important;
+
+            text-shadow: none !important;
+
+            transition: none !important;
+        }
+
+    
+        /* DEMO MODE STATIC DEMO FILTER BLINK FINAL */
+
+        @keyframes demo-mode-filter-blink {
+            0%,
+            49.999% {
+                filter: none;
+            }
+
+            50%,
+            100% {
+                filter: invert(1);
+            }
+        }
+
+        html body
+        .site-header-runtime
+        .site-header-runtime__pill {
+            background: #000000 !important;
+            color: #ffffff !important;
+
+            animation:
+                demo-mode-filter-blink
+                1.6s
+                steps(1, end)
+                infinite !important;
+
+            will-change: filter !important;
+        }
+
+        html body
+        .site-header-runtime
+        .site-header-runtime__pill
+        .meta-label,
+
+        html body
+        .site-header-runtime
+        .site-header-runtime__pill
+        .meta-value {
+            background: transparent !important;
+            color: inherit !important;
+        }
+
+    
+        /* DEMO MODE BLINK JS FINAL */
+
+        html body
+        .site-header-runtime
+        .site-header-runtime__pill {
+            animation: none !important;
+            filter: none !important;
+            transition: none !important;
+        }
+
     </style>
 </head>
 
@@ -410,7 +657,6 @@
                     rows="4"
                     maxlength="8000"
                     placeholder="Write a message..."
-                    readonly
                     aria-label="Demo message input"
                 ></textarea>
 
@@ -419,11 +665,11 @@
 
                 <div class="composer-footer">
 
-                    <div class="composer-actions">
+                    <div class="composer-actions demo-composer-actions">
 
                         <button
                             type="button"
-                            class="btn btn-secondary demo-static-control"
+                            class="btn demo-composer-static-btn"
                             disabled
                         >
                             WEB OFF
@@ -431,7 +677,7 @@
 
                         <button
                             type="button"
-                            class="btn btn-secondary demo-static-control"
+                            class="btn demo-composer-static-btn"
                             disabled
                         >
                             VOICE OFF
@@ -439,7 +685,7 @@
 
                         <button
                             type="button"
-                            class="btn btn-secondary demo-static-control"
+                            class="btn demo-composer-static-btn"
                             disabled
                         >
                             UPLOAD
@@ -447,10 +693,18 @@
 
                         <button
                             type="button"
-                            class="btn btn-primary demo-static-control"
+                            class="btn demo-composer-static-btn"
                             disabled
                         >
                             SEND
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn demo-composer-static-btn"
+                            disabled
+                        >
+                            STOP
                         </button>
 
                     </div>
@@ -507,18 +761,18 @@
                 <h3>Generation</h3>
 
                 <div class="kv">
-                    <span>Inference</span>
-                    <strong>LOCAL</strong>
+                    <span>Temperature</span>
+                    <strong>0.4</strong>
                 </div>
 
                 <div class="kv">
-                    <span>Web search</span>
-                    <strong>DISABLED IN DEMO</strong>
+                    <span>Top P</span>
+                    <strong>0.9</strong>
                 </div>
 
                 <div class="kv">
-                    <span>Voice</span>
-                    <strong>DISABLED IN DEMO</strong>
+                    <span>Max tokens</span>
+                    <strong>768</strong>
                 </div>
             </div>
 
@@ -546,5 +800,87 @@
     </footer>
 
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    "use strict";
+
+    const pill = document.querySelector(
+        ".site-header-runtime__pill"
+    );
+
+    if (!pill) {
+        return;
+    }
+
+    const parts = pill.querySelectorAll(
+        ".meta-label, .meta-value"
+    );
+
+    let whiteState = false;
+
+    function applyModeState() {
+        const background = whiteState
+            ? "#ffffff"
+            : "#000000";
+
+        const foreground = whiteState
+            ? "#000000"
+            : "#ffffff";
+
+        pill.style.setProperty(
+            "background",
+            background,
+            "important"
+        );
+
+        pill.style.setProperty(
+            "background-color",
+            background,
+            "important"
+        );
+
+        pill.style.setProperty(
+            "color",
+            foreground,
+            "important"
+        );
+
+        pill.style.setProperty(
+            "animation",
+            "none",
+            "important"
+        );
+
+        pill.style.setProperty(
+            "filter",
+            "none",
+            "important"
+        );
+
+        parts.forEach(function (part) {
+            part.style.setProperty(
+                "color",
+                foreground,
+                "important"
+            );
+
+            part.style.setProperty(
+                "background",
+                "transparent",
+                "important"
+            );
+        });
+    }
+
+    applyModeState();
+
+    window.setInterval(function () {
+        whiteState = !whiteState;
+        applyModeState();
+    }, 1400);
+});
+</script>
+
 </body>
 </html>
