@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 $whitePaper = require __DIR__ . '/whitepaper.php';
+$miniKuzai = require __DIR__ . '/mini-kuzai.php';
 
 return [
     'home' => [
@@ -17,6 +18,15 @@ return [
         'whitepaper' => $whitePaper,
     ],
 
+
+    'mini-kuzai' => [
+        'title' => 'MINI-KUZAI / PROJECT',
+        'kicker' => '',
+        'meta_description' => 'Mini-Kuzai: build a language model from scratch, inspect Transformer internals, and prepare a controlled conversational model.',
+        'whitepaper' => $miniKuzai,
+        'link' => 'https://github.com/Kusanagi8200/Mini-Kuzai',
+        'link_label' => 'OPEN MINI-KUZAI ON GITHUB',
+    ],
 
     'application-demo' => [
         'title' => 'KUZAI AI / APPLICATION DEMO',

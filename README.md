@@ -13,7 +13,9 @@
 - **Website -->** https -->//kuzai.org/
 - **Public application demo -->** https -->//kuzai.org/demo/
 - **Application demo presentation page -->** https -->//kuzai.org/index.php?page=application-demo
+- **Mini-Kuzai project page -->** https -->//kuzai.org/index.php?page=mini-kuzai
 - **KUZAI AI application repository -->** https -->//github.com/Kusanagi8200/KUZAI-CHAT
+- **Mini-Kuzai repository -->** https -->//github.com/Kusanagi8200/Mini-Kuzai
 
 ## **`KUZAI PROJECT`**
 

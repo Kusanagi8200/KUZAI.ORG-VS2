@@ -68,7 +68,7 @@ $visitCountDisplay = $visitCount !== null
     <meta name="theme-color" content="#000000">
     <link rel="stylesheet" href="assets/css/style.css?v=148">
 </head>
-<body class="page-<?= h($currentPage) ?><?= $currentPage === 'application-demo' ? ' page-kuz-network' : '' ?>">
+<body class="page-<?= h($currentPage) ?><?= in_array($currentPage, ['application-demo', 'mini-kuzai'], true) ? ' page-kuz-network' : '' ?>">
     <div class="site-shell">
         <header class="site-header" aria-label="Main header">
             <a class="brand-mark" href="<?= h(pageUrl('home')) ?>" aria-label="Back to home">
@@ -136,6 +136,13 @@ $visitCountDisplay = $visitCount !== null
                                 href="<?= h(pageUrl('application-demo')) ?>"
                             >
                                 <span>APPLICATION DEMO</span>
+                            </a>
+
+                            <a
+                                class="home-nav__item home-nav__item--direct"
+                                href="<?= h(pageUrl('mini-kuzai')) ?>"
+                            >
+                                <span>MINI-KUZAI / LLM FROM SCRATCH</span>
                             </a>
 
                             <a
@@ -735,6 +742,10 @@ $visitCountDisplay = $visitCount !== null
 
                 <a class="modal-nav__item" href="<?= h(pageUrl('application-demo')) ?>">
                     APPLICATION DEMO
+                </a>
+
+                <a class="modal-nav__item" href="<?= h(pageUrl('mini-kuzai')) ?>">
+                    MINI-KUZAI / LLM FROM SCRATCH
                 </a>
 
                 <a class="modal-nav__item" href="<?= h($githubUrl) ?>" target="_blank" rel="noopener noreferrer">
