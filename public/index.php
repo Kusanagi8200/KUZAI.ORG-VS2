@@ -128,6 +128,10 @@ $visitCountDisplay = $visitCount !== null
                                 <span>KUZAI / WHITE PAPER</span>
                             </a>
 
+                            <a class="home-nav__item home-nav__item--direct" href="<?= h(pageUrl('mini-kuzai')) ?>">
+                                <span>MINI-KUZAI / LLM FROM SCRATCH</span>
+                            </a>
+
                             <a class="home-nav__item home-nav__item--direct" href="<?= h(pageUrl('application-demo')) ?>">
                                 <span>KUZAI / APP DEMO</span>
                             </a>
@@ -165,10 +169,6 @@ $visitCountDisplay = $visitCount !== null
                                 </div>
                             </div>
 
-
-                            <a class="home-nav__item home-nav__item--direct" href="<?= h(pageUrl('mini-kuzai')) ?>">
-                                <span>MINI-KUZAI / LLM FROM SCRATCH</span>
-                            </a>
 
                             <div class="home-nav__group">
                                 <div class="home-nav__links-row">
