@@ -124,34 +124,12 @@ $visitCountDisplay = $visitCount !== null
                         </section>
 
                         <nav class="home-nav" aria-label="Primary navigation">
-                            <a
-                                class="home-nav__item home-nav__item--direct"
-                                href="<?= h(pageUrl('kuz-network')) ?>"
-                            >
-                                <span>KUZAI AI / WHITE PAPER</span>
+                            <a class="home-nav__item home-nav__item--direct" href="<?= h(pageUrl('kuz-network')) ?>">
+                                <span>KUZAI / WHITE PAPER</span>
                             </a>
 
-                            <a
-                                class="home-nav__item home-nav__item--direct"
-                                href="<?= h(pageUrl('application-demo')) ?>"
-                            >
-                                <span>APPLICATION DEMO</span>
-                            </a>
-
-                            <a
-                                class="home-nav__item home-nav__item--direct"
-                                href="<?= h(pageUrl('mini-kuzai')) ?>"
-                            >
-                                <span>MINI-KUZAI / LLM FROM SCRATCH</span>
-                            </a>
-
-                            <a
-                                class="home-nav__item home-nav__item--direct"
-                                href="<?= h($githubUrl) ?>"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <span><?= h($githubLabel) ?></span>
+                            <a class="home-nav__item home-nav__item--direct" href="<?= h(pageUrl('application-demo')) ?>">
+                                <span>KUZAI / APP DEMO</span>
                             </a>
 
                             <div class="home-nav__group home-nav__group--capabilities">
@@ -187,6 +165,35 @@ $visitCountDisplay = $visitCount !== null
                                 </div>
                             </div>
 
+
+                            <a class="home-nav__item home-nav__item--direct" href="<?= h(pageUrl('mini-kuzai')) ?>">
+                                <span>MINI-KUZAI / LLM FROM SCRATCH</span>
+                            </a>
+
+                            <div class="home-nav__group">
+                                <div class="home-nav__links-row">
+                                    <span class="home-nav__links-label">THE KUZ NETWORK PROJECT / REPOSITORY</span>
+
+                                    <button
+                                        class="home-nav__plus"
+                                        type="button"
+                                        data-home-toggle
+                                        aria-label="Toggle KUZ Network repositories"
+                                        aria-expanded="false"
+                                        aria-controls="homeRepositoriesSubmenu"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+
+                                <div class="home-nav__submenu" id="homeRepositoriesSubmenu" hidden>
+                                    <a class="home-nav__subitem" href="https://github.com/Kusanagi8200" target="_blank" rel="noopener noreferrer">THE KUZ NETWORK GIT-LAB</a>
+                                    <a class="home-nav__subitem" href="https://github.com/Kusanagi8200/KUZAI.ORG-VS2" target="_blank" rel="noopener noreferrer">KUZAI.ORG WEB SITE</a>
+                                    <a class="home-nav__subitem" href="https://github.com/Kusanagi8200/KUZAI-CHAT" target="_blank" rel="noopener noreferrer">KUZAI APPLICATION</a>
+                                    <a class="home-nav__subitem" href="https://github.com/Kusanagi8200/Mini-Kuzai" target="_blank" rel="noopener noreferrer">MINI-KUZAI LLM</a>
+                                </div>
+                            </div>
+
                             <div class="home-nav__group">
                                 <div class="home-nav__links-row">
                                     <span class="home-nav__links-label">LINKS</span>
@@ -209,7 +216,7 @@ $visitCountDisplay = $visitCount !== null
                                             $label = isset($link['label']) ? (string) $link['label'] : '';
                                             $url = isset($link['url']) ? (string) $link['url'] : '#';
 
-                                            if ($label === '') {
+                                            if (strcasecmp($label, 'LinkedIn') !== 0) {
                                                 continue;
                                             }
                                         ?>
@@ -246,7 +253,7 @@ $visitCountDisplay = $visitCount !== null
                                     </a>
                                 </div>
                             </div>
-                        </nav>
+                        </nav>                        </nav>
                     </div>
                 </section>
             <?php else: ?>
