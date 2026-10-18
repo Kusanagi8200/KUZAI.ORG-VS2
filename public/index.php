@@ -138,7 +138,7 @@ $visitCountDisplay = $visitCount !== null
 
                             <div class="home-nav__group home-nav__group--capabilities">
                                 <div class="home-nav__links-row">
-                                    <span class="home-nav__links-label">FUNCTIONALITIES</span>
+                                    <span class="home-nav__links-label">KUZAI / FUNCTIONALITIES</span>
 
                                     <button
                                         class="home-nav__plus"
