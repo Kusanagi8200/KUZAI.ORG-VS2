@@ -4,7 +4,7 @@
 
 The KUZAI public application demo provides a navigable representation of the private/local KUZAI AI interface without exposing the private AI runtime.
 
-Public URL:
+Public URL -->
 
 ```text
 https://kuzai.org/demo/
@@ -12,7 +12,7 @@ https://kuzai.org/demo/
 
 The demo is part of the KUZAI.ORG website repository and is not the private KUZAI AI application itself.
 
-The private application is maintained in:
+The private application is maintained in -->
 
 ```text
 https://github.com/Kusanagi8200/KUZAI-CHAT
@@ -45,25 +45,25 @@ public/demo/
 
 ## DEMO ROUTES
 
-Main interface:
+Main interface -->
 
 ```text
 /demo/
 ```
 
-GIT-RAG:
+GIT-RAG -->
 
 ```text
 /demo/modules/git-rag/
 ```
 
-Custom LLM profile manager:
+Custom LLM profile manager -->
 
 ```text
 /demo/modules/custom-llm/
 ```
 
-Custom LLM profile editor:
+Custom LLM profile editor -->
 
 ```text
 /demo/modules/custom-llm/editor.html
@@ -79,7 +79,7 @@ The page must not submit prompts to llama.cpp, perform web search, upload files,
 
 ## GIT-RAG DEMO
 
-The GIT-RAG public demo uses a dedicated synthetic repository:
+The GIT-RAG public demo uses a dedicated synthetic repository -->
 
 ```text
 KUZAI-DEMO-SANDBOX
@@ -87,22 +87,22 @@ KUZAI-DEMO-SANDBOX
 
 The sandbox exists only for presentation.
 
-Representative browser-side operations may include:
+Representative browser-side operations may include -->
 
-- repository selection;
-- file listing;
-- file viewing;
-- demo-only text editing;
-- SAVE and CANCEL behavior in browser memory;
+- repository selection
+- file listing
+- file viewing
+- demo-only text editing
+- SAVE and CANCEL behavior in browser memory
 - repository and file metadata presentation.
 
-Real Git operations remain disabled in the public demo:
+Real Git operations remain disabled in the public demo -->
 
-- STATUS;
-- DIFF;
-- PULL;
-- COMMIT;
-- PUSH;
+- STATUS
+- DIFF
+- PULL
+- COMMIT
+- PUSH
 - REINDEX against private infrastructure.
 
 The demo must never receive private repository paths, SSH credentials, tokens or Git-RAG service endpoints.
@@ -113,19 +113,19 @@ The Custom LLM demonstration reproduces the profile-management and profile-edito
 
 The public demo may expose representative profile fields, checkboxes, select menus and JSON previews as browser-only UI behavior.
 
-The demo must not:
+The demo must not -->
 
-- write profile JSON files to the server;
-- activate a real profile in a private KUZAI session;
-- call the private personality API;
-- persist private state;
+- write profile JSON files to the server
+- activate a real profile in a private KUZAI session
+- call the private personality API
+- persist private state
 - expose server-side profile storage paths.
 
 The real Custom LLM implementation remains in the private/local KUZAI application repository.
 
 ## SECURITY BOUNDARY
 
-The demo must remain isolated from:
+The demo must remain isolated from -->
 
 ```text
 llama.cpp
@@ -143,13 +143,13 @@ No public demo page should require access to the private LAN or loopback-bound a
 
 ## NETWORK AND STORAGE REVIEW
 
-Before deployment, review the demo source for accidental network access:
+Before deployment, review the demo source for accidental network access -->
 
 ```bash
 grep -RniE 'fetch[[:space:]]*\(|XMLHttpRequest|WebSocket|EventSource|127\.0\.0\.1|localhost' public/demo
 ```
 
-Review persistent browser storage:
+Review persistent browser storage -->
 
 ```bash
 grep -RniE 'localStorage|sessionStorage|indexedDB' public/demo
@@ -172,13 +172,13 @@ A reload should reset browser-memory-only demo state unless a persistent behavio
 
 ## VALIDATION
 
-Expected HTTP status for all public demo pages:
+Expected HTTP status for all public demo pages -->
 
 ```text
 200 OK
 ```
 
-Example:
+Example -->
 
 ```bash
 curl -I https://kuzai.org/demo/
