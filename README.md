@@ -1,6 +1,6 @@
-# **`KUZAI.ORG`**
+#### **`KUZAI.ORG`**
 
-### **`KUZAI.ORG IS THE PRESENTATION, DEMONSTRATION AND CONTACT WEBSITE FOR THE KUZAI PROJECT`**
+#### **`KUZAI.ORG IS THE PRESENTATION, DEMONSTRATION AND CONTACT WEBSITE FOR THE KUZAI PROJECT`**
 
 [![GITHUB](https://img.shields.io/badge/GITHUB-555555?style=flat-square&logo=github&logoColor=white)](https://github.com/Kusanagi8200/KUZAI.ORG-VS2)&#8202;![KUZAI.ORG](https://img.shields.io/badge/KUZAI.ORG-FFFFFF?style=flat-square)&#8202;![HTML](https://img.shields.io/badge/HTML-2EA043?style=flat-square)&#8202;![CSS](https://img.shields.io/badge/CSS-2EA043?style=flat-square)&#8202;![JAVASCRIPT](https://img.shields.io/badge/JAVASCRIPT-2EA043?style=flat-square)&#8202;![PHP](https://img.shields.io/badge/PHP-2EA043?style=flat-square)&#8202;![PUBLIC DEMO](https://img.shields.io/badge/PUBLIC%20DEMO-555555?style=flat-square)&#8202;![PRODUCTION](https://img.shields.io/badge/PRODUCTION-D73A49?style=flat-square)
 
