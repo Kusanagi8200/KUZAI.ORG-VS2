@@ -2,6 +2,8 @@
 
 ### **`KUZAI.ORG IS THE PRESENTATION, DEMONSTRATION AND CONTACT WEBSITE FOR THE KUZAI PROJECT`**
 
+![KUZAI.ORG PROJECT STACK](assets/badges/project-stack-banner.svg)
+
 <picture>
  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Kusanagi8200/Kusanagi8200/blob/main/KUZAI-LLM3.png">
  <source media="(prefers-color-scheme: light)" srcset="https://github.com/Kusanagi8200/Kusanagi8200/blob/main/KUZAI-LLM3.png">
