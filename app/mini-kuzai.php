@@ -12,7 +12,7 @@ return [
         ],
         [
             'label' => 'CURRENT PHASE',
-            'value' => 'PHASE 03 / DATA PREPARATION',
+            'value' => 'PHASE 03 / V62 TRAINING PREPARATION',
         ],
         [
             'label' => 'CONTROLLED CORPUS',
@@ -20,7 +20,7 @@ return [
         ],
         [
             'label' => 'TRAINING',
-            'value' => 'NOT STARTED / NOT AUTHORIZED',
+            'value' => 'V62 AUTHORIZED / NOT STARTED',
         ],
     ],
 
@@ -64,7 +64,7 @@ return [
             'id' => 'mini-kuzai-phase-03',
             'title' => '3. PHASE 03 / CONVERSATIONAL MODEL',
             'paragraphs' => [
-                'Phase 03 moves beyond the tiny pedagogical baseline toward a new conversational model that will also be trained from scratch.',
+                'Phase 03 moves beyond the tiny pedagogical baseline toward a new conversational model trained from scratch; bounded experimental runs have already been executed in V60 and V61.',
                 'The target behavior is not limited to question answering. Mini-Kuzai is being designed around a coherent developing personality with curiosity, independent thinking, intellectual honesty, creativity, initiative, reasoned disagreement, uncertainty, opinion formation and revision, and multi-turn continuity.',
             ],
             'features' => [
@@ -121,26 +121,56 @@ return [
             'id' => 'mini-kuzai-status',
             'title' => '5. CURRENT STATUS',
             'paragraphs' => [
-                'The data-preparation work has reached the V55 BLIND freeze checkpoint. The corpus is prepared, but the project has not entered model training.',
-                'Global BLIND closure is still pending. The final tokenizer vocabulary, Phase 03 architecture and training mixture are not frozen, and training remains explicitly unauthorized.',
+                'As of 2026-10-28, the project has progressed through V62. Controlled training experiments V60 and V61 have been executed, and the V62 pairwise boundary-margin objective, protocol, authorization and persistent trainer are frozen and verified.',
+                'V60 stopped at a numerical plateau without reliable EOS completions. V61 improved terminal EOS learning but over-predicted EOS at intermediate boundaries, so continuation was rejected. V62 is authorized but has not started; the next operation is TRAIN RUN 001 with a mandatory cycle-2 review. BLIND TEST remains excluded from training.',
             ],
             'items' => [
                 'Phase 01 checkpoint: frozen.',
                 'Phase 02 KV cache work: preserved.',
-                'Phase 03: data preparation - V55 BLIND frozen / review pause.',
-                'TRAIN: 107 audited records / 29 of 29 groups.',
-                'VALIDATION: 36 frozen records / 18 of 18 groups.',
-                'BLIND TEST: 36 frozen records / 18 of 18 groups.',
-                'Global BLIND closure: pending.',
-                'Tokenizer final vocabulary: not frozen.',
-                'Phase 03 architecture: not selected.',
-                'Phase 03 training: not started.',
-                'Training authorized: no.',
+                'Phase 03: V62 pairwise boundary-margin pilot - control plane frozen and verified.',
+                'TRAIN: 107 records / 29 groups; VALIDATION: 36 / 18, frozen; BLIND TEST: 36 / 18, frozen.',
+                'V56 tokenizer: frozen byte-level BPE, vocabulary 1,024 and 765 merges.',
+                'V58 architecture: decoder-only Transformer, context 2,048, 4 layers, 4 heads, 1,184,512 parameters.',
+                'V59 persona-first training mix: 272 conversations / 345 segments / 295,416 unique tokens.',
+                'V60: 509 optimizer steps / 4,435,262 exposure tokens; validation loss 3.429395; EOS completions 0 / 6.',
+                'V61: stopped at cycle 2 (69 steps); terminal EOS top-1 24 / 36 but false intermediate EOS remained high.',
+                'V62: margin 0.25; terminal weight 8; intermediate weight 17.358491.',
+                'V62 objective, protocol, training authorization and persistent trainer: PASS / FROZEN.',
+                'V62 training: authorized, not started; 4-cycle window, maximum 145 steps / 1,181,664 exposure tokens.',
+                'Next operation: V62 TRAIN RUN 001, mandatory cycle-2 review.',
+                'BLIND TEST: inaccessible during training; reserved for post-training evaluation.',
+            ],
+        ],
+        [
+            'id' => 'mini-kuzai-experiments',
+            'title' => '6. TRAINING EXPERIMENTS / V59-V62',
+            'paragraphs' => [
+                'V59 finalized a conservative, persona-first training mixture. Public conversation candidates were manually reviewed, and unsuitable, unrepaired or unreviewed examples were excluded from the frozen training identity.',
+                'V60 corrected initialization and demonstrated numerical learning, but free generation still did not terminate reliably. V61 introduced a boundary-aware EOS objective; its mandatory cycle-2 review found excessive EOS preference at intermediate conversation boundaries and stopped the run.',
+                'V62 replaces asymmetric EOS suppression with pairwise logit-margin constraints for true terminal boundaries and intermediate continuations. The objective, authorization and persistent trainer passed their control gates. The first V62 training run remains pending.',
+            ],
+            'features' => [
+                [
+                    'title' => 'FROZEN TRAINING MIX',
+                    'text' => '272 conversations / 345 segments / 295,416 unique tokens; 76.58% persona-oriented target exposure.',
+                ],
+                [
+                    'title' => 'V60 RESULT',
+                    'text' => '509 optimizer steps; validation loss 3.429395; no successful EOS completion in six fixed probes.',
+                ],
+                [
+                    'title' => 'V61 RESULT',
+                    'text' => '69 optimizer steps before mandatory stop; terminal signal improved but false intermediate EOS remained uncontrolled.',
+                ],
+                [
+                    'title' => 'V62 NEXT GATE',
+                    'text' => 'Authorized four-cycle pilot; mandatory cycle-2 review before continuation; BLIND TEST isolation enforced.',
+                ],
             ],
         ],
         [
             'id' => 'mini-kuzai-method',
-            'title' => '6. DEVELOPMENT METHOD',
+            'title' => '7. DEVELOPMENT METHOD',
             'paragraphs' => [
                 'Mini-Kuzai follows an experimental workflow: define or implement one mechanism, execute it, inspect the data and outputs, verify the behavior, document the result, then integrate it into the next stage.',
                 'The repository preserves both clean model implementations and historical laboratory material so the progression remains reproducible and auditable.',
@@ -150,15 +180,15 @@ return [
                 'Keep training, validation and blind evaluation separated.',
                 'Use explicit review and freeze points before irreversible steps.',
                 'Keep large raw datasets and local training artifacts outside the normal public Git repository.',
-                'Do not start training until the tokenizer, architecture, mixture and evaluation gates are explicitly approved.',
+                'Start only an explicitly authorized bounded training run; honor frozen configuration, mandatory review gates and BLIND TEST isolation.',
             ],
         ],
         [
             'id' => 'mini-kuzai-repository',
-            'title' => '7. PUBLIC REPOSITORY',
+            'title' => '8. PUBLIC REPOSITORY',
             'paragraphs' => [
                 'The public Mini-Kuzai repository contains model code, Phase 01 experiments, Phase 03 specifications, controlled public corpus artifacts, review procedures, audit results and technical documentation.',
-                'The repository is the technical reference for this page and records the project state as it evolves.',
+                'The repository is the technical reference for this page. Status checked against the V62 documentation checkpoint dated 2026-10-28.',
             ],
         ],
     ],
