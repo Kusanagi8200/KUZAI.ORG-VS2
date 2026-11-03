@@ -12,7 +12,7 @@ return [
         ],
         [
             'label' => 'CURRENT PHASE',
-            'value' => 'PHASE 03 / V62 TRAINING PREPARATION',
+            'value' => 'PHASE 03 / V74 CLOSED - V75 PROPOSED',
         ],
         [
             'label' => 'CONTROLLED CORPUS',
@@ -20,7 +20,7 @@ return [
         ],
         [
             'label' => 'TRAINING',
-            'value' => 'V62 AUTHORIZED / NOT STARTED',
+            'value' => 'V62 STOPPED / NO NEW TRAINING',
         ],
     ],
 
@@ -64,7 +64,7 @@ return [
             'id' => 'mini-kuzai-phase-03',
             'title' => '3. PHASE 03 / CONVERSATIONAL MODEL',
             'paragraphs' => [
-                'Phase 03 moves beyond the tiny pedagogical baseline toward a new conversational model trained from scratch; bounded experimental runs have already been executed in V60 and V61.',
+                'Phase 03 moves beyond the pedagogical baseline toward a new conversational model trained from scratch. Bounded V60, V61 and V62 training runs were executed; V62 was stopped at its mandatory cycle-2 review. V63-V74 then investigated generation and internal model behavior without additional training.',
                 'The target behavior is not limited to question answering. Mini-Kuzai is being designed around a coherent developing personality with curiosity, independent thinking, intellectual honesty, creativity, initiative, reasoned disagreement, uncertainty, opinion formation and revision, and multi-turn continuity.',
             ],
             'features' => [
@@ -119,35 +119,29 @@ return [
         ],
         [
             'id' => 'mini-kuzai-status',
-            'title' => '5. CURRENT STATUS',
+            'title' => '5. CURRENT STATUS / 2026-11-01',
             'paragraphs' => [
-                'As of 2026-10-28, the project has progressed through V62. Controlled training experiments V60 and V61 have been executed, and the V62 pairwise boundary-margin objective, protocol, authorization and persistent trainer are frozen and verified.',
-                'V60 stopped at a numerical plateau without reliable EOS completions. V61 improved terminal EOS learning but over-predicted EOS at intermediate boundaries, so continuation was rejected. V62 is authorized but has not started; the next operation is TRAIN RUN 001 with a mandatory cycle-2 review. BLIND TEST remains excluded from training.',
+                'The latest verified scientific milestone is V74, closed on 2026-11-01. The frozen V62 cycle-2 checkpoint was trained for 69 optimizer steps and 597,982 exposure tokens. Subsequent V63-V74 investigations used the stopped model for bounded diagnostics, not new training.',
+                'The next step, V75 TRAIN-fitted geometry transfer, is a proposal only. It has not been authorized or executed. The BLIND TEST split remains closed, and current teacher-forced token metrics must not be presented as demonstrated conversational competence.',
             ],
             'items' => [
-                'Phase 01 checkpoint: frozen.',
-                'Phase 02 KV cache work: preserved.',
-                'Phase 03: V62 pairwise boundary-margin pilot - control plane frozen and verified.',
-                'TRAIN: 107 records / 29 groups; VALIDATION: 36 / 18, frozen; BLIND TEST: 36 / 18, frozen.',
-                'V56 tokenizer: frozen byte-level BPE, vocabulary 1,024 and 765 merges.',
-                'V58 architecture: decoder-only Transformer, context 2,048, 4 layers, 4 heads, 1,184,512 parameters.',
-                'V59 persona-first training mix: 272 conversations / 345 segments / 295,416 unique tokens.',
-                'V60: 509 optimizer steps / 4,435,262 exposure tokens; validation loss 3.429395; EOS completions 0 / 6.',
-                'V61: stopped at cycle 2 (69 steps); terminal EOS top-1 24 / 36 but false intermediate EOS remained high.',
-                'V62: margin 0.25; terminal weight 8; intermediate weight 17.358491.',
-                'V62 objective, protocol, training authorization and persistent trainer: PASS / FROZEN.',
-                'V62 training: authorized, not started; 4-cycle window, maximum 145 steps / 1,181,664 exposure tokens.',
-                'Next operation: V62 TRAIN RUN 001, mandatory cycle-2 review.',
-                'BLIND TEST: inaccessible during training; reserved for post-training evaluation.',
+                'Phase 01: frozen Transformer laboratory; Phase 02: preserved autoregressive and KV-cache experiments.',
+                'Phase 03 model: decoder-only Transformer, 4 layers, 4 heads, 2,048-token context and 1,184,512 trainable parameters.',
+                'Tokenizer: frozen byte-level BPE with 1,024 vocabulary entries and 765 merges.',
+                'Corpus: 107 TRAIN, 36 VALIDATION and 36 BLIND TEST records in 65 protected semantic groups.',
+                'V59 training mix: 272 conversations, 345 training segments and 295,416 unique tokens.',
+                'V62: stopped after cycle 2, 69 optimizer steps and 597,982 exposure tokens; best validation loss 4.732514.',
+                'V70-V74: published numerical, read-only diagnostics; checkpoint and weights unchanged.',
+                'V74 CORE and STRATA: PASS; no new training and no BLIND access.',
+                'V75: proposed and paused; no START request, GPU study, GOGIT report or training authorization.',
             ],
         ],
         [
             'id' => 'mini-kuzai-experiments',
-            'title' => '6. TRAINING EXPERIMENTS / V59-V62',
+            'title' => '6. CONTROLLED TRAINING / V59-V62',
             'paragraphs' => [
-                'V59 finalized a conservative, persona-first training mixture. Public conversation candidates were manually reviewed, and unsuitable, unrepaired or unreviewed examples were excluded from the frozen training identity.',
-                'V60 corrected initialization and demonstrated numerical learning, but free generation still did not terminate reliably. V61 introduced a boundary-aware EOS objective; its mandatory cycle-2 review found excessive EOS preference at intermediate conversation boundaries and stopped the run.',
-                'V62 replaces asymmetric EOS suppression with pairwise logit-margin constraints for true terminal boundaries and intermediate continuations. The objective, authorization and persistent trainer passed their control gates. The first V62 training run remains pending.',
+                'V59 finalized a reviewed persona-first mixture and a controlled training inventory. The V60 experiment established numerical learning but failed fixed EOS completion probes. V61 strengthened terminal EOS predictions, yet excessive intermediate EOS predictions caused a mandatory stop.',
+                'V62 introduced pairwise boundary-margin constraints. Its authorized TRAIN RUN 001 was actually executed and stopped at the cycle-2 milestone after 69 optimizer steps. The resulting checkpoint was frozen for subsequent diagnostics. Historical training authorization does not permit a new run or continuation.',
             ],
             'features' => [
                 [
@@ -160,17 +154,76 @@ return [
                 ],
                 [
                     'title' => 'V61 RESULT',
-                    'text' => '69 optimizer steps before mandatory stop; terminal signal improved but false intermediate EOS remained uncontrolled.',
+                    'text' => 'Stopped at cycle 2 after 69 optimizer steps; terminal EOS improved but intermediate false positives remained high.',
                 ],
                 [
-                    'title' => 'V62 NEXT GATE',
-                    'text' => 'Authorized four-cycle pilot; mandatory cycle-2 review before continuation; BLIND TEST isolation enforced.',
+                    'title' => 'V62 RESULT',
+                    'text' => 'TRAIN RUN 001 completed its mandatory cycle-2 stop: 69 steps / 597,982 exposure tokens / best validation loss 4.732514. No continuation authorized.',
                 ],
             ],
         ],
         [
+            'id' => 'mini-kuzai-diagnostics',
+            'title' => '7. READ-ONLY RESEARCH / V63-V74',
+            'paragraphs' => [
+                'V63-V70 investigated generation failures, EOS calibration, token-frequency effects, output-head concentration and numerical precision. V71-V74 then quantified how token-frequency priors and dominant hidden-state directions affect predictions from the frozen V62 checkpoint.',
+                'The V74 frequency-prior control used 9,170 lexical VALIDATION positions. Its findings support a strong frequency-prior explanation for apparent PC1 predictive utility, but they do not demonstrate causality, improved generation, independent generalization or semantic competence.',
+            ],
+            'features' => [
+                [
+                    'title' => 'V71 / OUTPUT DOMINANCE',
+                    'text' => 'Output-head norm equalization changed 275 of 9,170 lexical argmax predictions (3.00%).',
+                ],
+                [
+                    'title' => 'V72 / HIDDEN-STATE GEOMETRY',
+                    'text' => 'Centered PC1 represented 82.88% of hidden-state variance; measured effective rank was 1.44 out of 128 dimensions.',
+                ],
+                [
+                    'title' => 'V73 / PRINCIPAL AXIS',
+                    'text' => 'PC1_ONLY correctly predicted 2,455 / 9,170 positions using just 2 predicted token IDs. Removing PC1 yielded 1,124 correct using 522 IDs.',
+                ],
+                [
+                    'title' => 'V74 / FREQUENCY PRIOR',
+                    'text' => 'TRAIN_UNIGRAM correctly predicted 2,535 / 9,170 versus 2,455 for PC1_ONLY; 2,449 of the PC1_ONLY correct predictions overlapped with the unigram control.',
+                ],
+            ],
+            'items' => [
+                'V74 CORE and STRATA: two immutable, verified GOGIT reports, 30 numeric fields each.',
+                '36 frozen VALIDATION conversations evaluated; BLIND TEST remained inaccessible.',
+                'TRAIN token-frequency inventory: 294,726 lexical tokens and 891 observed token types.',
+                'No optimizer step, parameter update, checkpoint modification or new training in V63-V74.',
+                'V72 and V73 fitted geometric axes on VALIDATION; their teacher-forced results are in-sample diagnostics.',
+            ],
+        ],
+        [
+            'id' => 'mini-kuzai-dev-flow',
+            'title' => '8. DEV-FLOW / VERIFIED PUBLICATIONS',
+            'paragraphs' => [
+                'V74 research closure was supported by immutable CORE and STRATA reports. Its START and FINAL events were posted to GitHub Discussion #5 and relayed once each to the LinkedIn personal profile through the KUZ-DIN publication pipeline.',
+                'The publication workflow uses explicit approvals, signed webhook delivery, durable receipts and duplicate protection. A completed V74 publication must not be replayed, and publishing documentation does not itself authorize model research or training.',
+            ],
+            'items' => [
+                'V74: GitHub Discussion #5 contains the verified START and FINAL research publication.',
+                'LinkedIn: one START and one FINAL delivery confirmed, without duplicate replay.',
+                'V75: a START draft exists, but no START or FINAL publication is authorized.',
+            ],
+        ],
+        [
+            'id' => 'mini-kuzai-next',
+            'title' => '9. NEXT RESEARCH STEP / V75 PROPOSED',
+            'paragraphs' => [
+                'V75 proposes fitting the hidden-state mean and principal axis exclusively on frozen TRAIN data, then applying that fixed geometry to VALIDATION. This would test whether the dominant axis measured on VALIDATION in earlier studies transfers across independent splits.',
+                'The protocol is planning material only. Before any read-only GPU execution, the metrics schema, deterministic selection rules, resource budget, regression tests and explicit operator authorization must be reviewed and frozen. BLIND TEST and new training remain prohibited.',
+            ],
+            'items' => [
+                'V75 scientific protocol: proposed, not yet approved.',
+                'GPU experiment: not started; no new GOGIT result.',
+                'Next gate: review and freeze the V75 study design before requesting START-DEV-FLOW.',
+            ],
+        ],
+        [
             'id' => 'mini-kuzai-method',
-            'title' => '7. DEVELOPMENT METHOD',
+            'title' => '10. DEVELOPMENT METHOD',
             'paragraphs' => [
                 'Mini-Kuzai follows an experimental workflow: define or implement one mechanism, execute it, inspect the data and outputs, verify the behavior, document the result, then integrate it into the next stage.',
                 'The repository preserves both clean model implementations and historical laboratory material so the progression remains reproducible and auditable.',
@@ -185,10 +238,10 @@ return [
         ],
         [
             'id' => 'mini-kuzai-repository',
-            'title' => '8. PUBLIC REPOSITORY',
+            'title' => '11. PUBLIC REPOSITORY',
             'paragraphs' => [
                 'The public Mini-Kuzai repository contains model code, Phase 01 experiments, Phase 03 specifications, controlled public corpus artifacts, review procedures, audit results and technical documentation.',
-                'The repository is the technical reference for this page. Status checked against the V62 documentation checkpoint dated 2026-10-28.',
+                'The repository is the technical reference for this page. Status checked against the verified V74 closure and proposed V75 protocol as of 2026-11-01 (Mini-Kuzai main commit 901e734).',
             ],
         ],
     ],
