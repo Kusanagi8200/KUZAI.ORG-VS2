@@ -1,0 +1,13 @@
+{
+  "generated_at_utc": "2026-11-11T15:28:30.021324+00:00",
+  "results": {
+    "GOGIT_FILES_INSTALLED": "1",
+    "GOGIT_TESTS": "PASS",
+    "NEXT_ACTION": "OAUTH_PRIVACY_PAGE",
+    "STEP_STATUS": "PASS",
+    "WORKTREE": "CLEAN"
+  },
+  "schema_version": 1,
+  "source_commit": "f135cc81c5dcce1ae2cf364e53b78d4585e00062",
+  "step_id": "KUZAI-ORG-GOGIT-INSTALL-001"
+}
