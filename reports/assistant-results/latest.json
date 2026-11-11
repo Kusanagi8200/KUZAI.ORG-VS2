@@ -1,13 +1,12 @@
 {
-  "generated_at_utc": "2026-11-11T15:28:30.021324+00:00",
+  "generated_at_utc": "2026-11-11T15:30:45.206384+00:00",
   "results": {
-    "GOGIT_FILES_INSTALLED": "1",
-    "GOGIT_TESTS": "PASS",
-    "NEXT_ACTION": "OAUTH_PRIVACY_PAGE",
+    "NEXT_ACTION": "CREATE_OAUTH_PRIVACY_PAGE",
+    "PAGES_BACKUP": "PASS",
     "STEP_STATUS": "PASS",
     "WORKTREE": "CLEAN"
   },
   "schema_version": 1,
-  "source_commit": "f135cc81c5dcce1ae2cf364e53b78d4585e00062",
-  "step_id": "KUZAI-ORG-GOGIT-INSTALL-001"
+  "source_commit": "ab445ea7826a8fb4080e9db9a141f550b73c9b13",
+  "step_id": "KUZAI-ORG-OAUTH-PRIVACY-BACKUP-001"
 }
