@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'intro' => 'MINI-KUZAI IS A LOCAL LANGUAGE-MODEL LABORATORY BUILT TO UNDERSTAND HOW A TRANSFORMER WORKS FROM THE INSIDE, THEN USE THAT KNOWLEDGE TO PREPARE A SMALL CONVERSATIONAL MODEL WITH A CONTROLLED IDENTITY AND BEHAVIOR.',
+    'intro' => 'MINI-KUZAI IS A LOCAL LANGUAGE-MODEL LABORATORY BUILT FROM SCRATCH TO UNDERSTAND HOW A TRANSFORMER LEARNS, INSPECT ITS INTERNAL BEHAVIOR, AND PROGRESS TOWARD A SMALL CONTROLLED CONVERSATIONAL MODEL.',
 
     'meta' => [
         [
@@ -12,7 +12,7 @@ return [
         ],
         [
             'label' => 'CURRENT PHASE',
-            'value' => 'PHASE 03 / V74 CLOSED - V75 PROPOSED',
+            'value' => 'PHASE 03 / V80 CLOSED / PRE-V81 MEDIA FLOW VALIDATED',
         ],
         [
             'label' => 'CONTROLLED CORPUS',
@@ -20,7 +20,7 @@ return [
         ],
         [
             'label' => 'TRAINING',
-            'value' => 'V62 STOPPED / NO NEW TRAINING',
+            'value' => 'V62 FROZEN / NO NEW TRAINING',
         ],
     ],
 
@@ -30,7 +30,7 @@ return [
             'title' => '1. PROJECT GOAL',
             'paragraphs' => [
                 'Mini-Kuzai starts from a deliberately small language model built from scratch instead of adapting an existing pretrained model.',
-                'The objective is both practical and educational: implement the mechanisms directly, run them locally, inspect their outputs, understand their effects, and progressively build toward a more capable conversational model.',
+                'The objective is practical and educational: implement the mechanisms directly, run them locally, inspect their outputs, understand their effects, and progressively build toward a more capable conversational model.',
             ],
             'quote' => 'BUILD A LANGUAGE MODEL FROM SCRATCH, TRAIN IT LOCALLY AND INSPECT WHAT HAPPENS INSIDE A TRANSFORMER.',
         ],
@@ -38,8 +38,8 @@ return [
             'id' => 'mini-kuzai-phase-01',
             'title' => '2. PHASE 01 / TRANSFORMER LAB',
             'paragraphs' => [
-                'Phase 01 established the first complete Mini-Kuzai language-model laboratory. The repository preserves 67 numbered experiments covering the complete learning sequence from tokenization to interpretability.',
-                'The frozen Phase 01 model is intentionally tiny so matrices, gradients, attention heads, residual updates and token probabilities can be inspected directly.',
+                'Phase 01 established the first complete Mini-Kuzai language-model laboratory. The frozen model is intentionally tiny so matrices, gradients, attention heads, residual updates and token probabilities can be inspected directly.',
+                'The repository preserves the complete learning sequence from tokenization and embeddings through attention, training, ablations and interpretability.',
             ],
             'features' => [
                 [
@@ -52,11 +52,11 @@ return [
                 ],
                 [
                     'title' => 'TRAINING',
-                    'text' => 'Batch size 4 / AdamW / learning rate 0.04 / deterministic seed 42.',
+                    'text' => 'Batch size 4 / AdamW / deterministic experiments.',
                 ],
                 [
                     'title' => 'INTERPRETABILITY',
-                    'text' => 'Attention, ablations, residual stream, logits, LayerNorm, gamma, beta and vocabulary bias were inspected directly.',
+                    'text' => 'Attention, ablations, residual stream, logits, LayerNorm and vocabulary bias were inspected directly.',
                 ],
             ],
         ],
@@ -64,13 +64,13 @@ return [
             'id' => 'mini-kuzai-phase-03',
             'title' => '3. PHASE 03 / CONVERSATIONAL MODEL',
             'paragraphs' => [
-                'Phase 03 moves beyond the pedagogical baseline toward a new conversational model trained from scratch. Bounded V60, V61 and V62 training runs were executed; V62 was stopped at its mandatory cycle-2 review. V63-V74 then investigated generation and internal model behavior without additional training.',
-                'The target behavior is not limited to question answering. Mini-Kuzai is being designed around a coherent developing personality with curiosity, independent thinking, intellectual honesty, creativity, initiative, reasoned disagreement, uncertainty, opinion formation and revision, and multi-turn continuity.',
+                'Phase 03 moves beyond the pedagogical baseline toward a new conversational model trained from scratch. Bounded V60, V61 and V62 training runs were executed, then V62 was frozen at its mandatory cycle-2 review.',
+                'V63-V80 are read-only diagnostics over that frozen checkpoint. No optimizer step, parameter update or checkpoint mutation has been authorized since V62.',
             ],
             'features' => [
                 [
                     'title' => 'IDENTITY',
-                    'text' => 'A stable developing identity linked to THE KUZ NETWORK research environment without relying on a generic assistant persona.',
+                    'text' => 'A controlled developing identity linked to THE KUZ NETWORK research environment.',
                 ],
                 [
                     'title' => 'COGNITION',
@@ -78,11 +78,11 @@ return [
                 ],
                 [
                     'title' => 'CREATIVITY',
-                    'text' => 'Imagination, contextual expression, humor, initiative and creative dialogue are treated as first-class training goals.',
+                    'text' => 'Imagination, contextual expression, humor, initiative and creative dialogue are treated as first-class goals.',
                 ],
                 [
                     'title' => 'CONTINUITY',
-                    'text' => 'Multi-turn consistency and the ability to preserve context across a conversation are part of the evaluation design.',
+                    'text' => 'Multi-turn consistency and context preservation are part of the evaluation design.',
                 ],
             ],
         ],
@@ -90,12 +90,12 @@ return [
             'id' => 'mini-kuzai-corpus',
             'title' => '4. CONTROLLED CORPUS',
             'paragraphs' => [
-                'The current controlled Phase 03 corpus contains 179 records distributed across 65 semantic groups. TRAIN, VALIDATION and BLIND TEST material is kept separate to evaluate generalization instead of simple reproduction.',
+                'The controlled Phase 03 corpus contains 179 records distributed across 65 semantic groups. TRAIN, VALIDATION and BLIND TEST material is kept separate to evaluate generalization instead of simple reproduction.',
             ],
             'features' => [
                 [
                     'title' => 'TRAIN',
-                    'text' => '107 audited records across all 29 TRAIN semantic groups.',
+                    'text' => '107 audited records across 29 TRAIN semantic groups.',
                 ],
                 [
                     'title' => 'VALIDATION',
@@ -114,134 +114,189 @@ return [
                 'Cross-split exact IDs: 0.',
                 'Cross-split semantic-group overlap: 0.',
                 'Exact normalized user-prompt collisions across splits: 0.',
-                'Semantic split guard: active.',
+                'BLIND TEST remains closed.',
             ],
         ],
         [
             'id' => 'mini-kuzai-status',
-            'title' => '5. CURRENT STATUS / 2026-11-01',
+            'title' => '5. CURRENT STATUS / 2026-11-11',
             'paragraphs' => [
-                'The latest verified scientific milestone is V74, closed on 2026-11-01. The frozen V62 cycle-2 checkpoint was trained for 69 optimizer steps and 597,982 exposure tokens. Subsequent V63-V74 investigations used the stopped model for bounded diagnostics, not new training.',
-                'The next step, V75 TRAIN-fitted geometry transfer, is a proposal only. It has not been authorized or executed. The BLIND TEST split remains closed, and current teacher-forced token metrics must not be presented as demonstrated conversational competence.',
+                'The latest verified scientific milestone is V80. The frozen V62 cycle-2 checkpoint remains the latest trained model after 69 optimizer steps and 597,982 exposure tokens.',
+                'V80 replayed the five V79 context-order prediction changes and tested whether they were only fragile near-zero boundary flips. None of the five changed positions fell within the widest frozen 1e-3 proximity threshold.',
             ],
             'items' => [
-                'Phase 01: frozen Transformer laboratory; Phase 02: preserved autoregressive and KV-cache experiments.',
-                'Phase 03 model: decoder-only Transformer, 4 layers, 4 heads, 2,048-token context and 1,184,512 trainable parameters.',
-                'Tokenizer: frozen byte-level BPE with 1,024 vocabulary entries and 765 merges.',
-                'Corpus: 107 TRAIN, 36 VALIDATION and 36 BLIND TEST records in 65 protected semantic groups.',
-                'V59 training mix: 272 conversations, 345 training segments and 295,416 unique tokens.',
-                'V62: stopped after cycle 2, 69 optimizer steps and 597,982 exposure tokens; best validation loss 4.732514.',
-                'V70-V74: published numerical, read-only diagnostics; checkpoint and weights unchanged.',
-                'V74 CORE and STRATA: PASS; no new training and no BLIND access.',
-                'V75: proposed and paused; no START request, GPU study, GOGIT report or training authorization.',
+                'Phase 03 model: decoder-only Transformer / 1,184,512 trainable parameters.',
+                'Tokenizer: frozen byte-level BPE / 1,024 vocabulary entries.',
+                'V62: 69 optimizer steps / 597,982 exposure tokens / best validation loss 4.732514.',
+                'V80: 9,170 frozen VALIDATION lexical positions.',
+                'V80: 5 prediction changes and 5 alpha-sign changes reproduced exactly from V79.',
+                'V80: ORIGINAL and REVERSE both remain 2,594 / 9,170 correct.',
+                'V80: 0 changed positions inside the frozen 1e-3 boundary threshold.',
+                'Training authorization: false.',
+                'BLIND access: false.',
             ],
         ],
         [
-            'id' => 'mini-kuzai-experiments',
+            'id' => 'mini-kuzai-training',
             'title' => '6. CONTROLLED TRAINING / V59-V62',
             'paragraphs' => [
-                'V59 finalized a reviewed persona-first mixture and a controlled training inventory. The V60 experiment established numerical learning but failed fixed EOS completion probes. V61 strengthened terminal EOS predictions, yet excessive intermediate EOS predictions caused a mandatory stop.',
-                'V62 introduced pairwise boundary-margin constraints. Its authorized TRAIN RUN 001 was actually executed and stopped at the cycle-2 milestone after 69 optimizer steps. The resulting checkpoint was frozen for subsequent diagnostics. Historical training authorization does not permit a new run or continuation.',
+                'V59 finalized the reviewed training mixture. V60 established numerical learning but failed fixed EOS completion probes. V61 strengthened terminal EOS behavior but produced excessive intermediate EOS predictions.',
+                'V62 introduced pairwise boundary-margin constraints. TRAIN RUN 001 stopped at the mandatory cycle-2 milestone and the resulting checkpoint was frozen for all subsequent diagnostics.',
             ],
             'features' => [
                 [
-                    'title' => 'FROZEN TRAINING MIX',
-                    'text' => '272 conversations / 345 segments / 295,416 unique tokens; 76.58% persona-oriented target exposure.',
+                    'title' => 'TRAINING MIX',
+                    'text' => '272 conversations / 345 segments / 295,416 unique tokens.',
                 ],
                 [
-                    'title' => 'V60 RESULT',
-                    'text' => '509 optimizer steps; validation loss 3.429395; no successful EOS completion in six fixed probes.',
+                    'title' => 'V60',
+                    'text' => '509 optimizer steps / validation loss 3.429395 / failed fixed EOS completion probes.',
                 ],
                 [
-                    'title' => 'V61 RESULT',
-                    'text' => 'Stopped at cycle 2 after 69 optimizer steps; terminal EOS improved but intermediate false positives remained high.',
+                    'title' => 'V61',
+                    'text' => 'Stopped at cycle 2 / terminal EOS improved but intermediate false positives remained high.',
                 ],
                 [
-                    'title' => 'V62 RESULT',
-                    'text' => 'TRAIN RUN 001 completed its mandatory cycle-2 stop: 69 steps / 597,982 exposure tokens / best validation loss 4.732514. No continuation authorized.',
+                    'title' => 'V62',
+                    'text' => '69 steps / 597,982 exposure tokens / best validation loss 4.732514 / checkpoint frozen.',
                 ],
             ],
         ],
         [
             'id' => 'mini-kuzai-diagnostics',
-            'title' => '7. READ-ONLY RESEARCH / V63-V74',
+            'title' => '7. READ-ONLY RESEARCH / V63-V80',
             'paragraphs' => [
-                'V63-V70 investigated generation failures, EOS calibration, token-frequency effects, output-head concentration and numerical precision. V71-V74 then quantified how token-frequency priors and dominant hidden-state directions affect predictions from the frozen V62 checkpoint.',
-                'The V74 frequency-prior control used 9,170 lexical VALIDATION positions. Its findings support a strong frequency-prior explanation for apparent PC1 predictive utility, but they do not demonstrate causality, improved generation, independent generalization or semantic competence.',
+                'V63-V74 investigated generation failures, EOS calibration, token-frequency effects, output-head concentration, precision, hidden-state anisotropy and frequency-prior confounds.',
+                'V75-V80 progressively tested whether the dominant residual signal transfers across splits, survives frequency residualization, responds to context order, can be separated from rebatching noise, and is merely a near-zero boundary effect.',
             ],
             'features' => [
                 [
-                    'title' => 'V71 / OUTPUT DOMINANCE',
-                    'text' => 'Output-head norm equalization changed 275 of 9,170 lexical argmax predictions (3.00%).',
+                    'title' => 'V75 / GEOMETRY TRANSFER',
+                    'text' => 'TRAIN-derived PC1 aligns with VALIDATION PC1 at 99.95% absolute cosine.',
                 ],
                 [
-                    'title' => 'V72 / HIDDEN-STATE GEOMETRY',
-                    'text' => 'Centered PC1 represented 82.88% of hidden-state variance; measured effective rank was 1.44 out of 128 dimensions.',
+                    'title' => 'V76 / FREQUENCY RESIDUAL',
+                    'text' => 'TRAIN lexical frequency explains 7.75% of centered PC1 output-profile energy; the residual retains 92.25%.',
                 ],
                 [
-                    'title' => 'V73 / PRINCIPAL AXIS',
-                    'text' => 'PC1_ONLY correctly predicted 2,455 / 9,170 positions using just 2 predicted token IDs. Removing PC1 yielded 1,124 correct using 522 IDs.',
+                    'title' => 'V77-V79 / CONTEXT ORDER',
+                    'text' => 'Reverse-history changes only 5 / 9,170 top-1 predictions; V79 reproduces the same five changes through the same batch-32 path.',
                 ],
                 [
-                    'title' => 'V74 / FREQUENCY PRIOR',
-                    'text' => 'TRAIN_UNIGRAM correctly predicted 2,535 / 9,170 versus 2,455 for PC1_ONLY; 2,449 of the PC1_ONLY correct predictions overlapped with the unigram control.',
+                    'title' => 'V80 / BOUNDARY PROXIMITY',
+                    'text' => 'None of the five changed positions lies inside the frozen 1e-3 near-zero boundary band.',
                 ],
             ],
             'items' => [
-                'V74 CORE and STRATA: two immutable, verified GOGIT reports, 30 numeric fields each.',
-                '36 frozen VALIDATION conversations evaluated; BLIND TEST remained inaccessible.',
-                'TRAIN token-frequency inventory: 294,726 lexical tokens and 891 observed token types.',
-                'No optimizer step, parameter update, checkpoint modification or new training in V63-V74.',
-                'V72 and V73 fitted geometric axes on VALIDATION; their teacher-forced results are in-sample diagnostics.',
+                'V80 mean boundary distance on changed positions: 0.030173315.',
+                'V80 maximum boundary distance on changed positions: 0.059604287.',
+                'V80 mean crossing distance: 0.150983569.',
+                'V80 maximum crossing distance: 0.249839202.',
+                'These are teacher-forced diagnostics and do not establish semantic competence or reasoning ability.',
             ],
         ],
         [
             'id' => 'mini-kuzai-dev-flow',
-            'title' => '8. DEV-FLOW / VERIFIED PUBLICATIONS',
+            'title' => '8. DEV-FLOW / VERIFIED PUBLICATION SYSTEM',
             'paragraphs' => [
-                'V74 research closure was supported by immutable CORE and STRATA reports. Its START and FINAL events were posted to GitHub Discussion #5 and relayed once each to the LinkedIn personal profile through the KUZ-DIN publication pipeline.',
-                'The publication workflow uses explicit approvals, signed webhook delivery, durable receipts and duplicate protection. A completed V74 publication must not be replayed, and publishing documentation does not itself authorize model research or training.',
+                'Mini-Kuzai separates scientific validation from public communication. A scientific result must first pass its committed protocol, tests and immutable GOGIT evidence before FINAL-DEV-FLOW can publish the closing record.',
+                'V80 validated the first complete FINAL publication across GitHub, LinkedIn and YouTube. Communication failures are downstream failures and never invalidate a completed scientific result.',
+            ],
+            'features' => [
+                [
+                    'title' => 'GITHUB',
+                    'text' => 'V80 FINAL published in Discussion #11 with a committed PUBLISHED receipt.',
+                ],
+                [
+                    'title' => 'LINKEDIN',
+                    'text' => 'V80 FINAL published through KUZ-DIN with receipt-gated duplicate protection.',
+                ],
+                [
+                    'title' => 'YOUTUBE',
+                    'text' => 'V80 produced the first verified public FINAL Short through the independent Mini-Kuzai_YOUTUBE worker.',
+                ],
+                [
+                    'title' => 'SAFETY',
+                    'text' => 'Publication authorization never authorizes training, BLIND access or checkpoint mutation.',
+                ],
             ],
             'items' => [
-                'V74: GitHub Discussion #5 contains the verified START and FINAL research publication.',
-                'LinkedIn: one START and one FINAL delivery confirmed, without duplicate replay.',
-                'V75: a START draft exists, but no START or FINAL publication is authorized.',
+                'V80 GitHub FINAL: Discussion #11 / comment #19546266.',
+                'V80 LinkedIn FINAL: urn:li:share:7526323656042455041.',
+                'V80 YouTube public Short: y-YnlPLbT9Q.',
+            ],
+        ],
+        [
+            'id' => 'mini-kuzai-media-flow',
+            'title' => '9. CROSS-CHANNEL MEDIA FLOW / PRE-V81 VALIDATED',
+            'paragraphs' => [
+                'FLOW-PRESENTATION-001 was created as a non-scientific integration test before V81. It validated the same audited MP4 across YouTube, LinkedIn native video and a GitHub media publication.',
+                'The new canonical media contract keeps the 60-second vertical format while expanding Piper narration from 5 seconds after the start to 5 seconds before the end.',
+            ],
+            'features' => [
+                [
+                    'title' => 'VIDEO',
+                    'text' => '60 seconds / 1080 x 1920 / narration window 5-55 seconds.',
+                ],
+                [
+                    'title' => 'YOUTUBE',
+                    'text' => 'FLOW-PRESENTATION-001 published publicly as video vhQmddUuMcg.',
+                ],
+                [
+                    'title' => 'LINKEDIN',
+                    'text' => 'The same MP4 was published natively as urn:li:ugcPost:7526340708715327488.',
+                ],
+                [
+                    'title' => 'GITHUB',
+                    'text' => 'Discussion #12 documents the media flow and references the verified public YouTube video.',
+                ],
+            ],
+            'items' => [
+                'Media SHA256: c34b3dc19788e6770e4edb9dffc2331df2438b23c6663858b7d5299ad5731034.',
+                'The test is communication infrastructure only and is not V81 scientific evidence.',
             ],
         ],
         [
             'id' => 'mini-kuzai-next',
-            'title' => '9. NEXT RESEARCH STEP / V75 PROPOSED',
+            'title' => '10. NEXT STEP / V81',
             'paragraphs' => [
-                'V75 proposes fitting the hidden-state mean and principal axis exclusively on frozen TRAIN data, then applying that fixed geometry to VALIDATION. This would test whether the dominant axis measured on VALIDATION in earlier studies transfers across independent splits.',
-                'The protocol is planning material only. Before any read-only GPU execution, the metrics schema, deterministic selection rules, resource budget, regression tests and explicit operator authorization must be reviewed and frozen. BLIND TEST and new training remain prohibited.',
+                'V81 scientific work has not started. The publication primitives required for the next step are now validated, but the remaining engineering task is automatic orchestration after a future genuine V81 FINAL receipt.',
+                'The target flow is: scientific GOGIT PASS, GitHub FINAL, committed receipt, automatic media brief, audited MP4, YouTube public publication, LinkedIn native video, GitHub media publication, publication receipts and documentation update.',
             ],
             'items' => [
-                'V75 scientific protocol: proposed, not yet approved.',
-                'GPU experiment: not started; no new GOGIT result.',
-                'Next gate: review and freeze the V75 study design before requesting START-DEV-FLOW.',
+                'No V81 training is authorized.',
+                'No V81 BLIND access is authorized.',
+                'No V81 scientific result exists yet.',
+                'Publication automation must remain downstream from a genuine scientific FINAL.',
             ],
         ],
         [
             'id' => 'mini-kuzai-method',
-            'title' => '10. DEVELOPMENT METHOD',
+            'title' => '11. DEVELOPMENT METHOD',
             'paragraphs' => [
-                'Mini-Kuzai follows an experimental workflow: define or implement one mechanism, execute it, inspect the data and outputs, verify the behavior, document the result, then integrate it into the next stage.',
-                'The repository preserves both clean model implementations and historical laboratory material so the progression remains reproducible and auditable.',
+                'Mini-Kuzai follows an experimental workflow: define a bounded mechanism or hypothesis, execute it, inspect the data and outputs, verify the behavior, document the result, then integrate it into the next stage.',
+                'Historical reports, receipts, datasets and frozen protocols are preserved so the progression remains reproducible and auditable.',
             ],
             'items' => [
                 'Build and understand mechanisms before scaling them.',
-                'Keep training, validation and blind evaluation separated.',
-                'Use explicit review and freeze points before irreversible steps.',
-                'Keep large raw datasets and local training artifacts outside the normal public Git repository.',
-                'Start only an explicitly authorized bounded training run; honor frozen configuration, mandatory review gates and BLIND TEST isolation.',
+                'Keep TRAIN, VALIDATION and BLIND evaluation separated.',
+                'Use explicit authorization gates before irreversible steps.',
+                'Treat communication publication as separate from scientific authority.',
+                'Keep large raw datasets and local runtime artifacts outside the normal public repository.',
             ],
         ],
         [
             'id' => 'mini-kuzai-repository',
-            'title' => '11. PUBLIC REPOSITORY',
+            'title' => '12. PUBLIC REPOSITORIES',
             'paragraphs' => [
-                'The public Mini-Kuzai repository contains model code, Phase 01 experiments, Phase 03 specifications, controlled public corpus artifacts, review procedures, audit results and technical documentation.',
-                'The repository is the technical reference for this page. Status checked against the verified V74 closure and proposed V75 protocol as of 2026-11-01 (Mini-Kuzai main commit 901e734).',
+                'The Mini-Kuzai repository remains the scientific and technical reference. The companion Mini-Kuzai_YOUTUBE repository contains the Short renderer and YouTube publication pipeline. KUZ-DIN provides the guarded LinkedIn publication layer.',
+                'KUZAI.ORG presents the verified project state to a public audience without exposing local model endpoints, credentials or private infrastructure.',
+            ],
+            'items' => [
+                'github.com/Kusanagi8200/Mini-Kuzai',
+                'github.com/Kusanagi8200/Mini-Kuzai_YOUTUBE',
+                'github.com/Kusanagi8200/KUZ-DIN',
+                'github.com/Kusanagi8200/KUZAI.ORG-VS2',
             ],
         ],
     ],
