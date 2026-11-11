@@ -16,6 +16,7 @@
 - **Public application demo -->** https -->//kuzai.org/demo/
 - **Application demo presentation page -->** https -->//kuzai.org/index.php?page=application-demo
 - **Mini-Kuzai project page -->** https -->//kuzai.org/index.php?page=mini-kuzai
+- **Mini-Kuzai YouTube OAuth privacy policy -->** https -->//kuzai.org/index.php?page=oauth-privacy
 - **KUZAI AI application repository -->** https -->//github.com/Kusanagi8200/KUZAI-CHAT
 - **Mini-Kuzai repository -->** https -->//github.com/Kusanagi8200/Mini-Kuzai
 
@@ -113,6 +114,34 @@ The repository is used to -->
 The private/local KUZAI AI application is maintained separately in -->
 
 **https -->//github.com/Kusanagi8200/KUZAI-CHAT**
+
+
+## **`MINI-KUZAI YOUTUBE OAUTH SUPPORT`**
+
+KUZAI.ORG provides the public application information required by the Mini-Kuzai YouTube OAuth configuration.
+
+Current public support surface -->
+
+- application home page --> `https://kuzai.org/`
+- privacy policy --> `https://kuzai.org/index.php?page=oauth-privacy`
+- authorized domain --> `kuzai.org`
+- Google Auth Platform state --> `External / In production`
+- OAuth client runtime --> maintained separately on `fhc2`
+- OAuth credentials and authorization data --> never stored in this repository
+
+The privacy page documents the operator-controlled use of Google OAuth 2.0 and YouTube Data API v3 for channel verification and controlled video publication.
+
+## **`GOGIT AND EXECUTION TARGETS`**
+
+This repository includes the same sanitized GOGIT result-publication mechanism used by the Mini-Kuzai tooling.
+
+Canonical production target -->
+
+- machine --> `VPS KUZAI.ORG / ov-19d492`
+- repository --> `/var/www/kuzai.org`
+- branch --> `main`
+
+Project command documentation must always identify the target machine before the command block. Multi-host procedures must separate commands by machine. Sensitive values are never allowed in public GOGIT reports.
 
 ## **`DEPLOYMENT`**
 
