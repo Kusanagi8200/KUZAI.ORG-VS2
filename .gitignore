@@ -22,3 +22,8 @@ node_modules/
 vendor/
 
 /var/visits.sqlite
+
+# Python / GOGIT local state
+__pycache__/
+*.py[cod]
+.gogit-backups/
