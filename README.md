@@ -19,6 +19,8 @@
 - **Mini-Kuzai YouTube OAuth privacy policy -->** https -->//kuzai.org/index.php?page=oauth-privacy
 - **KUZAI AI application repository -->** https -->//github.com/Kusanagi8200/KUZAI-CHAT
 - **Mini-Kuzai repository -->** https -->//github.com/Kusanagi8200/Mini-Kuzai
+- **Mini-Kuzai YouTube repository -->** https -->//github.com/Kusanagi8200/Mini-Kuzai_YOUTUBE
+- **KUZ-DIN repository -->** https -->//github.com/Kusanagi8200/KUZ-DIN
 
 ## **`KUZAI PROJECT`**
 
@@ -116,6 +118,33 @@ The private/local KUZAI AI application is maintained separately in -->
 **https -->//github.com/Kusanagi8200/KUZAI-CHAT**
 
 
+## **`MINI-KUZAI CURRENT PUBLIC STATE`**
+
+The public Mini-Kuzai page is synchronized with the verified project checkpoint of **2026-11-11**.
+
+Current state -->
+
+- scientific phase --> Phase 03
+- latest verified scientific step --> **V80 CLOSED**
+- latest trained checkpoint --> **V62 FROZEN**
+- new training --> **not authorized**
+- BLIND access --> **closed**
+- V80 GitHub FINAL --> Discussion #11
+- V80 LinkedIn FINAL --> published through KUZ-DIN
+- V80 YouTube FINAL Short --> public
+- pre-V81 media flow --> **FLOW-PRESENTATION-001 PASS**
+- new canonical narration window --> **5 s to 55 s**
+- publication sinks validated --> GitHub + LinkedIn native video + YouTube public
+- next scientific step --> **V81 not started**
+
+The website presents only verified project state. Communication tests such as FLOW-PRESENTATION-001 are explicitly separated from scientific evidence.
+
+Companion repositories -->
+
+- Mini-Kuzai --> https -->//github.com/Kusanagi8200/Mini-Kuzai
+- Mini-Kuzai YouTube --> https -->//github.com/Kusanagi8200/Mini-Kuzai_YOUTUBE
+- KUZ-DIN --> https -->//github.com/Kusanagi8200/KUZ-DIN
+
 ## **`MINI-KUZAI YOUTUBE OAUTH SUPPORT`**
 
 KUZAI.ORG provides the public application information required by the Mini-Kuzai YouTube OAuth configuration.
@@ -148,10 +177,6 @@ Project command documentation must always identify the target machine before the
 Production deployment documentation is available in [DEPLOY.md](DEPLOY.md).
 
 The production server treats GitHub as the source of truth. Normal deployment is performed by synchronizing the server with the validated `main` branch using a fast-forward-only pull.
-
----
-
-#### **`THE KUZ NETWORK - KUSANAGI8200 - @2026`**
 
 ---
 
