@@ -1,12 +1,16 @@
 {
-  "generated_at_utc": "2026-11-11T15:30:45.206384+00:00",
+  "generated_at_utc": "2026-11-11T15:33:33.056057+00:00",
   "results": {
-    "NEXT_ACTION": "CREATE_OAUTH_PRIVACY_PAGE",
-    "PAGES_BACKUP": "PASS",
+    "DIFF_CHECK": "PASS",
+    "GOGIT_LOCAL_STATE_IGNORED": "1",
+    "NEXT_ACTION": "REGISTER_OAUTH_PRIVACY_ROUTE",
+    "PHP_SYNTAX": "PASS",
+    "PRIVACY_CONTENT_CREATED": "1",
+    "PRIVACY_STRUCTURE": "PASS",
     "STEP_STATUS": "PASS",
     "WORKTREE": "CLEAN"
   },
   "schema_version": 1,
-  "source_commit": "ab445ea7826a8fb4080e9db9a141f550b73c9b13",
-  "step_id": "KUZAI-ORG-OAUTH-PRIVACY-BACKUP-001"
+  "source_commit": "f820b6f6f36f934a721b6177eab180f49a04589a",
+  "step_id": "KUZAI-ORG-OAUTH-PRIVACY-CONTENT-001"
 }
