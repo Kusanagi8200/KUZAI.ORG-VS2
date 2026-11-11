@@ -27,3 +27,7 @@ vendor/
 __pycache__/
 *.py[cod]
 .gogit-backups/
+
+# Repository-local backup artifacts
+backups/
+tmp-*
