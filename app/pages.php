@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 $whitePaper = require __DIR__ . '/whitepaper.php';
 $miniKuzai = require __DIR__ . '/mini-kuzai.php';
+$oauthPrivacy = require __DIR__ . '/oauth-privacy.php';
 
 return [
     'home' => [
@@ -26,6 +27,13 @@ return [
         'whitepaper' => $miniKuzai,
         'link' => 'https://github.com/Kusanagi8200/Mini-Kuzai',
         'link_label' => 'OPEN MINI-KUZAI ON GITHUB',
+    ],
+
+    'oauth-privacy' => [
+        'title' => 'MINI-KUZAI / PRIVACY POLICY',
+        'kicker' => '',
+        'meta_description' => 'Privacy Policy for the Mini-Kuzai YouTube Uploader and its Google OAuth and YouTube Data API integration.',
+        'whitepaper' => $oauthPrivacy,
     ],
 
     'application-demo' => [
