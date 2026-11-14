@@ -120,24 +120,28 @@ The private/local KUZAI AI application is maintained separately in -->
 
 ## **`MINI-KUZAI CURRENT PUBLIC STATE`**
 
-The public Mini-Kuzai page is synchronized with the verified project checkpoint of **2026-11-11**.
+The public Mini-Kuzai page is synchronized with the verified project checkpoint of **2026-11-14**.
 
 Current state -->
 
 - scientific phase --> Phase 03
-- latest verified scientific step --> **V80 CLOSED**
-- latest trained checkpoint --> **V62 FROZEN**
+- latest verified scientific step --> **V81 CLOSED**
+- training lineage --> **V62 run resumed and closed under V81**
+- final optimizer steps --> **136**
+- final exposure tokens --> **1,181,302**
+- best validation loss --> **4.030447**
 - new training --> **not authorized**
 - BLIND access --> **closed**
-- V80 GitHub FINAL --> Discussion #11
-- V80 LinkedIn FINAL --> published through KUZ-DIN
-- V80 YouTube FINAL Short --> public
-- pre-V81 media flow --> **FLOW-PRESENTATION-001 PASS**
-- new canonical narration window --> **5 s to 55 s**
+- V81 GitHub FINAL --> Discussion #13
+- V81 LinkedIn FINAL --> published through KUZ-DIN
+- V81 YouTube FINAL Short --> **PUBLIC / EAMRSevA2zk**
+- V81 LinkedIn native video --> **PUBLISHED**
+- V81 cross-channel media receipt --> committed
+- canonical narration window --> **5 s to 55 s**
 - publication sinks validated --> GitHub + LinkedIn native video + YouTube public
-- next scientific step --> **V81 not started**
+- next scientific step --> **V82 not started**
 
-The website presents only verified project state. Communication tests such as FLOW-PRESENTATION-001 are explicitly separated from scientific evidence.
+The website presents only verified project state. The V81 training continuation is scientifically closed and does not authorize any further optimizer step or BLIND access.
 
 Companion repositories -->
 
@@ -171,6 +175,8 @@ Canonical production target -->
 - branch --> `main`
 
 Project command documentation must always identify the target machine before the command block. Multi-host procedures must separate commands by machine. Sensitive values are never allowed in public GOGIT reports.
+
+The ChatGPT operator command `MAJ-THEKUZNETWORK` audits this repository together with Mini-Kuzai_YOUTUBE, Mini-Kuzai, KUZ-DIN and KUZAI-CHAT. See [MAJ-THEKUZNETWORK.md](MAJ-THEKUZNETWORK.md).
 
 ## **`DEPLOYMENT`**
 
