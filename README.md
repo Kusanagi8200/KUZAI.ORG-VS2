@@ -125,23 +125,25 @@ The public Mini-Kuzai page is synchronized with the verified project checkpoint 
 Current state -->
 
 - scientific phase --> Phase 03
-- latest verified scientific step --> **V81 CLOSED**
+- latest verified scientific step --> **V82 CLOSED**
 - training lineage --> **V62 run resumed and closed under V81**
 - final optimizer steps --> **136**
 - final exposure tokens --> **1,181,302**
 - best validation loss --> **4.030447**
+- V82 baseline prediction/sign changes --> **5 / 5**
+- V82 final prediction/sign changes --> **38 / 38**
 - new training --> **not authorized**
 - BLIND access --> **closed**
-- V81 GitHub FINAL --> Discussion #13
-- V81 LinkedIn FINAL --> published through KUZ-DIN
-- V81 YouTube FINAL Short --> **PUBLIC / EAMRSevA2zk**
-- V81 LinkedIn native video --> **PUBLISHED**
-- V81 cross-channel media receipt --> committed
+- V82 GitHub FINAL --> Discussion #14
+- V82 YouTube FINAL Short --> **PUBLIC / JZJzBawTxAw**
+- V82 LinkedIn native video --> **PUBLISHED / urn:li:ugcPost:7527384513589481472**
+- V82 cross-channel media receipt --> committed
 - canonical narration window --> **5 s to 55 s**
 - publication sinks validated --> GitHub + LinkedIn native video + YouTube public
-- next scientific step --> **V82 protocol frozen / START-DEV-FLOW not yet published**
+- V83+ FINAL publication --> bounded reconciliation + automatic closure GOGIT
+- next scientific step --> **V83 not started / START-DEV-FLOW required**
 
-The website presents only verified project state. The V81 training continuation is scientifically closed and does not authorize any further optimizer step or BLIND access.
+The website presents only verified project state. V82 is a read-only numerical control and does not authorize any further optimizer step, BLIND access or semantic claim.
 
 Companion repositories -->
 
