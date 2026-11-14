@@ -125,25 +125,28 @@ The public Mini-Kuzai page is synchronized with the verified project checkpoint 
 Current state -->
 
 - scientific phase --> Phase 03
-- latest verified scientific step --> **V82 CLOSED**
+- latest verified scientific step --> **V83 CLOSED**
 - training lineage --> **V62 run resumed and closed under V81**
 - final optimizer steps --> **136**
 - final exposure tokens --> **1,181,302**
 - best validation loss --> **4.030447**
-- V82 baseline prediction/sign changes --> **5 / 5**
-- V82 final prediction/sign changes --> **38 / 38**
+- V83 inherited-coordinate prediction/sign changes --> **38 / 38**
+- V83 refitted-coordinate prediction/sign changes --> **34 / 34**
+- V83 PC1 absolute alignment old/refit --> **96.45%**
+- V83 residual-profile absolute alignment old/refit --> **86.58%**
 - new training --> **not authorized**
 - BLIND access --> **closed**
-- V82 GitHub FINAL --> Discussion #14
-- V82 YouTube FINAL Short --> **PUBLIC / JZJzBawTxAw**
-- V82 LinkedIn native video --> **PUBLISHED / urn:li:ugcPost:7527384513589481472**
-- V82 cross-channel media receipt --> committed
+- V83 GitHub FINAL --> Discussion #15
+- V83 YouTube FINAL Short --> **PUBLIC / iNYNmxaNKbQ**
+- V83 LinkedIn native video --> **PUBLISHED / urn:li:ugcPost:7527431180539867136**
+- V83 cross-channel media receipt --> committed
+- V83 automatic closure GOGIT --> **PASS**
 - canonical narration window --> **5 s to 55 s**
 - publication sinks validated --> GitHub + LinkedIn native video + YouTube public
 - V83+ FINAL publication --> bounded reconciliation + automatic closure GOGIT
-- next scientific step --> **V83 not started / START-DEV-FLOW required**
+- next scientific step --> **V84 not started / START-DEV-FLOW required**
 
-The website presents only verified project state. V82 is a read-only numerical control and does not authorize any further optimizer step, BLIND access or semantic claim.
+The website presents only verified project state. V83 is a read-only numerical control and does not authorize any further optimizer step, BLIND access or semantic claim.
 
 Companion repositories -->
 
