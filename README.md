@@ -139,7 +139,7 @@ Current state -->
 - V81 cross-channel media receipt --> committed
 - canonical narration window --> **5 s to 55 s**
 - publication sinks validated --> GitHub + LinkedIn native video + YouTube public
-- next scientific step --> **V82 not started**
+- next scientific step --> **V82 protocol frozen / START-DEV-FLOW not yet published**
 
 The website presents only verified project state. The V81 training continuation is scientifically closed and does not authorize any further optimizer step or BLIND access.
 
