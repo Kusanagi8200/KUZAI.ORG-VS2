@@ -12,7 +12,7 @@ return [
         ],
         [
             'label' => 'CURRENT PHASE',
-            'value' => 'PHASE 03 / V81 CLOSED / V82 PROTOCOL READY',
+            'value' => 'PHASE 03 / V82 CLOSED / V83 NOT STARTED',
         ],
         [
             'label' => 'CONTROLLED CORPUS',
@@ -20,7 +20,7 @@ return [
         ],
         [
             'label' => 'TRAINING',
-            'value' => 'V62 LINEAGE / V81 CONTINUATION CLOSED / NO FURTHER TRAINING',
+            'value' => 'V62 LINEAGE / V81 CONTINUATION CLOSED / V82 READ-ONLY CONTROL CLOSED',
         ],
     ],
 
@@ -121,17 +121,19 @@ return [
             'id' => 'mini-kuzai-status',
             'title' => '5. CURRENT STATUS / 2026-11-14',
             'paragraphs' => [
-                'The latest verified scientific milestone is V81. It resumed the frozen V62 cycle-2 checkpoint under an explicit bounded continuation authorization and stopped at the maximum exposure boundary.',
-                'The training window is now closed. The result improves validation loss under the frozen objective but does not establish semantic competence, reasoning ability or useful free-form conversation.',
+                'The latest verified scientific milestone is V82, a read-only post-continuation context-order replication control executed after the closed V81 continuation.',
+                'V82 reused the same frozen validation positions and diagnostic coordinate. Prediction and sign changes increased from 5 to 38. This is a controlled numerical observation and does not establish semantic competence, reasoning ability or correct conversational context use.',
             ],
             'items' => [
                 'Phase 03 model: decoder-only Transformer / 1,184,512 trainable parameters.',
                 'Tokenizer: frozen byte-level BPE / 1,024 vocabulary entries.',
-                'V81 start: 69 optimizer steps / 597,982 exposure tokens.',
-                'V81 final: 136 optimizer steps / 1,181,302 exposure tokens.',
-                'Maximum authorized exposure: 1,181,664 / unused budget: 362 tokens.',
-                'Best validation loss: 4.030447 / baseline 4.732514 / improvement 14.83%.',
-                'Stop reason: MAX_EXPOSURE_TOKENS.',
+                'Training lineage remains closed at V81: 136 optimizer steps / 1,181,302 exposure tokens.',
+                'V82 validation lexical positions: 9,170.',
+                'V82 perturbed prefixes: 9,062 / unchanged prefixes: 108.',
+                'V82 baseline prediction/sign changes: 5 / 5.',
+                'V82 final prediction/sign changes: 38 / 38.',
+                'V82 final original/reverse correct: 2,552 / 2,560.',
+                'V82 absolute alpha correlation: 0.9999.',
                 'Further training authorization: false.',
                 'BLIND access: false.',
                 'Semantic validation complete: false.',
@@ -139,7 +141,7 @@ return [
         ],
         [
             'id' => 'mini-kuzai-training',
-            'title' => '6. CONTROLLED TRAINING / V59-V81',
+            'title' => '6. CONTROLLED TRAINING / V59-V81 CLOSED',
             'paragraphs' => [
                 'V59 finalized the reviewed training mixture. V60 established numerical learning but failed fixed EOS completion probes. V61 strengthened terminal EOS behavior but produced excessive intermediate EOS predictions.',
                 'V62 introduced pairwise boundary-margin constraints. TRAIN RUN 001 stopped at the mandatory cycle-2 milestone. V81 later resumed that exact frozen run with the unchanged trainer and objective and closed the remaining authorized initial-window exposure budget.',
@@ -165,10 +167,10 @@ return [
         ],
         [
             'id' => 'mini-kuzai-diagnostics',
-            'title' => '7. READ-ONLY RESEARCH / V63-V80',
+            'title' => '7. READ-ONLY RESEARCH / V63-V82',
             'paragraphs' => [
                 'V63-V74 investigated generation failures, EOS calibration, token-frequency effects, output-head concentration, precision, hidden-state anisotropy and frequency-prior confounds.',
-                'V75-V80 progressively tested whether the dominant residual signal transfers across splits, survives frequency residualization, responds to context order, can be separated from rebatching noise, and is merely a near-zero boundary effect.',
+                'V75-V80 progressively tested whether the dominant residual signal transfers across splits, survives frequency residualization, responds to context order, can be separated from rebatching noise, and is merely a near-zero boundary effect. V82 then replayed the frozen context-order diagnostic after V81 without additional training.',
             ],
             'features' => [
                 [
@@ -191,8 +193,9 @@ return [
             'items' => [
                 'V80 mean boundary distance on changed positions: 0.030173315.',
                 'V80 maximum boundary distance on changed positions: 0.059604287.',
-                'V80 mean crossing distance: 0.150983569.',
-                'V80 maximum crossing distance: 0.249839202.',
+                'V82 baseline prediction changes: 5 / final prediction changes: 38.',
+                'V82 baseline sign changes: 5 / final sign changes: 38.',
+                'V82 result class: effect increases under the frozen diagnostic.',
                 'These are teacher-forced diagnostics and do not establish semantic competence or reasoning ability.',
             ],
         ],
@@ -201,20 +204,20 @@ return [
             'title' => '8. DEV-FLOW / VERIFIED PUBLICATION SYSTEM',
             'paragraphs' => [
                 'Mini-Kuzai separates scientific validation from public communication. A scientific result must first pass its committed protocol, tests and immutable GOGIT evidence before FINAL-DEV-FLOW can publish the closing record.',
-                'V81 validated the first genuine V81+ automatic FINAL publication across GitHub, YouTube, LinkedIn native video and the committed cross-channel media receipt. Communication failures remain downstream failures and never invalidate a completed scientific result.',
+                'V82 completed the verified production path across GitHub, YouTube, LinkedIn native video and the committed cross-channel media receipt. From V83 onward the publication worker uses a bounded reconciliation loop and produces an automatic read-only GOGIT closure after all media sinks are verified.',
             ],
             'features' => [
                 [
                     'title' => 'GITHUB',
-                    'text' => 'V81 FINAL published in Discussion #13 with a committed PUBLISHED receipt.',
+                    'text' => 'V82 FINAL published in Discussion #14 with a committed PUBLISHED receipt.',
                 ],
                 [
                     'title' => 'LINKEDIN',
-                    'text' => 'V81 FINAL published through KUZ-DIN; the generated MP4 was also published as a native LinkedIn video.',
+                    'text' => 'V82 FINAL native video published through KUZ-DIN. V83+ FINAL uses native video only; START remains text.',
                 ],
                 [
                     'title' => 'YOUTUBE',
-                    'text' => 'V81 public FINAL Short: EAMRSevA2zk, produced through the independent Mini-Kuzai_YOUTUBE worker.',
+                    'text' => 'V82 public FINAL Short: JZJzBawTxAw, produced through the independent Mini-Kuzai_YOUTUBE worker.',
                 ],
                 [
                     'title' => 'SAFETY',
@@ -222,18 +225,18 @@ return [
                 ],
             ],
             'items' => [
-                'V81 GitHub FINAL: Discussion #13 / comment #19611736.',
-                'V81 YouTube public Short: EAMRSevA2zk.',
-                'V81 LinkedIn native media post: urn:li:ugcPost:7527349657677594624.',
-                'V81 GitHub media fallback: Discussion #13 / comment #19612381.',
+                'V82 GitHub FINAL: Discussion #14 / comment #19613543.',
+                'V82 YouTube public Short: JZJzBawTxAw.',
+                'V82 LinkedIn native media post: urn:li:ugcPost:7527384513589481472.',
+                'V82 GitHub media fallback: Discussion #14 / comment #19614290.',
             ],
         ],
         [
             'id' => 'mini-kuzai-media-flow',
-            'title' => '9. CROSS-CHANNEL MEDIA FLOW / V81 VERIFIED',
+            'title' => '9. CROSS-CHANNEL MEDIA FLOW / V82 VERIFIED',
             'paragraphs' => [
-                'FLOW-PRESENTATION-001 first validated the communication primitives. V81 then exercised the genuine production path from a committed scientific FINAL receipt through automatic brief generation, audited media, YouTube, LinkedIn native video and GitHub media fallback.',
-                'The canonical media contract remains a 60-second vertical Short with Piper narration from 5 seconds after the start to 5 seconds before the end.',
+                'FLOW-PRESENTATION-001 first validated the communication primitives. V81 and V82 then exercised genuine production paths from committed scientific FINAL receipts through automatic brief generation, audited media, YouTube, LinkedIn native video and GitHub media fallback.',
+                'The canonical media contract remains a 60-second vertical Short with Piper narration from 5 seconds after the start to 5 seconds before the end. The V83+ worker validates narration source duration before commit and closes the verified end-to-end flow with an automatic GOGIT report.',
             ],
             'features' => [
                 [
@@ -242,15 +245,15 @@ return [
                 ],
                 [
                     'title' => 'YOUTUBE',
-                    'text' => 'V81 FINAL published publicly as EAMRSevA2zk.',
+                    'text' => 'V82 FINAL published publicly as JZJzBawTxAw.',
                 ],
                 [
                     'title' => 'LINKEDIN',
-                    'text' => 'The V81 MP4 was published natively as urn:li:ugcPost:7527349657677594624.',
+                    'text' => 'The V82 MP4 was published natively as urn:li:ugcPost:7527384513589481472.',
                 ],
                 [
                     'title' => 'GITHUB',
-                    'text' => 'Discussion #13 comment #19612381 contains the verified public media fallback.',
+                    'text' => 'Discussion #14 comment #19614290 contains the verified public media fallback.',
                 ],
             ],
             'items' => [
@@ -260,16 +263,16 @@ return [
         ],
         [
             'id' => 'mini-kuzai-next',
-            'title' => '10. NEXT STEP / V82',
+            'title' => '10. NEXT STEP / V83',
             'paragraphs' => [
-                'V81 is scientifically and operationally closed. The V82 read-only post-continuation replication protocol is now frozen, but no V82 scientific execution has started and no additional training is authorized.',
-                'The next operator boundary is START-DEV-FLOW V82. It must be explicitly launched before implementation, preflight or evaluation; publication authorization remains separate from any training authorization.',
+                'V82 is scientifically and operationally closed. No additional training is authorized and BLIND remains closed.',
+                'V83 has not started. The next operator boundary is START-DEV-FLOW V83, which must be explicitly launched before V83 implementation, preflight or scientific evaluation.',
             ],
             'items' => [
-                'No V82 training is authorized.',
-                'No V82 BLIND access is authorized.',
-                'V82 START has not been published and no V82 scientific result exists yet.',
-                'Historical V81 evidence and receipts remain immutable.',
+                'No V83 training is authorized.',
+                'No V83 BLIND access is authorized.',
+                'V83 START has not been published and no V83 scientific result exists yet.',
+                'Historical V81 and V82 evidence and receipts remain immutable.',
             ],
         ],
         [
