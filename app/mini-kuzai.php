@@ -12,7 +12,7 @@ return [
         ],
         [
             'label' => 'CURRENT PHASE',
-            'value' => 'PHASE 03 / V81 CLOSED / V82 NOT STARTED',
+            'value' => 'PHASE 03 / V81 CLOSED / V82 PROTOCOL READY',
         ],
         [
             'label' => 'CONTROLLED CORPUS',
@@ -262,13 +262,13 @@ return [
             'id' => 'mini-kuzai-next',
             'title' => '10. NEXT STEP / V82',
             'paragraphs' => [
-                'V81 is scientifically and operationally closed. V82 has not started and no additional training is authorized.',
-                'The next work is protocol preparation and review. Before V82 reaches public scientific execution, START-DEV-FLOW must be explicitly launched; publication authorization will remain separate from any training authorization.',
+                'V81 is scientifically and operationally closed. The V82 read-only post-continuation replication protocol is now frozen, but no V82 scientific execution has started and no additional training is authorized.',
+                'The next operator boundary is START-DEV-FLOW V82. It must be explicitly launched before implementation, preflight or evaluation; publication authorization remains separate from any training authorization.',
             ],
             'items' => [
                 'No V82 training is authorized.',
                 'No V82 BLIND access is authorized.',
-                'No V82 scientific result exists yet.',
+                'V82 START has not been published and no V82 scientific result exists yet.',
                 'Historical V81 evidence and receipts remain immutable.',
             ],
         ],
